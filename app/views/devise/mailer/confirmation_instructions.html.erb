@@ -1,0 +1,6 @@
+<% link = link_to t('.link_confirmar'),
+                  confirmation_url(@resource, confirmation_token: @token) %>
+
+<%= t('.mensagem_html',
+      {nome: @resource.name,
+       link: link}) %>

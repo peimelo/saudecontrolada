@@ -1,0 +1,14 @@
+<nav class="top-bar">
+  <ul class="title-area">
+    <li class="name">
+      <h1>
+        <a href="#">
+          <%= link_to raw('<i class="icon-stethoscope"></i> ') + t('nome_sistema'), root_path %>
+        </a>
+      </h1>
+    </li>
+    <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+  </ul>
+  <%= yield :top_navigation %>
+</nav>
+

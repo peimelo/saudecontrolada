@@ -1,0 +1,46 @@
+<%= currently_at t('pesos.menu') %>
+<%- model_class = Peso -%>
+<h1><%= page_entries_info @pesos, model: model_class %></h1>
+
+<%= content_tag :div, '', id: 'container',
+                data: {pesos: @peso, categories: @categories, maximo: @maximo, minimo: @minimo} %>
+
+<%= button_to t('bootstrap.botoes.incluir'), {action: :new}, { method: :get, class: 'button radius',
+              title: t(:titulo_botao_incluir, model: model_class.model_name.human) } %>
+
+<% if not @pesos.empty? %>
+  <table>
+    <thead>
+      <tr>
+        <th><%= model_class.human_attribute_name(:data) %></th>
+        <th><%= model_class.human_attribute_name(:peso) %></th>
+        <th><%= model_class.human_attribute_name(:peso_ideal) %></th>
+        <th><%= model_class.human_attribute_name(:altura) %></th>
+        <th><%= model_class.human_attribute_name(:imc) %></th>
+        <th><%= model_class.human_attribute_name(:situacao_imc) %></th>
+        <th><%= t('bootstrap.actions') %></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @pesos.each do |registro| %>
+        <tr>
+          <td><%= l(registro.data, format: :date) %></td>
+          <td><%= registro.peso_br %></td>
+          <td><%= registro.peso_ideal %></td>
+          <td><%= registro.altura_br %></td>
+          <td><%= number_to_currency(registro.imc, options = {unit: ''}).strip %></td>
+          <td><%= registro.situacao_imc %></td>
+          <td>
+            <%= link_to raw('<i class="icon-pencil"></i> '), edit_peso_path(registro),
+                        class: 'button radius', title: t(:titulo_botao_alterar, model: model_class.model_name.human) %>
+            <%= link_to raw('<i class="icon-trash"></i> '), registro, method: :delete,
+                        class: 'button alert radius', title: t(:titulo_botao_excluir, model: model_class.model_name.human),
+                        data: { confirm: t('crud.tabela.confirmar_excluir_registro', crud: model_class.model_name.human, registro: l(registro.data, format: :date)) } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= foundation_paginate @pesos %>
+<% end %>

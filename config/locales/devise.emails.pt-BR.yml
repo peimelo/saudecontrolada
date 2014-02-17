@@ -1,0 +1,35 @@
+# encoding: UTF-8
+# pt-BR translations for Devise
+pt-BR:
+  devise:
+    mailer:
+      confirmation_instructions:
+        link_confirmar: Confirmar minha conta
+        mensagem_html: |
+          <p>Seja bem vindo %{nome}!</p>
+          <p>Você pode confirmar sua conta do site Saúde Controlada através do link abaixo:</p>
+          <p>%{link}</p>
+          <p>Atenciosamente,</p>
+          <p>Equipe do <a href="http://saudecontrolada.com.br/">Saúde Controlada</a></p>
+        subject: 'Instruções de confirmação'
+      reset_password_instructions:
+        link_alterar: Alterar minha senha
+        mensagem_html: |
+          <p>Olá %{nome}!</p>
+          <p>Alguém pediu um link para alterar sua senha do site Saúde Controlada. Você pode fazer isso através do link abaixo:</p>
+          <p>%{link}</p>
+          <p>Se você não pediu isso, por favor, ignore este e-mail.</p>
+          <p>Sua senha não vai mudar até você acessar o link acima e criar uma nova.</p>
+          <p>Atenciosamente,</p>
+          <p>Equipe do <a href="http://saudecontrolada.com.br/">Saúde Controlada</a></p>
+        subject: 'Instruções de troca de senha'
+      unlock_instructions:
+        link_desbloquear: Desbloquear minha conta
+        mensagem_html: |
+          <p>Olá %{nome}!</p>
+          <p>Sua conta do site Saúde Controlada foi bloqueada devido a um número excessivo de tentativas de login sem sucesso.</p>
+          <p>Clique no link abaixo para desbloquear sua conta:</p>
+          <p>%{link}</p>
+          <p>Atenciosamente,</p>
+          <p>Equipe do <a href="http://saudecontrolada.com.br/">Saúde Controlada</a></p>
+        subject: 'Instruções de desbloqueio'

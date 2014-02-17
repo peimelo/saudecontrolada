@@ -1,0 +1,12 @@
+<% if flash[:alert] %>
+  <div data-alert class="alert-box alert radius">
+    <%= flash[:alert] %>
+    <a href="" class="close">&times;</a>
+  </div>
+<% elsif flash[:notice] %>
+  <div data-alert class="alert-box success radius">
+    <%= flash[:notice] %>
+    <a href="" class="close">&times;</a>
+  </div>
+<% end %>
+<%= yield :alert_model_error %>
