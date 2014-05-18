@@ -7,16 +7,24 @@
 *.*~
 
 brakeman.html
-Gemfile.lock
 rails_best_practices_output.html
 
 /.idea
 /.bundle
+/.sass-cache
 /.settings
 
+.env.development
+.project
+
 config/database.yml
-config/initializers/setup_email.rb
-config/initializers/secret_token.rb
+# <<<<<<< HEAD
+# config/environments/production.rb
+# config/initializers/setup_email.rb
+# config/initializers/secret_token.rb
+# =======
+config/env.rb
+# >>>>>>> release_1
 
 coverage
 

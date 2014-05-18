@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.0'
+gem 'rails', '4.1.0'
 
 # Use mysql as the database for Active Record
-gem 'mysql2', '0.3.13'
+gem 'mysql2'#, '0.3.13'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -30,7 +30,7 @@ group :doc do
 end
 
 gem 'devise'#, '~> 3.0.3'
-gem 'simple_form', '3.0.0.rc'
+gem 'simple_form'#, '3.0.0.rc'
 gem 'zurb-foundation', '~> 4.3.0'
 
 # usar no migrate comando para gerar fk
