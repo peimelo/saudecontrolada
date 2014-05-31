@@ -29,14 +29,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'devise'
 gem 'simple_form'
-gem 'zurb-foundation', '~> 4.3.0'
 
 # usar no migrate comando para gerar fk
 gem 'foreigner', '~> 1.4.1'
 
 # paginacao
 gem 'will_paginate'
-gem 'foundation-will_paginate'
 
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
