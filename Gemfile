@@ -74,3 +74,9 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'rspec-rails', '~> 2.14.0'
 end
+
+# Deploy
+gem 'capistrano'
+gem 'capistrano-bundler'
+gem 'capistrano-rails'
+gem 'capistrano-rvm'
