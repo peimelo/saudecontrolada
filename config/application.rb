@@ -14,6 +14,7 @@ module Saudecontrolada
     
     config.time_zone = 'Brasilia'
     config.i18n.default_locale = 'pt-BR'
+    config.i18n.enforce_available_locales = false
 
     # Devise
     config.action_mailer.default_url_options = { host: Rails.application.secrets.mailer_host }
