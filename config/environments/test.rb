@@ -33,4 +33,10 @@ Saudecontrolada::Application.configure do
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
+
+  # Log error messages when you accidentally call methods on nil
+  ##  config.whiny_nils = true
+
+  # Raise exception on mass assignment protection for Active Record models
+  ##config.active_record.mass_assignment_sanitizer = :strict
 end

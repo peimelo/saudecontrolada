@@ -4,10 +4,10 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.0'
 
 # Use mysql as the database for Active Record
-gem 'mysql2'#, '0.3.13'
+gem 'mysql2'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
+gem 'sass-rails', '~> 4.0.3'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -22,15 +22,13 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 1.2'
+gem 'jbuilder', '~> 2.0'
 
-group :doc do
-  # bundle exec rake doc:rails generates the API under doc/api.
-  gem 'sdoc', require: false
-end
+# bundle exec rake doc:rails generates the API under doc/api.
+gem 'sdoc', '~> 0.4.0', group: :doc
 
-gem 'devise'#, '~> 3.0.3'
-gem 'simple_form'#, '3.0.0.rc'
+gem 'devise'
+gem 'simple_form'
 gem 'zurb-foundation', '~> 4.3.0'
 
 # usar no migrate comando para gerar fk
@@ -40,46 +38,39 @@ gem 'foreigner', '~> 1.4.1'
 gem 'will_paginate'
 gem 'foundation-will_paginate'
 
-# Mostrar os erros de desenvolvimento e poder interagir
-gem 'better_errors'
-gem 'binding_of_caller'
 
-# graficos
-#gem 'highcharts-rails'#, "~> 3.0.0"
-
-# abrir email no browser quando em desenvolvimento
-gem 'letter_opener'#, '1.1.0'
-
-# validacao
-#gem 'date_validator'
-#gem 'validates_timeliness'
-#gem 'chronic'
+# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+gem 'spring', group: :development
+gem 'spring-commands-rspec', group: :development
 
 group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'bullet'
+  gem 'guard-brakeman'
+  gem 'letter_opener'
+  gem 'meta_request'
   gem 'quiet_assets'
-end
-
-group :development, :test do
-  gem 'rspec-rails', '~> 2.14.0'
-  gem 'factory_girl_rails', '~> 4.2.1'
+  gem 'rails_best_practices'
+  gem 'rb-inotify', :require => false
+  gem 'rb-fsevent', :require => false
+  gem 'rb-fchange', :require => false
+  gem 'ruby_gntp'
+  gem 'webrick', '1.3.1'
 end
 
 group :test do
-  gem 'faker', '~> 1.1.2'
   gem 'capybara', '~> 2.1.0'
-  gem 'database_cleaner', '~> 1.0.1'
-  gem 'launchy', '~> 2.3.0'
-  gem 'selenium-webdriver', '~> 2.33.0'
+  gem 'database_cleaner'
+  gem 'email_spec'
+  gem 'faker'
+  gem 'launchy'#, '~> 2.3.0'
+  # gem 'rack_session_access' get e set em session com capybara
+  gem 'simplecov', :require => false
 end
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
+group :development, :test do
+  gem 'factory_girl_rails'
+  gem 'guard-rspec'
+  gem 'rspec-rails', '~> 2.14.0'
+end
