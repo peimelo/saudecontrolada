@@ -1,6 +1,6 @@
 module NavigationHelper
   def currently_at(tab)
-    render partial: 'layouts/top_nav', locals: {current_tab: tab}
+    render partial: 'layouts/main_nav', locals: {current_tab: tab}
   end
 
   # retornar :class "active" ou "inactive" dependendo do valor passado por parâmetro
