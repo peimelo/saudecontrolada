@@ -4,7 +4,8 @@ lock '3.2.1'
 set :application, 'saudecontrolada'
 set :rails_env, 'production'
 set :repo_url, 'git@bitbucket.org:peimelo/saudecontrolada.git'
-#set :rbenv_ruby, '2.1.1'
+
+set :rbenv_ruby, '2.1.2'
 #set :rbenv_type, :deploy
 
 # Default branch is :master
