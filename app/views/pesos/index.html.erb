@@ -5,42 +5,39 @@
 <%= content_tag :div, '', id: 'container',
                 data: {pesos: @peso, categories: @categories, maximo: @maximo, minimo: @minimo} %>
 
-<%= button_to t('bootstrap.botoes.incluir'), {action: :new}, { method: :get, class: 'button radius',
-              title: t(:titulo_botao_incluir, model: model_class.model_name.human) } %>
+<p><%= botao_incluir 'pesos', model_class %></p>
 
 <% if not @pesos.empty? %>
-  <table>
-    <thead>
-      <tr>
-        <th><%= model_class.human_attribute_name(:data) %></th>
-        <th><%= model_class.human_attribute_name(:peso) %></th>
-        <th><%= model_class.human_attribute_name(:peso_ideal) %></th>
-        <th><%= model_class.human_attribute_name(:altura) %></th>
-        <th><%= model_class.human_attribute_name(:imc) %></th>
-        <th><%= model_class.human_attribute_name(:situacao_imc) %></th>
-        <th><%= t('bootstrap.actions') %></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @pesos.each do |registro| %>
+  <div class="table-responsive">
+    <table class="table table-bordered table-condensed table-hover table-striped">
+      <thead>
         <tr>
-          <td><%= l(registro.data, format: :date) %></td>
-          <td><%= registro.peso_br %></td>
-          <td><%= registro.peso_ideal %></td>
-          <td><%= registro.altura_br %></td>
-          <td><%= number_to_currency(registro.imc, options = {unit: ''}).strip %></td>
-          <td><%= registro.situacao_imc %></td>
-          <td>
-            <%= link_to raw('<i class="icon-pencil"></i> '), edit_peso_path(registro),
-                        class: 'button radius', title: t(:titulo_botao_alterar, model: model_class.model_name.human) %>
-            <%= link_to raw('<i class="icon-trash"></i> '), registro, method: :delete,
-                        class: 'button alert radius', title: t(:titulo_botao_excluir, model: model_class.model_name.human),
-                        data: { confirm: t('crud.tabela.confirmar_excluir_registro', crud: model_class.model_name.human, registro: l(registro.data, format: :date)) } %>
-          </td>
+          <th><%= t('bootstrap.actions') %></th>
+          <th><%= model_class.human_attribute_name(:data) %></th>
+          <th><%= model_class.human_attribute_name(:peso) %></th>
+          <th><%= model_class.human_attribute_name(:peso_ideal) %></th>
+          <th><%= model_class.human_attribute_name(:altura) %></th>
+          <th><%= model_class.human_attribute_name(:imc) %></th>
+          <th><%= model_class.human_attribute_name(:situacao_imc) %></th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-  <%= foundation_paginate @pesos %>
+      </thead>
+      <tbody>
+        <% @pesos.each do |registro| %>
+          <tr>
+            <td width="100">
+              <%= botao_alterar registro, edit_peso_path(registro), model_class %>
+              <%= botao_excluir registro, l(registro.data, format: :default), model_class %>
+            </td>
+            <td><%= l(registro.data, format: :default) %></td>
+            <td><%= registro.peso_br %></td>
+            <td><%= registro.peso_ideal %></td>
+            <td><%= registro.altura_br %></td>
+            <td><%= number_to_currency(registro.imc, options = {unit: ''}).strip %></td>
+            <td><%= registro.situacao_imc %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 <% end %>
+<%= will_paginate %>

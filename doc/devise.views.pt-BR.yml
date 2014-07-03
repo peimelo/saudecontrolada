@@ -1,0 +1,39 @@
+pt-BR:
+  devise:
+    confirmations:
+      link: Não recebeu instruções de confirmação?
+      new:
+        submit: Me enviar as instruções
+        title: Reenviar instruções de confirmação
+    passwords:
+      edit:
+        msg_reset_password_token: O token para alterar sua senha expirou ou já foi utilizado.
+        submit: Alterar minha senha
+        title: Alterar sua senha
+      new:
+        submit: Me enviar as instruções
+        title: Esqueceu sua senha?
+    registrations:
+      edit:
+        back: Voltar
+        cancel:
+          action: Excluir minha conta
+          confirm: Tem certeza que deseja excluir sua conta?
+        submit: Salvar
+        title: Minha Conta
+        unhappy: Não está contente?
+        update: Atualizar
+      new:
+        submit: Cadastrar-se
+        title: Cadastrar-se
+    sessions:
+      link: Login com {provider}
+      new:
+        submit: Entrar
+        title: Entrar
+    unlocks:
+      link: Não recebeu instruções de desbloqueio?
+      new:
+        submit: Me enviar as instruções
+        title: Reenviar instruções de desbloqueio
+

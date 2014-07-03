@@ -4,17 +4,15 @@ pt-BR:
       endereco_cep_label: CEP
       endereco_cep_hint: informando o CEP para esse campo, as informações de endereço serão preenchidas automaticamente
   selecionar_opcao: Selecione uma opção
-  se_quiser_especique: 'Se quiser, especifique %{valor}'
 
   # tradução dos botões
-  # helpers:
-    # submit:
-      # user:
-        # update: "Alterar"
+  helpers:
+    submit:
+      user:
+        update: "Alterar"
 
   simple_form:
     "true": 'Sim'
-    "yes": 'Sim'
     "no": 'Não'
     required:
       text: O campo é de preenchimento obrigatório
@@ -29,6 +27,7 @@ pt-BR:
       defaults:
         cep: 'Formatos válidos: 99999-999 ou 99999999'
         cnpj: 'Formatos válidos: 99.999.999/9999-99 ou 99999999999999'
+#        date_of_birth: 'Formato válido: dd/mm/aaaa'
         data_nascimento: 'Formato válido: dd/mm/aaaa'
       user:
         edit:
@@ -36,9 +35,11 @@ pt-BR:
           password: deixe em branco se não quiser alterar
 
     labels:
-      endereco:
-        cep: CEP - após preencher e mudar de campo, o endereço será carregado automaticamente
       defaults:
+      peso:
+        altura: Altura (ex. 1,65)
+        data: Data (dd/mm/aaaaa)
+        peso: Peso (ex. 65,50)
       user:
         edit:
           current_password: Senha atual
@@ -57,9 +58,4 @@ pt-BR:
 #          'true': 'Masculino'
 #          'false': 'Feminino'
     placeholders:
-#      user:
-#        email: E-mail
-#        name: Nome
-#        new:
-#          password: Senha
-#          password_confirmation: Confirme sua senha
+      nome: Selecione um estado

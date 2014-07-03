@@ -1,12 +1,12 @@
 <% if flash[:alert] %>
-  <div data-alert class="alert-box alert radius">
-    <%= flash[:alert] %>
-    <a href="" class="close">&times;</a>
+  <div class="alert alert-danger alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <i class='glyphicon glyphicon-remove-sign'></i> <%= flash[:alert] %>
   </div>
 <% elsif flash[:notice] %>
-  <div data-alert class="alert-box success radius">
-    <%= flash[:notice] %>
-    <a href="" class="close">&times;</a>
+  <div class="alert alert-success alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <i class='fa fa-check-circle fa-lg'></i> <%= flash[:notice] %>
   </div>
 <% end %>
 <%= yield :alert_model_error %>

@@ -1,0 +1,61 @@
+pt-BR:
+  activerecord:
+    # ---------------------------------------------------------------------------------------------
+    attributes:
+      contato:
+        created_at: Quando
+        email: E-mail
+        ip: IP
+        telefones: Telefone(s)
+      convite:
+        email: E-mail
+        updated_at: Último Envio
+      endereco:
+        cep: CEP
+        endereco: Endereço
+        numero: Número
+        uf: UF
+      erro:
+        condo_nome: Condomínio
+        created_at: Quando
+        descricao: Descrição
+        ip: IP
+        recurso_nome: Recurso
+        resolucao: Resolução
+        status_erro_id: Status do erro
+        usuario_email: E-mail do Usuário
+      ingresso:
+        aceito: Convite
+      peso:
+        imc: IMC
+        situacao_imc: Situação
+      user:
+        confirmation_token: Token para Confirmação
+        created_at: Criação
+        current_sign_in_at: Último Login
+        date_of_birth: Data de Nascimento
+        email: E-mail
+        gender: Sexo
+        last_sign_in_at: Último login
+        name: Nome
+        name_email: Nome e E-mail
+        password: Senha
+        password_confirmation: Confirme sua senha
+        remember_me: Mantenha-me conectado
+        reset_password_token: Token para Redefinir Senha
+        sign_in_count: Qtde Logins
+        unlock_token: Token para Desbloqueio
+    # ---------------------------------------------------------------------------------------------
+    models:
+      contato:
+        zero: Contato
+        one: Contato
+        other: Contatos
+      peso:
+        zero: Peso e Altura
+        one: Peso e Altura
+        other: Peso e Altura
+      user:
+        zero: Usuário
+        one: Usuário
+        other: Usuários
