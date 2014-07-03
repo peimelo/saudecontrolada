@@ -25,7 +25,7 @@
     <tbody>
       <% @pesos.each do |registro| %>
         <tr>
-          <td><%= l(registro.data, format: :date) %></td>
+          <td><%= l(registro.data, format: :default) %></td>
           <td><%= registro.peso_br %></td>
           <td><%= registro.peso_ideal %></td>
           <td><%= registro.altura_br %></td>
@@ -36,7 +36,7 @@
                         class: 'button radius', title: t(:titulo_botao_alterar, model: model_class.model_name.human) %>
             <%= link_to raw('<i class="icon-trash"></i> '), registro, method: :delete,
                         class: 'button alert radius', title: t(:titulo_botao_excluir, model: model_class.model_name.human),
-                        data: { confirm: t('crud.tabela.confirmar_excluir_registro', crud: model_class.model_name.human, registro: l(registro.data, format: :date)) } %>
+                        data: { confirm: t('crud.tabela.confirmar_excluir_registro', crud: model_class.model_name.human, registro: l(registro.data, format: :default)) } %>
           </td>
         </tr>
       <% end %>

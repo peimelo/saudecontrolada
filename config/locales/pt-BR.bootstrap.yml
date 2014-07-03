@@ -1,12 +1,8 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
 pt-BR:
   bootstrap:
     actions: "Ações"
-    
-    botoes:
-      incluir: "Incluir"
+#    botoes:
+#      incluir: "Incluir"
 
     links:
       back: "Back"
@@ -17,13 +13,8 @@ pt-BR:
     titles:
       edit: "Edit"
       save: "Save"
-      new: "New"
+      new: "Newsss"
       delete: "Delete"
   breadcrumbs:
     application:
-      index: Meus Condomínios
-    tipos_unidades:
-      index: Tipos de Unidades  
-      new: 
-        title: Incluindo
-        
+      index: Meus Condomínios    

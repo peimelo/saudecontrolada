@@ -11,7 +11,7 @@ class PesosController < ApplicationController
     @minimo = []
     @peso = []
     @pesos.reverse.each do |p|
-      @categories << l(p.data, format: :date)
+      @categories << l(p.data, format: :default)
       @peso << p.peso
       @maximo << (24.99 * p.altura * p.altura).round(2)
       @minimo << (18.5 * p.altura * p.altura).round(2)

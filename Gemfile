@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
+ruby '2.1.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.0'
+gem 'rails', '4.1.2'
 
 # Use mysql as the database for Active Record
 gem 'mysql2'
@@ -28,13 +29,15 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'devise'
-gem 'simple_form'
+gem 'simple_form', '~> 3.1.0.rc1', github: 'plataformatec/simple_form'
+gem 'zurb-foundation', '~> 4.3.0'
 
 # usar no migrate comando para gerar fk
 gem 'foreigner', '~> 1.4.1'
 
 # paginacao
 gem 'will_paginate'
+gem 'foundation-will_paginate'
 
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
@@ -58,7 +61,7 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '~> 2.1.0'
+  gem 'capybara'#, '~> 2.1.0'
   gem 'database_cleaner'
   gem 'email_spec'
   gem 'faker'
@@ -70,12 +73,18 @@ end
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'guard-rspec'
-  gem 'rspec-rails', '~> 2.14.0'
+  gem 'rspec-rails'#, '~> 2.14.0'
 end
 
 # Deploy
 gem 'capistrano'
 gem 'capistrano-bundler'
 gem 'capistrano-rails'
-#gem 'capistrano-rvm'
 gem 'capistrano-rbenv'
+gem 'unicorn'
+
+gem 'omniauth'
+gem 'omniauth-facebook'#, '1.4.0'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-linkedin'
+gem 'omniauth-twitter'

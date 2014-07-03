@@ -1,39 +1,40 @@
 pt-BR:
   devise:
     confirmations:
-      link: Não recebeu instruções de confirmação?
       new:
-        submit: Me enviar as instruções
         title: Reenviar instruções de confirmação
+        submit: Reenviar instruções
+      link: Não recebeu instruções de confirmação?
     passwords:
       edit:
-        msg_reset_password_token: O token para alterar sua senha expirou ou já foi utilizado.
-        submit: Alterar minha senha
+        msg_reset_password_token: O token para alterar a senha expirou, por favor gere um novo.
         title: Alterar sua senha
+        submit: Alterar minha senha
       new:
-        submit: Me enviar as instruções
         title: Esqueceu sua senha?
+        submit: Me enviar instruções
     registrations:
       edit:
-        back: Voltar
+        title: Minha Conta
+        update: Atualizar
         cancel:
           action: Excluir minha conta
           confirm: Tem certeza que deseja excluir sua conta?
-        submit: Salvar
-        title: Minha Conta
-        unhappy: Não está contente?
-        update: Atualizar
+          unhappy: Não está contente?
+        back: Voltar
+        submit: Alterar
       new:
-        submit: Cadastrar-se
         title: Cadastrar-se
+        submit: Cadastrar-se
     sessions:
-      link: Login com {provider}
       new:
-        submit: Entrar
+        entrar_usando: 'Entrar usando sua conta:'
         title: Entrar
+        submit: Entrar
+      link: Login com %{provider}
     unlocks:
-      link: Não recebeu instruções de desbloqueio?
       new:
-        submit: Me enviar as instruções
         title: Reenviar instruções de desbloqueio
+        submit: Reenviar instruções
+      link: Não recebeu instruções de desbloqueio?
 

@@ -11,7 +11,6 @@
           </a>
           <ul class="dropdown-menu">
             <%= nav_tab raw('<i class="glyphicon glyphicon-edit"></i> ') + t('devise.registrations.edit.title'), edit_user_registration_path, {current: current_tab, titulo: t('devise.registrations.edit.title')} %>
-            <%= nav_tab raw('<i class="fa fa-building-o"></i> ') + t('condos.menu_dropdown'), condos_path, {current: current_tab, titulo: t('condos.index.titulo')} %>
             <li class="divider"></li>
             <li><%= link_to raw('<i class="glyphicon glyphicon-log-out"></i> ') + t('.sair'), destroy_user_session_path, method: :delete %></li>
           </ul>

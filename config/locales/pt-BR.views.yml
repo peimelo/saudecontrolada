@@ -1,0 +1,605 @@
+pt-BR:
+  # -----------------------------------------------------------------------------------------------
+  acoes:
+    column:
+      name: Ação
+    edit:
+      titulo: Alterando Ação
+    index:
+      titulo: 'Ações (%{qtde_registros})'
+    menu: Ações
+    new:
+      titulo: Incluindo Ação
+  # -----------------------------------------------------------------------------------------------
+  animais:
+    edit:
+      titulo: Alterando Animal
+    index:
+      titulo: 'Animais (%{qtde_registros})'
+    menu: Animais
+    new:
+      titulo: Incluindo Animal
+    posicao_accordion: unidades
+  # -----------------------------------------------------------------------------------------------
+  autonomias:
+    edit:
+      titulo: Alterando Autonomia
+    index:
+      titulo: 'Autonomias (%{qtde_registros})'
+    menu: Autonomias
+    new:
+      titulo: Incluindo Autonomia
+    posicao_accordion: cadastros      
+  # -----------------------------------------------------------------------------------------------
+  autorizacoes:
+    custom:
+      filtro: Fitrar Por
+      autonomias: O que pode fazer
+      unidades: Unidades selecionadas
+      locais: Locais permitidos
+      autorizados: Quem está autorizado
+      dia_inicio: INÍCIO
+      dia_fim: TÉRMINO
+    edit:
+      titulo: Alterando Autorização
+    index:
+      titulo: 'Autorizações (%{qtde_registros})'
+    menu: Autorizações
+    new:
+      titulo: Incluindo Autorização
+    posicao_accordion: unidades
+  # -----------------------------------------------------------------------------------------------     
+  autorizacoes_autorizados_registros:
+    custom:
+      registrar: Registrar
+      data_registro: Data
+      horario: Horário
+      acao: Ação
+      historico: Histórico
+    edit:
+      titulo: 'Registro de Ações Autorizados'  
+    index:
+      titulo: 'Registro de Ações Autorizados (%{qtde_registros})'
+    menu: Registro de Ações Autorizados
+    new:
+      titulo: Incluindo Registro de Ação Autorizado
+    posicao_accordion: unidades
+  # ----------------------------------------------------------------------------------------------- 
+  autorizados:
+    custom:
+      pai: Vínculo
+      associados: Associados
+      associados_vinculados: Associados Vinculados      
+    edit:
+      titulo: Alterando Autorizado
+    index:
+      titulo: 'Autorizados (%{qtde_registros})'
+    menu: Autorizados
+    new:
+      titulo: Incluindo Autorizado
+    posicao_accordion: unidades      
+  # ----------------------------------------------------------------------------------------------- 
+  autorizados_tipos:
+    edit:
+      titulo: Alterando Tipo de Autorizado
+    index:
+      titulo: 'Tipos de Autorizados (%{qtde_registros})'
+    menu: Tipos de Autorizados
+    new:
+      titulo: Incluindo Tipo de Autorizado
+    posicao_accordion: cadastros      
+  # -----------------------------------------------------------------------------------------------
+  chamados:
+    edit:
+      titulo: Alterando Chamado
+    index:
+      titulo: 'Chamados (%{qtde_registros})'
+    menu: Chamados
+    new:
+      titulo: Incluindo Chamado
+    posicao_accordion: chamados
+  # -----------------------------------------------------------------------------------------------
+  chamados_categorias_usuarios:
+    custom:
+      alert_erro_ao_criar_responsavel: Foi gerado um erro e não foi possível criar registro. Favor, tente novamente mais tarde.
+      alert_usuario_ja_responsavel: Esta pessoa já consta como responsável por esta categoria
+      label_selecione_categoria: Selecione a Categoria
+      label_usuarios_candidatos: Pessoas Candidatas
+      label_usuarios_responsaveis: Pessoas Responsáveis
+      tooltip_botao_adicionar_envolvimento: Clique para adicionar pessoa
+      tooltip_botao_remover_envolvimento: Clique para remover pessoa
+      tooltip_selecione_categoria: Aqui você pode manipular as pessoas responsáveis por atender a cada chamado a partir da categoria do mesmo. Selecione a categoria com a qual você deseja trabalhar neste momento.
+      tooltip_usuarios_candidatos: Na lista abaixo estão as pessoas possíveis de serem responsabilizadas por atender, para este condomínio, aos chamados com a categoria acima selecionada. Para atribuir a responsabilidade sobre alguma das pessoas, clique no botão de ação ao lado do respectivo nome. Isso fará com que ela seja jogada para a lista 'Pessoas Responsáveis'.
+      tooltip_usuarios_responsaveis: Na lista abaixo estão as pessoas atualmente responsabilizadas por atender, para este condomínio, aos chamados com a categoria acima selecionada. Para remover a responsabilidade sobre alguma das pessoas, clique no botão de ação ao lado do respectivo nome.
+    menu: Gerenciar Responsáveis
+  # -----------------------------------------------------------------------------------------------
+  chamados_envolvimentos:
+    custom:
+      alert_usuario_possui_envolvimento: A pessoa já possui o envolvimento
+      alert_erro_ao_criar_envolvimento: Foi gerado um erro e não foi possível criar registro. Favor, tente novamente mais tarde.
+      botao_seguir_desfazer: Não Seguir %{model}
+      botao_seguir_registro: Seguir %{model}
+      titulo_botao_envolvimento: Envolvimento
+      titulo_coluna_tabela_adicao_tipos_envolvimentos: Selecione Envolvimento
+      titulo_coluna_tabela_envolvidos_tipos_envolvimentos: Tipo de Envolvimento
+      titulo_painel_adicao: Pessoas do Condomínio
+      titulo_painel_envolvidos: Envolvidos Neste Chamado
+      tooltip_botao_adicionar_envolvimento: Clique para adicionar pessoa como envolvida
+      tooltip_botao_remover_envolvimento: Clique para remover envolvimento da pessoa
+      tooltip_botao_envolvimento: Clique para gerenciar todos os envolvidos neste chamado
+      tooltip_botao_seguir_registro: Clique para passar a receber e-mails de acompanhamento deste chamado
+      tooltip_botao_seguir_desfazer: Clique para deixar de receber e-mails de acompanhamento deste chamado
+      tooltip_usuarios_disponiveis: Na listagem abaixo você pode ver todas as pessoas possíveis de serem envolvidas neste chamado (não constam as que já estão envolvidos de alguma forma). Para adicionar, clique no botão de ação ao lado do nome desejado. Ao executar a ação, a pessoa será notificado por e-mail.
+      tooltip_usuarios_envolvidos: Abaixo você pode ver todas as pessoas que estão envolvidas de alguma forma a este chamado. As possíveis a serem desassociadas estão com o botão de ação habilitado. Ao executar a ação, a pessoa será notificado por e-mail.
+  # -----------------------------------------------------------------------------------------------
+  chamados_respostas:
+    custom:
+      titulo_tabela: Resposta
+      resposta_interna: Mensagem Interna
+    edit:
+      titulo: Alterando Resposta
+    index:
+      titulo: 'Respostas (%{qtde_registros})'
+    menu: Respostas
+    new:
+      titulo: Incluindo Resposta
+  # -----------------------------------------------------------------------------------------------
+  condos:
+    index:
+      selecionar: 'Clique em cima do condomínio que deseja ingressar:'
+      title_botao_aceitar: Aceitar o Convite
+      title_botao_recusar: Recusar o Convite
+      titulo: 'Meus Condomínios (%{qtde_registros})'
+    edit:
+      titulo: Alterando Condomínio
+    menu_dropdown: Meus Condomínios
+    msg_deve_aceitar: O Convite deve ser Aceito para poder Entrar no Condomínio.
+    new:
+      titulo: Incluindo Condomínio
+    show:
+      qtde_moradores: 'Quantidade de moradores:'
+      qtde_unidades: 'Quantidade de unidades:'
+      sindico: 'Síndico:'
+  # -----------------------------------------------------------------------------------------------
+  contatos:
+    index:
+      titulo: 'Contatos (%{qtde_registros})'
+    menu: Contatos
+    new:
+      informacao: |
+        Escreva sua dúvida, sugestão, crítica, elogio, etc.
+      enviar: 'Enviar'
+      titulo: Contato
+  # -----------------------------------------------------------------------------------------------
+  controladores:
+    column:
+      name: Controlador
+    edit:
+      titulo: Alterando Controlador
+    index:
+      titulo: 'Controladores (%{qtde_registros})'
+    menu: Controladores
+    new:
+      titulo: Incluindo Controlador
+  # -----------------------------------------------------------------------------------------------
+  convites:
+    msg_envio_todos_moradores: "Foram incluídos %{qtde} registros de Convite com sucesso. Os e-mails estão sendo enviados em segundo plano."
+    msg_reenvio_falha: Ocorreu um problema no reenvio do Convite. Tente novamente mais tarde.
+    msg_reenvio_sucesso: O Convite foi reenviado com sucesso.
+    msg_usuario_cadastrado: A operação não foi concluída porque esse usuário já está ingressado no condomínio.
+    edit:
+      titulo: Alterando Convite
+    form:
+      informacao: Ao salvar esse registro será enviado um convite para o e-mail informado.
+    index:
+      btn_incluir_todos_moradores: Incluir Todos os Moradores
+      confirmar_enviar_todos_moradores: Tem certeza que deseja enviar o convite para TODOS os moradores?
+      confirmar_reenviar: "Tem certeza que deseja reenviar o convite para '%{nome}'?"
+      informacao: Na próxima vez que o convidado entrar no sistema, o registro dele será excluído de 'Convites' e inserido em 'Usuários'.
+      titulo: 'Convites (%{qtde_registros})'
+    menu: Convites
+    new:
+      titulo: Incluindo Convite
+  # -----------------------------------------------------------------------------------------------
+  crud:
+    tabela:
+      btn_aceitar_convite: Aceitar o Convite
+      btn_recusar_convite: Recusar o Convite
+      btn_alterar: Alterar
+      btn_excluir: Excluir
+      confirmar_aceitar_convite: "Tem certeza que deseja aceitar o convite de ingresso no %{crud} '%{registro}'?"
+      confirmar_excluir_registro: "Tem certeza que deseja excluir o registro de %{crud} '%{registro}'?"
+      confirmar_recusar_convite: "Tem certeza que deseja recusar o convite de ingresso no %{crud} '%{registro}'?"
+  # -----------------------------------------------------------------------------------------------
+  divisoes:
+    edit:
+      titulo: Alterando Divisão
+    index:
+      titulo: 'Divisões (%{qtde_registros})'
+    menu: Divisões
+    new:
+      titulo: Incluindo Divisão
+    posicao_accordion: cadastros
+  # -----------------------------------------------------------------------------------------------
+  erros:
+    edit:
+      titulo: Alterando Erro
+    menu: Erros
+    show:
+      titulo: Erro
+  # -----------------------------------------------------------------------------------------------
+  inventarios:
+    edit:
+      titulo: Alterando Inventário
+    index:
+      titulo: 'Inventários (%{qtde_registros})'
+    menu: Inventários
+    new:
+      titulo: Incluindo Inventário
+  # -----------------------------------------------------------------------------------------------
+  layouts:
+    main_nav:
+      meus_condominios: Meus Condomínios
+      minha_conta: Minha Conta
+      sair: Sair
+  # -----------------------------------------------------------------------------------------------
+  locais:
+    edit:
+      titulo: Alterando Local
+    index:
+      titulo: 'Locais (%{qtde_registros})'
+    menu: Locais
+    new:
+      titulo: Incluindo Local
+    posicao_accordion: cadastros
+  # -----------------------------------------------------------------------------------------------
+  mail_notifier:
+    chamado_atualizado:
+      mensagem_html: |
+        <p>Olá,</p>
+        <p>O chamado abaixo foi atualizado através do site:</p>
+        <hr>
+        <dl>
+          <dt>Categoria:</dt>
+          <dd>%{categoria}</dd>
+          <dt>Título:</dt>
+          <dd>%{titulo}</dd>
+          <dt>Texto:</dt>
+          <dd>%{texto}</dd>
+          <dt>Local:</dt>
+          <dd>%{local}</dd>
+          <dt>Prioridade:</dt>
+          <dd>%{prioridade}</dd>
+          <dt>Status Atual:</dt>
+          <dd>%{status}</dd>
+          <dt>Atualizado em:</dt>
+          <dd>%{atualizado_em}</dd>
+          <dt>Atualizado por:</dt>
+          <dd>%{atualizado_por}</dd>
+        </dl>
+        <hr>
+        <p>Atenciosamente,</p>
+        <p>Equipe do <a href="http://condominiosimples.com.br/">Condomínio Simples</a></p>
+      subject: Chamado Atualizado Através do Site
+    # ---------------------------------------------------------------------------------------------
+    chamado_envolvido_adicionado:
+      mensagem_html: |
+        <p>Olá,</p>
+        <p>Você foi envolvido em um chamado através do site:</p>
+        <hr>
+        <dl>
+          <dt>Título:</dt>
+          <dd>%{titulo}</dd>
+          <dt>Criado em:</dt>
+          <dd>%{criado_em}</dd>
+        </dl>
+        <hr>
+        <p>A partir de agora, você pode acompanhar e/ou incluir respostas ao chamado.</p>
+        <p>Atenciosamente,</p>
+        <p>Equipe do <a href="http://condominiosimples.com.br/">Condomínio Simples</a></p>
+      subject: Você foi Envolvido em um Chamado Através do Site
+    # ---------------------------------------------------------------------------------------------
+    chamado_envolvido_removido:
+      mensagem_html: |
+        <p>Olá,</p>
+        <p>Você teve seu envolvimento removido de um chamado através do site:</p>
+        <hr>
+        <dl>
+          <dt>Título:</dt>
+          <dd>%{titulo}</dd>
+        </dl>
+        <hr>
+        <p>Atenciosamente,</p>
+        <p>Equipe do <a href="http://condominiosimples.com.br/">Condomínio Simples</a></p>
+      subject: Você Não Está mais Envolvido em um Chamado
+    # ---------------------------------------------------------------------------------------------
+    chamado_excluido:
+      mensagem_html: |
+        <p>Olá,</p>
+        <p>O chamado abaixo foi excluído através do site:</p>
+        <hr>
+        <dl>
+          <dt>Título:</dt>
+          <dd>%{titulo}</dd>
+          <dt>Autor:</dt>
+          <dd>%{autor}</dd>
+          <dt>Status:</dt>
+          <dd>%{status}</dd>
+          <dt>Categoria:</dt>
+          <dd>%{categoria}</dd>
+          <dt>Prioridade:</dt>
+          <dd>%{prioridade}</dd>
+          <dt>Local:</dt>
+          <dd>%{local}</dd>
+          <dt>Texto:</dt>
+          <dd>%{texto}</dd>
+          <dt>Usuário que excluiu o chamado:</dt>
+          <dd>%{usuario_atualizador}</dd>
+        </dl>
+        <hr>
+        <p>Atenciosamente,</p>
+        <p>Equipe do <a href="http://condominiosimples.com.br/">Condomínio Simples</a></p>
+      subject: Chamado Excluído Através do Site
+    # ---------------------------------------------------------------------------------------------
+    chamado_novo:
+      mensagem_html: |
+        <p>Olá,</p>
+        <p>Foi criado um novo chamado através do site:</p>
+        <hr>
+        <dl>
+          <dt>Categoria:</dt>
+          <dd>%{categoria}</dd>
+          <dt>Autor:</dt>
+          <dd>%{autor}</dd>
+          <dt>Título:</dt>
+          <dd>%{titulo}</dd>
+          <dt>Texto:</dt>
+          <dd>%{texto}</dd>
+          <dt>Local:</dt>
+          <dd>%{local}</dd>
+          <dt>Prioridade:</dt>
+          <dd>%{prioridade}</dd>
+          <dt>Status:</dt>
+          <dd>%{status}</dd>
+          <dt>Criado em:</dt>
+          <dd>%{criado_em}</dd>
+        </dl>
+        <hr>
+        <p>Atenciosamente,</p>
+        <p>Equipe do <a href="http://condominiosimples.com.br/">Condomínio Simples</a></p>
+      subject: Novo Chamado Através do Site
+    # ---------------------------------------------------------------------------------------------
+    chamado_respondido:
+      mensagem_html: |
+        <p>Olá,</p>
+        <p>O chamado '%{titulo}' recebeu nova resposta através do site:</p>
+        <hr>
+        <dl>
+          <dt>Criada em:</dt>
+          <dd>%{criada_em}</dd>
+          <dt>Autor:</dt>
+          <dd>%{autor}</dd>
+          <dt>Texto:</dt>
+          <dd>%{texto}</dd>
+        </dl>
+        <hr>
+        <p>Atenciosamente,</p>
+        <p>Equipe do <a href="http://condominiosimples.com.br/">Condomínio Simples</a></p>
+      subject: Chamado Atualizado Através do Site
+    # ---------------------------------------------------------------------------------------------
+    chamado_resposta_atualizada:
+      mensagem_html: |
+        <p>Olá,</p>
+        <p>O chamado '%{titulo}' teve uma resposta modificada através do site:</p>
+        <hr>
+        <dl>
+          <dt>Criada em:</dt>
+          <dd>%{criada_em}</dd>
+          <dt>Atualizada em:</dt>
+          <dd>%{atualizado_em}</dd>
+          <dt>Autor:</dt>
+          <dd>%{autor}</dd>
+          <dt>Texto:</dt>
+          <dd>%{texto}</dd>
+        </dl>
+        <hr>
+        <p>Atenciosamente,</p>
+        <p>Equipe do <a href="http://condominiosimples.com.br/">Condomínio Simples</a></p>
+      subject: Chamado Atualizado Através do Site
+    # ---------------------------------------------------------------------------------------------
+    contato:
+      mensagem_html: |
+        <p>Olá,</p>
+        <p>Foi feito um contato através do site:</p>
+        <hr>
+        <dl>
+          <dt>Quando:</dt>
+          <dd>%{quando}</dd>
+          <dt>Nome:</dt>
+          <dd>%{nome}</dd>
+          <dt>E-mail:</dt>
+          <dd>%{email}</dd>
+          <dt>Telefones:</dt>
+          <dd>%{telefones}</dd>
+          <dt>IP:</dt>
+          <dd>%{ip}</dd>
+          <dt>Mensagem:</dt>
+          <dd>%{mensagem}</dd>
+        </dl>
+        <hr>
+        <p>Atenciosamente,</p>
+        <p>Equipe do <a href="http://condominiosimples.com.br/">Condomínio Simples</a></p>
+      subject: Novo contato
+    # ---------------------------------------------------------------------------------------------
+    convite:
+      mensagem_html: |
+        <p>Olá %{convidado},</p>
+        <p>Você foi convidado por %{convidado_por} para ingressar no condomínio %{condominio} dentro do sistema <a href="http://condominiosimples.com.br/">Condomínio Simples</a>.</p>
+        <p>Para isso, será necessário você criar seu cadastro clicando no link abaixo:</p>
+        <p><a href="http://condominiosimples.com.br/users/sign_up/">Criar meu cadastro</a></p>
+        <p>Caso você já tenha se cadastrado, basta entrar no sistema <a href="http://condominiosimples.com.br/users/sign_in/">clicando aqui</a> para visualizar o condomínio %{condominio}.</p>
+        <p>Atenciosamente,</p>
+        <p>Equipe do <a href="http://condominiosimples.com.br/">Condomínio Simples</a></p>
+      subject: Convite para ingressar no sistema Condomínio Simples
+    # ---------------------------------------------------------------------------------------------
+    convite_aceito_recusado:
+      mensagem_html: |
+        <p>Olá,</p>
+        <p>O convite de ingresso no %{condominio} para o usuário %{usuario} foi %{status}.
+        <p>Atenciosamente,</p>
+        <p>Equipe do <a href="http://condominiosimples.com.br/">Condomínio Simples</a></p>
+      subject: Convite %{status} por %{usuario}
+    # ---------------------------------------------------------------------------------------------
+    convite_excluido:
+      mensagem_html: |
+        <p>Olá,</p>
+        <p>Seu convite de ingresso no %{condominio} foi excluído por %{usuario}.
+        <p>Atenciosamente,</p>
+        <p>Equipe do <a href="http://condominiosimples.com.br/">Condomínio Simples</a></p>
+      subject: Convite Excluído do %{condominio}
+    # ---------------------------------------------------------------------------------------------
+    erro:
+      mensagem_html: |
+        <p>Olá,</p>
+        <p>Foi gerado um erro através do site:</p>
+        <hr>
+        <dl>
+          <dt>Quando:</dt>
+          <dd>%{quando}</dd>
+          <dt>Recurso:</dt>
+          <dd>%{recurso}</dd>
+          <dt>Erro:</dt>
+          <dd>%{erro}</dd>
+          <dt>Descrição:</dt>
+          <dd>%{descricao}</dd>
+          <dt>Usuário:</dt>
+          <dd>%{usuario}</dd>
+          <dt>Condomínio:</dt>
+          <dd>%{condo}</dd>
+          <dt>IP:</dt>
+          <dd>%{ip}</dd>
+          <dt>Dispositivo:</dt>
+          <dd>%{dispositivo}</dd>
+        </dl>
+        <a href="http://condominiosimples.com.br/erros/%{id}/edit">Ver o erro no site</a>
+        <hr>
+        <p>Atenciosamente,</p>
+        <p>Equipe do <a href="http://condominiosimples.com.br/">Condomínio Simples</a></p>
+      subject: "Erro: %{erro}"
+    # ---------------------------------------------------------------------------------------------
+    novo_condo:
+      mensagem_html: |
+        <p>Olá,</p>
+        <p>Um novo condomínio foi criado através do site:</p>
+        <hr>
+        <dl>
+          <dt>Quando:</dt>
+          <dd>%{quando}</dd>
+          <dt>Nome:</dt>
+          <dd>%{nome}</dd>
+          <dt>Endereço:</dt>
+          <dd>%{endereco}</dd>
+          <dt>Complemento:</dt>
+          <dd>%{complemento}</dd>
+          <dt>Bairro:</dt>
+          <dd>%{bairro}</dd>
+          <dt>CEP:</dt>
+          <dd>%{cep}</dd>
+          <dt>Cidade - Estado:</dt>
+          <dd>%{cidade_estado}</dd>
+        </dl>
+        <hr>
+        <p>Atenciosamente,</p>
+        <p>Equipe do <a href="http://condominiosimples.com.br/">Condomínio Simples</a></p>
+      subject: "Criado novo Condomínio: %{nome}"
+    # ---------------------------------------------------------------------------------------------
+    novo_user:
+      mensagem_html: |
+        <p>Olá,</p>
+        <p>Um novo usuário se cadastrou através do site:</p>
+        <hr>
+        <dl>
+          <dt>Quando:</dt>
+          <dd>%{quando}</dd>
+          <dt>E-mail:</dt>
+          <dd>%{email}</dd>
+        </dl>
+        <hr>
+        <p>Atenciosamente,</p>
+        <p>Equipe do <a href="http://condominiosimples.com.br/">Condomínio Simples</a></p>
+      subject: "Criado novo Usuário: %{email}"
+  # -----------------------------------------------------------------------------------------------
+  moradores:
+    edit:
+      titulo: Alterando Morador
+    index:
+      titulo: 'Moradores (%{qtde_registros})'
+    menu: Moradores
+    new:
+      titulo: Incluindo Morador
+  # -----------------------------------------------------------------------------------------------
+  outros:
+    posicao_accordion: outros
+  # -----------------------------------------------------------------------------------------------
+  pesos:
+    edit:
+      titulo: Alterando Local
+    index:
+      titulo: 'Locais (%{qtde_registros})'
+    menu: Peso e Altura
+    new:
+      titulo: Incluindo Local
+    posicao_accordion: cadastros
+  # -----------------------------------------------------------------------------------------------
+  recursos:
+    column:
+      name: Recurso
+    edit:
+      titulo: Alterando Recurso
+    index:
+      titulo: 'Recursos (%{qtde_registros})'
+    menu: Recursos
+    new:
+      titulo: Incluindo Recurso
+  # -----------------------------------------------------------------------------------------------
+  recursos_categorias:
+    column:
+      name: Categoria de Recurso
+    edit:
+      titulo: Alterando Categoria de Recurso
+    index:
+      titulo: 'Categorias de Recursos (%{qtde_registros})'
+    menu: Categorias de Recursos
+    new:
+      titulo: Incluindo Categoria de Recurso
+  # -----------------------------------------------------------------------------------------------
+  site:
+    index:
+      slogan: 'como tem que ser ... simples!'
+      texto_principal: |
+        Gerenciamento de condomínio de forma simples.
+      titulo_cadastrar: Crie sua conta
+      destaque_1_titulo: Chamados
+      destaque_1_texto: |
+        Abra chamados sobre qualquer assunto para serem resolvidos pelos responsáveis no seu condomínio.
+      destaque_2_titulo: Autorizações
+      destaque_2_texto: |
+        Controle todas as pessoas que entram no seu condomínio e assim garantindo segurança para todos.
+  # -----------------------------------------------------------------------------------------------
+  unidades:
+    edit:
+      titulo: Alterando Unidade
+    index:
+      titulo: 'Unidades (%{qtde_registros})'
+    menu: Unidades
+    new:
+      titulo: Incluindo Unidade
+    posicao_accordion: cadastros
+  # -----------------------------------------------------------------------------------------------
+  users:
+    index:
+      incluir: Incluir novo Convite
+      titulo: 'Usuários (%{qtde_registros})'
+    edit:
+      titulo: Alterando Usuário
+    menu: Usuários

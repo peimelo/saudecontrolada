@@ -1,575 +1,229 @@
 pt-BR:
-  # GERAL -----------------------------------------------------------------------------------------
-  botao_reenviar_convite: Reenviar %{model}
-  disable_with: Aguarde...
-  cancelar: Cancelar
-  contato: Contato
-  corrigir_erros: 'Por favor, corrija os erros abaixo:'
-  flash_create: 'Registro de %{crud} incluído com sucesso.'
-  flash_destroy: 'Registro de %{crud} excluído com sucesso.'
-  flash_update: 'Registro de %{crud} alterado com sucesso.'
-  ler_mais: Leia mais
-  menu_administracao: Administração
-  menu_proprietario: Proprietários
-  menu_unidade: Unidades
-  msg_no_connection: Desculpe, mas não foi possível preencher o endereço automaticamente.
-  nome_sistema: Saúde Controlada
-  salvar: Salvar
-  sem_registros: Não existem registros cadastrados.
-  sexo_masculino: Masculino
-  sexo_feminino: Feminino
-  titulo_botao_alterar: Alterar %{model}
-  titulo_botao_buscar: Buscar
-  titulo_botao_excluir: Excluir %{model}
-  titulo_botao_incluir: Incluir %{model}
-  ver_detalhes: Veja os detalhes
-  'true': Sim
-  'false': Não
-
-  acesso:
-    menu: Acesso
-
-  acoes:
-    column:
-      name: Ação
-    edit:
-      titulo: Alterando Ação
-    index:
-      titulo: 'Ações (%{qtde_registros})'
-    menu: Ações
-    new:
-      titulo: Incluindo Ação
-  animais:
-    edit:
-      titulo: Alterando Animal
-    index:
-      titulo: 'Animais (%{qtde_registros})'
-    menu: Animais
-    new:
-      titulo: Incluindo Animal
-  condos:
-    index:
-      incluir: Incluir novo Condomínio
-      link_entrar: Entrar
-      selecionar: 'Clique em cima do condomínio que deseja ingressar:'
-      title_botao_aceitar: Aceitar o Convite
-      title_botao_entrar: Entrar nesse Condomínio
-      title_botao_recusar: Recusar o Convite
-      titulo: 'Meus Condomínios (%{qtde_registros})'
-    edit:
-      titulo: Alterando Condomínio
-    menu_dropdown: Meus Condomínios
-    msg_deve_aceitar: O Convite deve ser Aceito para poder Entrar no Condomínio.
-    new:
-      titulo: Incluindo Condomínio
-    show:
-      admin: 'Administrador: %{admin}'
-      sindico: 'Síndico: %{sindico}'
-  contatos:
-    index:
-      titulo: 'Contatos (%{qtde_registros})'
-    mensagem_enviada: Sua mensagem foi enviada com sucesso. Em breve entraremos em contato. Obrigado.
-    menu: Contatos
-    new:
-      informacao: |
-        Escreva sua dúvida, sugestão, crítica, elogio, etc.
-      enviar: 'Enviar'
-  controladores:
-    column:
-      name: Controlador
-    edit:
-      titulo: Alterando Controlador
-    index:
-      titulo: 'Controladores (%{qtde_registros})'
-    menu: Controladores
-    new:
-      titulo: Incluindo Controlador
-  convites:
-    msg_envio_todos_moradores: "Foram incluídos %{qtde} registros de Convite com sucesso. Os e-mails estão sendo enviados em segundo plano."
-    msg_reenvio_falha: Ocorreu um problema no reenvio do Convite. Tente novamente mais tarde.
-    msg_reenvio_sucesso: O Convite foi reenviado com sucesso.
-    msg_usuario_cadastrado: A operação não foi concluída porque esse usuário já está ingressado no condomínio.
-    edit:
-      titulo: Alterando Convite
-    form:
-      informacao: Ao salvar esse registro será enviado um convite para o e-mail informado.
-    index:
-      btn_incluir_todos_moradores: Incluir Todos os Moradores
-      confirmar_enviar_todos_moradores: Tem certeza que deseja enviar o convite para TODOS os moradores?
-      confirmar_reenviar: "Tem certeza que deseja reenviar o convite para '%{nome}'?"
-      informacao: Na próxima vez que o convidado entrar no sistema, o registro dele será excluído de 'Convites' e inserido em 'Usuários'.
-      titulo: 'Convites (%{qtde_registros})'
-    menu: Convites
-    new:
-      titulo: Incluindo Convite
-  crud:
-    tabela:
-      btn_aceitar_convite: Aceitar o Convite
-      btn_recusar_convite: Recusar o Convite
-      btn_alterar: Alterar
-      btn_excluir: Excluir
-      confirmar_aceitar_convite: "Tem certeza que deseja aceitar o convite de ingresso no %{crud} '%{registro}'?"
-      confirmar_excluir_registro: "Tem certeza que deseja excluir o registro de %{crud} '%{registro}'?"
-      confirmar_recusar_convite: "Tem certeza que deseja recusar o convite de ingresso no %{crud} '%{registro}'?"
-  erros:
-    edit:
-      titulo: Alterando Erro
-    erro_banco_dados: A comunicação com nosso banco de dados retornou um erro inesperado.
-    generico: Fomos notificados e vamos tratar o mais breve possível.
-    menu: Erros
-    show:
-      titulo: Erro
-    pagina_nao_encontrada: A página que você tentou acessar não existe.
-    registro_nao_encontrado: O registro que você tentou acessar não existe ou deve ter sido excluído.
-    selecione_condominio: Selecione um condomínio para poder acessar essa funcionalidade.
-    sem_permissao: Você não tem permissão para acessar essa funcionalidade.
-  inventarios:
-    edit:
-      titulo: Alterando Inventário
-    index:
-      titulo: 'Inventários (%{qtde_registros})'
-    menu: Inventários
-    new:
-      titulo: Incluindo Inventário
-  layouts:
-    top_nav:
-      meus_condominios: Meus Condomínios
-      minha_conta: Minha Conta
-      sair: Sair
-  locais:
-    edit:
-      titulo: Alterando Local
-    index:
-      titulo: 'Locais (%{qtde_registros})'
-    menu: Locais
-    new:
-      titulo: Incluindo Local
-  moradores:
-    edit:
-      titulo: Alterando Morador
-    index:
-      titulo: 'Moradores (%{qtde_registros})'
-    menu: Moradores
-    new:
-      titulo: Incluindo Morador
-  mail_notifier:
-    contato:
-      mensagem_html: |
-        <p>Olá,</p>
-        <p>Foi feito um contato através do site:</p>
-        <hr>
-        <dl>
-          <dt>Quando:</dt>
-          <dd>%{quando}</dd>
-          <dt>Nome:</dt>
-          <dd>%{nome}</dd>
-          <dt>E-mail:</dt>
-          <dd>%{email}</dd>
-          <dt>Telefones:</dt>
-          <dd>%{telefones}</dd>
-          <dt>IP:</dt>
-          <dd>%{ip}</dd>
-          <dt>Mensagem:</dt>
-          <dd>%{mensagem}</dd>
-        </dl>
-        <hr>
-        <p>Atenciosamente,</p>
-        <p>Equipe do <a href="http://condominiosimples.com.br/">Condomínio Simples</a></p>
-      subject: Novo contato através do site
-    convite:
-      mensagem_html: |
-        <p>Olá %{convidado},</p>
-        <p>Você foi convidado por %{convidado_por} para ingressar no condomínio %{condominio} dentro do sistema <a href="http://condominiosimples.com.br/">Condomínio Simples</a>.</p>
-        <p>Para isso, será necessário você criar seu cadastro clicando no link abaixo:</p>
-        <p><a href="http://condominiosimples.com.br/users/sign_up/">Criar meu cadastro</a></p>
-        <p>Caso você já tenha se cadastrado, basta entrar no sistema <a href="http://condominiosimples.com.br/users/sign_in/">clicando aqui</a> para visualizar o condomínio %{condominio}.</p>
-        <p>Atenciosamente,</p>
-        <p>Equipe do <a href="http://condominiosimples.com.br/">Condomínio Simples</a></p>
-      subject: Convite para ingressar no sistema Condomínio Simples
-    convite_aceito_recusado:
-      mensagem_html: |
-        <p>Olá,</p>
-        <p>O convite de ingresso no %{condominio} para o usuário %{usuario} foi %{status}.
-        <p>Atenciosamente,</p>
-        <p>Equipe do <a href="http://condominiosimples.com.br/">Condomínio Simples</a></p>
-      subject: Convite %{status} por %{usuario}
-    convite_excluido:
-      mensagem_html: |
-        <p>Olá,</p>
-        <p>Seu convite de ingresso no %{condominio} foi excluído por %{usuario}.
-        <p>Atenciosamente,</p>
-        <p>Equipe do <a href="http://condominiosimples.com.br/">Condomínio Simples</a></p>
-      subject: Convite Excluído do %{condominio}
-    erro:
-      mensagem_html: |
-        <p>Olá,</p>
-        <p>Foi gerado um erro através do site:</p>
-        <hr>
-        <dl>
-          <dt>Quando:</dt>
-          <dd>%{quando}</dd>
-          <dt>Recurso:</dt>
-          <dd>%{recurso}</dd>
-          <dt>Erro:</dt>
-          <dd>%{erro}</dd>
-          <dt>Descrição:</dt>
-          <dd>%{descricao}</dd>
-          <dt>Usuário:</dt>
-          <dd>%{usuario}</dd>
-          <dt>Condomínio:</dt>
-          <dd>%{condo}</dd>
-          <dt>IP:</dt>
-          <dd>%{ip}</dd>
-          <dt>Dispositivo:</dt>
-          <dd>%{dispositivo}</dd>
-        </dl>
-        <a href="http://condominiosimples.com.br/erros/%{id}/edit">Ver o erro no site</a>
-        <hr>
-        <p>Atenciosamente,</p>
-        <p>Equipe do <a href="http://condominiosimples.com.br/">Condomínio Simples</a></p>
-      subject: "Erro: %{nome}"
-    novo_condo:
-      mensagem_html: |
-        <p>Olá,</p>
-        <p>Um novo condomínio foi criado através do site:</p>
-        <hr>
-        <dl>
-          <dt>Quando:</dt>
-          <dd>%{quando}</dd>
-          <dt>Nome:</dt>
-          <dd>%{nome}</dd>
-          <dt>Endereço:</dt>
-          <dd>%{endereco}</dd>
-          <dt>Complemento:</dt>
-          <dd>%{complemento}</dd>
-          <dt>Bairro:</dt>
-          <dd>%{bairro}</dd>
-          <dt>CEP:</dt>
-          <dd>%{cep}</dd>
-          <dt>Cidade:</dt>
-          <dd>%{cidade}</dd>
-          <dt>Administrador:</dt>
-          <dd>%{admin}</dd>
-          <dt>Síndico:</dt>
-          <dd>%{sindico}</dd>
-        </dl>
-        <hr>
-        <p>Atenciosamente,</p>
-        <p>Equipe do <a href="http://condominiosimples.com.br/">Condomínio Simples</a></p>
-      subject: "Criado novo Condomínio: %{nome}"
-    novo_user:
-      mensagem_html: |
-        <p>Olá,</p>
-        <p>Um novo usuário se cadastrou através do site:</p>
-        <hr>
-        <dl>
-          <dt>Quando:</dt>
-          <dd>%{quando}</dd>
-          <dt>Nome:</dt>
-          <dd>%{nome}</dd>
-          <dt>E-mail:</dt>
-          <dd>%{email}</dd>
-        </dl>
-        <hr>
-        <p>Atenciosamente,</p>
-        <p>Equipe do <a href="http://condominiosimples.com.br/">Condomínio Simples</a></p>
-      subject: "Criado novo Usuário: %{nome}"
-  perfis:
-    edit:
-      titulo: Alterando Perfil
-    index:
-      titulo: 'Perfis (%{qtde_registros})'
-    menu: Perfis
-    new:
-      titulo: Incluindo Perfil
-  pesos:
-    edit:
-      titulo: Alterando Peso e Altura
-    index:
-      titulo: 'Peso e Altura (%{qtde_registros})'
-    menu: Peso e Altura
-    new:
-      titulo: Incluindo Peso e Altura
-  recursos:
-    edit:
-      titulo: Alterando Recurso
-    index:
-      titulo: 'Recursos (%{qtde_registros})'
-    menu: Recursos
-    new:
-      titulo: Incluindo Recurso
-  site:
-    index:
-      slogan: 'como tem que ser ... simples!'
-      texto_principal: |
-        O Condomínio Simples é um sistema para gerenciamento de condomínio de forma eficiente, segura
-        e simples. O sistema fica na Internet e, desta forma, síndicos e condôminos podem ter acesso às
-        informações dos seus condomínios a qualquer momento de forma ágil e com menor custo.
-      destaque_1_titulo: Central de Mensagens
-      destaque_1_texto: |
-        O sistema envia mensagens por email e SMS (opcional) para administradores, gerentes, síndicos e
-        condôminos com avisos tais como: disponibilização de documentos (recibos, balancetes, atas, etc),
-        lembretes de agenda (assembléia, limpeza de caixa d’água), reserva de espaços.
-      destaque_2_titulo: Agenda
-      destaque_2_texto: |
-        O administrador e o síndico podem usar a agenda para gerenciar todos os compromissos do condomínio
-        que podem ser divididos em três categorias: eventos (reuniões, assembléias, etc), reserva de áreas
-        (salão de festas, churrasqueira) e técnica (revisões, limpezas, troca de mangueiras).
-      destaque_3_titulo: Álbum de Fotos
-      destaque_3_texto: |
-        Com essa ferramenta o condomínio pode compartilhar fotos que podem ser divididas em diversos álbuns
-        tais como confraternizações, obras realizadas, etc.
-  tipos_unidades:
-    edit:
-      titulo: Alterando Tipo de Unidade
-    index:
-      titulo: 'Tipos de Unidades (%{qtde_registros})'
-    menu: Tipos de Unidades
-    new:
-      titulo: Incluindo Tipo de Unidade
-  unidades:
-    edit:
-      titulo: Alterando Unidade
-    index:
-      titulo: 'Unidades (%{qtde_registros})'
-    menu: Unidades
-    new:
-      titulo: Incluindo Unidade
-  users:
-    index:
-      incluir: Incluir novo Convite
-      titulo: 'Usuários (%{qtde_registros})'
-    edit:
-      titulo: Alterando Usuário
-    menu: Usuários
-
-  # formatos de data e hora
   date:
+    abbr_day_names:
+    - Dom
+    - Seg
+    - Ter
+    - Qua
+    - Qui
+    - Sex
+    - Sáb
+    abbr_month_names:
+    -
+    - Jan
+    - Fev
+    - Mar
+    - Abr
+    - Mai
+    - Jun
+    - Jul
+    - Ago
+    - Set
+    - Out
+    - Nov
+    - Dez
+    day_names:
+    - Domingo
+    - Segunda
+    - Terça
+    - Quarta
+    - Quinta
+    - Sexta
+    - Sábado
     formats:
-      date: "%d/%m/%Y"
-      default: "%d/%m/%Y"
-      short: "%d de %B"
-      long: "%d de %B de %Y"
-      only_day: "%d"
+      default: ! '%d/%m/%Y'
+      long: ! '%d de %B de %Y'
+      short: ! '%d de %B'
+    month_names:
+    -
+    - Janeiro
+    - Fevereiro
+    - Março
+    - Abril
+    - Maio
+    - Junho
+    - Julho
+    - Agosto
+    - Setembro
+    - Outubro
+    - Novembro
+    - Dezembro
     order:
-      - :day
-      - :month
-      - :year
-
-    day_names: [Domingo, Segunda, Terça, Quarta, Quinta, Sexta, Sábado]
-    abbr_day_names: [Dom, Seg, Ter, Qua, Qui, Sex, Sáb]
-    month_names: [~, Janeiro, Fevereiro, Março, Abril, Maio, Junho, Julho, Agosto, Setembro, Outubro, Novembro, Dezembro]
-    abbr_month_names: [~, Jan, Fev, Mar, Abr, Mai, Jun, Jul, Ago, Set, Out, Nov, Dez]
-    # order: [:day,:month,:year]
-
-  time:
-    formats:
-      default: "%d/%m/%Y %H:%M:%S"
-#      default: "%A, %d de %B de %Y, %H:%M hs"
-      time: "%H:%M hs"
-      short: "%d/%m, %H:%M hs"
-      long: "%A, %d de %B de %Y, %H:%M hs"
-      only_second: "%S"
-      date: "%d/%m/%Y"
-      datetime:
-        formats:
-          default: "%Y-%m-%dT%H:%M:%S%Z"
-    am: ''
-    pm: ''
-
-  # date helper distância em palavras
+    - :day
+    - :month
+    - :year
   datetime:
     distance_in_words:
-      half_a_minute: 'meio minuto'
-      less_than_x_seconds:
-        one: 'menos de 1 segundo'
-        other: 'menos de count segundos'
-
-      x_seconds:
-        one: '1 segundo'
-        other: 'count segundos'
-
-      less_than_x_minutes:
-        one: 'menos de um minuto'
-        other: 'menos de count minutos'
-
-      x_minutes:
-        one: '1 minuto'
-        other: 'count minutos'
-
       about_x_hours:
-        one: 'aproximadamente 1 hora'
-        other: 'aproximadamente count horas'
-
-      x_days:
-        one: '1 dia'
-        other: 'count dias'
-
+        one: aproximadamente 1 hora
+        other: aproximadamente %{count} horas
       about_x_months:
-        one: 'aproximadamente 1 mês'
-        other: 'aproximadamente count meses'
-
-      x_months:
-        one: '1 mês'
-        other: 'count meses'
-
+        one: aproximadamente 1 mês
+        other: aproximadamente %{count} meses
       about_x_years:
-        one: 'aproximadamente 1 ano'
-        other: 'aproximadamente count anos'
-
+        one: aproximadamente 1 ano
+        other: aproximadamente %{count} anos
+      almost_x_years:
+        one: quase 1 ano
+        other: quase %{count} anos
+      half_a_minute: meio minuto
+      less_than_x_minutes:
+        one: menos de um minuto
+        other: menos de %{count} minutos
+      less_than_x_seconds:
+        one: menos de 1 segundo
+        other: menos de %{count} segundos
       over_x_years:
-        one: 'mais de 1 ano'
-        other: 'mais de count anos'
-
-  # numeros
+        one: mais de 1 ano
+        other: mais de %{count} anos
+      x_days:
+        one: 1 dia
+        other: ! '%{count} dias'
+      x_minutes:
+        one: 1 minuto
+        other: ! '%{count} minutos'
+      x_months:
+        one: 1 mês
+        other: ! '%{count} meses'
+      x_seconds:
+        one: 1 segundo
+        other: ! '%{count} segundos'
+    prompts:
+      day: Dia
+      hour: Hora
+      minute: Minuto
+      month: Mês
+      second: Segundo
+      year: Ano
+  errors: &errors
+    format: ! '%{attribute} %{message}'
+    messages:
+      accepted: deve ser aceito
+      blank: o campo é de preenchimento obrigatório
+      confirmation: esse campo e a confirmação devem ser iguais
+      dependent_tables: "Não é possível excluir '%{registro}', pois existe em '%{model_filho}' referência(s) a esse registro."
+      empty: o campo é de preenchimento obrigatório
+      equal_to: deve ser igual a %{count}
+      even: deve ser par
+      exclusion: não está disponível
+      greater_than: deve ser maior que %{count}
+      greater_than_or_equal_to: deve ser maior ou igual a %{count}
+      inclusion: não está incluído na lista
+      invalid: não é válido
+      invalid_format: "o campo não está no formato válido"
+      less_than: deve ser menor que %{count}
+      less_than_or_equal_to: deve ser menor ou igual a %{count}
+      not_a_number: não é um número
+      not_an_integer: não é um número inteiro
+      odd: deve ser ímpar
+      present: deve ficar em branco
+      record_invalid: ! 'A validação falhou: %{errors}'
+      restrict_dependent_destroy:
+        one: "Não é possível excluir, pois existe um %{record} dependente."
+        many: "Não é possível excluir, pois existem registros de %{record} dependentes."
+      taken: favor informar outro valor para o campo, pois esse já está cadastrado no sistema
+      too_long: ! 'é muito longo (máximo: %{count} caracteres)'
+      too_short: ! 'é muito curto (mínimo: %{count} caracteres)'
+      wrong_length: não possui o tamanho esperado (%{count} caracteres)
+    template:
+      body: ! 'Por favor, verifique o(s) seguinte(s) campo(s):'
+      header:
+        one: ! 'Não foi possível gravar %{model}: 1 erro'
+        other: ! 'Não foi possível gravar %{model}: %{count} erros.'
+  helpers:
+    select:
+      prompt: Por favor selecione
+    submit:
+      create: Criar %{model}
+      submit: Salvar %{model}
+      update: Atualizar %{model}
   number:
-    format:
-      precision: 2
-      separator: ','
-      delimiter: '.'
     currency:
       format:
-        unit: 'R$'
+        delimiter: .
+        format: ! '%u %n'
         precision: 2
-        format: '%u %n'
-        separator: ','
-        delimiter: '.'
+        separator: ! ','
+        significant: false
+        strip_insignificant_zeros: false
+        unit: R$
+    format:
+      delimiter: .
+      precision: 3
+      separator: ! ','
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: ! '%n %u'
+        units:
+          billion:
+            one: bilhão
+            other: bilhões
+          million:
+            one: milhão
+            other: milhões
+          quadrillion:
+            one: quatrilhão
+            other: quatrilhões
+          thousand: mil
+          trillion:
+            one: trilhão
+            other: trilhões
+          unit: ''
+      format:
+        delimiter: .
+        precision: 2
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: ! '%n %u'
+        units:
+          byte:
+            one: Byte
+            other: Bytes
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
     percentage:
       format:
-        delimiter: '.'
+        delimiter: .
     precision:
       format:
-        delimiter: '.'
-    human:
-      format:
-        precision: 1
-        delimiter: '.'
-  support:
-    array:
-      sentence_connector: "e"
-      skip_last_comma: true
-
-  # Active Record
-  activerecord:
-    attributes:
-      animal:
-        animal_porte: Porte
-        animal_raca: Raça
-        animal_tipo: Tipo
-      contato:
-        created_at: Quando
-        email: E-mail
-        ip: IP
-      convite:
-        email: E-mail
-        updated_at: Último Envio
-      erro:
-        condo_nome: Condomínio
-        created_at: Quando
-        descricao: Descrição
-        ip: IP
-        recurso_nome: Recurso
-        resolucao: Resolução
-        status_erro_id: Status do erro
-        usuario_nome: Usuário
-      ingresso:
-        aceito: Convite
-      peso:
-        imc: IMC
-        situacao_imc: Situação
-      recurso:
-        acao: Ação
-      user:
-        confirmation_token: Token para Confirmação
-        created_at: Criação
-        current_sign_in_at: Último Login
-        date_of_birth: Data de Nascimento (dd/mm/aaaa)
-        email: E-mail
-        gender: Sexo
-        last_sign_in_at: Última vez que entrou no sistema
-        name: Nome
-        name_email: Nome e E-mail
-        password: Senha
-        password_confirmation: Confirme sua senha
-        remember_me: Lembre-se de mim
-        reset_password_token: Token para Redefinir Senha
-        sign_in_count: Qtde Login
-        unlock_token: Token para Desbloqueio
-    errors:
-      template:
-        header:
-          one: "Registro %{model} não pôde ser salvo: 1 erro"
-          other: "Registro %{model} não pôde ser salvo: %{count} erros."
-#          one: "model não pôde ser salvo: 1 erro"
-#          other: "model não pôde ser salvo: count erros."
-        body: "Por favor, cheque os seguintes campos:"
-      messages:
-        accepted: "Precisa ser aceito"
-        blank: "O campo é de preenchimento obrigatório"
-        confirmation: "Esse campo e a confirmação devem ser iguais"
-        dependent_tables: "Não é possível excluir '%{registro}', pois existe em '%{model_filho}' referência(s) a esse registro."
-        empty: "O campo é de preenchimento obrigatório"
-        equal_to: "Precisa ser igual a %{count}"
-        even: "Precisa ser par"
-        exclusion: "Não está disponível"
-        greater_than: "Precisa ser maior do que %{count}"
-        greater_than_or_equal_to: "Precisa ser maior ou igual a %{count}"
-        inclusion: "Não está incluso na lista"
-        invalid: "Não é válido"
-        invalid_format: "O campo não está no formato válido"
-        less_than: "Precisa ser menor do que %{count}"
-        less_than_or_equal_to: "Precisa ser menor ou igual a %{count}"
-        not_a_number: "Não é um número"
-        not_an_integer: "Não é um número inteiro"
-        record_invalid: ! 'A validação falhou: %{errors}'
-        odd: "Precisa ser ímpar"
-        taken: "Favor informar outro valor para o campo, pois esse já está cadastrado no sistema"
-        too_long: "Tamanho máximo de %{count} caracteres"
-        too_short: "Tamanho mínimo de %{count} caracteres"
-        wrong_length: "Não é do tamanho correto (precisa ter %{count} caracteres)"
-    models:
-      acao: Ação
-      animal: Animal
-      condo: Condomínio
-      controlador: Controlador
-      convite:
-        zero: Convite
-        one: Convite
-        other: Convites
-      ingresso: Convite
-      inventario: Inventário
-      local:
-        zero: Local
-        one: Local
-        other: Locais
-      morador:
-        zero: Morador
-        one: Morador
-        other: Moradores
-      peso:
-        zero: Peso e Altura
-        one: Peso e Altura
-        other: Peso e Altura
-      proprietario: Proprietário
-      recurso: Recurso
-      tipo_unidade: Tipo de Unidade
-      unidade: Unidade
-      user:
-        zero: Usuário
-        one: Usuário
-        other: Usuários
+        delimiter: .
   support:
     array:
       last_word_connector: ! ' e '
       two_words_connector: ! ' e '
       words_connector: ! ', '
+  time:
+    am: ''
+    formats:
+      data: ! '%d/%m/%Y'
+      data_hora: ! '%d/%m/%Y %H:%M'
+      default: ! '%a, %d de %B de %Y, %H:%M:%S'
+      hora: ! '%H:%M' 
+      # default: ! '%a, %d de %B de %Y, %H:%M:%S %z'
+      long: ! '%d de %B de %Y, %H:%M'
+      short: ! '%d de %B, %H:%M'
+    pm: ''
+  # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
+  activemodel:
+    errors:
+      <<: *errors
+  activerecord:
+    errors:
+      <<: *errors
+
+  # will_paginate ---------------------------------------------------------------------------------
   will_paginate:
     previous_label: "&#8592; Anterior"
     next_label: "Próximo &#8594;"
     page_gap: "&hellip;"
     page_entries_info:
       single_page_html:
-        zero:  "Nenhum %{model} encontrado"
-        one:   "Exibindo <b>1</b> %{model}"
-        other: "Exibindo <b>todos&nbsp;%{count}</b> %{model}"
+        zero:  "Nenhum(a) %{model} encontrado(a)"
+        one:   "%{model} (%{count})"
+        other: "%{model} (%{count})"
       multi_page_html: "%{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> de <b>%{count}</b>"
