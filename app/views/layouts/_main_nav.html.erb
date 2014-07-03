@@ -1,0 +1,24 @@
+<% content_for :main_navigation do %>
+  <div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav navbar-right">
+      <%#= nav_tab raw('<i class="glyphicon glyphicon-bullhorn"></i> ') + Contato.model_name.human, new_contato_path, {current: current_tab, titulo: t('contato')} %>
+      <%# SE ESTIVER LOGADO %>
+      <% if user_signed_in? %>
+        <%= nav_tab raw('<i class="fa fa-food"></i> ') + t('pesos.menu'), pesos_path, { current: current_tab } %>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <i class="glyphicon glyphicon-user"></i> <%= current_user.email %> <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <%= nav_tab raw('<i class="glyphicon glyphicon-edit"></i> ') + t('devise.registrations.edit.title'), edit_user_registration_path, {current: current_tab, titulo: t('devise.registrations.edit.title')} %>
+            <li class="divider"></li>
+            <li><%= link_to raw('<i class="glyphicon glyphicon-log-out"></i> ') + t('.sair'), destroy_user_session_path, method: :delete %></li>
+          </ul>
+        </li>
+      <% else %>
+        <%= nav_tab raw('<i class="glyphicon glyphicon-plus"></i> ') + t('devise.registrations.new.title'), new_user_registration_path, {current: current_tab, titulo:t('devise.registrations.new.title')} %>
+        <%= nav_tab raw('<i class="glyphicon glyphicon-lock"></i> ') + t('devise.sessions.new.title'), new_user_session_path, {current: current_tab, titulo: t('devise.sessions.new.title')} %>
+      <% end %>
+    </ul>
+  </div><!--/.nav-collapse -->
+<% end %>

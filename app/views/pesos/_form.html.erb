@@ -1,16 +1,9 @@
+<%= corrigir_erros @peso.errors.any? %>
 <%= simple_form_for(@peso) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :data, as: :string,
-                input_html: { 'value' => @peso.data.nil? ? '' : l(@peso.data, format: :date) } %>
-    <%= f.input :altura, as: :string, input_html: { 'value' => @peso.altura_br} %>
-    <%= f.input :peso, as: :string, autofocus: true, input_html: { 'value' => @peso.peso_br} %>
-  </div>
-
-  <div class="form-actions">
-    <%= button_tag (raw('<i class="icon-ok"></i> ') + t('salvar')),
-                   disable_with: t('disable_with') %>
-    <%= link_to raw('<i class="icon-remove"></i> ') + t('cancelar'), pesos_path, class: 'button' %>
-  </div>
+  <%= f.input :data, as: :string,
+              input_html: { 'value' => @peso.data.nil? ? '' : l(@peso.data, format: :default) } %>
+  <%= f.input :altura, as: :string, input_html: { 'value' => @peso.altura_br} %>
+  <%= f.input :peso, as: :string, autofocus: true, input_html: { 'value' => @peso.peso_br} %>
+  <%= botao_salvar %>
+  <%= botao_cancelar pesos_path %>
 <% end %>
