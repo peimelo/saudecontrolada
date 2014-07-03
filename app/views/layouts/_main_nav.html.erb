@@ -4,7 +4,7 @@
       <%#= nav_tab raw('<i class="glyphicon glyphicon-bullhorn"></i> ') + Contato.model_name.human, new_contato_path, {current: current_tab, titulo: t('contato')} %>
       <%# SE ESTIVER LOGADO %>
       <% if user_signed_in? %>
-        <%= nav_tab raw('<i class="icon-food"></i> ') + t('pesos.menu'), pesos_path, { current: current_tab } %>
+        <%= nav_tab raw('<i class="fa fa-food"></i> ') + t('pesos.menu'), pesos_path, { current: current_tab } %>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <i class="glyphicon glyphicon-user"></i> <%= current_user.email %> <b class="caret"></b>

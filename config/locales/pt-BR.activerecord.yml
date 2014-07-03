@@ -26,6 +26,9 @@ pt-BR:
         usuario_email: E-mail do Usuário
       ingresso:
         aceito: Convite
+      peso:
+        imc: IMC
+        situacao_imc: Situação
       user:
         confirmation_token: Token para Confirmação
         created_at: Criação
@@ -44,87 +47,14 @@ pt-BR:
         unlock_token: Token para Desbloqueio
     # ---------------------------------------------------------------------------------------------
     models:
-      acao:
-        zero: Ação
-        one: Ação
-        other: Ações
-      animal: Animal
-      autorização:
-        zero: Autorização
-        one: Autorização
-        other: Autorizações
-      autorização_autorizado_registro:
-        zero: Ação Autorizado
-        one: Ações Autorizados
-        other: Ações Autorizados
-      autorizado:
-        zero: Autorizado
-        one: Autorizado
-        other: Autorizados
-      autorizado_tipo:
-        zero: Tipo de Autorizado
-        one: Tipo de Autorizado
-        other: Tipos de Autorizados
-      chamado:
-        zero: Chamado
-        one: Chamado
-        other: Chamados
-      chamado_categoria_usuario: Associação de Categoria/Pessoa
-      chamado_envolvimento: Envolvimento
-      chamado_resposta:
-        zero: Resposta
-        one: Resposta
-        other: Respostas
-      condo:
-        zero: Condomínio
-        one: Condomínio
-        other: Condomínios
       contato:
         zero: Contato
         one: Contato
         other: Contatos
-      controlador: Controlador
-      convite:
-        zero: Convite
-        one: Convite
-        other: Convites
-      divisao:
-        zero: Divisão
-        one: Divisão
-        other: Divisões
-      ingresso: Convite
-      inventario:
-        zero: Inventário
-        one: Inventário
-        other: Inventários
-      local:
-        zero: Local
-        one: Local
-        other: Locais
-      morador:
-        zero: Morador
-        one: Morador
-        other: Moradores
-      participacao_tipo:
-        zero: Tipo de Participação
-        one: Tipo de Participação
-        other: Tipos de Participação
-      perfil:
-        zero: Perfil
-        one: Perfil
-        other: Perfis
-      pessoa:
-        zero: Pessoa
-        one: Pessoa
-        other: Pessoas
-      proprietario: Proprietário
-      recurso: Recurso
-      recurso_categoria:
-        zero: Categoria de Recurso
-        one: Categoria de Recurso
-        other: Categorias de Recursos
-      tipo_unidade: Tipo de Unidade
-      unidade: Unidade
+      peso:
+        zero: Peso e Altura
+        one: Peso e Altura
+        other: Peso e Altura
       user:
         zero: Usuário
         one: Usuário

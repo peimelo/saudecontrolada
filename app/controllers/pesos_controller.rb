@@ -40,7 +40,7 @@ class PesosController < ApplicationController
 
     respond_to do |format|
       if @peso.save
-        format.html { redirect_to pesos_url, notice: t(:flash_create, crud: Peso.model_name.human) }
+        format.html { redirect_to pesos_url, notice: t('mensagens.flash.create', crud: Peso.model_name.human) }
         format.json { render action: 'show', status: :created, location: @peso }
       else
         format.html { render action: 'new' }
@@ -54,7 +54,7 @@ class PesosController < ApplicationController
   def update
     respond_to do |format|
       if @peso.update(peso_params)
-        format.html { redirect_to pesos_url, notice: t(:flash_update, crud: Peso.model_name.human) }
+        format.html { redirect_to pesos_url, notice: t('mensagens.flash.update', crud: Peso.model_name.human) }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -68,7 +68,7 @@ class PesosController < ApplicationController
   def destroy
     @peso.destroy
     respond_to do |format|
-      format.html { redirect_to pesos_url, notice: t(:flash_destroy, crud: Peso.model_name.human) }
+      format.html { redirect_to pesos_url, notice: t('mensagens.flash.destroy', crud: Peso.model_name.human) }
       format.json { head :no_content }
     end
   end
