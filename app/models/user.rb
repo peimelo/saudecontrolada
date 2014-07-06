@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   has_many :peso, dependent: :delete_all
 
   # validações ------------------------------------------------------------------------------------
-  validates :date_of_birth, :gender, :name, presence: true
+  validates :name, presence: true
 
   # methods ---------------------------------------------------------------------------------------
   def self.from_omniauth(auth, current_user)
@@ -30,6 +30,7 @@ class User < ActiveRecord::Base
         user = User.new
         #user.password = Devise.friendly_token
         user.email = auth.info.email
+        user.name = auth.info.name
 
         # Set a random password for omniauthenticated users
         user.password, user.password_confirmation = Devise.friendly_token

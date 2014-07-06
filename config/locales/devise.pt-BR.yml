@@ -33,7 +33,7 @@ pt-BR:
       update_needs_confirmation: 'Você atualizou a sua conta com sucesso, mas o seu novo endereço de e-mail precisa ser confirmado. Por favor, acesse-o e clique no link de confirmação que enviamos.'
       updated: 'Sua conta foi atualizada com sucesso.'
     sessions:
-      signed_in: 'Entrada efetuada com sucesso!'
+      signed_in: 'Entrou com sucesso!'
       signed_out: 'Saiu com sucesso.'
     unlocks:
       send_instructions: 'Dentro de instantes, você receberá um e-mail com instruções para o desbloqueio da sua conta.'
