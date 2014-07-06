@@ -82,6 +82,6 @@ gem 'capistrano-rbenv'
 gem 'unicorn'
 
 gem 'omniauth'
-gem 'omniauth-facebook'#, '1.4.0'
+gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-linkedin'

@@ -325,14 +325,14 @@ pt-BR:
     index:
       slogan: 'como tem que ser ... simples!'
       texto_principal: |
-        Gerenciamento de condomínio de forma simples.
+        Sua saúde no controle das suas mãos.
       titulo_cadastrar: Crie sua conta
-      destaque_1_titulo: Chamados
+      destaque_1_titulo: Peso e Altura
       destaque_1_texto: |
-        Abra chamados sobre qualquer assunto para serem resolvidos pelos responsáveis no seu condomínio.
-      destaque_2_titulo: Autorizações
+        Coloque seu peso e altura para gerar um gráfico baseado no seu limite ideal.
+      destaque_2_titulo: Diabetes
       destaque_2_texto: |
-        Controle todas as pessoas que entram no seu condomínio e assim garantindo segurança para todos.
+        Com as informações da sua glicemia você saberá como está seu tratamento.
   # -----------------------------------------------------------------------------------------------
   users:
     index:

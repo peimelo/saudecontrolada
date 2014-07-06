@@ -58,6 +58,15 @@ module ApplicationHelper
     link_to label, { controller: controller, action: :new }, options
   end
 
+  def botao_link(label, path, options={})
+    options = {
+        class: 'btn btn-primary',
+        method: :get,
+    }.merge(options)
+
+    link_to label, path, options
+  end
+
   def botao_salvar(options={})
     options = {
         class: 'btn btn-primary',
