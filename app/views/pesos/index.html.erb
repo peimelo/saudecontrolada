@@ -26,7 +26,7 @@
           <tr>
             <td width="100">
               <%= botao_alterar registro, edit_peso_path(registro), model_class %>
-              <%= botao_excluir registro, l(registro.data, format: :default), model_class %>
+              <%= botao_excluir registro, l(registro.data), model_class %>
             </td>
             <td><%= l(registro.data, format: :default) %></td>
             <td><%= registro.peso_br %></td>

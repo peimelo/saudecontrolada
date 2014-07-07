@@ -200,10 +200,9 @@ pt-BR:
   time:
     am: ''
     formats:
-      data: ! '%d/%m/%Y'
       data_hora: ! '%d/%m/%Y %H:%M'
-      default: ! '%a, %d de %B de %Y, %H:%M:%S'
-      hora: ! '%H:%M' 
+      default: ! '%d/%m/%Y'
+      hora: ! '%H:%M'
       # default: ! '%a, %d de %B de %Y, %H:%M:%S %z'
       long: ! '%d de %B de %Y, %H:%M'
       short: ! '%d de %B, %H:%M'

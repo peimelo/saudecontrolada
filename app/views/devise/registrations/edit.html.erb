@@ -9,7 +9,7 @@
   <%= f.input :email, required: true %>
   <%= f.input :gender, collection: [t('sexo.masculino'), t('sexo.feminino')], as: :radio_buttons %>
   <%= f.input :date_of_birth, as: :string,
-              input_html: { 'value' => resource.date_of_birth.blank? ? '' : l(resource.date_of_birth, format: :default) } %>
+              input_html: { 'value' => resource.date_of_birth.blank? ? '' : l(resource.date_of_birth) } %>
   <%= f.input :password, autocomplete: 'off', required: false %>
   <%= f.input :password_confirmation, required: false %>
   <%= f.input :current_password, required: true %>

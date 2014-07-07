@@ -28,20 +28,30 @@ class User < ActiveRecord::Base
       user = current_user.nil? ? User.where('email = ?', auth['info']['email']).first : current_user
       if user.blank?
         user = User.new
-        #user.password = Devise.friendly_token
         user.email = auth.info.email
         user.name = auth.info.name
-
+        user.confirmed_at, user.confirmation_sent_at = Time.now
         # Set a random password for omniauthenticated users
         user.password, user.password_confirmation = Devise.friendly_token
-        user.confirmed_at, user.confirmation_sent_at = Time.now
 
-        auth.provider == 'twitter' ? user.save(validate: false) : user.save
+        user.save
+
+        if user.persisted?
+          authentication.user_id = user.id
+          authentication.save
+        else
+          # se nao foi persistido pode ser porque nao foi fornecido o email pelo provider
+          # entao retiramos a confirmacao para evitar o acesso direto com qualquer email
+          # preenchido na tela de novo cadastro para onde sera direcionado daqui pelo omniauth_callbacks_controller
+          user.confirmed_at, user.confirmation_sent_at = nil
+          user.password, user.password_confirmation = nil
+        end
       end
-      authentication.user_id = user.id
-      authentication.save
+
+      user
+    else
+      authentication.user
     end
-    authentication.user
   end
 
   def self.new_with_session(params, session)
