@@ -17,7 +17,7 @@ pt-BR:
       unconfirmed: 'Antes de continuar, confirme a sua conta através do e-mail que lhe enviamos quando se cadastrou.'
     omniauth_callbacks:
       failure: 'Não foi possível autenticá-lo como %{kind} porque "%{reason}".'
-      success: 'Autenticado com sucesso com uma conta de %{kind}.'
+      success: 'Autenticado com sucesso com uma conta %{kind}.'
     passwords:
       no_token: "Você só pode acessar essa página através de um e-mail de troca de senha. Se já estiver acessando por um e-mail, verifique se a URL fornecida está completa."
       send_instructions: 'Dentro de instantes, você receberá um e-mail com instruções para a troca da sua senha.'
@@ -26,7 +26,7 @@ pt-BR:
       updated_not_active: 'Sua senha foi alterada com sucesso.'
     registrations:
       destroyed: 'Até logo! Sua conta foi excluída com sucesso. Esperamos vê-lo novamente em breve.'
-      signed_up: 'Entrada efetuada com sucesso. Se não foi autorizado, a confirmação será enviada por e-mail.'
+      signed_up: 'Entrou com sucesso. Se não foi autorizado, a confirmação será enviada por e-mail.'
       signed_up_but_inactive: 'Você foi cadastrado com sucesso. No entanto, não foi possível entrar, pois sua conta não foi ativada.'
       signed_up_but_locked: 'Você foi cadastrado com sucesso. No entanto, não foi possível entrar, pois sua conta está bloqueada.'
       signed_up_but_unconfirmed: 'Uma mensagem com um link de confirmação foi enviada para o seu endereço de e-mail. Por favor, abra o link para confirmar a sua conta.'

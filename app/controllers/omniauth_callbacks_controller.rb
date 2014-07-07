@@ -4,7 +4,9 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def all
     user = User.from_omniauth(request.env['omniauth.auth'], current_user)
     if user.persisted?
-      flash.notice = t('devise.sessions.signed_in')
+      # flash.notice = t('devise.sessions.signed_in')
+      provider = params[:action] == 'google_oauth2' ? 'Google' : params[:action].to_s.titleize
+      flash.notice = t('devise.omniauth_callbacks.success', kind: provider)
       sign_in_and_redirect user
     else
       session['devise.user_attributes'] = user.attributes
@@ -17,6 +19,8 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   alias_method :linkedin, :all
   #alias_method :twitter, :all
 end
+
+  private
 
 # REDIRECT URIS no https://console.developers.google.com/:
 # http://exemplo.com.br/users/auth/google_oauth2/callback
