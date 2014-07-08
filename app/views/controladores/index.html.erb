@@ -1,0 +1,48 @@
+<%= currently_at t('controladores.menu') %>
+<%- model_class = Controlador -%>
+<%= titulo page_entries_info @controladores, model: model_class %>
+<%= botao_incluir 'controladores', model_class %>
+
+<p>
+  <%= form_tag controladores_path, method: :get, id: 'controladores_search' do %>
+    <div class="row">
+      <div class="col-xs-9" style="width: 300px;">
+        <%= text_field_tag :search, params[:search], class: 'form-control',
+                           placeholder: t('titles.buscar_por', atributo: model_class.human_attribute_name(:nome)) %>
+      </div>
+      <div class="col-xs-3">
+        <%= button_tag (raw('<i class="glyphicon glyphicon-search"></i> ')),
+                       title: t('titles.buscar_por', atributo: model_class.human_attribute_name(:nome)),
+                       class: 'btn btn-primary', id: 'find' %>
+      </div>
+    </div>
+  <% end %>
+</p>
+
+<%= limpar_filtro(controladores_path) %>
+
+<% if not @controladores.empty? %>
+  <%= t('labels.download_em') %><%= link_to 'Excel', controladores_path(format: 'xls') %>
+  <div class="table-responsive">
+    <table class="table table-bordered table-condensed table-hover table-striped">
+      <thead>
+        <tr>
+          <th><%= t('bootstrap.actions') %></th>
+          <th><%= model_class.human_attribute_name(:nome) %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @controladores.each do |registro| %>
+          <tr>
+            <td width="100">
+              <%= botao_alterar registro, edit_controlador_path(registro), model_class %>
+              <%= botao_excluir registro, model_class %>
+            </td>
+            <td><%= registro.nome %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>
+<%= will_paginate %>

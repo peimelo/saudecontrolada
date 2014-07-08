@@ -1,0 +1,48 @@
+<%= currently_at t('recursos_categorias.menu') %>
+<%- model_class = RecursoCategoria -%>
+<%= titulo page_entries_info @recursos_categorias, model: model_class %>
+<%= botao_incluir 'recursos_categorias', model_class %>
+
+<p>
+  <%= form_tag recursos_categorias_path, method: :get, id: 'recursos_categorias_search' do %>
+    <div class="row">
+      <div class="col-xs-9" style="width: 300px;">
+        <%= text_field_tag :search, params[:search], class: 'form-control',
+                           placeholder: t('titles.buscar_por', atributo: model_class.human_attribute_name(:nome)) %>
+      </div>
+      <div class="col-xs-3">
+        <%= button_tag (raw('<i class="glyphicon glyphicon-search"></i> ')),
+                       title: t('titles.buscar_por', atributo: model_class.human_attribute_name(:nome)),
+                       class: 'btn btn-primary', id: 'find' %>
+      </div>
+    </div>
+  <% end %>
+</p>
+
+<%= limpar_filtro(recursos_categorias_path) %>
+
+<% if not @recursos_categorias.empty? %>
+  <%= t('labels.download_em') %><%= link_to t('links.excel'), recursos_categorias_path(format: 'xls') %>
+  <div class="table-responsive">
+    <table class="table table-bordered table-condensed table-hover table-striped">
+      <thead>
+        <tr>
+          <th><%= t('bootstrap.actions') %></th>
+          <th><%= model_class.human_attribute_name(:nome) %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @recursos_categorias.each do |registro| %>
+          <tr>
+            <td width="100">
+              <%= botao_alterar registro, edit_recurso_categoria_path(registro), model_class %>
+              <%= botao_excluir registro, model_class %>
+            </td>
+            <td><%= registro.nome %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>
+<%= will_paginate %>

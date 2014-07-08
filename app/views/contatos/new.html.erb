@@ -1,0 +1,16 @@
+<%= currently_at t('contato') %>
+<%= corrigir_erros @contato.errors.any? %>
+<%= simple_form_for @contato do |f| %>
+  <%= titulo t('.titulo') %>
+
+  <div class="alert alert-info">
+    <i class='glyphicon glyphicon-info-sign'></i> <%= t('.informacao') %>
+  </div>
+    <%= f.input :nome, autofocus: true %>
+    <%= f.input :email, as: :email %>
+    <%= f.input :telefones %>
+    <%= f.input :mensagem, as: :text, input_html: {rows: 5} %>
+    
+    <%= botao t('.enviar') %>
+    <%= botao_cancelar :back  %>
+<% end %>

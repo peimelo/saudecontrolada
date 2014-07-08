@@ -1,0 +1,7 @@
+<%= t '.mensagem_html',
+  {quando: @contato.created_at.strftime( '%d/%m/%Y %H:%M:%S' ),
+   nome: @contato.nome,
+   email: @contato.email,
+   telefones: @contato.telefones,
+   ip: @contato.ip,
+   mensagem: @contato.mensagem} %>

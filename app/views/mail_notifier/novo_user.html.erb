@@ -1,0 +1,4 @@
+<%= t '.mensagem_html',
+  {quando: l(@user.created_at),
+   email: @user.email,
+   ip: @user.current_sign_in_ip} %>

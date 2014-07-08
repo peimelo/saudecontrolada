@@ -1,0 +1,35 @@
+<%= currently_at t('contatos.menu') %>
+<%- model_class = Contato -%>
+
+<%= titulo page_entries_info @contatos, model: model_class %>
+
+<% if not @contatos.empty? %>
+  <%= t('labels.download_em') %><%= link_to t('links.excel'), contatos_path(format: 'xls') %>
+  <div class="table-responsive">
+      <table class="table table-bordered table-condensed table-hover table-striped">
+        <thead>
+          <tr>
+            <th><%= sortable model_class, 'created_at' %></th>
+            <th><%= sortable model_class, 'nome' %></th>
+            <th><%= sortable model_class, 'email' %></th>
+            <th><%= sortable model_class, 'telefones' %></th>
+            <th><%= sortable model_class, 'ip' %></th>
+            <th><%= sortable model_class, 'mensagem' %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @contatos.each do |registro| %>
+            <tr>
+              <td><%= l(registro.created_at, format: :data_hora) %></td>
+              <td><%= registro.nome %></td>
+              <td><%= registro.email %></td>
+              <td><%= registro.telefones %></td>
+              <td><%= registro.ip %></td>
+              <td><%= registro.mensagem %></td>
+            </tr>
+          <% end %>
+        </tbody>
+    </table>
+  </div>
+<% end %>
+<%= will_paginate %>

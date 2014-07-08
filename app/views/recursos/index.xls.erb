@@ -1,0 +1,28 @@
+<%- model_class = Recurso -%>
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="<%= t('recursos.menu') %>">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String"><%= model_class.human_attribute_name(:nome) %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= t('recursos_categorias.column.name') %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= t('controladores.column.name') %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= t('acoes.column.name') %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= model_class.human_attribute_name(:visivel) %></Data></Cell>
+      </Row>
+    <% @recursos.each do |registro| %>
+      <Row>
+        <Cell><Data ss:Type="String"><%= registro.nome %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= registro.recurso_categoria.nome %></Data></Cell>        
+        <Cell><Data ss:Type="String"><%= registro.controlador.nome %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= registro.acao.nome %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= label_sim_nao(registro.visivel?) %></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

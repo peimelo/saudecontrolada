@@ -1,0 +1,11 @@
+<%= t '.mensagem_html',
+  {
+  	atualizado_em: l(@chamado.updated_at),
+  	atualizado_por: @pessoa_atualizadora.nome,
+  	categoria: @chamado.chamado_categoria ? @chamado.chamado_categoria.nome : ' - ',
+  	local: @chamado.local ? @chamado.local.nome : ' - ',
+  	prioridade: @chamado.chamado_prioridade ? @chamado.chamado_prioridade.nome : ' - ',
+  	status: @chamado.chamado_status.nome,
+   	texto: @chamado.texto.html_safe,
+   	titulo: @chamado.titulo
+   } %>
