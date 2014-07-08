@@ -17,7 +17,7 @@ pt-BR:
       unconfirmed: 'Antes de continuar, confirme a sua conta através do e-mail que lhe enviamos quando se cadastrou.'
     omniauth_callbacks:
       failure: 'Não foi possível autenticá-lo como %{kind} porque "%{reason}".'
-      success: 'Autenticado com sucesso com uma conta %{kind}.'
+      success: 'Entrou com sucesso através de uma conta %{kind}.'
     passwords:
       no_token: "Você só pode acessar essa página através de um e-mail de troca de senha. Se já estiver acessando por um e-mail, verifique se a URL fornecida está completa."
       send_instructions: 'Dentro de instantes, você receberá um e-mail com instruções para a troca da sua senha.'
