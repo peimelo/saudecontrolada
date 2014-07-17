@@ -18,11 +18,10 @@ class PesosController < ApplicationController
     end
 
     @chart = LazyHighCharts::HighChart.new('graph') do |f|
-      f.xAxis(categories: categories)
+      f.xAxis(categories: categories, labels: { step: categories.size/2 })
       f.yAxis [{ title: { text: 'Peso (Kg)' } }]
 
-      f.title(text: 'Peso')
-      f.subtitle(text: 'Evolução do Peso por Data')
+      f.title(text: 'Evolução do Peso por Data')
       f.tooltip(valueSuffix: ' Kg')
 
       f.series(name: 'Limite Máximo', data: maximo)
