@@ -6,15 +6,30 @@ class PesosController < ApplicationController
   def index
     @pesos = current_user.peso.page(params[:page]).order('data DESC, created_at DESC')
 
-    @categories = []
-    @maximo = []
-    @minimo = []
-    @peso = []
+    categories = []
+    maximo = []
+    minimo = []
+    peso = []
     @pesos.reverse.each do |p|
-      @categories << l(p.data, format: :default)
-      @peso << p.peso
-      @maximo << (24.99 * p.altura * p.altura).round(2)
-      @minimo << (18.5 * p.altura * p.altura).round(2)
+      categories << l(p.data, format: :default)
+      peso << p.peso.to_f
+      maximo << (24.99 * p.altura * p.altura).round(2).to_f
+      minimo << (18.5 * p.altura * p.altura).round(2).to_f
+    end
+
+    @chart = LazyHighCharts::HighChart.new('graph') do |f|
+      f.xAxis(categories: categories)
+      f.yAxis [{ title: { text: 'Peso (Kg)' } }]
+
+      f.title(text: 'Peso')
+      f.subtitle(text: 'Evolução do Peso por Data')
+      f.tooltip(valueSuffix: ' Kg')
+
+      f.series(name: 'Limite Máximo', data: maximo)
+      f.series(name: 'Peso', data: peso)
+      f.series(name: 'Limite Mínimo', data: minimo)
+
+      f.legend(align: 'center', borderWidth: 1, layout: 'horizontal')
     end
   end
 

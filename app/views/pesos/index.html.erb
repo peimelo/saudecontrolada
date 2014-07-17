@@ -2,8 +2,7 @@
 <%- model_class = Peso -%>
 <h1><%= page_entries_info @pesos, model: model_class %></h1>
 
-<%= content_tag :div, '', id: 'container',
-                data: {pesos: @peso, categories: @categories, maximo: @maximo, minimo: @minimo} %>
+<%= high_chart("some_id", @chart) %>
 
 <p><%= botao_incluir 'pesos', model_class %></p>
 

@@ -30,10 +30,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'devise'
 gem 'simple_form', '~> 3.1.0.rc1', github: 'plataformatec/simple_form'
-gem 'zurb-foundation', '~> 4.3.0'
+# gem 'zurb-foundation', '~> 4.3.0'
 
 # usar no migrate comando para gerar fk
 gem 'foreigner', '~> 1.4.1'
+
+# graficos
+gem 'lazy_high_charts'
 
 # paginacao
 gem 'bootstrap-will_paginate'

@@ -1,9 +1,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
-//= require highcharts
-//= require exporting
-//= require pesos
-// require highcharts/highcharts-more
-// require highcharts/modules/exporting
+//= require highcharts/highcharts
+//= require highcharts/modules/exporting
+//= require highchart_config
 // require_tree .

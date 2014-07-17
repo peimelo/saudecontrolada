@@ -11,7 +11,7 @@ Bundler.require(:default, Rails.env)
 module Saudecontrolada
   class Application < Rails::Application
     config.autoload_paths += %W(#{config.root}/lib)
-    
+
     config.time_zone = 'Brasilia'
     config.i18n.default_locale = 'pt-BR'
     config.i18n.enforce_available_locales = false
