@@ -1,0 +1,6 @@
+<%= currently_at t('dashboard.menu') %>
+<%= titulo raw('<i class="fa fa-dashboard"></i> ') + t('dashboard.menu') %>
+Peso médio (Kg): <%= number_to_human @peso_medio %>
+
+<%= high_chart('chart', @chart) %>
+

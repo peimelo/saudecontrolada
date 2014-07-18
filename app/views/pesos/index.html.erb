@@ -1,8 +1,8 @@
 <%= currently_at t('pesos.menu') %>
 <%- model_class = Peso -%>
-<h1><%= page_entries_info @pesos, model: model_class %></h1>
+<%= titulo raw('<i class="fa fa-cutlery"></i> ') + page_entries_info(@pesos, model: model_class) %>
 
-<%= high_chart("some_id", @chart) %>
+<%= high_chart('chart', @chart) %>
 
 <p><%= botao_incluir 'pesos', model_class %></p>
 
@@ -13,10 +13,9 @@
         <tr>
           <th><%= t('bootstrap.actions') %></th>
           <th><%= model_class.human_attribute_name(:data) %></th>
+          <th><%= model_class.human_attribute_name(:altura) %></th>
           <th><%= model_class.human_attribute_name(:peso) %></th>
           <th><%= model_class.human_attribute_name(:peso_ideal) %></th>
-          <th><%= model_class.human_attribute_name(:altura) %></th>
-          <th><%= model_class.human_attribute_name(:imc) %></th>
           <th><%= model_class.human_attribute_name(:situacao_imc) %></th>
         </tr>
       </thead>
@@ -28,11 +27,10 @@
               <%= botao_excluir registro, l(registro.data), model_class %>
             </td>
             <td><%= l(registro.data, format: :default) %></td>
+            <td><%= registro.altura_br %></td>
             <td><%= registro.peso_br %></td>
             <td><%= registro.peso_ideal %></td>
-            <td><%= registro.altura_br %></td>
-            <td><%= number_to_currency(registro.imc, options = {unit: ''}).strip %></td>
-            <td><%= registro.situacao_imc %></td>
+            <td><%= registro.imc %></td>
           </tr>
         <% end %>
       </tbody>

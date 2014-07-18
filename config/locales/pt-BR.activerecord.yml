@@ -7,14 +7,6 @@ pt-BR:
         email: E-mail
         ip: IP
         telefones: Telefone(s)
-      convite:
-        email: E-mail
-        updated_at: Último Envio
-      endereco:
-        cep: CEP
-        endereco: Endereço
-        numero: Número
-        uf: UF
       erro:
         condo_nome: Condomínio
         created_at: Quando
@@ -24,10 +16,9 @@ pt-BR:
         resolucao: Resolução
         status_erro_id: Status do erro
         usuario_email: E-mail do Usuário
-      ingresso:
-        aceito: Convite
       peso:
         imc: IMC
+        peso_ideal: Peso Ideal
         situacao_imc: Situação
       user:
         confirmation_token: Token para Confirmação

@@ -20,6 +20,8 @@ pt-BR:
       confirmar_excluir_registro: "Tem certeza que deseja excluir o registro de %{crud} '%{registro}'?"
       confirmar_recusar_convite: "Tem certeza que deseja recusar o convite de ingresso no %{crud} '%{registro}'?"
   # -----------------------------------------------------------------------------------------------
+  dashboard:
+    menu: Painel da Saúde
   erros:
     edit:
       titulo: Alterando Erro
@@ -34,159 +36,6 @@ pt-BR:
       sair: Sair
   # -----------------------------------------------------------------------------------------------
   mail_notifier:
-    chamado_atualizado:
-      mensagem_html: |
-        <p>Olá,</p>
-        <p>O chamado abaixo foi atualizado através do site:</p>
-        <hr>
-        <dl>
-          <dt>Categoria:</dt>
-          <dd>%{categoria}</dd>
-          <dt>Título:</dt>
-          <dd>%{titulo}</dd>
-          <dt>Texto:</dt>
-          <dd>%{texto}</dd>
-          <dt>Local:</dt>
-          <dd>%{local}</dd>
-          <dt>Prioridade:</dt>
-          <dd>%{prioridade}</dd>
-          <dt>Status Atual:</dt>
-          <dd>%{status}</dd>
-          <dt>Atualizado em:</dt>
-          <dd>%{atualizado_em}</dd>
-          <dt>Atualizado por:</dt>
-          <dd>%{atualizado_por}</dd>
-        </dl>
-        <hr>
-        <p>Atenciosamente,</p>
-        <p>Equipe do <a href="http://condominiosimples.com.br/">Condomínio Simples</a></p>
-      subject: Chamado Atualizado Através do Site
-    # ---------------------------------------------------------------------------------------------
-    chamado_envolvido_adicionado:
-      mensagem_html: |
-        <p>Olá,</p>
-        <p>Você foi envolvido em um chamado através do site:</p>
-        <hr>
-        <dl>
-          <dt>Título:</dt>
-          <dd>%{titulo}</dd>
-          <dt>Criado em:</dt>
-          <dd>%{criado_em}</dd>
-        </dl>
-        <hr>
-        <p>A partir de agora, você pode acompanhar e/ou incluir respostas ao chamado.</p>
-        <p>Atenciosamente,</p>
-        <p>Equipe do <a href="http://condominiosimples.com.br/">Condomínio Simples</a></p>
-      subject: Você foi Envolvido em um Chamado Através do Site
-    # ---------------------------------------------------------------------------------------------
-    chamado_envolvido_removido:
-      mensagem_html: |
-        <p>Olá,</p>
-        <p>Você teve seu envolvimento removido de um chamado através do site:</p>
-        <hr>
-        <dl>
-          <dt>Título:</dt>
-          <dd>%{titulo}</dd>
-        </dl>
-        <hr>
-        <p>Atenciosamente,</p>
-        <p>Equipe do <a href="http://condominiosimples.com.br/">Condomínio Simples</a></p>
-      subject: Você Não Está mais Envolvido em um Chamado
-    # ---------------------------------------------------------------------------------------------
-    chamado_excluido:
-      mensagem_html: |
-        <p>Olá,</p>
-        <p>O chamado abaixo foi excluído através do site:</p>
-        <hr>
-        <dl>
-          <dt>Título:</dt>
-          <dd>%{titulo}</dd>
-          <dt>Autor:</dt>
-          <dd>%{autor}</dd>
-          <dt>Status:</dt>
-          <dd>%{status}</dd>
-          <dt>Categoria:</dt>
-          <dd>%{categoria}</dd>
-          <dt>Prioridade:</dt>
-          <dd>%{prioridade}</dd>
-          <dt>Local:</dt>
-          <dd>%{local}</dd>
-          <dt>Texto:</dt>
-          <dd>%{texto}</dd>
-          <dt>Usuário que excluiu o chamado:</dt>
-          <dd>%{usuario_atualizador}</dd>
-        </dl>
-        <hr>
-        <p>Atenciosamente,</p>
-        <p>Equipe do <a href="http://condominiosimples.com.br/">Condomínio Simples</a></p>
-      subject: Chamado Excluído Através do Site
-    # ---------------------------------------------------------------------------------------------
-    chamado_novo:
-      mensagem_html: |
-        <p>Olá,</p>
-        <p>Foi criado um novo chamado através do site:</p>
-        <hr>
-        <dl>
-          <dt>Categoria:</dt>
-          <dd>%{categoria}</dd>
-          <dt>Autor:</dt>
-          <dd>%{autor}</dd>
-          <dt>Título:</dt>
-          <dd>%{titulo}</dd>
-          <dt>Texto:</dt>
-          <dd>%{texto}</dd>
-          <dt>Local:</dt>
-          <dd>%{local}</dd>
-          <dt>Prioridade:</dt>
-          <dd>%{prioridade}</dd>
-          <dt>Status:</dt>
-          <dd>%{status}</dd>
-          <dt>Criado em:</dt>
-          <dd>%{criado_em}</dd>
-        </dl>
-        <hr>
-        <p>Atenciosamente,</p>
-        <p>Equipe do <a href="http://condominiosimples.com.br/">Condomínio Simples</a></p>
-      subject: Novo Chamado Através do Site
-    # ---------------------------------------------------------------------------------------------
-    chamado_respondido:
-      mensagem_html: |
-        <p>Olá,</p>
-        <p>O chamado '%{titulo}' recebeu nova resposta através do site:</p>
-        <hr>
-        <dl>
-          <dt>Criada em:</dt>
-          <dd>%{criada_em}</dd>
-          <dt>Autor:</dt>
-          <dd>%{autor}</dd>
-          <dt>Texto:</dt>
-          <dd>%{texto}</dd>
-        </dl>
-        <hr>
-        <p>Atenciosamente,</p>
-        <p>Equipe do <a href="http://condominiosimples.com.br/">Condomínio Simples</a></p>
-      subject: Chamado Atualizado Através do Site
-    # ---------------------------------------------------------------------------------------------
-    chamado_resposta_atualizada:
-      mensagem_html: |
-        <p>Olá,</p>
-        <p>O chamado '%{titulo}' teve uma resposta modificada através do site:</p>
-        <hr>
-        <dl>
-          <dt>Criada em:</dt>
-          <dd>%{criada_em}</dd>
-          <dt>Atualizada em:</dt>
-          <dd>%{atualizado_em}</dd>
-          <dt>Autor:</dt>
-          <dd>%{autor}</dd>
-          <dt>Texto:</dt>
-          <dd>%{texto}</dd>
-        </dl>
-        <hr>
-        <p>Atenciosamente,</p>
-        <p>Equipe do <a href="http://condominiosimples.com.br/">Condomínio Simples</a></p>
-      subject: Chamado Atualizado Através do Site
-    # ---------------------------------------------------------------------------------------------
     contato:
       mensagem_html: |
         <p>Olá,</p>
@@ -208,35 +57,8 @@ pt-BR:
         </dl>
         <hr>
         <p>Atenciosamente,</p>
-        <p>Equipe do <a href="http://condominiosimples.com.br/">Condomínio Simples</a></p>
+        <p>Equipe do <a href="http://saudecontrolada.com.br/">Saúde Controlada</a></p>
       subject: Novo contato
-    # ---------------------------------------------------------------------------------------------
-    convite:
-      mensagem_html: |
-        <p>Olá %{convidado},</p>
-        <p>Você foi convidado por %{convidado_por} para ingressar no condomínio %{condominio} dentro do sistema <a href="http://condominiosimples.com.br/">Condomínio Simples</a>.</p>
-        <p>Para isso, será necessário você criar seu cadastro clicando no link abaixo:</p>
-        <p><a href="http://condominiosimples.com.br/users/sign_up/">Criar meu cadastro</a></p>
-        <p>Caso você já tenha se cadastrado, basta entrar no sistema <a href="http://condominiosimples.com.br/users/sign_in/">clicando aqui</a> para visualizar o condomínio %{condominio}.</p>
-        <p>Atenciosamente,</p>
-        <p>Equipe do <a href="http://condominiosimples.com.br/">Condomínio Simples</a></p>
-      subject: Convite para ingressar no sistema Condomínio Simples
-    # ---------------------------------------------------------------------------------------------
-    convite_aceito_recusado:
-      mensagem_html: |
-        <p>Olá,</p>
-        <p>O convite de ingresso no %{condominio} para o usuário %{usuario} foi %{status}.
-        <p>Atenciosamente,</p>
-        <p>Equipe do <a href="http://condominiosimples.com.br/">Condomínio Simples</a></p>
-      subject: Convite %{status} por %{usuario}
-    # ---------------------------------------------------------------------------------------------
-    convite_excluido:
-      mensagem_html: |
-        <p>Olá,</p>
-        <p>Seu convite de ingresso no %{condominio} foi excluído por %{usuario}.
-        <p>Atenciosamente,</p>
-        <p>Equipe do <a href="http://condominiosimples.com.br/">Condomínio Simples</a></p>
-      subject: Convite Excluído do %{condominio}
     # ---------------------------------------------------------------------------------------------
     erro:
       mensagem_html: |
@@ -261,10 +83,10 @@ pt-BR:
           <dt>Dispositivo:</dt>
           <dd>%{dispositivo}</dd>
         </dl>
-        <a href="http://condominiosimples.com.br/erros/%{id}/edit">Ver o erro no site</a>
+        <a href="http://saudecontrolada.com.br/erros/%{id}/edit">Ver o erro no site</a>
         <hr>
         <p>Atenciosamente,</p>
-        <p>Equipe do <a href="http://condominiosimples.com.br/">Condomínio Simples</a></p>
+        <p>Equipe do <a href="http://saudecontrolada.com.br/">Saúde Controlada</a></p>
       subject: "Erro: %{erro}"
     # ---------------------------------------------------------------------------------------------
     novo_condo:
@@ -290,7 +112,7 @@ pt-BR:
         </dl>
         <hr>
         <p>Atenciosamente,</p>
-        <p>Equipe do <a href="http://condominiosimples.com.br/">Condomínio Simples</a></p>
+        <p>Equipe do <a href="http://saudecontrolada.com.br/">Saúde Controlada</a></p>
       subject: "Criado novo Condomínio: %{nome}"
     # ---------------------------------------------------------------------------------------------
     novo_user:
@@ -306,11 +128,8 @@ pt-BR:
         </dl>
         <hr>
         <p>Atenciosamente,</p>
-        <p>Equipe do <a href="http://condominiosimples.com.br/">Condomínio Simples</a></p>
+        <p>Equipe do <a href="http://saudecontrolada.com.br/">Saúde Controlada</a></p>
       subject: "Criado novo Usuário: %{email}"
-  # -----------------------------------------------------------------------------------------------
-  outros:
-    posicao_accordion: outros
   # -----------------------------------------------------------------------------------------------
   pesos:
     edit:
@@ -323,7 +142,6 @@ pt-BR:
   # -----------------------------------------------------------------------------------------------
   site:
     index:
-      slogan: 'como tem que ser ... simples!'
       texto_principal: |
         Sua saúde no controle das suas mãos.
       titulo_cadastrar: Crie sua conta

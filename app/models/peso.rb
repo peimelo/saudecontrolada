@@ -15,7 +15,7 @@ class Peso < ActiveRecord::Base
   def altura_br
     self.altura.to_s.gsub('.', ',')
   end
-  
+
   def imc
     self.peso / (self.altura * self.altura)
   end
@@ -29,7 +29,7 @@ class Peso < ActiveRecord::Base
   end
   
   def peso_ideal
-    "Entre #{(18.5 * self.altura * self.altura).round(2).to_s.gsub('.', ',')} e #{(24.99 * self.altura * self.altura).round(2).to_s.gsub('.', ',')}"
+    "#{(18.5 * self.altura * self.altura).round(2).to_s.gsub('.', ',')} ~ #{(24.99 * self.altura * self.altura).round(2).to_s.gsub('.', ',')}"
   end
 
   def situacao_imc
@@ -39,15 +39,15 @@ class Peso < ActiveRecord::Base
       when 17..18.49
         'Abaixo do peso'
       when 18.5..24.99
-        'Peso normal'
+        'Normal'
       when 25..29.99
         'Acima do peso'
       when 30..34.99
         'Obesidade I'
       when 35..39.99
-        'Obesidade II (severa)'
+        'Obesidade II (Severa)'
       when 40..1000
-        'Obesidade III (mórbida)'
+        'Obesidade III (Mórbida)'
     end
   end
 end

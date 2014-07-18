@@ -10,7 +10,7 @@
 <%- if resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
   <p><%= link_to t('devise.unlocks.link'), new_unlock_path(resource_name) %><p/>
 <% end -%>
-
+<hr>
 <p><%= t('devise.sessions.new.entrar_usando') %></p>
 <%- resource_class.omniauth_providers.each do |provider| %>
   <% imagem_provider = provider == :google_oauth2 ? 'google-plus' : provider %>
