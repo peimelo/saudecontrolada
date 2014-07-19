@@ -9,15 +9,14 @@
   <%= f.input :nome %>
   <%= f.input :descricao, as: :text, input_html: {rows: 5} %>
   <%= f.input :usuario_email %>
-  <%= f.input :condo_nome %>
   <%= f.input :ip %>
   <%= f.input :dispositivo %>
   <%= f.input :resolucao, as: :text, autofocus: true, input_html: { readonly: false, rows: 5 } %>
   <%= f.input :erro_status_id, collection: Hash[ErroStatus.all.map{|b| [b.nome, b.id]}],
     input_html: { readonly: false } %>
 
-  <%= botao_salvar %>
-  <%= botao_cancelar erros_path %>
+  <%= botao_salvar, Erro %>
+  <%= botao_cancelar erros_path, Erro %>
 <% end %>
 <br />
 <%= botao_excluir @erro, Erro, { texto_botao: t('links.excluir') } %>

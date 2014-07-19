@@ -1,7 +1,6 @@
 <%= currently_at t('dashboard.menu') %>
 <%= titulo raw('<i class="fa fa-dashboard"></i> ') + t('dashboard.menu') %>
 
-
 <div class="panel panel-primary">
   <div class="panel-heading">
     <h3 class="panel-title"><%= raw('<i class="fa fa-cutlery"></i> ') + Peso.model_name.human %></h3>
@@ -10,6 +9,6 @@
     <%= high_chart('chart', @chart) %>
   </div>
   <div class="panel-footer">
-    Peso médio (Kg): <%= number_to_human @peso_medio %>
+    Peso médio (Kg): <%= number_to_human @peso_medio, precision: 4 %>
   </div>
 </div>

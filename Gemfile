@@ -31,6 +31,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'simple_form', '~> 3.1.0.rc2', github: 'plataformatec/simple_form'
 
+# enviar e-mail em background
+gem 'delayed_job_active_record'
+gem 'daemons'
+gem 'delayed_job_web'
+
 # pdf
 gem 'prawn'
 

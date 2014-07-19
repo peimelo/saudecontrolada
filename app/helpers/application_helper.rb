@@ -89,7 +89,17 @@ module ApplicationHelper
     link_to raw(title + icone), sort: column, direction: direction
   end
 
+  def tem_permissao?(acao, controlador=controller.controller_name)
+    privileges = find_privileges
+    privileges.item_existe?(acao, controlador) || session[:administrador]
+  end
+
   def titulo(title)
     content_tag(:h3, title)
   end
+
+  private
+    def find_privileges
+      session[:privileges] ||= Privileges.new
+    end
 end

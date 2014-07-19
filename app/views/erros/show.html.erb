@@ -1,4 +1,12 @@
 <%= currently_at t('.titulo') %>
-<h2><i class="fa fa-bug"></i> <%= t('mensagens.erros.pedimos_desculpa') %></h2>
-<hr>
-<h3><%= @mensagem %></h3>
+<div class="panel panel-danger">
+  <div class="panel-heading">
+    <h3 class="panel-title"><i class="fa fa-bug"></i> <%= t('mensagens.erros.pedimos_desculpa') %></h3>
+  </div>
+  <div class="panel-body">
+    <%= @mensagem %>
+  </div>
+  <div class="panel-footer">
+    <%= t('mensagens.erros.footer') %>
+  </div>
+</div>

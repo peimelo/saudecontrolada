@@ -1,8 +1,0 @@
-<%= t '.mensagem_html',
-      {quando: l(@condo.created_at),
-       nome: @condo.nome,
-       endereco: (@condo.endereco.endereco + ', ' + @condo.endereco.numero rescue nil),
-       complemento: (@condo.endereco.complemento rescue nil),
-       bairro: (@condo.endereco.bairro rescue nil),
-       cep: (@condo.endereco.cep rescue nil),
-       cidade_estado: (@condo.endereco.cidade + ' - ' + @condo.endereco.uf rescue nil)} %>

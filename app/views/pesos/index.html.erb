@@ -2,7 +2,9 @@
 <%- model_class = Peso -%>
 <%= titulo raw('<i class="fa fa-cutlery"></i> ') + model_class.model_name.human %>
 
-<%= high_chart('chart', @chart) %>
+<% if @pesos.size > 1 %>
+  <%= high_chart('chart', @chart) %>
+<% end %>
 
 <div class="row">
   <div class="col-xs-6"><%= botao_incluir 'pesos', model_class %></div>
@@ -21,8 +23,8 @@
 
 <br />
 
+<%= page_entries_info @pesos, model: model_class %>
 <% if not @pesos.empty? %>
-  <%= page_entries_info(@pesos) %>
   <div class="table-responsive">
     <table class="table table-bordered table-condensed table-hover table-striped">
       <thead>

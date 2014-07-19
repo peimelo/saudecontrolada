@@ -65,6 +65,14 @@ class User < ActiveRecord::Base
     end
   end
 
+  def self.search(search)
+    if search
+      where('name LIKE ?', "%#{search}%")
+    else
+      all
+    end
+  end
+
   def update_with_password(params={})
     current_password = params.delete(:current_password)
     check_password = true

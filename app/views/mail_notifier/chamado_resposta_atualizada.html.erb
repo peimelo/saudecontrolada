@@ -1,8 +1,0 @@
-<%= t '.mensagem_html',
-  {
-  	autor: @resposta.pessoa.nome,
-  	criada_em: l(@resposta.created_at),
-   	texto: @resposta.texto.html_safe,
-   	titulo: @chamado.titulo,
-   	atualizado_em: l(@resposta.updated_at)
-   } %>

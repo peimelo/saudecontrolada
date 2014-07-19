@@ -76,8 +76,6 @@ pt-BR:
           <dd>%{descricao}</dd>
           <dt>Usuário:</dt>
           <dd>%{usuario}</dd>
-          <dt>Condomínio:</dt>
-          <dd>%{condo}</dd>
           <dt>IP:</dt>
           <dd>%{ip}</dd>
           <dt>Dispositivo:</dt>
@@ -166,7 +164,7 @@ pt-BR:
     page_gap: "&hellip;"
     page_entries_info:
       single_page_html:
-        zero:  "Nenhum(a) %{model} encontrado(a)"
-        one:   "%{model} (%{count})"
-        other: "%{model} (%{count})"
+        zero:  "Nenhum registro de %{model} encontrado."
+        one:   "%{model} (cadastre mais para ver o gráfico)"
+        other: "%{model} (exibindo: %{count} registros)"
       multi_page_html: "%{model} (exibindo: <strong>%{from}&nbsp;-&nbsp;%{to}</strong> de <strong>%{count}</strong>)"

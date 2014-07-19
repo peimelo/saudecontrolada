@@ -1,0 +1,33 @@
+<%= currently_at t('users.menu') %>
+<%- model_class = User -%>
+<%- pode_alterar = tem_permissao?('edit') -%>
+<%- pode_excluir = tem_permissao?('destroy') -%>
+<%= titulo page_entries_info @users, model: model_class %>
+
+<%= t('labels.download_em') %>
+<%= link_to 'Excel', users_path(format: 'xls') %>
+&nbsp;|&nbsp; 
+<%= link_to 'PDF', users_path(format: 'pdf') %>
+<div class="table-responsive">
+  <table class="table table-bordered table-condensed table-hover table-striped">
+    <thead>
+      <tr>
+        <th><%= sortable model_class, 'created_at' %></th>
+        <th><%= sortable model_class, 'email' %></th>
+        <th><%= sortable model_class, 'current_sign_in_at' %></th>
+        <th><%= sortable model_class, 'sign_in_count' %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |registro| %>
+        <tr>
+          <td><%= l(registro.created_at, format: :data_hora) %></td>
+          <td><%= registro.email %></td>
+          <td><%= l(registro.current_sign_in_at, format: :data_hora) unless registro.current_sign_in_at.blank? %></td>
+          <td><%= registro.sign_in_count %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<%= will_paginate %>
