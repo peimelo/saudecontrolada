@@ -1,6 +1,5 @@
 class Erro < ActiveRecord::Base
   # relacionamentos -------------------------------------------------------------------------------
-  belongs_to :condo
   belongs_to :erro_status
   belongs_to :recurso
   belongs_to :user

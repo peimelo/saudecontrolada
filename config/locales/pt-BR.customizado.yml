@@ -45,7 +45,6 @@ pt-BR:
       pagina_nao_encontrada: A página que você tentou acessar não existe.
       pedimos_desculpa: Ops, ocorreu um Erro
       registro_nao_encontrado: O registro que você tentou acessar não existe ou deve ter sido excluído.
-      selecione_condominio: Selecione um condomínio para poder acessar essa funcionalidade.
       preencher_endereco: Desculpe, mas não foi possível preencher o endereço automaticamente.
       sem_permissao: Você não tem permissão para acessar essa funcionalidade.
     flash:

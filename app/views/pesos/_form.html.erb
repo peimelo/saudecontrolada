@@ -2,7 +2,7 @@
 <%= simple_form_for(@peso) do |f| %>
   <%= f.input :data, as: :string,
               input_html: { 'value' => @peso.data.nil? ? '' : l(@peso.data) } %>
-  <%= f.input :altura, as: :string, input_html: { 'value' => number_to_human(@peso.altura) } %>
+  <%= f.input :altura, as: :string, input_html: { 'value' => number_to_human(@peso.altura, precision: 3) } %>
   <%= f.input :peso, as: :string, autofocus: true, input_html: { 'value' => number_to_human(@peso.peso, precision: 4) } %>
   <%= botao_salvar %>
   <%= botao_cancelar pesos_path %>

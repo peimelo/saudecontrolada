@@ -11,11 +11,9 @@ class User < ActiveRecord::Base
          :validatable,
          :timeoutable
 
-  # Setup accessible (or protected) attributes for your model
-  #  attr_accessible :email, :name, :password, :password_confirmation, :remember_me
-
   # relacionamentos -------------------------------------------------------------------------------
   has_many :authentication, dependent: :delete_all
+  has_many :erro, dependent: :nullify
   has_many :peso, dependent: :delete_all
 
   # validações ------------------------------------------------------------------------------------

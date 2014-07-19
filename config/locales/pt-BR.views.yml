@@ -22,6 +22,12 @@ pt-BR:
   # -----------------------------------------------------------------------------------------------
   dashboard:
     menu: Painel da Saúde
+    index:
+      imc: Índice de Massa Corporal (IMC)
+      meu_imc: '<strong>IMC</strong>'
+      peso_por_data: Peso por Data
+      peso_medio: '<strong>Peso Médio</strong>'
+  # -----------------------------------------------------------------------------------------------
   erros:
     edit:
       titulo: Alterando Erro
@@ -31,7 +37,6 @@ pt-BR:
   # -----------------------------------------------------------------------------------------------
   layouts:
     main_nav:
-      meus_condominios: Meus Condomínios
       minha_conta: Minha Conta
       sair: Sair
   # -----------------------------------------------------------------------------------------------
@@ -87,32 +92,6 @@ pt-BR:
         <p>Equipe do <a href="http://saudecontrolada.com.br/">Saúde Controlada</a></p>
       subject: "Erro: %{erro}"
     # ---------------------------------------------------------------------------------------------
-    novo_condo:
-      mensagem_html: |
-        <p>Olá,</p>
-        <p>Um novo condomínio foi criado através do site:</p>
-        <hr>
-        <dl>
-          <dt>Quando:</dt>
-          <dd>%{quando}</dd>
-          <dt>Nome:</dt>
-          <dd>%{nome}</dd>
-          <dt>Endereço:</dt>
-          <dd>%{endereco}</dd>
-          <dt>Complemento:</dt>
-          <dd>%{complemento}</dd>
-          <dt>Bairro:</dt>
-          <dd>%{bairro}</dd>
-          <dt>CEP:</dt>
-          <dd>%{cep}</dd>
-          <dt>Cidade - Estado:</dt>
-          <dd>%{cidade_estado}</dd>
-        </dl>
-        <hr>
-        <p>Atenciosamente,</p>
-        <p>Equipe do <a href="http://saudecontrolada.com.br/">Saúde Controlada</a></p>
-      subject: "Criado novo Condomínio: %{nome}"
-    # ---------------------------------------------------------------------------------------------
     novo_user:
       mensagem_html: |
         <p>Olá,</p>
@@ -165,6 +144,6 @@ pt-BR:
     page_entries_info:
       single_page_html:
         zero:  "Nenhum registro de %{model} encontrado."
-        one:   "%{model} (cadastre mais para ver o gráfico)"
+        one:   "%{model} (exibindo: %{count} registro)"
         other: "%{model} (exibindo: %{count} registros)"
       multi_page_html: "%{model} (exibindo: <strong>%{from}&nbsp;-&nbsp;%{to}</strong> de <strong>%{count}</strong>)"

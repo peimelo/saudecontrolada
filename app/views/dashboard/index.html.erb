@@ -3,12 +3,24 @@
 
 <div class="panel panel-primary">
   <div class="panel-heading">
-    <h3 class="panel-title"><%= raw('<i class="fa fa-cutlery"></i> ') + Peso.model_name.human %></h3>
+    <h3 class="panel-title"><%= t('.imc') %></h3>
   </div>
   <div class="panel-body">
-    <%= high_chart('chart', @chart) %>
+    <%= high_chart('imc', @chart_imc) %>
   </div>
   <div class="panel-footer">
-    Peso médio (Kg): <%= number_to_human @peso_medio, precision: 4 %>
+    <%= raw "#{ t('.meu_imc') }: #{ number_to_human @peso_atual.imc, precision: 4 } (#{ @peso_atual.situacao_imc })" %>
+  </div>
+</div>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= raw('<i class="fa fa-cutlery"></i> ') + t('.peso_por_data') %></h3>
+  </div>
+  <div class="panel-body">
+    <%= high_chart('peso', @chart_peso) %>
+  </div>
+  <div class="panel-footer">
+    <%= raw "#{ t('.peso_medio') }: #{ number_to_human @peso_medio, precision: 4 } Kg"%>
   </div>
 </div>

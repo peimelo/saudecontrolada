@@ -8,7 +8,6 @@ pt-BR:
         ip: IP
         telefones: Telefone(s)
       erro:
-        condo_nome: Condomínio
         created_at: Quando
         descricao: Descrição
         ip: IP
