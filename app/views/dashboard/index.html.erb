@@ -1,15 +1,19 @@
 <%= currently_at t('dashboard.menu') %>
 <%= titulo raw('<i class="fa fa-dashboard"></i> ') + t('dashboard.menu') %>
-
+<% link_peso = link_to t('pesos.menu'), new_peso_path %>
 <div class="panel panel-primary">
   <div class="panel-heading">
     <h3 class="panel-title"><%= t('.imc') %></h3>
   </div>
   <div class="panel-body">
-    <%= high_chart('imc', @chart_imc) %>
+    <%= high_chart('imc', @chart_imc) unless @peso_atual.nil? %>
   </div>
   <div class="panel-footer">
-    <%= raw "#{ t('.meu_imc') }: #{ number_to_human @peso_atual.imc, precision: 4 } (#{ @peso_atual.situacao_imc })" %>
+    <% if @peso_atual.nil? %>
+      <%= raw t('.sem_dados') %><%= link_peso %>
+    <% else %>
+      <%= raw "#{ t('.meu_imc') }: #{ number_to_human @peso_atual.imc, precision: 4 } (#{ @peso_atual.situacao_imc })" %>
+    <% end %>
   </div>
 </div>
 
@@ -18,9 +22,13 @@
     <h3 class="panel-title"><%= raw('<i class="fa fa-cutlery"></i> ') + t('.peso_por_data') %></h3>
   </div>
   <div class="panel-body">
-    <%= high_chart('peso', @chart_peso) %>
+    <%= high_chart('peso', @chart_peso) unless @peso_atual.nil? %>
   </div>
   <div class="panel-footer">
-    <%= raw "#{ t('.peso_medio') }: #{ number_to_human @peso_medio, precision: 4 } Kg"%>
+    <% if @peso_atual.nil? %>
+      <%= raw t('.sem_dados') %><%= link_peso %>
+    <% else %>
+      <%= raw "#{ t('.peso_medio') }: #{ number_to_human @peso_medio, precision: 4 } Kg" %>
+    <% end %>
   </div>
 </div>

@@ -27,6 +27,7 @@ pt-BR:
       meu_imc: '<strong>IMC</strong>'
       peso_por_data: Peso por Data
       peso_medio: '<strong>Peso Médio</strong>'
+      sem_dados: '<strong>Para gerarmos o gráfico é preciso incluir registros em </strong>'
   # -----------------------------------------------------------------------------------------------
   erros:
     edit:

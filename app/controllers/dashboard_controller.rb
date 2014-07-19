@@ -102,7 +102,7 @@ class DashboardController < ApplicationController
 
       f.legend(align: 'center', borderWidth: 1, layout: 'horizontal')
 
-      f.plotOptions(line: { lineWidth: 4, marker: { enabled: false } })
+      f.plotOptions(line: { lineWidth: 4, marker: { enabled: peso.size > 1 ? false : true } })
     end
   end
 end
