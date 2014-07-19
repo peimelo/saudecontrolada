@@ -9,6 +9,8 @@ pt-BR:
 
   labels:
     download_em: 'Download em: '
+    download_excel: 'Download Excel'
+    download_pdf: 'Download PDF'
     filtro: 'Filtro aplicado: '
 
   links:

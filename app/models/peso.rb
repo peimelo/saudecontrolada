@@ -12,9 +12,9 @@ class Peso < ActiveRecord::Base
     write_attribute(:altura, value.to_s.gsub(',', '.').to_f)
   end
   
-  def altura_br
-    self.altura.to_s.gsub('.', ',')
-  end
+  # def altura_br
+  #   self.altura.to_s.gsub('.', ',')
+  # end
 
   def imc
     self.peso / (self.altura * self.altura)
@@ -24,9 +24,9 @@ class Peso < ActiveRecord::Base
     write_attribute(:peso, value.to_s.gsub(',', '.').to_f)
   end
 
-  def peso_br
-    self.peso.to_s.gsub('.', ',')
-  end
+  # def peso_br
+  #   self.peso.to_s.gsub('.', ',')
+  # end
   
   def peso_ideal
     "#{(18.5 * self.altura * self.altura).round(2).to_s.gsub('.', ',')} ~ #{(24.99 * self.altura * self.altura).round(2).to_s.gsub('.', ',')}"

@@ -4,7 +4,22 @@
 
 <%= high_chart('chart', @chart) %>
 
-<p><%= botao_incluir 'pesos', model_class %></p>
+<div class="row">
+  <div class="col-md-6"><%= botao_incluir 'pesos', model_class %></div>
+  <div class="col-md-6">
+    <div class="btn-group pull-right">
+      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+        <i class="fa fa-download fa-lg"></i> <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" role="menu">
+        <li><a href="#"><%= link_to t('labels.download_excel'), pesos_path(format: 'xls') %></li><a>
+        <li><a href="#"><%= link_to t('labels.download_pdf'), pesos_path(format: 'pdf') %></a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<br />
 
 <% if not @pesos.empty? %>
   <div class="table-responsive">
@@ -12,9 +27,9 @@
       <thead>
         <tr>
           <th><%= t('bootstrap.actions') %></th>
-          <th><%= model_class.human_attribute_name(:data) %></th>
-          <th><%= model_class.human_attribute_name(:altura) %></th>
-          <th><%= model_class.human_attribute_name(:peso) %></th>
+          <th><%= sortable model_class, 'data' %></th>
+          <th><%= sortable model_class, 'altura' %></th>
+          <th><%= sortable model_class, 'peso' %></th>
           <th><%= model_class.human_attribute_name(:peso_ideal) %></th>
           <th><%= model_class.human_attribute_name(:situacao_imc) %></th>
         </tr>
@@ -26,9 +41,9 @@
               <%= botao_alterar registro, edit_peso_path(registro), model_class %>
               <%= botao_excluir registro, l(registro.data), model_class %>
             </td>
-            <td><%= l(registro.data, format: :default) %></td>
-            <td><%= registro.altura_br %></td>
-            <td><%= registro.peso_br %></td>
+            <td><%= l(registro.data) %></td>
+            <td><%= number_to_human(registro.altura) %></td>
+            <td><%= number_to_human(registro.peso, precision: 4) %></td>
             <td><%= registro.peso_ideal %></td>
             <td><%= registro.situacao_imc %></td>
           </tr>

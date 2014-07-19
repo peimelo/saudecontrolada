@@ -5,94 +5,58 @@ class DashboardController < ApplicationController
     peso_atual = current_user.peso.page(params[:page]).order('data DESC, created_at DESC').first
     return if peso_atual.nil?
 
-    altura = [0]
+    altura = []
     (1.5..2).step(0.05).each do |a|
       altura << a
     end
 
-
-    imc = [nil]
-    peso = [0]
+    imc = []
+    peso = []
     (50..150).step(5).each do |p|
+      imc << nil
       peso << p
+    end
 
-      if peso_atual.peso > 0 and peso_atual.peso < 50
-        imc << peso_atual.altura.to_f
-      elsif peso_atual.peso >= p and peso_atual.peso < (p + 5)
-        imc << peso_atual.altura.to_f
-      else
-        imc << nil
+    i = 0
+    (50..150).step(5).each do |p|
+      if peso_atual.peso <= p
+        imc[i] = peso_atual.altura.to_f
+        break
       end
+      i += 1
     end
 
     @chart = LazyHighCharts::HighChart.new('graph') do |f|
-      f.xAxis(categories: peso)
+      f.xAxis(categories: peso, title: { text: 'Peso (Kg)' })
 
-      f.title(text: 'Tabela de Índice de Massa Corporal - IMC')
+      f.title(text: 'Índice de Massa Corporal - IMC')
       f.tooltip(valueSuffix: ' m')
+      f.yAxis(title: { text: 'Altura (m)' })
 
-      # f.plotOptions(
-      #     areaspline: {
-      #         pointStart: 50,
-      #         marker: {
-      #             enabled: false,
-      #             symbol: 'circle',
-      #             radius: 2,
-      #             states: {
-      #                 hover: {
-      #                     enabled: true
-      #                 }
-      #             }
-      #         }
-      #     }
-      # )
+      f.plotOptions(area: { marker: { enabled: false, symbol: 'circle' } })
 
-      #f.series(name: 'Limite Má  data: [  50,  55,  60,  65,  70,  75,  80,  85,  90,  95, 100, 105, 110, 115, 120, 125, 130, 135, 140])
-      f.series(
-        type: 'area',
-        name: 'Abaixo do peso',
-        color: '#cf9b98',
-        data: [   2,   2,   2,   2,   2,   2,   2,   2,   2,   2,   2,   2,   2,   2,   2,   2,   2,   2,   2,   2]
+      #fdata: [  50,  55,  60,  65,  70,  75,  80,  85,  90,  95, 100, 105, 110, 115, 120, 125, 130, 135, 140])
+      f.series( type: 'area', name: 'Abaixo do peso', color: '#cf9b98',
+        data: [   2,   2,   2,   2,   2,   2,   2,   2,   2,   2,   2,   2,   2,   2,   2,   2,   2,   2,   2]
       )
-      f.series(
-        type: 'area',
-        name: 'Normal',
-        color: '#a3c853',
-        data: [ 1.6, 1.6, 1.7, 1.8,1.85, 1.9,   2,   2,   2,   2,   2,   2,   2,   2,   2,   2,   2,   2,   2,   2]
+      f.series( type: 'area', name: 'Normal', color: '#a3c853',
+        data: [ 1.6, 1.7, 1.8,1.85, 1.9,   2,   2,   2,   2,   2,   2,   2,   2,   2,   2,   2,   2,   2,   2]
       )
-      f.series(
-        type: 'area',
-        name: 'Acima do peso',
-        color: '#f7be34',
-        data: [   0,   0, 1.5, 1.5, 1.6,1.65, 1.7,1.75, 1.8,1.85, 1.9,   2,   2,   2,   2,   2,   2,   2,   2,   2]
+      f.series(type: 'area', name: 'Acima do peso', color: '#f7be34',
+        data: [   0, 1.5, 1.5, 1.6,1.65, 1.7,1.75, 1.8,1.85, 1.9,   2,   2,   2,   2,   2,   2,   2,   2,   2]
       )
-      f.series(
-        type: 'area',
-        name: 'Obesidade I',
-        color: '#cf9b98',
-        data: [   0,   0,   0,   0, 1.5, 1.5,1.55, 1.6,1.65, 1.7,1.75, 1.8,1.85, 1.9,1.95,   2,   2,   2,   2,   2]
+      f.series(type: 'area',name: 'Obesidade I', color: '#cf9b98',
+        data: [   0,   0,   0, 1.5, 1.5,1.55, 1.6,1.65, 1.7,1.75, 1.8,1.85, 1.9,1.95,   2,   2,   2,   2,   2]
       )
-      f.series(
-        type: 'area',
-        name: 'Obesidade II (Severa)',
-        color: '#b02e25',
-        data: [   0,   0,   0,   0,   0,   0, 1.5, 1.5,1.55, 1.6, 1.6,1.65, 1.7,1.75, 1.8,1.85,1.85, 1.9,1.95,   2]
+      f.series(type: 'area', name: 'Obesidade II (Severa)', color: '#b02e25',
+        data: [   0,   0,   0,   0,   0, 1.5, 1.5,1.55, 1.6, 1.6,1.65, 1.7,1.75, 1.8,1.85,1.85, 1.9,1.95,   2]
       )
-      f.series(
-        type: 'area',
-        name: 'Obesidade III (Mórbida)',
-        color: '#8a403b',
-        data: [   0,   0,   0,   0,   0,   0,   0,   0, 1.5, 1.5, 1.5,1.55, 1.6,1.75, 1.8,1.85,1.85, 1.9,1.95,   2]
+      f.series(type: 'area', name: 'Obesidade III (Mórbida)', color: '#8a403b',
+        data: [   0,   0,   0,   0,   0,   0,   0, 1.5, 1.5, 1.5,1.55, 1.6,1.75, 1.8,1.85,1.85, 1.9,1.95,   2]
       )
-      f.series(
-        type: 'scatter',
-        name: 'Você',
-        color: '#000000',
+      f.series(type: 'scatter', name: 'Você', color: '#000000',
         data: imc,
-      # [ nil, nil, nil, nil, nil, nil, 1.8, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
-        marker: {
-          radius: 5
-        }
+        marker: { radius: 5 }
       )
 
       f.legend(align: 'center', borderWidth: 1, layout: 'horizontal')

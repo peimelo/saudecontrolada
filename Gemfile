@@ -29,8 +29,10 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'devise'
-gem 'simple_form', '~> 3.1.0.rc1', github: 'plataformatec/simple_form'
-# gem 'zurb-foundation', '~> 4.3.0'
+gem 'simple_form', '~> 3.1.0.rc2', github: 'plataformatec/simple_form'
+
+# pdf
+gem 'prawn'
 
 # usar no migrate comando para gerar fk
 gem 'foreigner', '~> 1.4.1'

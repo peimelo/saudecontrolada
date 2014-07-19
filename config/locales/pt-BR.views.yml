@@ -159,3 +159,14 @@ pt-BR:
     edit:
       titulo: Alterando Usuário
     menu: Usuários
+  # will_paginate ---------------------------------------------------------------------------------
+  will_paginate:
+    previous_label: "&#8592; Anterior"
+    next_label: "Próximo &#8594;"
+    page_gap: "&hellip;"
+    page_entries_info:
+      single_page_html:
+        zero:  "Nenhum(a) %{model} encontrado(a)"
+        one:   "%{model} (%{count})"
+        other: "%{model} (%{count})"
+      multi_page_html: "%{model} (%{from}&nbsp;-&nbsp;%{to} de %{count})"

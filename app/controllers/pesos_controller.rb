@@ -1,10 +1,12 @@
 class PesosController < ApplicationController
+  helper_method :sort_column, :sort_direction
+
   before_action :set_peso, only: [:show, :edit, :update, :destroy]
 
   # GET /pesos
   # GET /pesos.json
   def index
-    @pesos = current_user.peso.page(params[:page]).order('data DESC, created_at DESC')
+    @pesos = current_user.peso.page(params[:page]).order(sort_column + ' ' + sort_direction)
 
     categories = []
     maximo = []
@@ -18,16 +20,27 @@ class PesosController < ApplicationController
     end
 
     @chart = LazyHighCharts::HighChart.new('graph') do |f|
-      f.xAxis(categories: categories, labels: { step: categories.size/2 })
+      f.xAxis(categories: categories, labels: { step: categories.size/3 })
 
       f.title(text: 'Evolução do Peso por Data')
       f.tooltip(valueSuffix: ' Kg')
 
-      f.series(name: 'Limite Máximo', data: maximo)
+      f.series(name: 'Limite Máximo', data: maximo, color: '#8a403b')
       f.series(name: 'Peso', data: peso)
-      f.series(name: 'Limite Mínimo', data: minimo)
+      f.series(name: 'Limite Mínimo', data: minimo, color: '#b02e25')
 
       f.legend(align: 'center', borderWidth: 1, layout: 'horizontal')
+
+      f.plotOptions(line: { lineWidth: 4, marker: { enabled: false } })
+    end
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = PesosPdf.new(@pesos, Peso)
+        send_data pdf.render, filename: (Peso.model_name.human + '.pdf'), disposition: 'inline'
+      end
+      format.xls
     end
   end
 
@@ -87,13 +100,21 @@ class PesosController < ApplicationController
   end
 
   private
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def peso_params
+      params.require(:peso).permit(:altura, :data, :peso)
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_peso
       @peso = current_user.peso.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def peso_params
-      params.require(:peso).permit(:altura, :data, :peso)
+    def sort_column
+      Peso.column_names.include?(params[:sort]) ? params[:sort] : 'data'
+    end
+
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : 'desc'
     end
 end

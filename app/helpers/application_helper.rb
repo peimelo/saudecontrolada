@@ -11,12 +11,12 @@ module ApplicationHelper
   # id: é usado para os testes das features
   def botao_alterar(registro, path, model, options={})
     options = {
-        class: 'btn btn-primary',
+        class: 'btn btn-default',
         id: "#{ t('links.alterar') }_#{registro.id}",
         title: t('titles.alterar', model: model.model_name.human)
     }.merge(options)
 
-    label = raw('<i class="glyphicon glyphicon-pencil"></i> ')
+    label = raw('<i class="fa fa-pencil fa-lg"></i> ')
 
     link_to label, path, options
   end
@@ -39,7 +39,7 @@ module ApplicationHelper
         title: t('titles.excluir', model: model.model_name.human)
     }.merge(options)
 
-    label = raw('<i class="glyphicon glyphicon-trash"></i> ')
+    label = raw('<i class="fa fa-trash-o fa-lg"></i> ')
 
     link_to label, registro, options
   end
@@ -53,7 +53,7 @@ module ApplicationHelper
         title: t('titles.incluir', model: model.model_name.human)
     }.merge(options)
 
-    label = raw('<i class="fa fa-plus"></i> ') + t('links.incluir')
+    label = raw('<i class="fa fa-file-o fa-lg"></i> ') + t('links.incluir')
 
     link_to label, { controller: controller, action: :new }, options
   end
@@ -80,6 +80,14 @@ module ApplicationHelper
 
   def corrigir_erros(tem_erro)
     render partial: 'layouts/alert_model_error', locals: {tem_erro: tem_erro}
+  end
+
+  def sortable(model, column)
+    title = model.human_attribute_name(column)
+    icone = column == sort_column ? " <i class='fa fa-sort-#{sort_direction}'></i>" : ''
+    direction = column == sort_column && sort_direction == 'asc' ? 'desc' : 'asc'
+
+    link_to raw(title + icone), sort: column, direction: direction
   end
 
   def titulo(title)
