@@ -1,7 +1,7 @@
 module ApplicationHelper
   def botao(label, options={})
     options = {
-      class: 'btn btn-primary'#,
+      class: 'btn btn-primary'
     }.merge(options)
 
     button_tag label, options
@@ -64,7 +64,7 @@ module ApplicationHelper
   def botao_link(label, path, options={})
     options = {
       class: 'btn btn-primary',
-      method: :get,
+      method: :get
     }.merge(options)
 
     link_to label, path, options
@@ -72,7 +72,7 @@ module ApplicationHelper
 
   def botao_salvar(options={})
     options = {
-        class: 'btn btn-primary',
+        class: 'btn btn-primary'
     }.merge(options)
 
     label = raw('<i class="glyphicon glyphicon-ok"></i> ') + t('links.salvar')
