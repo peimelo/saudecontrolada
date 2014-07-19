@@ -4,6 +4,6 @@
               input_html: { 'value' => @peso.data.nil? ? '' : l(@peso.data) } %>
   <%= f.input :altura, as: :string, input_html: { 'value' => number_to_human(@peso.altura) } %>
   <%= f.input :peso, as: :string, autofocus: true, input_html: { 'value' => number_to_human(@peso.peso, precision: 4) } %>
-  <%= botao_salvar %>
-  <%= botao_cancelar pesos_path %>
+  <%= botao_salvar Peso %>
+  <%= botao_cancelar pesos_path, Peso %>
 <% end %>

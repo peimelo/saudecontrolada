@@ -29,7 +29,7 @@ class DashboardController < ApplicationController
     @chart = LazyHighCharts::HighChart.new('graph') do |f|
       f.xAxis(categories: peso, title: { text: 'Peso (Kg)' })
 
-      f.title(text: 'Índice de Massa Corporal - IMC')
+      f.title(text: 'Índice de Massa Corporal (IMC)')
       f.tooltip(valueSuffix: ' m')
       f.yAxis(title: { text: 'Altura (m)' })
 

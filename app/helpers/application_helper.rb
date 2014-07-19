@@ -1,8 +1,7 @@
 module ApplicationHelper
   def botao(label, options={})
     options = {
-        class: 'btn btn-primary'#,
-        # data: { disable_with: t('links.disable_with') }
+      class: 'btn btn-primary'#,
     }.merge(options)
 
     button_tag label, options
@@ -11,9 +10,9 @@ module ApplicationHelper
   # id: é usado para os testes das features
   def botao_alterar(registro, path, model, options={})
     options = {
-        class: 'btn btn-default',
-        id: "#{ t('links.alterar') }_#{registro.id}",
-        title: t('titles.alterar', model: model.model_name.human)
+      class: 'btn btn-default',
+      id: "#{ t('links.alterar') }_#{registro.id}",
+      title: t('titles.alterar', model: model.model_name.human)
     }.merge(options)
 
     label = raw('<i class="fa fa-pencil fa-lg"></i> ')
@@ -21,9 +20,10 @@ module ApplicationHelper
     link_to label, path, options
   end
 
-  def botao_cancelar(url, options={})
+  def botao_cancelar(url, model, options={})
     options = {
-        class: 'btn btn-default'
+      class: 'btn btn-default',
+      title: t('titles.cancelar', model: model.model_name.human)
     }.merge(options)
 
     link_to t('links.cancelar'), url, options
@@ -31,12 +31,12 @@ module ApplicationHelper
 
   def botao_excluir(registro, registro_nome, model, options={})
     options = {
-        class: 'btn btn-danger',
-        data: {
-            confirm: t('crud.tabela.confirmar_excluir_registro', crud: model.model_name.human, registro: registro_nome)
-        },
-        method: :delete,
-        title: t('titles.excluir', model: model.model_name.human)
+      class: 'btn btn-danger',
+      data: {
+          confirm: t('crud.tabela.confirmar_excluir_registro', crud: model.model_name.human, registro: registro_nome)
+      },
+      method: :delete,
+      title: t('titles.excluir', model: model.model_name.human)
     }.merge(options)
 
     label = raw('<i class="fa fa-trash-o fa-lg"></i> ')
@@ -46,11 +46,10 @@ module ApplicationHelper
 
   def botao_incluir(controller, model, options={})
     options = {
-        class: 'btn btn-primary',
-        # data: { disable_with: t('links.disable_with') },
-        id: t('links.incluir'),
-        method: :get,
-        title: t('titles.incluir', model: model.model_name.human)
+      class: 'btn btn-primary',
+      id: t('links.incluir'),
+      method: :get,
+      title: t('titles.incluir', model: model.model_name.human)
     }.merge(options)
 
     label = raw('<i class="fa fa-file-o fa-lg"></i> ') + t('links.incluir')
@@ -60,17 +59,17 @@ module ApplicationHelper
 
   def botao_link(label, path, options={})
     options = {
-        class: 'btn btn-primary',
-        method: :get,
+      class: 'btn btn-primary',
+      method: :get,
     }.merge(options)
 
     link_to label, path, options
   end
 
-  def botao_salvar(options={})
+  def botao_salvar(model, options={})
     options = {
-        class: 'btn btn-primary',
-        #data: { disable_with: t('links.disable_with') }
+      class: 'btn btn-primary',
+      title: t('titles.salvar', model: model.model_name.human)
     }.merge(options)
 
     label = raw('<i class="glyphicon glyphicon-ok"></i> ') + t('links.salvar')

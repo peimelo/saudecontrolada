@@ -1,14 +1,14 @@
 <%= currently_at t('pesos.menu') %>
 <%- model_class = Peso -%>
-<%= titulo raw('<i class="fa fa-cutlery"></i> ') + page_entries_info(@pesos, model: model_class) %>
+<%= titulo raw('<i class="fa fa-cutlery"></i> ') + model_class.model_name.human %>
 
 <%= high_chart('chart', @chart) %>
 
 <div class="row">
-  <div class="col-md-6"><%= botao_incluir 'pesos', model_class %></div>
-  <div class="col-md-6">
+  <div class="col-xs-6"><%= botao_incluir 'pesos', model_class %></div>
+  <div class="col-xs-6">
     <div class="btn-group pull-right">
-      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" title="<%= t('labels.download_em')%>">
         <i class="fa fa-download fa-lg"></i> <span class="caret"></span>
       </button>
       <ul class="dropdown-menu" role="menu">
@@ -22,6 +22,7 @@
 <br />
 
 <% if not @pesos.empty? %>
+  <%= page_entries_info(@pesos) %>
   <div class="table-responsive">
     <table class="table table-bordered table-condensed table-hover table-striped">
       <thead>
@@ -50,6 +51,8 @@
         <% end %>
       </tbody>
     </table>
+  <%= page_entries_info(@pesos) %>
   </div>
 <% end %>
+
 <%= will_paginate %>

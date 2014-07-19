@@ -169,4 +169,4 @@ pt-BR:
         zero:  "Nenhum(a) %{model} encontrado(a)"
         one:   "%{model} (%{count})"
         other: "%{model} (%{count})"
-      multi_page_html: "%{model} (%{from}&nbsp;-&nbsp;%{to} de %{count})"
+      multi_page_html: "%{model} (<strong>%{from}&nbsp;-&nbsp;%{to}</strong> de <strong>%{count}</strong>)"

@@ -61,9 +61,11 @@ pt-BR:
     alterar: Alterar %{model}
     buscar: Buscar
     buscar_por: Buscar por %{atributo}
+    cancelar: Cancelar modificações em %{model}
     entrar: Entrar no %{model}
     excluir: Excluir %{model}
     incluir: Incluir novo registro de %{model}
+    salvar: Salvar o registro de %{model}
     visualizar: Visualizar %{model}
 
   sexo:

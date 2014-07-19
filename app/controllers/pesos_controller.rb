@@ -3,10 +3,12 @@ class PesosController < ApplicationController
 
   before_action :set_peso, only: [:show, :edit, :update, :destroy]
 
-  # GET /pesos
-  # GET /pesos.json
   def index
-    @pesos = current_user.peso.page(params[:page]).order(sort_column + ' ' + sort_direction)
+    if params[:format].nil?
+      @pesos = current_user.peso.page(params[:page]).order(sort_column + ' ' + sort_direction)
+    else
+      @pesos = current_user.peso.order(sort_column + ' ' + sort_direction)
+    end
 
     categories = []
     maximo = []
@@ -20,7 +22,7 @@ class PesosController < ApplicationController
     end
 
     @chart = LazyHighCharts::HighChart.new('graph') do |f|
-      f.xAxis(categories: categories, labels: { step: categories.size/3 })
+      f.xAxis(categories: categories, labels: { enabled: false })
 
       f.title(text: 'Evolução do Peso por Data')
       f.tooltip(valueSuffix: ' Kg')
@@ -44,23 +46,17 @@ class PesosController < ApplicationController
     end
   end
 
-  # GET /pesos/1
-  # GET /pesos/1.json
   def show
   end
 
-  # GET /pesos/new
   def new
     ultimo_peso = current_user.peso.select(:altura).order('data DESC').first
     @peso = Peso.new(data: Time.now, altura: (ultimo_peso.altura rescue nil))
   end
 
-  # GET /pesos/1/edit
   def edit
   end
 
-  # POST /pesos
-  # POST /pesos.json
   def create
     @peso = current_user.peso.build(peso_params)
 
@@ -75,8 +71,6 @@ class PesosController < ApplicationController
     end
   end
 
-  # PATCH/PUT /pesos/1
-  # PATCH/PUT /pesos/1.json
   def update
     respond_to do |format|
       if @peso.update(peso_params)
@@ -89,8 +83,6 @@ class PesosController < ApplicationController
     end
   end
 
-  # DELETE /pesos/1
-  # DELETE /pesos/1.json
   def destroy
     @peso.destroy
     respond_to do |format|
@@ -100,12 +92,10 @@ class PesosController < ApplicationController
   end
 
   private
-    # Never trust parameters from the scary internet, only allow the white list through.
     def peso_params
       params.require(:peso).permit(:altura, :data, :peso)
     end
 
-    # Use callbacks to share common setup or constraints between actions.
     def set_peso
       @peso = current_user.peso.find(params[:id])
     end
