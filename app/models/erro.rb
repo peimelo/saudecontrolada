@@ -1,11 +1,30 @@
 class Erro < ActiveRecord::Base
   # relacionamentos -------------------------------------------------------------------------------
-  belongs_to :recurso
+  belongs_to :condo
   belongs_to :erro_status
+  belongs_to :recurso
   belongs_to :user
 
+  # scopes ----------------------------------------------------------------------------------------
+  scope :listar, ->(page) {
+    joins(:erro_status, :recurso).
+    order('erro_status_id, created_at DESC').
+    page(page)
+  }
+
+  scope :listar_por_status, ->(erro_status_id, page) {
+    joins(:erro_status, :recurso).
+    order('erro_status_id, created_at DESC').
+    where('erro_status_id = ?', erro_status_id).
+    page(page)
+  }
+
+  scope :qtde_erros_por_status, -> {
+    select('erro_status_id, count(1) as qtde').group('erro_status_id')
+  }
+
   # validações ------------------------------------------------------------------------------------
-  validates :erro_status_id, :recurso_id, presence: true
+  validates :recurso_id, presence: true
 
   # métodos ---------------------------------------------------------------------------------------
   def condo_nome

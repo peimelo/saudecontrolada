@@ -6,15 +6,12 @@ class ErrosController < ApplicationController
 
   def index
     if params[:erro_status_id].nil?
-      @erros = Erro.includes(:erro_status, :recurso).where('erro_status_id <= 1').order('erro_status_id, created_at DESC').page(params[:page])
+      @erros = Erro.listar(params[:page])
     else
-      @erros = Erro.includes(:erro_status, :recurso).where('erro_status_id = ?', params[:erro_status_id]).order('erro_status_id, created_at DESC').page(params[:page])
+      @erros = Erro.listar_por_status(params[:erro_status_id], params[:page])
     end
 
-    @qtde_erros_por_status = Erro.select('erro_status_id, count(1) as qtde').group('erro_status_id')
-
-    qtde_erros = 0
-    @qtde_erros_por_status.each{ |erro| qtde_erros += erro.qtde }
+    @qtde_erros_por_status = Erro.qtde_erros_por_status
   end
 
   # esse método irá mostrar a página show com a mensagem de erro capturada em application/erro
@@ -35,7 +32,6 @@ class ErrosController < ApplicationController
 
   def update
     # retirando atributos virtuais por causa de erro de ActiveModel::MassAssignmentSecurity::Error
-    params[:erro].delete(:condo_nome)
     params[:erro].delete(:created_at)
     params[:erro].delete(:recurso_nome)
     params[:erro].delete(:usuario_nome)
@@ -50,7 +46,6 @@ class ErrosController < ApplicationController
     redirect_to erros_url, notice: t('mensagens.flash.destroy', crud: Erro.model_name.human)
   end
 
-  # -----------------------------------------------------------------------------------------------
   private
     def erro_params
       params.require(:erro).permit(:resolucao, :erro_status_id)

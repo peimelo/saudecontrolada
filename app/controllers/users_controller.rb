@@ -17,7 +17,7 @@ class UsersController < ApplicationController
       format.html
       format.pdf do
         pdf = UsersPdf.new(@users, User)
-        send_data pdf.render, filename: (User.model_name.human + '.pdf'), disposition: 'inline'
+        send_data pdf.render, filename: (User.model_name.human + '.pdf')
       end  
       format.xls
     end

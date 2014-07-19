@@ -20,16 +20,18 @@ module ApplicationHelper
     link_to label, path, options
   end
 
-  def botao_cancelar(url, model, options={})
+  def botao_cancelar(url, options={})
     options = {
-      class: 'btn btn-default',
-      title: t('titles.cancelar', model: model.model_name.human)
+        class: 'btn btn-default'
     }.merge(options)
 
     link_to t('links.cancelar'), url, options
   end
 
-  def botao_excluir(registro, registro_nome, model, options={})
+  def botao_excluir(registro, model, options={})
+    registro_nome = options[:registro_nome]
+    registro_nome ||= registro.nome if model.column_names.include?('nome')
+
     options = {
       class: 'btn btn-danger',
       data: {
@@ -39,7 +41,9 @@ module ApplicationHelper
       title: t('titles.excluir', model: model.model_name.human)
     }.merge(options)
 
-    label = raw('<i class="fa fa-trash-o fa-lg"></i> ')
+    options[:texto_botao] ||= ''
+
+    label = raw('<i class="glyphicon glyphicon-trash"></i> ') + options[:texto_botao]
 
     link_to label, registro, options
   end
@@ -66,10 +70,9 @@ module ApplicationHelper
     link_to label, path, options
   end
 
-  def botao_salvar(model, options={})
+  def botao_salvar(options={})
     options = {
-      class: 'btn btn-primary',
-      title: t('titles.salvar', model: model.model_name.human)
+        class: 'btn btn-primary',
     }.merge(options)
 
     label = raw('<i class="glyphicon glyphicon-ok"></i> ') + t('links.salvar')

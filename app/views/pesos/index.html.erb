@@ -15,7 +15,7 @@
       </button>
       <ul class="dropdown-menu" role="menu">
         <li><a href="#"><%= link_to t('labels.download_excel'), pesos_path(format: 'xls') %></li><a>
-        <li><a href="#"><%= link_to t('labels.download_pdf'), pesos_path(format: 'pdf') %></a></li>
+        <li><a href="#"><%= link_to t('labels.download_pdf'), pesos_path(format: 'pdf'), target: '_blank' %></a></li>
       </ul>
     </div>
   </div>
@@ -42,7 +42,7 @@
           <tr>
             <td width="100">
               <%= botao_alterar registro, edit_peso_path(registro), model_class %>
-              <%= botao_excluir registro, l(registro.data), model_class %>
+              <%= botao_excluir registro, model_class, { registro_nome: l(registro.data) } %>
             </td>
             <td><%= l(registro.data) %></td>
             <td><%= number_to_human(registro.altura) %></td>

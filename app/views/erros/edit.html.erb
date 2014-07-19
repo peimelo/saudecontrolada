@@ -15,8 +15,8 @@
   <%= f.input :erro_status_id, collection: Hash[ErroStatus.all.map{|b| [b.nome, b.id]}],
     input_html: { readonly: false } %>
 
-  <%= botao_salvar, Erro %>
-  <%= botao_cancelar erros_path, Erro %>
+  <%= botao_salvar %>
+  <%= botao_cancelar erros_path %>
+  <%= botao_excluir @erro, Erro, { class: 'btn btn-danger pull-right', texto_botao: t('links.excluir') } %>
 <% end %>
 <br />
-<%= botao_excluir @erro, Erro, { texto_botao: t('links.excluir') } %>
