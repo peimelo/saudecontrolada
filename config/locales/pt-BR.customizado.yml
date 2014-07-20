@@ -41,7 +41,7 @@ pt-BR:
     erros:
       banco_dados: A comunicação com nosso banco de dados retornou um erro inesperado.
       corrigir: 'Por favor, corrija os erros abaixo:'
-      footer: Pedimos desculpa. Pode continuar usando o site Saúde Controlada.
+      footer: Pedimos desculpa. Você pode continuar navegando no site Saúde Controlada.
       generico: Fomos notificados e vamos tratar o mais breve possível.
       pagina_nao_encontrada: A página que você tentou acessar não existe.
       pedimos_desculpa: Ops, ocorreu um Erro

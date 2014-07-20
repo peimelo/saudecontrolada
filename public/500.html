@@ -1,57 +1,91 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>We're sorry, but something went wrong (500)</title>
-  <style>
-  body {
-    background-color: #EFEFEF;
-    color: #2E2F30;
-    text-align: center;
-    font-family: arial, sans-serif;
-  }
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  div.dialog {
-    width: 25em;
-    margin: 4em auto 0 auto;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    background-color: white;
-    padding: 7px 4em 0 4em;
-  }
+    <title>Erro inesperado - Saúde Controlada</title>
 
-  h1 {
-    font-size: 100%;
-    color: #730E15;
-    line-height: 1.5em;
-  }
-
-  body > p {
-    width: 33em;
-    margin: 0 auto 1em;
-    padding: 1em 0;
-    background-color: #F7F7F7;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-bottom-color: #999;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-top-color: #DADADA;
-    color: #666;
-    box-shadow:0 3px 8px rgba(50, 50, 50, 0.17);
-  }
-  </style>
+    <link rel="shortcut icon" href="/assets/favicon-f842f2be099c00d3618a7c94c45693d5.ico">
+    <link href="/assets/application-916945e1b1f956fab20519be89bef268.css" media="screen" rel="stylesheet" />
+    <meta content="authenticity_token" name="csrf-param" />
+    <meta content="bAv1quDt+1S6r5pWZhAuL3Q5F8C6rBfhQ4zeoY+Vauw=" name="csrf-token" />
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
 </head>
-
 <body>
-  <!-- This file lives in public/500.html -->
-  <div class="dialog">
-    <h1>We're sorry, but something went wrong.</h1>
-  </div>
-  <p>If you are the application owner check the logs for more information.</p>
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Menu</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/"><i class="fa fa-stethoscope"></i> Saúde Controlada</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="inactive"><a href="/pesos" id="/pesos"><i class="fa fa-cutlery"></i> Peso e Altura</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="glyphicon glyphicon-user"></i> peimelo@gmail.com <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="inactive"><a href="/users/edit" id="/users/edit"><i class="glyphicon glyphicon-edit"></i> Minha Conta</a></li>
+                        <li class="inactive"><a href="/dashboard/index" id="/dashboard/index"><i class="fa fa-dashboard"></i> Painel da Saúde</a></li>
+                        <li class="divider"></li>
+                        <li><a data-method="delete" href="/users/sign_out" rel="nofollow"><i class="glyphicon glyphicon-log-out"></i> Sair</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!--/.nav-collapse -->
+
+    </div>
+</div>
+<div class="container">
+    <div class="large-12 columns">
+
+
+        <div class="panel panel-danger">
+            <div class="panel-heading">
+                <h3 class="panel-title"><i class="fa fa-bug"></i> Ops, ocorreu um Erro Inesperado</h3>
+            </div>
+            <div class="panel-body">
+                <br />
+                Se possível, envie um e-mail para nós <a href="mailto:webmaster@saudecontrolada.com.br?Subject=Erro Inesperado" target="_top">
+                clicando aqui</a> relatando como ocorreu .
+                <br />
+                <br />
+            </div>
+            <div class="panel-footer">
+                Pedimos desculpa. Você pode continuar navegando no site Saúde Controlada.
+            </div>
+        </div>
+
+    </div>
+</div>
+<hr>
+<footer class="footer">
+    <div class="container">
+    </div>
+</footer>
+
+
+<script src="/assets/application-e4e65c960bb29144932fb7b8e05a2942.js"></script>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-42892586-1', 'saudecontrolada.com.br');
+    ga('send', 'pageview');
+</script>
 </body>
 </html>
