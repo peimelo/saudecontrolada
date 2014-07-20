@@ -1,16 +1,16 @@
 require 'rails_helper'
 
-RSpec.describe PesosController, type: :controller do
-  let(:peso) { create(:peso) }
+RSpec.describe AcoesController, type: :controller do
+  let(:acao) { create(:acao) }
   let!(:erro_status) { create(:erro_status, id: 1) }
   let(:user) { create(:user) }
   let(:user_admin) { create(:user_admin) }
 
-  let(:valid_attributes) { attributes_for(:peso) }
-  let(:invalid_attributes) { attributes_for(:peso_invalida) }
+  let(:valid_attributes) { attributes_for(:acao) }
+  let(:invalid_attributes) { attributes_for(:acao_invalida) }
 
   let!(:formato_excel_session) { { format: :xls } }
-  let(:pesquisar_session) { { search: peso.nome } }
+  let(:pesquisar_session) { { search: acao.nome } }
 
   context 'not logged user access' do
     describe 'GET #index' do
@@ -29,28 +29,28 @@ RSpec.describe PesosController, type: :controller do
 
     describe 'GET #edit' do
       it 'requires login' do
-        get :edit, id: peso
+        get :edit, id: acao
         expect(response).to require_login
       end
     end
 
     describe 'POST #create' do
       it 'requires login' do
-        post :create, peso: valid_attributes
+        post :create, acao: valid_attributes
         expect(response).to require_login
       end
     end
 
     describe 'PATCH #update' do
       it 'requires login' do
-        patch :update, id: peso, peso: valid_attributes
+        patch :update, id: acao, acao: valid_attributes
         expect(response).to require_login
       end
     end
 
     describe 'DELETE #destroy' do
       it 'requires login' do
-        delete :destroy, id: peso
+        delete :destroy, id: acao
         expect(response).to require_login
       end
     end
@@ -77,28 +77,28 @@ RSpec.describe PesosController, type: :controller do
 
     describe 'GET #edit' do
       it 'redirects to erros#show' do
-        get :edit, id: peso
+        get :edit, id: acao
         expect(response).to redirect_to assigns(:erro)
       end
     end
 
     describe 'POST #create' do
       it 'redirects to erros#show' do
-        post :create, peso: valid_attributes
+        post :create, acao: valid_attributes
         expect(response).to redirect_to assigns(:erro)
       end
     end
 
     describe 'PATCH #update' do
       it 'redirects to erros#show' do
-        patch :update, id: peso, peso: valid_attributes
+        patch :update, id: acao, acao: valid_attributes
         expect(response).to redirect_to assigns(:erro)
       end
     end
 
     describe 'DELETE #destroy' do
       it 'redirects to erros#show' do
-        delete :destroy, id: peso
+        delete :destroy, id: acao
         expect(response).to redirect_to assigns(:erro)
       end
     end
@@ -110,14 +110,14 @@ RSpec.describe PesosController, type: :controller do
     end
 
     describe 'GET #index' do
-      it 'populates an array of pesos' do
+      it 'populates an array of acoes' do
         get :index
-        expect(assigns(:pesos)).to match_array [peso]
+        expect(assigns(:acoes)).to match_array [acao]
       end
 
-      it 'search and populates an array of pesos' do
+      it 'search and populates an array of acoes' do
         get :index, pesquisar_session
-        expect(assigns(:pesos)).to match_array [peso]
+        expect(assigns(:acoes)).to match_array [acao]
       end
 
       it 'renders the :index template' do
@@ -136,8 +136,8 @@ RSpec.describe PesosController, type: :controller do
         get :new
       end
 
-      it 'assigns a new Peso to @peso' do
-        expect(assigns(:peso)).to be_a_new(Peso)
+      it 'assigns a new Acao to @acao' do
+        expect(assigns(:acao)).to be_a_new(Acao)
       end
 
       it 'renders the :new template' do
@@ -147,11 +147,11 @@ RSpec.describe PesosController, type: :controller do
 
     describe 'GET #edit' do
       before :each do
-        get :edit, id: peso
+        get :edit, id: acao
       end
 
-      it 'assigns the requested peso to @peso' do
-        expect(assigns(:peso)).to eq peso
+      it 'assigns the requested acao to @acao' do
+        expect(assigns(:acao)).to eq acao
       end
 
       it 'renders the :edit template' do
@@ -162,25 +162,25 @@ RSpec.describe PesosController, type: :controller do
     describe 'POST #create' do
       context 'with valid attributes' do
         before :each do
-          post :create, peso: valid_attributes
+          post :create, acao: valid_attributes
         end
 
-        it 'creates a new peso' do
-          expect(Peso.exists?(assigns[:peso])).to be_truthy
+        it 'creates a new acao' do
+          expect(Acao.exists?(assigns[:acao])).to be_truthy
         end
 
-        it 'redirects to pesos#index' do
-          expect(response).to redirect_to pesos_url
+        it 'redirects to acoes#index' do
+          expect(response).to redirect_to acoes_url
         end
       end
 
       context 'with invalid attributes' do
         before :each do
-          post :create, peso: invalid_attributes
+          post :create, acao: invalid_attributes
         end
 
-        it 'does not save the new peso' do
-          expect(Peso.exists?(assigns[:peso])).to be_falsey
+        it 'does not save the new acao' do
+          expect(Acao.exists?(assigns[:acao])).to be_falsey
         end
 
         it 're-renders the new method' do
@@ -192,29 +192,29 @@ RSpec.describe PesosController, type: :controller do
     describe 'PATCH #update' do
       context 'valid attributes' do
         before :each do
-          patch :update, id: peso, peso: valid_attributes
+          patch :update, id: acao, acao: valid_attributes
         end
 
-        it 'saves @peso' do
-          expect(assigns(:peso).save).to be_truthy
+        it 'saves @acao' do
+          expect(assigns(:acao).save).to be_truthy
         end
 
-        it 'redirects to pesos#index' do
-          expect(response).to redirect_to pesos_url
+        it 'redirects to acoes#index' do
+          expect(response).to redirect_to acoes_url
         end
       end
 
       context 'invalid attributes' do
         before :each do
-          patch :update, id: peso, peso: invalid_attributes
+          patch :update, id: acao, acao: invalid_attributes
         end
 
-        it 'locates the requested @peso' do
-          expect(assigns(:peso)).to eq peso
+        it 'locates the requested @acao' do
+          expect(assigns(:acao)).to eq acao
         end
 
-        it 'does not saves @peso' do
-          expect(assigns(:peso).save).to be_falsey
+        it 'does not saves @acao' do
+          expect(assigns(:acao).save).to be_falsey
         end
 
         it 're-renders the edit method' do
@@ -226,30 +226,30 @@ RSpec.describe PesosController, type: :controller do
     describe 'DELETE #destroy' do
       context 'with dependent tables' do
         before :each do
-          create(:recurso, peso: peso)
-          delete :destroy, id: peso
+          create(:recurso, acao: acao)
+          delete :destroy, id: acao
         end
 
         it 'does not deletes with dependent Recurso'  do
-          expect(Peso.exists?(peso)).to be_truthy
+          expect(Acao.exists?(acao)).to be_truthy
         end
 
-        it 'redirects to pesos#index' do
-          expect(response).to redirect_to pesos_url
+        it 'redirects to acoes#index' do
+          expect(response).to redirect_to acoes_url
         end
       end
 
       context 'without dependent tables' do
         before :each do
-          delete :destroy, id: peso
+          delete :destroy, id: acao
         end
 
-        it 'deletes the peso' do
-          expect(Peso.exists?(peso)).to be_falsey
+        it 'deletes the acao' do
+          expect(Acao.exists?(acao)).to be_falsey
         end
 
-        it 'redirects to pesos#index' do
-          expect(response).to redirect_to pesos_url
+        it 'redirects to acoes#index' do
+          expect(response).to redirect_to acoes_url
         end
       end
     end

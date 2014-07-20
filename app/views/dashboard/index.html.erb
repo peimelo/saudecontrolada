@@ -12,7 +12,7 @@
     <% if @peso_atual.nil? %>
       <%= raw t('.sem_dados') %><%= link_peso %>
     <% else %>
-      <%= raw "#{ t('.meu_imc') }: #{ number_to_human @peso_atual.imc, precision: 4 } (#{ @peso_atual.situacao_imc })" %>
+      <%= raw "#{ t('.meu_imc') }: #{ number_to_human @peso_atual.imc, precision: 4 } (#{ situacao_imc @peso_atual.imc })" %>
     <% end %>
   </div>
 </div>

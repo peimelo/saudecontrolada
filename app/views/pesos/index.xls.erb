@@ -20,7 +20,7 @@
         <Cell><Data ss:Type="String"><%= number_to_human(registro.altura) %></Data></Cell>
         <Cell><Data ss:Type="String"><%= number_to_human(registro.peso, precision: 4) %></Data></Cell>
         <Cell><Data ss:Type="String"><%= registro.peso_ideal %></Data></Cell>
-        <Cell><Data ss:Type="String"><%= registro.situacao_imc %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= situacao_imc registro.imc %></Data></Cell>
       </Row>
     <% end %>
     </Table>

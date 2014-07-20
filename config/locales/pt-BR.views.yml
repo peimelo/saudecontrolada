@@ -144,7 +144,7 @@ pt-BR:
     page_gap: "&hellip;"
     page_entries_info:
       single_page_html:
-        zero:  "Nenhum registro de %{model} encontrado."
-        one:   "%{model} (exibindo: %{count} registro)"
-        other: "%{model} (exibindo: %{count} registros)"
-      multi_page_html: "%{model} (exibindo: <strong>%{from}&nbsp;-&nbsp;%{to}</strong> de <strong>%{count}</strong>)"
+        zero:  "<i class='fa fa-frown-o fa-lg'></i> <strong>Nenhum registro encontrado.</strong>"
+        one:   "Exibindo <strong>%{count}</strong> registro."
+        other: "Exibindo <strong>%{count}</strong> registros."
+      multi_page_html: "Exibindo: <strong>%{from}&nbsp;-&nbsp;%{to}</strong> de <strong>%{count}</strong> registros."

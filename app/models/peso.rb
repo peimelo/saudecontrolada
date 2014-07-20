@@ -13,7 +13,7 @@ class Peso < ActiveRecord::Base
   end
 
   def imc
-    self.peso / (self.altura * self.altura)
+    (self.peso / (self.altura * self.altura)).round(2)
   end
 
   def peso=(value)
@@ -21,20 +21,6 @@ class Peso < ActiveRecord::Base
   end
 
   def peso_ideal
-    "#{(18.5 * self.altura * self.altura).round(2).to_s.gsub('.', ',')} ~ \
-    #{(24.99 * self.altura * self.altura).round(2).to_s.gsub('.', ',')}"
-  end
-
-  def situacao_imc
-    case imc
-      when 0..18.49
-        'Abaixo do peso'
-      when 18.5..24.99
-        'Normal'
-      when 25..29.99
-        'Acima do peso'
-      when 30..64
-        'Obesidade'
-    end
+    "#{(18.49 * self.altura * self.altura).round(2).to_s.gsub('.', ',')} ~ #{(24.99 * self.altura * self.altura).round(2).to_s.gsub('.', ',')}"
   end
 end

@@ -25,7 +25,7 @@ class PesosPdf < Prawn::Document
         ApplicationController.helpers.number_to_human(registro.altura),
         ApplicationController.helpers.number_to_human(registro.peso, precision: 4),
         registro.peso_ideal,
-        registro.situacao_imc
+        ApplicationController.helpers.situacao_imc(registro.imc, false)
       ]
     end    
   end

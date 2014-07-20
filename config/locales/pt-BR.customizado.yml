@@ -21,6 +21,7 @@ pt-BR:
     cancelar: Cancelar
     chamados: Chamados
     disable_with: Aguarde...
+    download: Download
     entrar: Entrar
     excel: Excel
     excluir: Excluir
@@ -63,6 +64,7 @@ pt-BR:
     buscar: Buscar
     buscar_por: Buscar por %{atributo}
     cancelar: Cancelar modificações em %{model}
+    download_registros: Download dos registros cadastrados
     entrar: Entrar no %{model}
     excluir: Excluir %{model}
     incluir: Incluir novo registro de %{model}

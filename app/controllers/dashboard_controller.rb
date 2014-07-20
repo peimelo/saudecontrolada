@@ -1,11 +1,11 @@
 class DashboardController < ApplicationController
   def index
     @chart = @chart = LazyHighCharts::HighChart.new('graph')
-    @peso_medio = Peso.average(:peso)
-    @peso_atual = current_user.peso.page(params[:page]).order('data DESC, created_at DESC').first
+    @peso_medio = current_user.peso.average(:peso)
+    @peso_atual = current_user.peso.page(params[:page]).order('data DESC').first
     return if @peso_atual.nil?
 
-    @meu_imc = (@peso_atual.peso/(@peso_atual.altura * @peso_atual.altura)).round(2).to_f
+    @meu_imc = @peso_atual.imc.to_f
 
     @chart_imc = LazyHighCharts::HighChart.new('graph') do |f|
       f.chart(
@@ -65,10 +65,10 @@ class DashboardController < ApplicationController
             text: 'IMC'
         },
         plotBands: [
-          { from: 0, to: 18.49, color: '#ff9b99' }, # abaixo
+          { from: 0, to: 18.49, color: '#f7be34' }, # abaixo
           { from: 18.5, to: 24.99, color: '#a3c853' }, # normal
-          { from: 25, to: 29.99, color: '#f7be34' }, # acima
-          { from: 30, to: 64, color: '#8a403b' }, # obeso
+          { from: 25, to: 29.99, color: '#ff9b99' }, # acima
+          { from: 30, to: 64, color: '#b02e25' }, # obeso 8a403b
         ]
 	    )
 
@@ -78,7 +78,7 @@ class DashboardController < ApplicationController
 	    )
     end
 
-    pesos = current_user.peso.order('data DESC, created_at DESC')
+    pesos = current_user.peso.order('data DESC')
 
     categories = []
     maximo = []
@@ -92,17 +92,19 @@ class DashboardController < ApplicationController
     end
 
     @chart_peso = LazyHighCharts::HighChart.new('graph') do |f|
-      f.xAxis(categories: categories, labels: { enabled: false })
+      f.xAxis(categories: categories, labels: { step: (peso.size / 2) })
+
+      f.yAxis(title: { text: 'Peso (Kg)' })
 
       f.tooltip(valueSuffix: ' Kg')
 
-      f.series(name: 'Limite Máximo', data: maximo, color: '#8a403b')
-      f.series(name: 'Peso', data: peso)
-      f.series(name: 'Limite Mínimo', data: minimo, color: '#b02e25')
+      f.series(name: 'Limite Máximo', data: maximo, color: '#ff9b99')
+      f.series(name: 'Peso', data: peso, color: '#000000')
+      f.series(name: 'Limite Mínimo', data: minimo, color: '#f7be34')
 
       f.legend(align: 'center', borderWidth: 1, layout: 'horizontal')
 
-      f.plotOptions(line: { lineWidth: 4, marker: { enabled: peso.size > 1 ? false : true } })
+      f.plotOptions(line: { lineWidth: 5, marker: { enabled: peso.size > 1 ? false : true } })
     end
   end
 end

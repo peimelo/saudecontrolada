@@ -8,14 +8,11 @@ Saudecontrolada::Application.routes.draw do
     mount DelayedJobWeb, at: '/jobs'
   end
 
-  # resources :acoes, except: :show
+  resources :acoes, except: :show
   resources :contatos, only: [:index, :new, :create]
-  # resources :controladores, except: :show
-  # resources :dashboard, only: :index
+  resources :controladores, except: :show
   get 'dashboard/index'
   resources :erros, except: [:new, :create]
   resources :pesos, except: :show
-  # resources :recursos, except: :show
-  # resources :recursos_categorias, except: :show
   resources :users, only: :index
 end

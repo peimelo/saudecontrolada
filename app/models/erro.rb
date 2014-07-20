@@ -26,10 +26,6 @@ class Erro < ActiveRecord::Base
   validates :recurso_id, presence: true
 
   # métodos ---------------------------------------------------------------------------------------
-  def condo_nome
-    self.condo.nil? ? '' : self.condo.nome
-  end
-
   def recurso_nome
     "#{self.recurso.controlador.nome} / #{self.recurso.acao.nome}"
   end
