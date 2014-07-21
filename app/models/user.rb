@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  include Util
+
   # Include default devise modules. Others available are:
   devise :confirmable,
          :database_authenticatable,
@@ -20,6 +22,10 @@ class User < ActiveRecord::Base
   validates :name, presence: true
 
   # methods ---------------------------------------------------------------------------------------
+  def date_of_birth=(value)
+    write_attribute(:date_of_birth, format_date_usa(value))
+  end
+
   def self.from_omniauth(auth, current_user)
     authentication = Authentication.where(provider: auth.provider, uid: auth.uid.to_s).first_or_initialize
     if authentication.user.blank?

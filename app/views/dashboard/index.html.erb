@@ -10,7 +10,7 @@
   </div>
   <div class="panel-footer">
     <% if @peso_atual.nil? %>
-      <%= raw t('.sem_dados') %><%= link_peso %>
+      <%= raw t('.sem_dados') %><%= link_peso %>.
     <% else %>
       <%= raw "#{ t('.meu_imc') }: #{ number_to_human @peso_atual.imc, precision: 4 } (#{ situacao_imc @peso_atual.imc })" %>
     <% end %>
@@ -26,7 +26,7 @@
   </div>
   <div class="panel-footer">
     <% if @peso_atual.nil? %>
-      <%= raw t('.sem_dados') %><%= link_peso %>
+      <%= raw t('.sem_dados') %><%= link_peso %>.
     <% else %>
       <%= raw "#{ t('.peso_medio') }: #{ number_to_human @peso_medio, precision: 4 } Kg" %>
     <% end %>

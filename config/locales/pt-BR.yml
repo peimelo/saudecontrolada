@@ -98,33 +98,33 @@ pt-BR:
   errors: &errors
     format: ! '%{attribute} %{message}'
     messages:
-      accepted: deve ser aceito
-      blank: o campo é de preenchimento obrigatório
-      confirmation: esse campo e a confirmação devem ser iguais
+      accepted: Deve ser aceito
+      blank: O campo é de preenchimento obrigatório
+      confirmation: Esse campo e a confirmação devem ser iguais
       dependent_tables: "Não é possível excluir '%{registro}', pois existe em '%{model_filho}' referência(s) a esse registro."
-      empty: o campo é de preenchimento obrigatório
-      equal_to: deve ser igual a %{count}
-      even: deve ser par
-      exclusion: não está disponível
-      greater_than: deve ser maior que %{count}
-      greater_than_or_equal_to: deve ser maior ou igual a %{count}
-      inclusion: não está incluído na lista
-      invalid: não é válido
-      invalid_format: "o campo não está no formato válido"
-      less_than: deve ser menor que %{count}
-      less_than_or_equal_to: deve ser menor ou igual a %{count}
-      not_a_number: não é um número
-      not_an_integer: não é um número inteiro
-      odd: deve ser ímpar
-      present: deve ficar em branco
+      empty: O campo é de preenchimento obrigatório
+      equal_to: Deve ser igual a %{count}
+      even: Deve ser par
+      exclusion: Não está disponível
+      greater_than: Deve ser maior que %{count}
+      greater_than_or_equal_to: Deve ser maior ou igual a %{count}
+      inclusion: Não está incluído na lista
+      invalid: Não é válido
+      invalid_format: "O campo não está no formato válido"
+      less_than: Deve ser menor que %{count}
+      less_than_or_equal_to: Deve ser menor ou igual a %{count}
+      not_a_number: Não é um número
+      not_an_integer: Não é um número inteiro
+      odd: Deve ser ímpar
+      present: Deve ficar em branco
       record_invalid: ! 'A validação falhou: %{errors}'
       restrict_dependent_destroy:
         one: "Não é possível excluir, pois existe um %{record} dependente."
         many: "Não é possível excluir, pois existem registros de %{record} dependentes."
-      taken: favor informar outro valor para o campo, pois esse já está cadastrado no sistema
-      too_long: ! 'é muito longo (máximo: %{count} caracteres)'
-      too_short: ! 'é muito curto (mínimo: %{count} caracteres)'
-      wrong_length: não possui o tamanho esperado (%{count} caracteres)
+      taken: Favor informar outro valor para o campo, pois esse já está cadastrado no sistema
+      too_long: ! 'É muito longo (máximo: %{count} caracteres)'
+      too_short: ! 'É muito curto (mínimo: %{count} caracteres)'
+      wrong_length: Não possui o tamanho esperado (%{count} caracteres)
     template:
       body: ! 'Por favor, verifique o(s) seguinte(s) campo(s):'
       header:

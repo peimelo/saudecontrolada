@@ -1,4 +1,6 @@
 class Peso < ActiveRecord::Base
+  include Util
+
   # relacionamentos -------------------------------------------------------------------------------
   belongs_to :user
 
@@ -10,6 +12,10 @@ class Peso < ActiveRecord::Base
   # methods ---------------------------------------------------------------------------------------
   def altura=(value)
     write_attribute(:altura, value.to_s.gsub(',', '.').to_f)
+  end
+
+  def data=(value)
+    write_attribute(:data, format_date_usa(value))
   end
 
   def imc
