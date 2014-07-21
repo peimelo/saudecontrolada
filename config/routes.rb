@@ -5,7 +5,7 @@ Saudecontrolada::Application.routes.draw do
 
   # TODO: tentar validar se o user eh admin
   authenticated :user do
-    mount DelayedJobWeb, at: '/jobs'
+    mount DelayedJobWeb, at: '/qazplm1029'
   end
 
   resources :acoes, except: :show

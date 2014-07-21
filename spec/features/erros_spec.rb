@@ -1,4 +1,4 @@
-require 'spec_helper.rb.antigo'
+require 'rails_helper'
 
 feature 'Teste de integração de Erros' do
   # background do
