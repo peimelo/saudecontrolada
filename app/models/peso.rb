@@ -1,4 +1,6 @@
 class Peso < ActiveRecord::Base
+  include DateModule
+
   # relacionamentos -------------------------------------------------------------------------------
   belongs_to :user
 
@@ -13,7 +15,7 @@ class Peso < ActiveRecord::Base
   end
 
   def data=(value)
-    write_attribute(:data, Util.format_date_usa(value))
+    write_attribute(:data, format_date_usa(value))
   end
 
   def imc

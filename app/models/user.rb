@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  include DateModule
+
   # Include default devise modules. Others available are:
   devise :confirmable,
          :database_authenticatable,
@@ -21,7 +23,7 @@ class User < ActiveRecord::Base
 
   # methods ---------------------------------------------------------------------------------------
   def date_of_birth=(value)
-    write_attribute(:date_of_birth, Util.format_date_usa(value))
+    write_attribute(:date_of_birth, format_date_usa(value))
   end
 
   def self.from_omniauth(auth, current_user)

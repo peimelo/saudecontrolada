@@ -12,8 +12,6 @@ class Acao < ActiveRecord::Base
     
     if format.nil?
       page(page)
-    # else 
-    #   format seria excel para mostrar todos os registros
     end
   }
 
