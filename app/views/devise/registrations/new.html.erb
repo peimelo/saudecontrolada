@@ -11,7 +11,7 @@
       <%= f.input :email, required: true %>
       <%= f.input :gender, collection: [t('sexo.masculino'), t('sexo.feminino')], as: :radio_buttons %>
       <%= f.input :date_of_birth, as: :string,
-                  input_html: { 'value' => resource.date_of_birth.nil? ? '' : l(resource.date_of_birth) } %>
+                  input_html: { 'data-inputmask' => "'alias': 'date'", 'value' => resource.date_of_birth.nil? ? '' : l(resource.date_of_birth) } %>
       <%= f.input :password, required: true %>
       <%= f.input :password_confirmation, required: true %>
       <%= botao t('.submit'), class: 'btn btn-lg btn-success btn-block' %>

@@ -16,7 +16,9 @@ pt-BR:
         status_erro_id: Status do erro
         usuario_email: E-mail do Usuário
       peso:
+        altura: Altura (m)
         imc: IMC
+        peso: Peso (kg)
         peso_ideal: Peso Ideal
         situacao_imc: Situação
       user:

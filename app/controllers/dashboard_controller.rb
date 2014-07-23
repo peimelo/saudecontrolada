@@ -44,7 +44,7 @@ class DashboardController < ApplicationController
 
       f.yAxis(
         min: 0,
-        max: 64,
+        max: 81,
 
         minorTickInterval: 'auto',
         minorTickWidth: 1,
@@ -68,7 +68,7 @@ class DashboardController < ApplicationController
           { from: 0, to: 18.49, color: '#f7be34' }, # abaixo
           { from: 18.5, to: 24.99, color: '#a3c853' }, # normal
           { from: 25, to: 29.99, color: '#ff9b99' }, # acima
-          { from: 30, to: 64, color: '#b02e25' }, # obeso 8a403b
+          { from: 30, to: 81, color: '#b02e25' }, # obeso 8a403b
         ]
 	    )
 
@@ -76,7 +76,7 @@ class DashboardController < ApplicationController
         name: 'Meu IMC',
         data: [@meu_imc]
 	    )
-    end
+    end if @meu_imc <= 81
 
     pesos = current_user.peso.order('data DESC')
 
@@ -94,9 +94,9 @@ class DashboardController < ApplicationController
     @chart_peso = LazyHighCharts::HighChart.new('graph') do |f|
       f.xAxis(categories: categories, labels: { step: (peso.size / 2) })
 
-      f.yAxis(title: { text: 'Peso (Kg)' })
+      f.yAxis(title: { text: 'Peso (kg)' })
 
-      f.tooltip(valueSuffix: ' Kg')
+      f.tooltip(valueSuffix: ' kg')
 
       f.series(name: 'Limite Máximo', data: maximo, color: '#ff9b99')
       f.series(name: 'Peso', data: peso, color: '#000000')

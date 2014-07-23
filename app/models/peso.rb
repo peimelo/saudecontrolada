@@ -6,8 +6,8 @@ class Peso < ActiveRecord::Base
 
   # validações ------------------------------------------------------------------------------------
   validates :altura, :data, :peso, presence: true
-  validates :altura, numericality: { greater_than: 0, less_than_or_equal_to: 2.5 }
-  validates :peso, numericality: { greater_than: 0, less_than_or_equal_to: 400 }
+  validates :altura, numericality: { greater_than: 0.48, less_than_or_equal_to: 2.5 }
+  validates :peso, numericality: { greater_than_or_equal_to: 3.35, less_than_or_equal_to: 400 }
 
   # methods ---------------------------------------------------------------------------------------
   def altura=(value)
