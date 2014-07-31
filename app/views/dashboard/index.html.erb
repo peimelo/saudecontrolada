@@ -28,7 +28,7 @@
     <% if @peso_atual.nil? %>
       <%= raw t('.sem_dados') %><%= link_peso %>.
     <% else %>
-      <%= raw "#{ t('.peso_medio') }: #{ number_to_human @peso_medio, precision: 4 } Kg" %>
+      <%= raw "#{ t('.peso_medio') }: #{ number_to_human @peso_medio, precision: 4 } kg" %>
     <% end %>
   </div>
 </div>

@@ -1,10 +1,12 @@
 class ControladoresController < ApplicationController
+  helper_method :sort_column, :sort_direction
+
   skip_before_action :tem_permissao?
-  before_action :user_administrador?
+  before_action :user_administrador_sistema?
   before_action :set_controlador, only: [:edit, :update, :destroy]
 
   def index
-    @controladores = Controlador.listar(params[:search], params[:page], params[:format])
+    @controladores = Controlador.listar(params[:search], params[:format], params[:page], sort_column + ' ' + sort_direction)
 
     respond_to do |format|
       format.html
@@ -52,5 +54,9 @@ class ControladoresController < ApplicationController
 
     def set_controlador
       @controlador = Controlador.find(params[:id])
+    end
+
+    def sort_column
+      Controlador.column_names.include?(params[:sort]) ? params[:sort] : 'nome'
     end
 end

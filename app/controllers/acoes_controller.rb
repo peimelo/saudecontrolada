@@ -1,10 +1,12 @@
 class AcoesController < ApplicationController
+  helper_method :sort_column, :sort_direction
+
   skip_before_action :tem_permissao?
-  before_action :user_administrador?
+  before_action :user_administrador_sistema?
   before_action :set_acao, only: [:edit, :update, :destroy]
 
   def index
-    @acoes = Acao.listar(params[:search], params[:page], params[:format])
+    @acoes = Acao.listar(params[:search], params[:format], params[:page], sort_column + ' ' + sort_direction)
 
     respond_to do |format|
       format.html
@@ -52,5 +54,9 @@ class AcoesController < ApplicationController
 
     def set_acao
       @acao = Acao.find(params[:id])
+    end
+
+    def sort_column
+      Acao.column_names.include?(params[:sort]) ? params[:sort] : 'nome'
     end
 end

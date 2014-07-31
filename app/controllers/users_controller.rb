@@ -2,9 +2,7 @@ class UsersController < ApplicationController
   helper_method :sort_column, :sort_direction
   
   skip_before_action :tem_permissao?
-  before_action :user_administrador?
-  # before_action :set_condo, only: [:edit, :destroy]
-  # before_action :set_user, only: [:edit, :destroy]
+  before_action :user_administrador_sistema?
 
   def index
     if params[:format] # xls mostra tudo
@@ -29,7 +27,7 @@ class UsersController < ApplicationController
     end
     
     def sort_column
-      User.column_names.include?(params[:sort]) ? params[:sort] : 'created_at'
+      User.column_names.include?(params[:sort]) ? params[:sort] : 'current_sign_in_at'
     end
 
     def sort_direction

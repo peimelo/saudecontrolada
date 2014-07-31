@@ -1,34 +1,52 @@
 <%= currently_at t('controladores.menu') %>
 <%- model_class = Controlador -%>
-<%= titulo page_entries_info @controladores, model: model_class %>
-<%= botao_incluir 'controladores', model_class %>
+<%= titulo raw('<i class="glyphicon glyphicon-wrench"></i> ') + model_class.model_name.human %>
 
-<p>
+<div class="row">
+  <div class="col-xs-6"><%= botao_incluir 'controladores', model_class %></div>
+  <div class="col-xs-6">
+    <div class="btn-group pull-right">
+      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" title="<%= t('titles.download_registros')%>">
+        <%= raw('<i class="fa fa-download fa-lg"></i> ') + t('links.download') + ' ' %><span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" role="menu">
+        <li><a href="#"><%= link_to t('labels.download_excel'), controladores_path(format: 'xls') %></a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<br />
+
+<div class="row">
   <%= form_tag controladores_path, method: :get, id: 'controladores_search' do %>
-    <div class="row">
-      <div class="col-xs-9" style="width: 300px;">
-        <%= text_field_tag :search, params[:search], class: 'form-control',
-                           placeholder: t('titles.buscar_por', atributo: model_class.human_attribute_name(:nome)) %>
-      </div>
-      <div class="col-xs-3">
-        <%= button_tag (raw('<i class="glyphicon glyphicon-search"></i> ')),
-                       title: t('titles.buscar_por', atributo: model_class.human_attribute_name(:nome)),
-                       class: 'btn btn-primary', id: 'find' %>
-      </div>
+    <div class="col-xs-4">
+      <%= text_field_tag :search, params[:search], class: 'form-control',
+                         placeholder: t('titles.buscar_por', atributo: model_class.human_attribute_name(:nome)) %>
+
+    </div>
+    <div class="col-xs-1">
+      <%= button_tag (raw('<i class="glyphicon glyphicon-search"></i> ')),
+                     title: t('titles.buscar_por', atributo: model_class.human_attribute_name(:nome)),
+                     class: 'btn btn-primary', id: 'find' %>
     </div>
   <% end %>
-</p>
+  <div class="col-xs-7 pull-left">
+    <%= limpar_filtro(controladores_path) %>
+  </div>
+</div>
 
-<%= limpar_filtro(controladores_path) %>
+<br />
+
+<%= page_entries_info @controladores, model: model_class %>
 
 <% if not @controladores.empty? %>
-  <%= t('labels.download_em') %><%= link_to 'Excel', controladores_path(format: 'xls') %>
   <div class="table-responsive">
     <table class="table table-bordered table-condensed table-hover table-striped">
       <thead>
         <tr>
           <th><%= t('bootstrap.actions') %></th>
-          <th><%= model_class.human_attribute_name(:nome) %></th>
+          <th><%= sortable model_class, 'nome' %></th>
         </tr>
       </thead>
       <tbody>

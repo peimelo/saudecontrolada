@@ -1,5 +1,16 @@
 pt-BR:
   # -----------------------------------------------------------------------------------------------
+  acoes:
+    column:
+      name: Ação
+    edit:
+      titulo: Alterando Ação
+    index:
+      titulo: 'Ações (%{qtde_registros})'
+    menu: Ações
+    new:
+      titulo: Incluindo Ação
+  # -----------------------------------------------------------------------------------------------
   contatos:
     index:
       titulo: 'Contatos (%{qtde_registros})'
@@ -9,6 +20,17 @@ pt-BR:
         Escreva sua dúvida, sugestão, crítica, elogio, etc.
       enviar: 'Enviar'
       titulo: Contato
+  # -----------------------------------------------------------------------------------------------
+  controladores:
+    column:
+      name: Controlador
+    edit:
+      titulo: Alterando Controlador
+    index:
+      titulo: 'Controladores (%{qtde_registros})'
+    menu: Controladores
+    new:
+      titulo: Incluindo Controlador
   # -----------------------------------------------------------------------------------------------
   crud:
     tabela:

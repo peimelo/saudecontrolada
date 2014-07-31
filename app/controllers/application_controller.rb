@@ -128,7 +128,7 @@ class ApplicationController < ActionController::Base
       end
     end
 
-    def user_administrador?
+    def user_administrador_sistema?
       unless current_user.admin?
         erro()
         false

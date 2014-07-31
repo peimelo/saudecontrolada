@@ -84,6 +84,12 @@ module ApplicationHelper
     render partial: 'layouts/alert_model_error', locals: {tem_erro: tem_erro}
   end
 
+  def limpar_filtro(acao)
+    if !params[:search].blank?
+      raw('<p><strong>') + t('labels.filtro') + raw('</strong> "') + params[:search] + raw('" (') + link_to(t('links.limpar_filtro'), acao) + raw(')</p>')
+    end
+  end
+
   def sortable(model, column)
     title = model.human_attribute_name(column)
     icone = column == sort_column ? " <i class='fa fa-sort-#{sort_direction}'></i>" : ''

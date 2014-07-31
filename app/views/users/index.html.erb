@@ -12,19 +12,19 @@
   <table class="table table-bordered table-condensed table-hover table-striped">
     <thead>
       <tr>
-        <th><%= sortable model_class, 'created_at' %></th>
-        <th><%= sortable model_class, 'email' %></th>
         <th><%= sortable model_class, 'current_sign_in_at' %></th>
+        <th><%= sortable model_class, 'email' %></th>
         <th><%= sortable model_class, 'sign_in_count' %></th>
+        <th><%= sortable model_class, 'created_at' %></th>
       </tr>
     </thead>
     <tbody>
       <% @users.each do |registro| %>
         <tr>
-          <td><%= l(registro.created_at, format: :data_hora) %></td>
-          <td><%= registro.email %></td>
           <td><%= l(registro.current_sign_in_at, format: :data_hora) unless registro.current_sign_in_at.blank? %></td>
+          <td><%= registro.email %></td>
           <td><%= registro.sign_in_count %></td>
+          <td><%= l(registro.created_at, format: :data_hora) %></td>
         </tr>
       <% end %>
     </tbody>

@@ -11,13 +11,13 @@
               <i class="glyphicon glyphicon-cog"></i> <%= t('links.administracao') %> <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
-              <%#= nav_tab raw('<i class="glyphicon glyphicon-cog"></i> ') + t('acoes.menu'), acoes_path, {current: current_tab, titulo: t('acoes.menu')} %>
-              <%#= nav_tab raw('<i class="glyphicon glyphicon-wrench"></i> ') + t('controladores.menu'), controladores_path, {current: current_tab, titulo: t('controladores.menu')} %>
+              <%= nav_tab raw('<i class="glyphicon glyphicon-cog"></i> ') + t('acoes.menu'), acoes_path, {current: current_tab, titulo: t('acoes.menu')} %>
+              <%= nav_tab raw('<i class="glyphicon glyphicon-wrench"></i> ') + t('controladores.menu'), controladores_path, {current: current_tab, titulo: t('controladores.menu')} %>
               <li class="divider"></li>
               <%#= nav_tab raw('<i class="glyphicon glyphicon-list-alt"></i> ') + t('recursos_categorias.menu'), recursos_categorias_path, {current: current_tab, titulo: t('recursos_categorias.menu')} %>
               <%#= nav_tab raw('<i class="glyphicon glyphicon-tasks"></i> ') + t('recursos.menu'), recursos_path, {current: current_tab, titulo: t('recursos.menu')} %>
               <li class="divider"></li>
-              <%#= nav_tab raw('<i class="glyphicon glyphicon-bullhorn"></i> ') + t('contatos.menu'), contatos_path, {current: current_tab, titulo: t('contatos.menu')} %>
+              <%= nav_tab raw('<i class="glyphicon glyphicon-bullhorn"></i> ') + t('contatos.menu'), contatos_path, {current: current_tab, titulo: t('contatos.menu')} %>
               <%= nav_tab raw('<i class="glyphicon glyphicon-exclamation-sign"></i> ') + t('erros.menu'), erros_path, {current: current_tab, titulo: t('erros.menu')} %>
               <%= nav_tab raw('<i class="glyphicon glyphicon-user"></i> ') + t('users.menu'), users_path, {current: current_tab, titulo: t('users.menu')} %>
             </ul>

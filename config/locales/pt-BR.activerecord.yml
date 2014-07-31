@@ -19,7 +19,7 @@ pt-BR:
         altura: Altura (m)
         imc: IMC
         peso: Peso (kg)
-        peso_ideal: Peso Ideal
+        peso_ideal: Peso Ideal (kg)
         situacao_imc: Situação
       user:
         confirmation_token: Token para Confirmação
@@ -39,10 +39,18 @@ pt-BR:
         unlock_token: Token para Desbloqueio
     # ---------------------------------------------------------------------------------------------
     models:
+      acao:
+        zero: Ação
+        one: Ação
+        other: Ações
       contato:
         zero: Contato
         one: Contato
         other: Contatos
+      controlador:
+        zero: Controlador
+        one: Controlador
+        other: Controladores
       peso:
         zero: Peso e Altura
         one: Peso e Altura
