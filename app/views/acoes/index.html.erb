@@ -16,27 +16,7 @@
   </div>
 </div>
 
-<br />
-
-<div class="row">
-  <%= form_tag acoes_path, method: :get, id: 'acoes_search' do %>
-    <div class="col-xs-4">
-      <%= text_field_tag :search, params[:search], class: 'form-control',
-                         placeholder: t('titles.buscar_por', atributo: model_class.human_attribute_name(:nome)) %>
-
-    </div>
-    <div class="col-xs-1">
-      <%= button_tag (raw('<i class="glyphicon glyphicon-search"></i> ')),
-                     title: t('titles.buscar_por', atributo: model_class.human_attribute_name(:nome)),
-                     class: 'btn btn-primary', id: 'find' %>
-    </div>
-  <% end %>
-  <div class="col-xs-7 pull-left">
-<%= limpar_filtro(acoes_path) %>
-  </div>
-</div>
-
-<br />
+<%= render 'shared/campo_buscar', model_class: model_class, url: acoes_path %>
 
 <%= page_entries_info @acoes, model: model_class %>
 

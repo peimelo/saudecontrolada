@@ -1,0 +1,20 @@
+<br />
+<div class="row">
+  <div class="col-md-6">
+    <%= form_tag url, method: :get, id: 'acoes_search' do %>
+      <div class="input-group">
+        <%= text_field_tag :search, params[:search], class: 'form-control',
+                           placeholder: t('titles.buscar_por', atributo: model_class.human_attribute_name(:nome)) %>
+        <span class="input-group-btn">
+          <%= button_tag (raw('<i class="glyphicon glyphicon-search"></i> ')),
+                         title: t('titles.buscar_por', atributo: model_class.human_attribute_name(:nome)),
+                         class: 'btn btn-default', id: 'find' %>
+          </span>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-md-6">
+    <%= limpar_filtro(url) %>
+  </div>
+</div>
+<br />
