@@ -1,7 +1,7 @@
 class ErrosController < ApplicationController
   skip_before_filter :authenticate_user!, only: [:show]
   skip_before_filter :tem_permissao?
-  before_filter :user_administrador?, except: [:show]
+  before_filter :user_administrador_sistema?, except: [:show]
   before_filter :get_erro, only: [:edit, :update, :destroy]
 
   def index
