@@ -131,6 +131,8 @@ GEM
       multipart-post (>= 1.2, < 3)
     fastercsv (1.5.5)
     ffi (1.9.3)
+    font-awesome-sass (4.1.0)
+      sass (~> 3.2)
     foreigner (1.4.2)
       activerecord (>= 3.0.0)
     formatador (0.2.5)
@@ -391,6 +393,7 @@ DEPENDENCIES
   email_spec
   factory_girl_rails
   faker
+  font-awesome-sass
   foreigner (~> 1.4.1)
   growl_notify
   guard-brakeman

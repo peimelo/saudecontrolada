@@ -1,44 +1,53 @@
 <% content_for :main_navigation do %>
   <div class="navbar-collapse collapse">
     <ul class="nav navbar-nav navbar-right">
-      <%#= nav_tab raw('<i class="glyphicon glyphicon-bullhorn"></i> ') + Contato.model_name.human, new_contato_path, {current: current_tab, titulo: t('contato')} %>
-      <%# SE ESTIVER LOGADO %>
       <% if user_signed_in? %>
-        <%# SE FOR ADMINISTRADOR %>
         <% if current_user.admin? %>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="glyphicon glyphicon-cog"></i> <%= t('links.administracao') %> <b class="caret"></b>
+              <%= icon('cog fa-lg', t('links.administracao')) %> <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
-              <%= nav_tab raw('<i class="glyphicon glyphicon-cog"></i> ') + t('acoes.menu'), acoes_path, {current: current_tab, titulo: t('acoes.menu')} %>
-              <%= nav_tab raw('<i class="glyphicon glyphicon-wrench"></i> ') + t('controladores.menu'), controladores_path, {current: current_tab, titulo: t('controladores.menu')} %>
+              <%= nav_tab icon('wrench', t('acoes.menu')), acoes_path, { current: current_tab, titulo: t('acoes.menu') } %>
+              <%= nav_tab icon('cogs', t('controladores.menu')), controladores_path,
+                          { current: current_tab, titulo: t('controladores.menu') } %>
               <li class="divider"></li>
               <%#= nav_tab raw('<i class="glyphicon glyphicon-list-alt"></i> ') + t('recursos_categorias.menu'), recursos_categorias_path, {current: current_tab, titulo: t('recursos_categorias.menu')} %>
               <%#= nav_tab raw('<i class="glyphicon glyphicon-tasks"></i> ') + t('recursos.menu'), recursos_path, {current: current_tab, titulo: t('recursos.menu')} %>
               <li class="divider"></li>
-              <%= nav_tab raw('<i class="glyphicon glyphicon-bullhorn"></i> ') + t('contatos.menu'), contatos_path, {current: current_tab, titulo: t('contatos.menu')} %>
-              <%= nav_tab raw('<i class="glyphicon glyphicon-exclamation-sign"></i> ') + t('erros.menu'), erros_path, {current: current_tab, titulo: t('erros.menu')} %>
-              <%= nav_tab raw('<i class="glyphicon glyphicon-user"></i> ') + t('users.menu'), users_path, {current: current_tab, titulo: t('users.menu')} %>
+              <%= nav_tab icon('bullhorn', t('contatos.menu')), contatos_path, { current: current_tab, titulo: t('contatos.menu') } %>
+              <%= nav_tab icon('bug', t('erros.menu')), erros_path, { current: current_tab, titulo: t('erros.menu') } %>
+              <%= nav_tab icon('user', t('users.menu')), users_path, { current: current_tab, titulo: t('users.menu') } %>
             </ul>
           </li>
         <% end %>
-        <%= nav_tab raw('<i class="fa fa-cutlery"></i> ') + t('pesos.menu'), pesos_path, { current: current_tab, titulo: t('pesos.menu') } %>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <i class="glyphicon glyphicon-user"></i> <%= current_user.email %> <b class="caret"></b>
+            <%= icon('bars fa-lg', t('links.menu')) %> <b class="caret"></b>
           </a>
           <ul class="dropdown-menu">
-            <%= nav_tab raw('<i class="glyphicon glyphicon-edit"></i> ') + t('devise.registrations.edit.title'), edit_user_registration_path, {current: current_tab, titulo: t('devise.registrations.edit.title')} %>
-            <%= nav_tab raw('<i class="fa fa-dashboard"></i> ') + t('dashboard.menu'), dashboard_index_path, {current: current_tab, titulo: t('dashboard.menu')} %>
+            <%= nav_tab icon('dashboard', t('dashboard.menu')), dashboard_index_path,
+                        { current: current_tab, titulo: t('dashboard.menu') } %>
+            <%= nav_tab raw('<i class="fa fa-cutlery"></i> ') + t('pesos.menu'), pesos_path, { current: current_tab, titulo: t('pesos.menu') } %>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <%= icon('user fa-lg', current_user.email) %> <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <%= nav_tab icon('cog', t('devise.registrations.edit.title')), edit_user_registration_path,
+                        { current: current_tab, titulo: t('devise.registrations.edit.title') } %>
             <li class="divider"></li>
-            <li><%= link_to raw('<i class="glyphicon glyphicon-log-out"></i> ') + t('.sair'), destroy_user_session_path, method: :delete %></li>
+            <li><%= link_to icon('sign-out', t('.sair')), destroy_user_session_path, method: :delete %></li>
           </ul>
         </li>
       <% else %>
-        <%= nav_tab raw('<i class="glyphicon glyphicon-plus"></i> ') + t('devise.registrations.new.title'), new_user_registration_path, {current: current_tab, titulo:t('devise.registrations.new.title')} %>
-        <%= nav_tab raw('<i class="glyphicon glyphicon-lock"></i> ') + t('devise.sessions.new.title'), new_user_session_path, {current: current_tab, titulo: t('devise.sessions.new.title')} %>
+        <%= nav_tab icon('plus fa-lg', t('devise.registrations.new.title')), new_user_registration_path,
+                    { current: current_tab, titulo:t('devise.registrations.new.title') } %>
+        <%= nav_tab icon('sign-in fa-lg', t('devise.sessions.new.title')), new_user_session_path,
+                    { current: current_tab, titulo: t('devise.sessions.new.title') } %>
       <% end %>
     </ul>
-  </div><!--/.nav-collapse -->
+  </div>
 <% end %>

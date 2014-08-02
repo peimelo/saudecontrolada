@@ -28,8 +28,12 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-gem 'devise'
+# layout
 gem 'simple_form', '~> 3.1.0.rc2', github: 'plataformatec/simple_form'
+# paginacao
+gem 'bootstrap-will_paginate'
+# icons
+gem 'font-awesome-sass'
 
 # enviar e-mail em background
 gem 'delayed_job_active_record'
@@ -44,9 +48,6 @@ gem 'foreigner', '~> 1.4.1'
 
 # graficos
 gem 'lazy_high_charts'
-
-# paginacao
-gem 'bootstrap-will_paginate'
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring', group: :development
@@ -85,13 +86,15 @@ group :development, :test do
   gem 'rspec-rails'#, '~> 2.14.0'
 end
 
-# Deploy
+# deploy
 gem 'capistrano'
 gem 'capistrano-bundler'
 gem 'capistrano-rails'
 gem 'capistrano-rbenv'
 gem 'unicorn'
 
+# authentication
+gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
