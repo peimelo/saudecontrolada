@@ -7,7 +7,7 @@
 // require jquery.inputmask.extensions
 // require jquery.inputmask.phone.extensions
 // require jquery.inputmask.regex.extensions
-//= require bootstrap
+//= require bootstrap-sprockets
 //= require highcharts/highcharts
 //= require highcharts/highcharts-more
 //= require highcharts/modules/exporting
