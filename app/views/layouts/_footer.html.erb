@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-xs-6 col-xs-offset-4 col-md-2 col-md-offset-5">
         <p><%= t('nome_sistema') %></p>
-        <p><%= link_to raw('<i class="glyphicon glyphicon-bullhorn"></i> ') + Contato.model_name.human, new_contato_path %></p>
+        <p><%= link_to icon('bullhorn fa-lg', Contato.model_name.human), new_contato_path %></p>
       </div>
     </div>
   </div>
