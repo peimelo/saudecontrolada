@@ -55,6 +55,14 @@ pt-BR:
         zero: Peso e Altura
         one: Peso e Altura
         other: Peso e Altura
+      recurso:
+        zero: Recurso
+        one: Recurso
+        other: Recursos
+      recurso_categoria:
+        zero: Categoria de Recurso
+        one: Categoria de Recurso
+        other: Categorias de Recursos
       user:
         zero: Usuário
         one: Usuário

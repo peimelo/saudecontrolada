@@ -14,5 +14,7 @@ Saudecontrolada::Application.routes.draw do
   get 'dashboard/index'
   resources :erros, except: [:new, :create]
   resources :pesos, except: :show
+  resources :recursos, except: :show
+  resources :recursos_categorias, except: :show
   resources :users, only: :index
 end

@@ -1,6 +1,6 @@
 <%= currently_at t('acoes.menu') %>
 <%- model_class = Acao -%>
-<%= titulo raw('<i class="glyphicon glyphicon-cog"></i> ') +  model_class.model_name.human %>
+<%= titulo icon('wrench', t('acoes.menu')) %>
 
 <div class="row">
   <div class="col-xs-6"><%= botao_incluir 'acoes', model_class %></div>

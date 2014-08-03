@@ -1,28 +1,26 @@
 <%= currently_at t('recursos_categorias.menu') %>
 <%- model_class = RecursoCategoria -%>
-<%= titulo page_entries_info @recursos_categorias, model: model_class %>
-<%= botao_incluir 'recursos_categorias', model_class %>
+<%= titulo t('recursos_categorias.menu') %>
 
-<p>
-  <%= form_tag recursos_categorias_path, method: :get, id: 'recursos_categorias_search' do %>
-    <div class="row">
-      <div class="col-xs-9" style="width: 300px;">
-        <%= text_field_tag :search, params[:search], class: 'form-control',
-                           placeholder: t('titles.buscar_por', atributo: model_class.human_attribute_name(:nome)) %>
-      </div>
-      <div class="col-xs-3">
-        <%= button_tag (raw('<i class="glyphicon glyphicon-search"></i> ')),
-                       title: t('titles.buscar_por', atributo: model_class.human_attribute_name(:nome)),
-                       class: 'btn btn-primary', id: 'find' %>
-      </div>
+<div class="row">
+  <div class="col-xs-6"><%= botao_incluir 'recursos_categorias', model_class %></div>
+  <div class="col-xs-6">
+    <div class="btn-group pull-right">
+      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" title="<%= t('titles.download_registros')%>">
+        <%= raw('<i class="fa fa-download fa-lg"></i> ') + t('links.download') + ' ' %><span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" role="menu">
+        <li><a href="#"><%= link_to t('labels.download_excel'), recursos_categorias_path(format: 'xls') %></a></li>
+      </ul>
     </div>
-  <% end %>
-</p>
+  </div>
+</div>
 
-<%= limpar_filtro(recursos_categorias_path) %>
+<%= render 'shared/campo_buscar', model_class: model_class, url: recursos_categorias_path %>
+
+<%= page_entries_info @recursos, model: model_class %>
 
 <% if not @recursos_categorias.empty? %>
-  <%= t('labels.download_em') %><%= link_to t('links.excel'), recursos_categorias_path(format: 'xls') %>
   <div class="table-responsive">
     <table class="table table-bordered table-condensed table-hover table-striped">
       <thead>

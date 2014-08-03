@@ -134,11 +134,23 @@ pt-BR:
   pesos:
     edit:
       titulo: Alterando Peso e Altura
-    index:
-      titulo: 'Peso e Altura (%{qtde_registros})'
     menu: Peso e Altura
     new:
       titulo: Incluindo Peso e Altura
+  # -----------------------------------------------------------------------------------------------
+  recursos:
+    edit:
+      titulo: Alterando Recurso
+    menu: Recursos
+    new:
+      titulo: Incluindo Recurso
+  # -----------------------------------------------------------------------------------------------
+  recursos_categorias:
+    edit:
+      titulo: Alterando Recurso de Categoria
+    menu: Recursos de Categorias
+    new:
+      titulo: Incluindo Recurso de Categoria
   # -----------------------------------------------------------------------------------------------
   site:
     index:
