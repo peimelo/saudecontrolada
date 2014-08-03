@@ -1,3 +1,3 @@
 <%= currently_at(t('recursos_categorias.menu')) %>
 <%= titulo t('.titulo') %>
-<%= render 'form' %>
+<%= render 'shared/form_com_nome', registro: @recurso_categoria, url_cancelar: recursos_categorias_path %>

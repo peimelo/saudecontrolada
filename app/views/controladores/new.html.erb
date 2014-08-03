@@ -1,3 +1,3 @@
 <%= currently_at t('controladores.menu') %>
-<legend><%= t('.titulo') %></legend>
-<%= render 'form', controlador: @controlador %>
+<%= titulo t('.titulo') %>
+<%= render 'shared/form_com_nome', registro: @controlador, url_cancelar: controladores_path %>

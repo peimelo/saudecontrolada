@@ -1,10 +1,13 @@
 <%= currently_at t('contatos.menu') %>
 <%- model_class = Contato -%>
+<%= titulo icon('bullhorn fa-lg', t('contatos.menu')) %>
 
-<%= titulo page_entries_info @contatos, model: model_class %>
+<%= render 'shared/botoes_incluir_e_download', controller: nil, model: nil,
+           url_xls: contatos_path(format: 'xls'), url_pdf: nil %>
+
+<%= page_entries_info @acoes, model: model_class %>
 
 <% if not @contatos.empty? %>
-  <%= t('labels.download_em') %><%= link_to t('links.excel'), contatos_path(format: 'xls') %>
   <div class="table-responsive">
       <table class="table table-bordered table-condensed table-hover table-striped">
         <thead>
