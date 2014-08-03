@@ -1,4 +1,6 @@
 class ErrosController < ApplicationController
+  helper_method :sort_column, :sort_direction
+
   skip_before_filter :authenticate_user!, only: [:show]
   skip_before_filter :tem_permissao?
   before_filter :user_administrador_sistema?, except: [:show]
@@ -6,9 +8,9 @@ class ErrosController < ApplicationController
 
   def index
     if params[:erro_status_id].nil?
-      @erros = Erro.listar(params[:page])
+      @erros = Erro.listar(params[:page], sort_column + ' ' + sort_direction)
     else
-      @erros = Erro.listar_por_status(params[:erro_status_id], params[:page])
+      @erros = Erro.listar_por_status(params[:erro_status_id], params[:page], sort_column + ' ' + sort_direction)
     end
 
     @qtde_erros_por_status = Erro.qtde_erros_por_status
@@ -54,4 +56,12 @@ class ErrosController < ApplicationController
     def get_erro
       @erro = Erro.find(params[:id])
     end
+
+  def sort_column
+    Erro.column_names.include?(params[:sort]) ? params[:sort] : 'created_at'
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : 'desc'
+  end
 end

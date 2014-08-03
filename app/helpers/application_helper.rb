@@ -84,6 +84,14 @@ module ApplicationHelper
     render partial: 'layouts/alert_model_error', locals: {tem_erro: tem_erro}
   end
 
+  def imagem_true(valor)
+    icon('check fa-lg') if valor
+  end
+
+  def label_sim_nao(valor)
+    valor ? t('true') : t('false')
+  end
+
   def limpar_filtro(acao)
     if !params[:search].blank?
       raw('<p><strong>') + t('labels.filtro') + raw('</strong> "') + params[:search] + raw('" (') + link_to(t('links.limpar_filtro'), acao) + raw(')</p>')

@@ -1,34 +1,21 @@
 <%= currently_at t('recursos.menu') %>
 <%- model_class = Recurso -%>
-<%= titulo page_entries_info @recursos, model: model_class %>
-<%= botao_incluir 'recursos', model_class %>
+<%= titulo icon('tasks', t('recursos.menu')) %>
 
-<p>
-  <%= form_tag recursos_path, method: :get, id: 'recursos_search' do %>
-    <div class="row">
-      <div class="col-xs-9" style="width: 300px;">
-        <%= text_field_tag :search, params[:search], class: 'form-control',
-                           placeholder: t('titles.buscar_por', atributo: model_class.human_attribute_name(:nome)) %>
-      </div>
-      <div class="col-xs-3">
-        <%= button_tag (raw('<i class="glyphicon glyphicon-search"></i> ')),
-                       title: t('titles.buscar_por', atributo: model_class.human_attribute_name(:nome)),
-                       class: 'btn btn-primary', id: 'find' %>
-      </div>
-    </div>
-  <% end %>
-</p>
+<%= render 'shared/botoes_incluir_e_download', controller: 'recursos', model: model_class,
+           url_xls: recursos_path(format: 'xls'), url_pdf: nil %>
 
-<%= limpar_filtro(recursos_path) %>
-  
+<%= render 'shared/campo_buscar', model_class: model_class, url: recursos_path %>
+
+<%= page_entries_info @recursos, model: model_class %>
+
 <% if not @recursos.empty? %>
-  <%= t('labels.download_em') %><%= link_to 'Excel', recursos_path(format: 'xls') %>
   <div class="table-responsive">
     <table class="table table-bordered table-condensed table-hover table-striped">
       <thead>
         <tr>
           <th><%= t('bootstrap.actions') %></th>
-          <th><%= model_class.human_attribute_name(:nome) %></th>
+          <th><%= sortable model_class, 'nome' %></th>
           <th><%= t('recursos_categorias.column.name') %></th>
           <th><%= t('controladores.column.name') %></th>
           <th><%= t('acoes.column.name') %></th>

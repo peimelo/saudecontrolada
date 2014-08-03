@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-xs-6"><%= botao_incluir controller, model unless controller.nil? %></div>
+  <div class="col-xs-6">
+    <div class="btn-group pull-right">
+      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+              title="<%= t('titles.download_registros')%>">
+        <%= icon('download fa-lg', t('links.download')) %><span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" role="menu">
+        <li><a href="#"><%= link_to icon('file-excel-o', t('labels.download_excel')), url_xls unless url_xls.nil? %></a></li>
+        <li><a href="#"><%= link_to icon('file-pdf-o', t('labels.download_pdf')), url_pdf, target: '_blank' unless url_pdf.nil? %></a></li>
+      </ul>
+    </div>
+  </div>
+</div>

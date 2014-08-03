@@ -5,16 +5,17 @@ class Erro < ActiveRecord::Base
   belongs_to :user
 
   # scopes ----------------------------------------------------------------------------------------
-  scope :listar, ->(page) {
+  scope :listar, ->(page, order='erro_status_id, created_at DESC') {
     joins(:erro_status, :recurso).
-    order('erro_status_id, created_at DESC').
+    order(order).
     page(page)
   }
 
-  scope :listar_por_status, ->(erro_status_id, page) {
+  scope :listar_por_status, ->(erro_status_id, page, order='erro_status_id, created_at DESC') {
     joins(:erro_status, :recurso).
     order('erro_status_id, created_at DESC').
     where('erro_status_id = ?', erro_status_id).
+    order(order).
     page(page)
   }
 

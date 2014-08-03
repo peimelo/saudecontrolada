@@ -1,23 +1,26 @@
 <%= currently_at t('erros.menu') %>
 <%- model_class = Erro -%>
+<%= titulo icon('bug', t('erros.menu')) %>
 
-<%= titulo page_entries_info @erros, model: model_class %>
 <p>
   <% @qtde_erros_por_status.each do |erro_por_status| %>
     <%= link_to raw("<span class='badge alert-#{erro_por_status.erro_status.classe_badge}'>") + erro_por_status.qtde.to_s + raw('</span>'),
                 erros_path(erro_status_id: erro_por_status.erro_status_id), title: erro_por_status.erro_status.nome %>
 <% end %>
 </p>
+
+<%= page_entries_info @erros, model: model_class %>
+
 <% if not @erros.empty? %>
   <div class="table-responsive">
     <table class="table table-bordered table-condensed table-hover table-striped">
       <thead>
         <tr>
           <th><%= t('bootstrap.actions') %></th>
-          <th>#</th>
-          <th><%= model_class.human_attribute_name(:created_at) %></th>
+          <th><%= sortable model_class, 'id' %></th>
+          <th><%= sortable model_class, 'created_at' %></th>
           <th><%= model_class.human_attribute_name(:recurso_nome) %></th>
-          <th><%= model_class.human_attribute_name(:nome) %></th>
+          <th><%= sortable model_class, 'nome' %></th>
         </tr>
       </thead>
       <tbody>

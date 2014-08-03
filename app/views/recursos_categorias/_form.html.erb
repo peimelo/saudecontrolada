@@ -1,7 +1,0 @@
-<%= corrigir_erros @recurso_categoria.errors.any? %>
-<%= simple_form_for @recurso_categoria, html: { class: 'form' }, defaults: { input_html: { class: 'form-control' } } do |f| %>
-  <%= f.input :nome, autofocus: true %>
-  
-  <%= botao_salvar %>
-  <%= botao_cancelar recursos_categorias_path %>
-<% end %>
