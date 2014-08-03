@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  include DateModule
+  include DateModule, SearchModule
 
   # Include default devise modules. Others available are:
   devise :confirmable,
@@ -66,14 +66,6 @@ class User < ActiveRecord::Base
       end
     else
       super
-    end
-  end
-
-  def self.search(search)
-    if search
-      where('name LIKE ?', "%#{search}%")
-    else
-      all
     end
   end
 

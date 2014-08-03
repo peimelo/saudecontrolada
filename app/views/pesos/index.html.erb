@@ -2,23 +2,10 @@
 <%- model_class = Peso -%>
 <%= titulo raw('<i class="fa fa-cutlery"></i> ') + model_class.model_name.human %>
 
-<div class="row">
-  <div class="col-xs-6"><%= botao_incluir 'pesos', model_class %></div>
-  <div class="col-xs-6">
-    <div class="btn-group pull-right">
-      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" title="<%= t('titles.download_registros')%>">
-        <%= raw "<i class='fa fa-download fa-lg'></i> " + t('links.download') + ' ' %><span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu" role="menu">
-        <li><a href="#"><%= link_to t('labels.download_excel'), pesos_path(format: 'xls') %></a></li>
-        <li><a href="#"><%= link_to t('labels.download_pdf'), pesos_path(format: 'pdf'), target: '_blank' %></a></li>
-      </ul>
-    </div>
-  </div>
-</div>
+<%= render 'shared/botoes_incluir_e_download', controller: 'pesos', model: model_class,
+           url_xls: pesos_path(format: 'xls'), url_pdf: pesos_path(format: 'pdf') %>
 
 <br />
-
 <%= page_entries_info @pesos, model: model_class %>
 
 <% if not @pesos.empty? %>
@@ -52,5 +39,4 @@
     </table>
   </div>
 <% end %>
-
 <%= will_paginate %>

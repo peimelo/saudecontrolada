@@ -146,11 +146,15 @@ pt-BR:
       titulo: Incluindo Recurso
   # -----------------------------------------------------------------------------------------------
   recursos_categorias:
+    column:
+      name: Categoria de Recurso
     edit:
-      titulo: Alterando Recurso de Categoria
-    menu: Recursos de Categorias
+      titulo: Alterando Categoria de Recurso
+    index:
+      titulo: 'Categorias de Recursos (%{qtde_registros})'
+    menu: Categorias de Recursos
     new:
-      titulo: Incluindo Recurso de Categoria
+      titulo: Incluindo Categoria de Recurso
   # -----------------------------------------------------------------------------------------------
   site:
     index:
