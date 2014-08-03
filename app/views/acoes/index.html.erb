@@ -2,19 +2,8 @@
 <%- model_class = Acao -%>
 <%= titulo icon('wrench', t('acoes.menu')) %>
 
-<div class="row">
-  <div class="col-xs-6"><%= botao_incluir 'acoes', model_class %></div>
-  <div class="col-xs-6">
-    <div class="btn-group pull-right">
-      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" title="<%= t('titles.download_registros')%>">
-        <%= raw('<i class="fa fa-download fa-lg"></i> ') + t('links.download') + ' ' %><span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu" role="menu">
-        <li><a href="#"><%= link_to t('labels.download_excel'), acoes_path(format: 'xls') %></a></li>
-      </ul>
-    </div>
-  </div>
-</div>
+<%= render 'shared/botoes_incluir_e_download', controller: 'acoes', model: model_class,
+           url_xls: acoes_path(format: 'xls'), url_pdf: nil %>
 
 <%= render 'shared/campo_buscar', model_class: model_class, url: acoes_path %>
 

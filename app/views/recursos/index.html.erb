@@ -1,20 +1,9 @@
 <%= currently_at t('recursos.menu') %>
 <%- model_class = Recurso -%>
-<%= titulo t('recursos.menu') %>
+<%= titulo icon('tasks', t('recursos.menu')) %>
 
-<div class="row">
-  <div class="col-xs-6"><%= botao_incluir 'recursos', model_class %></div>
-  <div class="col-xs-6">
-    <div class="btn-group pull-right">
-      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" title="<%= t('titles.download_registros')%>">
-        <%= raw('<i class="fa fa-download fa-lg"></i> ') + t('links.download') + ' ' %><span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu" role="menu">
-        <li><a href="#"><%= link_to t('labels.download_excel'), recursos_path(format: 'xls') %></a></li>
-      </ul>
-    </div>
-  </div>
-</div>
+<%= render 'shared/botoes_incluir_e_download', controller: 'recursos', model: model_class,
+           url_xls: recursos_path(format: 'xls'), url_pdf: nil %>
 
 <%= render 'shared/campo_buscar', model_class: model_class, url: recursos_path %>
 
@@ -26,7 +15,7 @@
       <thead>
         <tr>
           <th><%= t('bootstrap.actions') %></th>
-          <th><%= model_class.human_attribute_name(:nome) %></th>
+          <th><%= sortable model_class, 'nome' %></th>
           <th><%= t('recursos_categorias.column.name') %></th>
           <th><%= t('controladores.column.name') %></th>
           <th><%= t('acoes.column.name') %></th>

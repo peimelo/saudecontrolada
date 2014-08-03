@@ -1,12 +1,12 @@
 <% if flash[:alert] %>
   <div class="alert alert-danger alert-dismissable">
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-    <i class='glyphicon glyphicon-remove-sign'></i> <%= flash[:alert] %>
+    <%= icon('warning fa-lg', flash[:alert]) %>
   </div>
 <% elsif flash[:notice] %>
   <div class="alert alert-success alert-dismissable">
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-    <i class='fa fa-check-circle fa-lg'></i> <%= flash[:notice] %>
+    <%= icon('check-circle fa-lg', flash[:notice]) %>
   </div>
 <% end %>
 <%= yield :alert_model_error %>

@@ -1,0 +1,6 @@
+<%= corrigir_erros registro.errors.any? %>
+<%= simple_form_for registro do |f| %>
+  <%= f.input :nome, autofocus: true %>
+  <%= botao_salvar %>
+  <%= botao_cancelar url_cancelar %>
+<% end %>

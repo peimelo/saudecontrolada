@@ -8,7 +8,7 @@ role :app, %w{ubuntu@saudecontrolada.com.br}
 role :web, %w{ubuntu@saudecontrolada.com.br}
 role :db,  %w{ubuntu@saudecontrolada.com.br}
 
-set :branch, 'release/gem_bootstrap'
+set :branch, 'feature/gem_bootstrap'
 # set :deploy_to, '/home/ubuntu/apps/saudecontrolada'
 
 # Extended Server Syntax

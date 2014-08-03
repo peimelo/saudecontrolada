@@ -11,10 +11,10 @@ class Recurso < ActiveRecord::Base
 
   # scopes --------------------------------------------------------------------------------------
   # override por causa dos includes
-  scope :listar, ->(search, format, page) {
+  scope :listar, ->(search, format, page, order) {
     search(search)
     .includes([:acao, :controlador, :recurso_categoria])
-    .order(:nome)
+    .order(order)
     .page(page) if format.nil?
   }
 

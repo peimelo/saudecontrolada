@@ -1,24 +1,13 @@
 <%= currently_at t('recursos_categorias.menu') %>
 <%- model_class = RecursoCategoria -%>
-<%= titulo t('recursos_categorias.menu') %>
+<%= titulo icon('list-alt', t('recursos_categorias.menu')) %>
 
-<div class="row">
-  <div class="col-xs-6"><%= botao_incluir 'recursos_categorias', model_class %></div>
-  <div class="col-xs-6">
-    <div class="btn-group pull-right">
-      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" title="<%= t('titles.download_registros')%>">
-        <%= raw('<i class="fa fa-download fa-lg"></i> ') + t('links.download') + ' ' %><span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu" role="menu">
-        <li><a href="#"><%= link_to t('labels.download_excel'), recursos_categorias_path(format: 'xls') %></a></li>
-      </ul>
-    </div>
-  </div>
-</div>
+<%= render 'shared/botoes_incluir_e_download', controller: 'recursos_categorias', model: model_class,
+           url_xls: recursos_categorias_path(format: 'xls'), url_pdf: nil %>
 
 <%= render 'shared/campo_buscar', model_class: model_class, url: recursos_categorias_path %>
 
-<%= page_entries_info @recursos, model: model_class %>
+<%= page_entries_info @recursos_categorias, model: model_class %>
 
 <% if not @recursos_categorias.empty? %>
   <div class="table-responsive">
@@ -26,7 +15,7 @@
       <thead>
         <tr>
           <th><%= t('bootstrap.actions') %></th>
-          <th><%= model_class.human_attribute_name(:nome) %></th>
+          <th><%= sortable model_class, 'nome' %></th>
         </tr>
       </thead>
       <tbody>

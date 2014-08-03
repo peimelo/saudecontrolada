@@ -85,7 +85,7 @@ module ApplicationHelper
   end
 
   def imagem_true(valor)
-    raw('<i class="glyphicon glyphicon-ok"></i> ') if valor
+    icon('check fa-lg') if valor
   end
 
   def label_sim_nao(valor)

@@ -1,10 +1,13 @@
 class RecursosCategoriasController < ApplicationController
+  helper_method :sort_column, :sort_direction
+
   skip_before_action :tem_permissao?
   before_action :user_administrador_sistema?
   before_action :set_recurso_categoria, only: [:edit, :update, :destroy]
 
   def index
-    @recursos_categorias = RecursoCategoria.listar(params[:search], params[:format], params[:page])
+    @recursos_categorias = RecursoCategoria.listar(params[:search], params[:format], params[:page],
+                                                   sort_column + ' ' + sort_direction)
 
     respond_to do |format|
       format.html
@@ -56,4 +59,8 @@ class RecursosCategoriasController < ApplicationController
     def recurso_categoria_params
       params.require(:recurso_categoria).permit(:nome)
     end
+
+  def sort_column
+    RecursoCategoria.column_names.include?(params[:sort]) ? params[:sort] : 'nome'
+  end
 end
