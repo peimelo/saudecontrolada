@@ -1,0 +1,16 @@
+<%= corrigir_erros registro.errors.any? %>
+<%= simple_form_for registro do |f| %>
+  <%= f.input :nome, autofocus: true %>
+
+  <%= f.fields_for :valor_referencia do |builder| %>
+    <%= builder.input :idade_inferior %>
+    <%= builder.input :idade_superior %>
+    <%= builder.input :valor_inferior %>
+    <%= builder.input :valor_superior %><br />
+    <%= builder.check_box :_destroy %>
+    <%= builder.label :_destroy, 'remover' %>
+  <% end %>
+
+  <%= botao_salvar %>
+  <%= botao_cancelar url_cancelar %>
+<% end %>
