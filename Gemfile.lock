@@ -140,8 +140,6 @@ GEM
     foreigner (1.4.2)
       activerecord (>= 3.0.0)
     formatador (0.2.5)
-    growl_notify (0.0.3)
-      rb-appscript
     guard (2.6.1)
       formatador (>= 0.2.4)
       listen (~> 2.7)
@@ -273,7 +271,6 @@ GEM
       thor (>= 0.18.1, < 2.0)
     raindrops (0.13.0)
     rake (10.3.2)
-    rb-appscript (0.6.1)
     rb-fchange (0.0.6)
       ffi
     rb-fsevent (0.9.4)
@@ -401,7 +398,6 @@ DEPENDENCIES
   faker
   font-awesome-sass
   foreigner (~> 1.4.1)
-  growl_notify
   guard-brakeman
   guard-rspec
   jbuilder (~> 2.0)

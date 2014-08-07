@@ -1,0 +1,35 @@
+<%= currently_at t('exames.menu') %>
+<%- model_class = Exame -%>
+<%= titulo icon('flask', t('exames.menu')) %>
+
+<%= render 'shared/botoes_incluir_e_download', controller: 'exames', model: model_class,
+           url_xls: exames_path(format: 'xls'), url_pdf: exames_path(format: 'pdf') %>
+
+<%= render 'shared/campo_buscar', model_class: model_class, url: exames_path %>
+
+<%= page_entries_info @exames, model: model_class %>
+
+<% if not @exames.empty? %>
+  <div class="table-responsive">
+    <table class="table table-bordered table-condensed table-hover table-striped">
+      <thead>
+        <tr>
+          <th><%= t('bootstrap.actions') %></th>
+          <th><%= sortable model_class, 'nome' %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @exames.each do |registro| %>
+          <tr>
+            <td width="100">
+              <%= botao_alterar registro, edit_exame_path(registro), model_class %>
+              <%= botao_excluir registro, model_class %>
+            </td>
+            <td><%= registro.nome %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>
+<%= will_paginate %>

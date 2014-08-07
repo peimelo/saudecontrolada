@@ -58,6 +58,13 @@ pt-BR:
     show:
       titulo: Erro
   # -----------------------------------------------------------------------------------------------
+  exames:
+    edit:
+      titulo: Alterando Exame
+    menu: Exames
+    new:
+      titulo: Incluindo Exame
+  # -----------------------------------------------------------------------------------------------
   layouts:
     main_nav:
       minha_conta: Minha Conta

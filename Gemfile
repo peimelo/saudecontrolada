@@ -83,7 +83,6 @@ end
 
 group :development, :test do
   gem 'factory_girl_rails'
-  gem 'growl_notify'
   gem 'guard-rspec', require: false
   gem 'rspec-rails'#, '~> 2.14.0'
 end

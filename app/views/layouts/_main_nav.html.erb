@@ -8,6 +8,9 @@
               <%= icon('cog fa-lg', t('links.administracao')) %> <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
+              <%= nav_tab icon('flask', t('exames.menu')), exames_path,
+                          { current: current_tab, titulo: t('exames.menu') } %>
+              <li class="divider"></li>
               <%= nav_tab icon('wrench', t('acoes.menu')), acoes_path, { current: current_tab, titulo: t('acoes.menu') } %>
               <%= nav_tab icon('cogs', t('controladores.menu')), controladores_path,
                           { current: current_tab, titulo: t('controladores.menu') } %>

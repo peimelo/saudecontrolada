@@ -51,6 +51,10 @@ pt-BR:
         zero: Controlador
         one: Controlador
         other: Controladores
+      exame:
+        zero: Exame
+        one: Exame
+        other: Exames
       peso:
         zero: Peso e Altura
         one: Peso e Altura
