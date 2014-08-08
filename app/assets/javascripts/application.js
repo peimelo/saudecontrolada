@@ -16,6 +16,7 @@
 //= require highcharts/modules/exporting
 //= require highchart_config
 // require_tree .
+//= require nested_form_fields
 
 $(document).ready(function() {
     $("#user_date_of_birth").inputmask("d/m/y",{ "placeholder": "dd/mm/aaaa" });

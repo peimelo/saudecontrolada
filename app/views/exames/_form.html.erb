@@ -2,14 +2,37 @@
 <%= simple_form_for registro do |f| %>
   <%= f.input :nome, autofocus: true %>
 
-  <%= f.fields_for :valor_referencia do |builder| %>
-    <%= builder.input :idade_inferior %>
-    <%= builder.input :idade_superior %>
-    <%= builder.input :valor_inferior %>
-    <%= builder.input :valor_superior %><br />
-    <%= builder.check_box :_destroy %>
-    <%= builder.label :_destroy, 'remover' %>
+
+  <%= f.nested_fields_for :valores_referencias do |builder| %>
+
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <%= builder.remove_nested_fields_link icon('trash-o fa-lg', 'Valor de referencia') %>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-xs-3">
+            <%= builder.input :idade_inferior %>
+          </div>
+          <div class="col-xs-3">
+            <%= builder.input :idade_superior %>
+          </div>
+          <div class="col-xs-3">
+            <%= builder.input :valor_inferior %>
+          </div>
+          <div class="col-xs-3">
+            <%= builder.input :valor_superior %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
   <% end %>
+
+  <p><%= f.add_nested_fields_link :valores_referencias, icon('plus fa-lg', 'Adicionar') %></p>
 
   <%= botao_salvar %>
   <%= botao_cancelar url_cancelar %>

@@ -195,6 +195,8 @@ GEM
     multi_xml (0.5.5)
     multipart-post (2.0.0)
     mysql2 (0.3.16)
+    nested_form_fields (0.5.1)
+      rails (>= 3.2.0)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (2.9.1)
@@ -407,6 +409,7 @@ DEPENDENCIES
   letter_opener
   meta_request
   mysql2
+  nested_form_fields
   omniauth
   omniauth-facebook
   omniauth-google-oauth2

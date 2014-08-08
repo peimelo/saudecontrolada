@@ -3,5 +3,5 @@ class ValorReferencia < ActiveRecord::Base
   belongs_to :exame
 
   # validações ------------------------------------------------------------------------------------
-  # validates :nome, presence: true, uniqueness: { case_sensitive: false }
+  validates :valor_inferior, :valor_superior, presence: true
 end

@@ -20,6 +20,9 @@ class ExamesController < ApplicationController
 
   def new
     @exame = Exame.new
+    # @exame.build_valores_referencias
+    # @exame.valores_referencias.build
+    # @exame.valores_referencias << ValorReferencia.new
   end
 
   def edit
@@ -55,11 +58,13 @@ class ExamesController < ApplicationController
     def exame_params
       params.require(:exame).permit(
         :nome,
-        valor_referencia_attributes: [
+        valores_referencias_attributes: [
+          :id,
           :idade_inferior,
           :idade_superior,
           :valor_inferior,
-          :valor_superior
+          :valor_superior,
+          :_destroy
         ]
       )
     end
