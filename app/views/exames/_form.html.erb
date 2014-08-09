@@ -1,38 +1,49 @@
 <%= corrigir_erros registro.errors.any? %>
 <%= simple_form_for registro do |f| %>
-  <%= f.input :nome, autofocus: true %>
+  <div class="row">
+    <div class="col-xs-8">
+      <%= f.input :nome, autofocus: true %>
+    </div>
+    <div class="col-xs-4">
+      <%= f.association :unidade, collection: Unidade.order(:nome), label_method: :nome,
+                              allow_blank: true %>
+    </div>
+  </div>
 
-
-  <%= f.nested_fields_for :valores_referencias do |builder| %>
-
-
+  <%= f.nested_fields_for :valor do |builder| %>
     <div class="panel panel-default">
       <div class="panel-heading">
         <%= builder.remove_nested_fields_link icon('trash-o fa-lg', 'Valor de referencia') %>
       </div>
       <div class="panel-body">
         <div class="row">
-          <div class="col-xs-3">
+          <div class="col-xs-4">
+            <%= builder.input :sexo, allow_blank: true, collection: Valor::SEXO %>
+          </div>
+          <div class="col-xs-4">
             <%= builder.input :idade_inferior %>
           </div>
-          <div class="col-xs-3">
+          <div class="col-xs-4">
             <%= builder.input :idade_superior %>
           </div>
-          <div class="col-xs-3">
+        </div>
+        <div class="row">
+          <div class="col-xs-4">
             <%= builder.input :valor_inferior %>
           </div>
-          <div class="col-xs-3">
+          <div class="col-xs-4">
             <%= builder.input :valor_superior %>
+          </div>
+          <div class="col-xs-4">
+            <%= builder.association :referencia, collection: Referencia.order(:nome), label_method: :nome,
+                              allow_blank: true %>
           </div>
         </div>
       </div>
     </div>
-
-
-
   <% end %>
 
-  <p><%= f.add_nested_fields_link :valores_referencias, icon('plus fa-lg', 'Adicionar') %></p>
+  <p><%= f.add_nested_fields_link :valor, icon('plus fa-lg', 'Adicionar') %></p>
 
   <%= botao_salvar %>
   <%= botao_cancelar url_cancelar %>

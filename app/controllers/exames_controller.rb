@@ -58,10 +58,12 @@ class ExamesController < ApplicationController
     def exame_params
       params.require(:exame).permit(
         :nome,
-        valores_referencias_attributes: [
+        :unidade_id,
+        valor_attributes: [
           :id,
           :idade_inferior,
           :idade_superior,
+          :referencia_id,
           :valor_inferior,
           :valor_superior,
           :_destroy
