@@ -1,0 +1,35 @@
+<%= currently_at t('activerecord.models.unidade.other') %>
+<%- model_class = Unidade -%>
+<%= titulo icon('superscript', t('activerecord.models.unidade.other')) %>
+
+<%= render 'shared/botoes_incluir_e_download', controller: 'unidades', model: model_class,
+           url_xls: unidades_path(format: 'xls'), url_pdf: nil %>
+
+<%= render 'shared/campo_buscar', model_class: model_class, url: unidades_path %>
+
+<%= page_entries_info @unidades, model: model_class %>
+
+<% if not @unidades.empty? %>
+  <div class="table-responsive">
+    <table class="table table-bordered table-condensed table-hover table-striped">
+      <thead>
+        <tr>
+          <th><%= t('bootstrap.actions') %></th>
+          <th><%= sortable model_class, 'nome' %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @unidades.each do |registro| %>
+          <tr>
+            <td width="100">
+              <%= botao_alterar registro, edit_unidade_path(registro), model_class %>
+              <%= botao_excluir registro, model_class %>
+            </td>
+            <td><%= registro.nome %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>
+<%= will_paginate %>

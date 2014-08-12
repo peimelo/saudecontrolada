@@ -21,7 +21,7 @@
 $(document).ready(function() {
     $("#user_date_of_birth").inputmask("d/m/y",{ "placeholder": "dd/mm/aaaa" });
     $("#peso_data").inputmask("d/m/y",{ "placeholder": "dd/mm/aaaa" });
-    $("#peso_altura").inputmask({ "mask": "9,99" });
+    //$("#peso_altura").inputmask({ "mask": "9,99" });
 //    $("#peso_peso").inputmask({ "mask": ["9[,99]","99[,99]","999[,99]"] });
 //    $("#peso_peso").inputmask({ "mask": ["99[9,99]"] });
 });

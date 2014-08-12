@@ -18,7 +18,7 @@
       <div class="panel-body">
         <div class="row">
           <div class="col-xs-4">
-            <%= builder.input :valor_inferior %>
+            <%= builder.input :valor_inferior, as: :string %>
           </div>
           <div class="col-xs-4">
             <%= builder.input :valor_superior %>
@@ -39,7 +39,9 @@
             <%= builder.input :sexo, allow_blank: true, collection: Valor::SEXO %>
           </div>
         </div>
-        <%= builder.remove_nested_fields_link icon('trash-o fa-lg', t('links.excluir')) %>
+      </div>
+      <div class="panel-footer">
+        <%= builder.remove_nested_fields_link icon('trash-o fa-lg', t('links.excluir')) %>        
       </div>
     </div>
   <% end %>

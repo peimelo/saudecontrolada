@@ -49,6 +49,8 @@ gem 'prawn'
 # usar no migrate comando para gerar fk
 gem 'foreigner', '~> 1.4.1'
 
+gem 'delocalize'
+
 # graficos
 gem 'lazy_high_charts'
 

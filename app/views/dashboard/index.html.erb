@@ -12,7 +12,7 @@
     <% if @peso_atual.nil? %>
       <%= raw t('.sem_dados') %><%= link_peso %>.
     <% else %>
-      <%= raw "#{ t('.meu_imc') }: #{ number_to_human @peso_atual.imc, precision: 4 } (#{ situacao_imc @peso_atual.imc })" %>
+      <%= raw "#{ t('.meu_imc') }: #{ numero_formatado(@peso_atual.imc) } (#{ situacao_imc @peso_atual.imc })" %>
     <% end %>
   </div>
 </div>
@@ -28,7 +28,7 @@
     <% if @peso_atual.nil? %>
       <%= raw t('.sem_dados') %><%= link_peso %>.
     <% else %>
-      <%= raw "#{ t('.peso_medio') }: #{ number_to_human @peso_medio, precision: 4 } kg" %>
+      <%= raw "#{ t('.peso_medio') }: #{ numero_formatado(@peso_medio) } kg" %>
     <% end %>
   </div>
 </div>

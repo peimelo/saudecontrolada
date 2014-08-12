@@ -1,6 +1,6 @@
 <%= currently_at t('activerecord.models.referencia.other') %>
 <%- model_class = Referencia -%>
-<%= titulo icon('wrench', t('activerecord.models.referencia.other')) %>
+<%= titulo icon('book', t('activerecord.models.referencia.other')) %>
 
 <%= render 'shared/botoes_incluir_e_download', controller: 'referencias', model: model_class,
            url_xls: referencias_path(format: 'xls'), url_pdf: nil %>

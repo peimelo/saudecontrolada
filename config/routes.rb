@@ -18,5 +18,6 @@ Saudecontrolada::Application.routes.draw do
   resources :referencias, except: :show
   resources :recursos, except: :show
   resources :recursos_categorias, except: :show
+  resources :unidades, except: :show
   resources :users, only: :index
 end

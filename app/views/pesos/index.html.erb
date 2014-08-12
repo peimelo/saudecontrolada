@@ -28,9 +28,9 @@
               <%= botao_alterar registro, edit_peso_path(registro), model_class %>
               <%= botao_excluir registro, model_class, { registro_nome: l(registro.data) } %>
             </td>
-            <td><%= l(registro.data) %></td>
-            <td><%= number_to_human(registro.altura, precision: 3) %></td>
-            <td><%= number_to_human(registro.peso, precision: 4) %></td>
+            <td><%=l registro.data %></td>
+            <td><%= numero_formatado(registro.altura) %></td>
+            <td><%= numero_formatado(registro.peso) %></td>
             <td><%= registro.peso_ideal %></td>
             <td><%= situacao_imc registro.imc %></td>
           </tr>

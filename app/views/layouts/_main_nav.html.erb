@@ -10,8 +10,10 @@
             <ul class="dropdown-menu">
               <%= nav_tab icon('flask', t('exames.menu')), exames_path,
                           { current: current_tab, titulo: t('exames.menu') } %>
-              <%= nav_tab icon('flask', t('activerecord.models.referencia.other')), referencias_path,
+              <%= nav_tab icon('book', t('activerecord.models.referencia.other')), referencias_path,
                           { current: current_tab, titulo: t('activerecord.models.referencia.other') } %>
+              <%= nav_tab icon('superscript', t('activerecord.models.unidade.other')), unidades_path,
+                          { current: current_tab, titulo: t('activerecord.models.unidade.other') } %>
               <li class="divider"></li>
               <%= nav_tab icon('wrench', t('acoes.menu')), acoes_path, { current: current_tab, titulo: t('acoes.menu') } %>
               <%= nav_tab icon('cogs', t('controladores.menu')), controladores_path,

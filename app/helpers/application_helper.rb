@@ -98,6 +98,10 @@ module ApplicationHelper
     end
   end
 
+  def numero_formatado(numero)
+    number_to_human(numero, strip_insignificant_zeros: false, significant: false)
+  end
+  
   def sortable(model, column)
     title = model.human_attribute_name(column)
     icone = column == sort_column ? " <i class='fa fa-sort-#{sort_direction}'></i>" : ''
