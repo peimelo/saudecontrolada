@@ -1,0 +1,3 @@
+<%= currently_at(t('activerecord.models.referencia.other')) %>
+<%= titulo t('views.edit.titulo', model: Referencia.model_name.human) %>
+<%= render 'shared/form_com_nome', registro: @referencia, url_cancelar: referencias_path %>

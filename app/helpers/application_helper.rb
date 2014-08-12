@@ -43,7 +43,7 @@ module ApplicationHelper
 
     options[:texto_botao] ||= ''
 
-    label = raw('<i class="glyphicon glyphicon-trash"></i> ') + options[:texto_botao]
+    label = icon('trash-o fa-lg', options[:texto_botao])
 
     link_to label, registro, options
   end

@@ -15,6 +15,7 @@ Saudecontrolada::Application.routes.draw do
   resources :erros, except: [:new, :create]
   resources :exames, except: :show
   resources :pesos, except: :show
+  resources :referencias, except: :show
   resources :recursos, except: :show
   resources :recursos_categorias, except: :show
   resources :users, only: :index
