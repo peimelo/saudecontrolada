@@ -59,8 +59,8 @@ class ResultadosController < ApplicationController
   end
 
   def new
-    ultimo_resultado = current_user.resultado.select(:data).order('data DESC').first
-    @resultado = Resultado.new(data: (ultimo_resultado.data rescue nil))
+    #ultimo_resultado = current_user.resultado.select(:data).order('data DESC').first
+    @resultado = Resultado.new#(data: (ultimo_resultado.data rescue nil))
   end
 
   def edit

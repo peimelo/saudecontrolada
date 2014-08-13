@@ -66,11 +66,8 @@ pt-BR:
       titulo: Erro
   # -----------------------------------------------------------------------------------------------
   exames:
-    edit:
-      titulo: Alterando Exame
-    menu: Exames
-    new:
-      titulo: Incluindo Exame
+    form:
+      adicionar_valor_referencia: Adicionar Valor de Referência
   # -----------------------------------------------------------------------------------------------
   layouts:
     main_nav:

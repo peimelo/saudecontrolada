@@ -1,6 +1,6 @@
-<%= currently_at t('exames.menu') %>
+<%= currently_at t('activerecord.models.exame.other') %>
 <%- model_class = Exame -%>
-<%= titulo icon('flask', t('exames.menu')) %>
+<%= titulo icon('flask', t('activerecord.models.exame.other')) %>
 
 <%= render 'shared/botoes_incluir_e_download', controller: 'exames', model: model_class,
            url_xls: exames_path(format: 'xls'), url_pdf: exames_path(format: 'pdf') %>
