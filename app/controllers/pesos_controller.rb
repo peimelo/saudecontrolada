@@ -46,9 +46,6 @@ class PesosController < ApplicationController
     end
   end
 
-  def show
-  end
-
   def new
     ultimo_peso = current_user.peso.select(:altura).order('data DESC').first
     @peso = Peso.new(data: Time.now, altura: (ultimo_peso.altura rescue nil))

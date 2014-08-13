@@ -80,6 +80,17 @@ module ApplicationHelper
     button_tag label, options
   end
 
+  def botao_visualizar(path, model, options={})
+    options = {
+        class: 'btn btn-default',
+        title: t('titles.visualizar', model: model.model_name.human)
+    }.merge(options)
+
+    label = icon('eye fa-lg')
+
+    link_to label, path, options
+  end
+
   def corrigir_erros(tem_erro)
     render partial: 'layouts/alert_model_error', locals: {tem_erro: tem_erro}
   end

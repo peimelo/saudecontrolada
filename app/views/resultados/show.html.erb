@@ -1,36 +1,61 @@
 <%= currently_at t('activerecord.models.resultado.other') %>
-<%- model_class = Peso -%>
-<%= titulo icon('book', t('activerecord.models.resultado.other')) %>
+<%- model_class = Resultado -%>
+<%= titulo icon('file-text-o', t('activerecord.models.resultado.other') + ': ' + @exame.nome) %>
 
-<%= render 'shared/botoes_incluir_e_download', controller: 'resultados', model: model_class,
+<%#= render 'shared/botoes_incluir_e_download', controller: nil, model: model_class,
            url_xls: resultados_path(format: 'xls'), url_pdf: resultados_path(format: 'pdf') %>
 
 <br />
-<%#= page_entries_info @resultados, model: model_class %>
 
-<% if not @resultados.empty? %>
-  <div class="table-responsive">
-    <table class="table table-bordered table-condensed table-hover table-striped">
-      <thead>
-        <tr>
-          <th><%= t('bootstrap.actions') %></th>
-          <th><%= sortable model_class, 'exames.nome' %></th>
-          <th><%= sortable model_class, 'exames.nome' %></th>
-          <th><%= sortable model_class, 'exames.nome' %></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @resultados.each do |registro| %>
-          <tr>
-            <td width="100">
-            </td>
-            <td><%= registro.data %></td>
-            <td><%= registro.exame.nome %></td>
-            <td><%= registro.valor %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+<ul class="nav nav-tabs" role="tablist" id="myTab">
+  <li class="active"><a href="#grafico" role="tab" data-toggle="tab"><%= icon('bar-chart-o fa-lg', 'Gráfico') %></a></li>
+  <li><a href="#resultados" role="tab" data-toggle="tab"><%= icon('file-text-o fa-lg', 'Resultados') %></a></li>
+</ul>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="grafico">
+    <br />
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= icon('flask fa-lg', @exame.nome) %></h3>
+      </div>
+      <div class="panel-body">
+        <%= high_chart('resultado', @chart_resultado) %>
+      </div>
+      <div class="panel-footer">
+        <%= raw "#{ t('labels.valor_medio', valor: numero_formatado(@valor_medio)) }" %>
+      </div>
+    </div>
   </div>
-<% end %>
-<%#= will_paginate %>
+  <div class="tab-pane" id="resultados">
+    <br />
+    <%= page_entries_info @resultados, model: model_class %>
+
+    <% if not @resultados.empty? %>
+      <div class="table-responsive">
+        <table class="table table-bordered table-condensed table-hover table-striped">
+          <thead>
+            <tr>
+              <th><%= t('bootstrap.actions') %></th>
+              <th><%= sortable model_class, 'data' %></th>
+              <th><%= sortable model_class, 'valor' %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @resultados.each do |registro| %>
+              <tr>
+                <td width="100">
+                  <%= botao_alterar registro, edit_resultado_path(registro), model_class %>
+                  <%= botao_excluir registro, model_class, { registro_nome: l(registro.data) } %>
+                </td>
+                <td><%=l registro.data %></td>
+                <td><%= numero_formatado registro.valor %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    <% end %>
+    <%= will_paginate %>
+  </div>
+</div>

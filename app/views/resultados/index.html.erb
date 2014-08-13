@@ -1,9 +1,9 @@
 <%= currently_at t('activerecord.models.resultado.other') %>
 <%- model_class = Resultado -%>
-<%= titulo icon('book', t('activerecord.models.resultado.other')) %>
+<%= titulo icon('file-text-o', t('activerecord.models.resultado.other')) %>
 
 <%= render 'shared/botoes_incluir_e_download', controller: 'resultados', model: model_class,
-           url_xls: resultados_path(format: 'xls'), url_pdf: resultados_path(format: 'pdf') %>
+           url_xls: nil, url_pdf: nil %>
 
 <br />
 <%#= page_entries_info @resultados, model: model_class %>
@@ -20,7 +20,8 @@
       <tbody>
         <% @resultados.each do |registro| %>
           <tr>
-            <td width="100">
+            <td width="60">
+              <%= botao_visualizar resultado_path(registro.exame_id), model_class %>
             </td>
             <td><%= link_to registro.nome, resultado_path(registro.exame_id) %></td>
           </tr>

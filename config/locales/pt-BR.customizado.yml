@@ -12,6 +12,7 @@ pt-BR:
     download_excel: Excel
     download_pdf: PDF
     filtro: 'Filtro aplicado: '
+    valor_medio: 'Valor Médio: %{valor}'
 
   links:
     administracao: Administração
