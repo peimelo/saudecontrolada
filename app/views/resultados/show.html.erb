@@ -1,0 +1,36 @@
+<%= currently_at t('activerecord.models.resultado.other') %>
+<%- model_class = Peso -%>
+<%= titulo icon('book', t('activerecord.models.resultado.other')) %>
+
+<%= render 'shared/botoes_incluir_e_download', controller: 'resultados', model: model_class,
+           url_xls: resultados_path(format: 'xls'), url_pdf: resultados_path(format: 'pdf') %>
+
+<br />
+<%#= page_entries_info @resultados, model: model_class %>
+
+<% if not @resultados.empty? %>
+  <div class="table-responsive">
+    <table class="table table-bordered table-condensed table-hover table-striped">
+      <thead>
+        <tr>
+          <th><%= t('bootstrap.actions') %></th>
+          <th><%= sortable model_class, 'exames.nome' %></th>
+          <th><%= sortable model_class, 'exames.nome' %></th>
+          <th><%= sortable model_class, 'exames.nome' %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @resultados.each do |registro| %>
+          <tr>
+            <td width="100">
+            </td>
+            <td><%= registro.data %></td>
+            <td><%= registro.exame.nome %></td>
+            <td><%= registro.valor %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>
+<%#= will_paginate %>

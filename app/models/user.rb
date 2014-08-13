@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
   has_many :authentication, dependent: :delete_all
   has_many :erro, dependent: :nullify
   has_many :peso, dependent: :delete_all
+  has_many :resultado, dependent: :delete_all
 
   # validações ------------------------------------------------------------------------------------
   validates :name, presence: true

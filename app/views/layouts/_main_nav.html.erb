@@ -37,6 +37,8 @@
             <%= nav_tab icon('dashboard', t('dashboard.menu')), dashboard_index_path,
                         { current: current_tab, titulo: t('dashboard.menu') } %>
             <%= nav_tab raw('<i class="fa fa-cutlery"></i> ') + t('pesos.menu'), pesos_path, { current: current_tab, titulo: t('pesos.menu') } %>
+            <%= nav_tab icon('book', t('activerecord.models.resultado.other')), resultados_path,
+                        { current: current_tab, titulo: t('activerecord.models.resultado.other') } %>
           </ul>
         </li>
         <li class="dropdown">

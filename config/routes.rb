@@ -13,11 +13,18 @@ Saudecontrolada::Application.routes.draw do
   resources :controladores, except: :show
   get 'dashboard/index'
   resources :erros, except: [:new, :create]
-  resources :exames, except: :show
+
+  resources :exames, except: :show do
+    collection do
+      get 'autocomplete'
+    end
+  end
+
   resources :pesos, except: :show
   resources :referencias, except: :show
   resources :recursos, except: :show
   resources :recursos_categorias, except: :show
+  resources :resultados#, except: :show
   resources :unidades, except: :show
   resources :users, only: :index
 end

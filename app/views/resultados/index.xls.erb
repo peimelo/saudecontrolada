@@ -1,0 +1,28 @@
+<%- model_class = Peso -%>
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="<%= t('pesos.menu') %>">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String"><%= model_class.human_attribute_name(:data) %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= model_class.human_attribute_name(:altura) %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= model_class.human_attribute_name(:peso) %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= model_class.human_attribute_name(:peso_ideal) %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= model_class.human_attribute_name(:situacao_imc) %></Data></Cell>
+      </Row>
+    <% @pesos.each do |registro| %>
+      <Row>
+        <Cell><Data ss:Type="String"><%=l registro.data %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= number_to_human(registro.altura) %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= number_to_human(registro.peso, precision: 4) %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= registro.peso_ideal %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= situacao_imc registro.imc %></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>
