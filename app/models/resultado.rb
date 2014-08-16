@@ -6,8 +6,8 @@ class Resultado < ActiveRecord::Base
   belongs_to :user
 
   # scopes --------------------------------------------------------------------------------------
-  scope :listar, ->(search=nil, format=nil, page=nil, order='exames.nome, data') {
-    select('resultados.exame_id, exames.nome, COUNT(*) AS total')
+  scope :listar, ->(search=nil, format=nil, page=nil, order='exames.nome ASC, data DESC') {
+    select('resultados.exame_id, exames.nome AS nome, COUNT(*) AS total')
     .joins(:exame)
     .where('exames.nome LIKE ?', "%#{ search }%")
     .group('resultados.exame_id, exames.nome')

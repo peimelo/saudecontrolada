@@ -37,6 +37,9 @@ gem 'font-awesome-sass'
 # paginacao
 gem 'bootstrap-will_paginate'
 
+# breadcrumb
+gem 'crummy'#, '~> 1.8.0'
+
 # enviar e-mail em background
 gem 'delayed_job_active_record'
 gem 'daemons'

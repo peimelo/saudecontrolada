@@ -3,7 +3,7 @@
 <%= titulo icon('file-text-o', t('activerecord.models.resultado.other')) %>
 
 <%= render 'shared/botoes_incluir_e_download', controller: 'resultados', model: model_class,
-           url_xls: nil, url_pdf: nil %>
+           url_xls: resultados_path(format: 'xls'), url_pdf: nil %>
 
 <%= render 'shared/campo_buscar', model_class: model_class, url: resultados_path %>
 

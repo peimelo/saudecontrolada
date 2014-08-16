@@ -1,7 +1,24 @@
 class ResultadosController < ApplicationController
   helper_method :sort_column, :sort_direction
 
-  before_action :set_resultado, only: [:edit, :update, :destroy]
+  # before_action :set_resultado, only: [:edit, :update, :destroy]
+  #
+  # # index
+  # before_action ->(texto=t('activerecord.models.resultado.other'), url=resultados_path) {
+  #   breadcrumb(texto, url) }, except: :destroy
+  # # index
+  # before_action ->(texto=t('activerecord.models.resultado.other'), url=resultados_path) {
+  #   breadcrumb(texto, url) }, except: :destroy
+  # # index
+  # before_action ->(texto=t('activerecord.models.resultado.other'), url=resultados_path) {
+  #   breadcrumb(texto, url) }, except: :destroy
+  #
+  # before_action :breadcrumb_new, only: [:new, :create]
+  # before_action :breadcrumb_edit, only: [:edit, :update]
+
+  # # show
+  # before_action ->(texto=t('views.show.titulo', model: Resultado.model_name.human)) {
+  #   breadcrumb(texto) }, only: :show
 
   def index
     @resultados = current_user.resultado.listar(params[:search], params[:format], params[:page],
@@ -13,6 +30,7 @@ class ResultadosController < ApplicationController
         pdf = ResultadosPdf.new(@resultados, Resultado)
         send_data pdf.render, filename: (Resultado.model_name.human + '.pdf'), disposition: 'inline'
       end
+      #TODO: impressao nao esta correta
       format.xls
     end
   end
@@ -99,6 +117,14 @@ class ResultadosController < ApplicationController
   end
 
   private
+    def breadcrumb_edit
+      add_crumb t('views.edit.titulo', model: Resultado.model_name.human), edit_resultado_path(@resultado)
+    end
+
+    def breadcrumb_new
+      add_crumb t('views.new.titulo', model: Resultado.model_name.human), new_resultado_path
+    end
+
     def resultado_params
       params.require(:resultado).permit(:data, :exame_nome, :valor)
     end

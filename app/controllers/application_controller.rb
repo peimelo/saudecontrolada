@@ -9,6 +9,10 @@ class ApplicationController < ActionController::Base
   before_filter :tem_permissao?, except: :erro
 
   protected
+    def breadcrumb(texto, url=nil)
+      add_crumb texto, url
+    end
+
     def configure_permitted_parameters
       devise_parameter_sanitizer.for(:account_update) { |u| u.permit(
           :current_password,

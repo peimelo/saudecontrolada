@@ -20,6 +20,7 @@
     <%= render 'layouts/header' %>
     <div class="container">
       <div class="large-12 columns">
+        <%= render_crumbs format: :html_list, last_crumb_linked: false, ul_class: 'breadcrumb', last_class: 'active' %>
         <%= render 'layouts/alert' %>
         <%= yield %>
       </div>
