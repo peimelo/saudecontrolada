@@ -68,6 +68,7 @@ pt-BR:
   exames:
     form:
       adicionar_valor_referencia: Adicionar Valor de Referência
+      remover_valor_referencia: Remover Valor de Referência
   # -----------------------------------------------------------------------------------------------
   layouts:
     main_nav:
@@ -170,17 +171,17 @@ pt-BR:
   site:
     index:
       texto_principal: |
-        Tenha uma vida mais saudável e tranquila.
+        Ajudando você a ter uma vida mais saudável e tranquila.
       titulo_cadastrar: Crie sua conta
       destaque_1_titulo: É grátis!
       destaque_1_texto: |
         Você não precisa pagar nada. Queremos ajudar você a cuidar da sua saúde.
-      destaque_2_titulo: Controle do Peso
+      destaque_2_titulo: Controle de Peso
       destaque_2_texto: |
         Controle a evolução do seu peso, o peso ideal e o IMC.
       destaque_3_titulo: Resultados de Exames
       destaque_3_texto: |
-        Todo seus resultados em um só lugar e com gráficos.
+        Todos os seus resultados em um só lugar e com gráficos.
   # -----------------------------------------------------------------------------------------------
   users:
     index:

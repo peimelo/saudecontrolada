@@ -94,16 +94,12 @@ class ResultadosController < ApplicationController
   end
 
   def update
-    # caso digite um nome nao existente, guardo para depois recuperar no else
-    # exame_id = @resultado.exame_id
-
     respond_to do |format|
       if @resultado.update(resultado_params)
         format.html { redirect_to resultado_url(@resultado.exame_id),
                                   notice: t('mensagens.flash.update', crud: Resultado.model_name.human) }
         format.json { head :no_content }
       else
-        # @resultado.exame_id = exame_id
         format.html { render action: 'edit' }
         format.json { render json: @resultado.errors, status: :unprocessable_entity }
       end

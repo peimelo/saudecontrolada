@@ -127,6 +127,14 @@ module ApplicationHelper
   end
 
   def titulo(title)
+    content_for :title do
+      if title.scan('</i> ') == []
+        title
+      else
+        title.split('</i> ')[1]
+      end
+    end
+
     content_tag(:h3, title)
   end
 
