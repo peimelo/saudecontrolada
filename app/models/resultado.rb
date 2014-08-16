@@ -15,22 +15,10 @@ class Resultado < ActiveRecord::Base
     .page(page) if format.nil?
   }
 
-
-  # if params[:format].nil?
-  #   @resultados = current_user.resultado.select([:exame_id, :nome]).distinct.joins(:exame).
-  #       order(sort_column + ' ' + sort_direction)#.page(params[:page])
-  # else
-  #   @resultados = current_user.resultado.order(sort_column + ' ' + sort_direction)
-  # end
-
-  # @line_items = @project.line_items.all(
-  #     :group  => "device_id",
-  #     :select => "device_id, COUNT(*) as count"
-  # )
-
   # validações ------------------------------------------------------------------------------------
   validates :data, :exame_id, :exame_nome, presence: true
-  validates :valor, numericality: { less_than_or_equal_to: 99999999.99 }
+  validates :valor, numericality: { less_than_or_equal_to: 99999999.99 },
+            unless: Proc.new { |a| a.valor.blank? }
 
   # methods ---------------------------------------------------------------------------------------
   def exame_nome

@@ -11,9 +11,9 @@
     </div>
   </div>
   <%= botao_salvar %>
-  <% if action_name == 'new' or action_name == 'create' %>
-    <%= botao_cancelar url_cancelar %>
-  <% else %>
+  <% if (action_name == 'edit' or action_name == 'update') and !registro.exame_id.nil? %>
     <%= botao_cancelar resultado_path(registro.exame_id) %>
+  <% else %>
+    <%= botao_cancelar url_cancelar %>
   <% end %>
 <% end %>
