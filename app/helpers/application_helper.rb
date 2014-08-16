@@ -75,7 +75,7 @@ module ApplicationHelper
         class: 'btn btn-primary'
     }.merge(options)
 
-    label = raw('<i class="glyphicon glyphicon-ok"></i> ') + t('links.salvar')
+    label = icon('check fa-lg', t('links.salvar'))
 
     button_tag label, options
   end

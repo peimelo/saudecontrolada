@@ -4,12 +4,13 @@ class ResultadosController < ApplicationController
   before_action :set_resultado, only: [:edit, :update, :destroy]
 
   def index
-    if params[:format].nil?
-      @resultados = current_user.resultado.select([:exame_id, :nome]).distinct.joins(:exame).
-          order(sort_column + ' ' + sort_direction)#.page(params[:page])
-    else
-      @resultados = current_user.resultado.order(sort_column + ' ' + sort_direction)
-    end
+    @resultados = current_user.resultado.listar()
+    # if params[:format].nil?
+    #   @resultados = current_user.resultado.select([:exame_id, :nome]).distinct.joins(:exame).
+    #       order(sort_column + ' ' + sort_direction)#.page(params[:page])
+    # else
+    #   @resultados = current_user.resultado.order(sort_column + ' ' + sort_direction)
+    # end
 
     respond_to do |format|
       format.html

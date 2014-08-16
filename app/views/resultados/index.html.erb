@@ -15,6 +15,7 @@
         <tr>
           <th><%= t('bootstrap.actions') %></th>
           <th><%= sortable model_class, 'exames.nome' %></th>
+          <th><%= model_class.human_attribute_name(:total) %></th>
         </tr>
       </thead>
       <tbody>
@@ -24,6 +25,7 @@
               <%= botao_visualizar resultado_path(registro.exame_id), model_class %>
             </td>
             <td><%= link_to registro.nome, resultado_path(registro.exame_id) %></td>
+            <td><%= registro.total %></td>
           </tr>
         <% end %>
       </tbody>

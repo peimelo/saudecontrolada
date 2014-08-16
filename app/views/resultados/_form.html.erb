@@ -1,11 +1,15 @@
 <%= corrigir_erros registro.errors.any? %>
 <%= simple_form_for(registro) do |f| %>
-  <%= f.input :data, autofocus: true, as: :string,
-              input_html: { 'data-inputmask' => "'alias': 'date'" } %>
-
-  <%= f.input :exame_nome %>
-   
-  <%= f.input :valor %>
+  <%= f.input :exame_nome, autofocus: true %>
+  <div class="row">
+    <div class="col-sm-6">
+      <%= f.input :data, as: :string,
+                  input_html: { 'data-inputmask' => "'alias': 'date'" } %>
+    </div>
+    <div class="col-sm-6">
+      <%= f.input :valor %>
+    </div>
+  </div>
   <%= botao_salvar %>
   <% if action_name == 'new' or action_name == 'create' %>
     <%= botao_cancelar url_cancelar %>

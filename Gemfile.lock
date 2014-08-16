@@ -1,4 +1,5 @@
 GEM
+  remote: https://rubygems.org/
   specs:
     actionmailer (4.1.4)
       actionpack (= 4.1.4)
@@ -122,7 +123,7 @@ GEM
     factory_girl_rails (4.4.1)
       factory_girl (~> 4.4.0)
       railties (>= 3.0.0)
-    faker (1.4.2)
+    faker (1.4.3)
       i18n (~> 0.5)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
@@ -130,7 +131,7 @@ GEM
     ffi (1.9.3)
     font-awesome-sass (4.1.0)
       sass (~> 3.2)
-    foreigner (1.4.2)
+    foreigner (1.6.1)
       activerecord (>= 3.0.0)
     formatador (0.2.5)
     guard (2.6.1)
@@ -228,6 +229,7 @@ GEM
     prawn (1.2.1)
       pdf-core (~> 0.2.5)
       ttfunk (~> 1.2.0)
+    prawn-table (0.1.0)
     pry (0.10.0)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -312,7 +314,7 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
-    sexp_processor (4.4.3)
+    sexp_processor (4.4.4)
     simple_form (3.1.0.rc2)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
@@ -395,12 +397,12 @@ DEPENDENCIES
   delayed_job_active_record
   delayed_job_web
   delocalize
-  devise
+  devise (~> 3.3.0)
   email_spec
   factory_girl_rails
   faker
   font-awesome-sass
-  foreigner (~> 1.4.1)
+  foreigner
   guard-brakeman
   guard-rspec
   jbuilder (~> 2.0)
@@ -416,7 +418,8 @@ DEPENDENCIES
   omniauth-facebook
   omniauth-google-oauth2
   omniauth-linkedin
-  prawn
+  prawn (~> 1.2.1)
+  prawn-table (~> 0.1.0)
   quiet_assets
   rails (= 4.1.4)
   rails_best_practices
@@ -427,7 +430,7 @@ DEPENDENCIES
   ruby_gntp
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
-  simple_form
+  simple_form (~> 3.1.0.rc2)
   simplecov
   spring
   spring-commands-rspec

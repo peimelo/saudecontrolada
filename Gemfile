@@ -1,4 +1,4 @@
-#source 'https://rubygems.org'
+source 'https://rubygems.org'
 ruby '2.1.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -17,9 +17,6 @@ gem 'turbolinks'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
-
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
@@ -33,7 +30,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # layout
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
-gem 'simple_form'
+gem 'simple_form', '~> 3.1.0.rc2'
 gem 'nested_form_fields'
 # icons
 gem 'font-awesome-sass'
@@ -46,10 +43,11 @@ gem 'daemons'
 gem 'delayed_job_web'
 
 # pdf
-gem 'prawn'
+gem 'prawn', '~> 1.2.1'
+gem 'prawn-table', '~> 0.1.0'
 
 # usar no migrate comando para gerar fk
-gem 'foreigner', '~> 1.4.1'
+gem 'foreigner'
 
 gem 'delocalize'
 
@@ -77,11 +75,11 @@ group :development do
 end
 
 group :test do
-  gem 'capybara'#, '~> 2.1.0'
+  gem 'capybara'
   gem 'database_cleaner'
   gem 'email_spec'
   gem 'faker'
-  gem 'launchy'#, '~> 2.3.0'
+  gem 'launchy'
   # gem 'rack_session_access' get e set em session com capybara
   gem 'simplecov', :require => false
 end
@@ -89,7 +87,7 @@ end
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'guard-rspec', require: false
-  gem 'rspec-rails'#, '~> 2.14.0'
+  gem 'rspec-rails'
 end
 
 # deploy
@@ -100,7 +98,7 @@ gem 'capistrano-rbenv'
 gem 'unicorn'
 
 # authentication
-gem 'devise'
+gem 'devise', '~> 3.3.0'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
