@@ -17,4 +17,10 @@ class Valor < ActiveRecord::Base
   
   validates :valor_superior, numericality: { greater_than_or_equal_to: :valor_inferior },
     unless: Proc.new { |a| a.valor_inferior.blank? or a.valor_superior.blank? }
+
+  validates :idade_inferior, numericality: { less_than_or_equal_to: 199.999 }
+  validates :idade_superior, numericality: { less_than_or_equal_to: 199.999 }
+
+  validates :valor_inferior, numericality: { less_than_or_equal_to: 99999999.99 }
+  validates :valor_superior, numericality: { less_than_or_equal_to: 99999999.99 }
 end

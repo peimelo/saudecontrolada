@@ -30,6 +30,7 @@ class Resultado < ActiveRecord::Base
 
   # validações ------------------------------------------------------------------------------------
   validates :data, :exame_id, :exame_nome, presence: true
+  validates :valor, numericality: { less_than_or_equal_to: 99999999.99 }
 
   # methods ---------------------------------------------------------------------------------------
   def exame_nome
