@@ -1,19 +1,21 @@
 class Resultado < ActiveRecord::Base
-  include SearchModule
+  # include SearchModule
 
   # relacionamentos -------------------------------------------------------------------------------
   belongs_to :exame
   belongs_to :user
 
   # scopes --------------------------------------------------------------------------------------
-  scope :listar, ->(search=nil, format=nil, page=nil, order='nome') {
-    select('exame_id, nome, COUNT(*) AS total')
+  scope :listar, ->(search=nil, format=nil, page=nil, order='exames.nome, data') {
+    select('resultados.exame_id, exames.nome, COUNT(*) AS total')
     .joins(:exame)
-    .group('exame_id, nome')
-    # search(search)
-    # .order(order)
-    # .page(page) if format.nil?
+    .where('exames.nome LIKE ?', "%#{ search }%")
+    .group('resultados.exame_id, exames.nome')
+    .order(order)
+    .page(page) if format.nil?
   }
+
+
   # if params[:format].nil?
   #   @resultados = current_user.resultado.select([:exame_id, :nome]).distinct.joins(:exame).
   #       order(sort_column + ' ' + sort_direction)#.page(params[:page])

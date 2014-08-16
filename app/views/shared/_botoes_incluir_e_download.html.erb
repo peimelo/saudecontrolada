@@ -1,5 +1,7 @@
 <div class="row">
-  <div class="col-xs-6"><%= botao_incluir controller, model unless controller.nil? %></div>
+  <div class="col-xs-6">
+    <%= botao_incluir controller, model unless controller.nil? %>
+  </div>
   <div class="col-xs-6">
     <% if !url_xls.nil? or !url_pdf.nil? %>
       <div class="btn-group pull-right">

@@ -5,8 +5,9 @@
 <%= render 'shared/botoes_incluir_e_download', controller: 'resultados', model: model_class,
            url_xls: nil, url_pdf: nil %>
 
-<br />
-<%#= page_entries_info @resultados, model: model_class %>
+<%= render 'shared/campo_buscar', model_class: model_class, url: resultados_path %>
+
+<%= page_entries_info @resultados, model: model_class %>
 
 <% if not @resultados.empty? %>
   <div class="table-responsive">
@@ -32,4 +33,4 @@
     </table>
   </div>
 <% end %>
-<%#= will_paginate %>
+<%= will_paginate %>
