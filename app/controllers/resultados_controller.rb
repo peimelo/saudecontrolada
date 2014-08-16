@@ -3,23 +3,24 @@ class ResultadosController < ApplicationController
 
   before_action :set_resultado, only: [:edit, :update, :destroy]
 
-  # index
   before_action ->(texto=t('activerecord.models.resultado.other'), url=resultados_path) {
-    breadcrumb(texto, url) }, except: :destroy
+    add_crumb(texto, url) }, except: [:index, :destroy]
 
-  # edit
-  before_action ->(texto=t('views.edit.titulo', model: Resultado.model_name.human), url=edit_resultado_path(@resultado)) {
-    breadcrumb(texto, url) }, only: [:edit, :update]
+  before_action only: [:edit, :update] do
+    add_crumb(@resultado.exame.nome, resultado_path(@resultado.exame_id))
+    add_crumb(t('views.edit.titulo', model: Resultado.model_name.human), edit_resultado_path(@resultado))
+  end
 
-  # new
   before_action ->(texto=t('views.new.titulo', model: Resultado.model_name.human), url=new_resultado_path) {
-    breadcrumb(texto, url) }, only: [:new, :create]
+    add_crumb(texto, url) }, only: [:new, :create]
 
-  # show
-  before_action ->(texto=t('views.show.titulo', model: Resultado.model_name.human)) {
-    breadcrumb(texto) }, only: :show
+  before_action ->(texto=Exame.find(params[:id]).nome) {
+    add_crumb(texto, resultados_path(params[:id])) }, only: :show
 
   def index
+    @resultados = current_user.resultado.listar(params[:search], params[:format], params[:page],
+                                                sort_column + ' ' + sort_direction)
+
     @resultados = current_user.resultado.listar(params[:search], params[:format], params[:page],
                                                 sort_column + ' ' + sort_direction)
 

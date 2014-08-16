@@ -1,6 +1,6 @@
 <%= currently_at t('activerecord.models.resultado.other') %>
 <%- model_class = Resultado -%>
-<%= titulo icon('file-text-o', t('activerecord.models.resultado.other') + ': ' + @exame.nome) %>
+<%= titulo icon('flask', @exame.nome) %>
 
 <%#= render 'shared/botoes_incluir_e_download', controller: nil, model: model_class,
            url_xls: resultados_path(format: 'xls'), url_pdf: resultados_path(format: 'pdf') %>
