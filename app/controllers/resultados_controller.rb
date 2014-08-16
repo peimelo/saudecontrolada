@@ -1,18 +1,20 @@
 class ResultadosController < ApplicationController
   helper_method :sort_column, :sort_direction
 
-  # before_action :set_resultado, only: [:edit, :update, :destroy]
-  #
+  before_action :set_resultado, only: [:edit, :update, :destroy]
+
   # # index
   # before_action ->(texto=t('activerecord.models.resultado.other'), url=resultados_path) {
   #   breadcrumb(texto, url) }, except: :destroy
+
   # # index
   # before_action ->(texto=t('activerecord.models.resultado.other'), url=resultados_path) {
   #   breadcrumb(texto, url) }, except: :destroy
+
   # # index
   # before_action ->(texto=t('activerecord.models.resultado.other'), url=resultados_path) {
   #   breadcrumb(texto, url) }, except: :destroy
-  #
+
   # before_action :breadcrumb_new, only: [:new, :create]
   # before_action :breadcrumb_edit, only: [:edit, :update]
 
