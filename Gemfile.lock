@@ -1,13 +1,4 @@
-GIT
-  remote: git://github.com/plataformatec/simple_form.git
-  revision: ed3de1c2b566a962697529e824953f6b280e2867
-  specs:
-    simple_form (3.1.0.rc2)
-      actionpack (~> 4.0)
-      activemodel (~> 4.0)
-
 GEM
-  remote: https://rubygems.org/
   specs:
     actionmailer (4.1.4)
       actionpack (= 4.1.4)
@@ -37,7 +28,7 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.3.6)
     arel (5.0.1.20140414130214)
-    autoprefixer-rails (2.2.0.20140727)
+    autoprefixer-rails (2.2.0.20140804)
       execjs
     awesome_print (1.2.0)
     bcrypt (3.1.7)
@@ -62,7 +53,7 @@ GEM
       slim (>= 1.3.6, < 3.0)
       terminal-table (~> 1.4)
     builder (3.2.2)
-    bullet (4.13.0)
+    bullet (4.13.1)
       activesupport (>= 3.0.0)
       uniform_notifier (>= 1.6.0)
     callsite (0.0.11)
@@ -70,8 +61,8 @@ GEM
       i18n
       rake (>= 10.0.0)
       sshkit (~> 1.3)
-    capistrano-bundler (1.1.2)
-      capistrano (~> 3.0)
+    capistrano-bundler (1.1.3)
+      capistrano (~> 3.1)
       sshkit (~> 1.2)
     capistrano-rails (1.1.1)
       capistrano (~> 3.1)
@@ -113,7 +104,7 @@ GEM
       sinatra (>= 1.4.4)
     delocalize (0.4.0)
       rails (>= 3.0)
-    devise (3.2.4)
+    devise (3.3.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 3.2.6, < 5)
@@ -148,10 +139,10 @@ GEM
       lumberjack (~> 1.0)
       pry (>= 0.9.12)
       thor (>= 0.18.1)
-    guard-brakeman (0.8.1)
+    guard-brakeman (0.8.2)
       brakeman (>= 2.1.1)
       guard (>= 1.1.0)
-    guard-rspec (4.2.10)
+    guard-rspec (4.3.1)
       guard (~> 2.1)
       rspec (>= 2.14, < 4.0)
     haml (4.0.5)
@@ -187,7 +178,7 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    meta_request (0.3.3)
+    meta_request (0.3.4)
       callsite (~> 0.0, >= 0.0.11)
       rack-contrib (~> 1.1)
       railties (>= 3.0.0, < 5.0.0)
@@ -204,7 +195,7 @@ GEM
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (2.9.1)
-    nokogiri (1.6.2.1)
+    nokogiri (1.6.3.1)
       mini_portile (= 0.6.0)
     oauth (0.4.7)
     oauth2 (1.0.0)
@@ -216,8 +207,8 @@ GEM
     omniauth (1.2.2)
       hashie (>= 1.2, < 4)
       rack (~> 1.0)
-    omniauth-facebook (1.6.0)
-      omniauth-oauth2 (~> 1.1)
+    omniauth-facebook (2.0.0)
+      omniauth-oauth2 (~> 1.2)
     omniauth-google-oauth2 (0.2.5)
       omniauth (> 1.0)
       omniauth-oauth2 (~> 1.1)
@@ -234,7 +225,7 @@ GEM
     orm_adapter (0.5.0)
     pdf-core (0.2.5)
     polyglot (0.3.5)
-    prawn (1.1.0)
+    prawn (1.2.1)
       pdf-core (~> 0.2.5)
       ttfunk (~> 1.2.0)
     pry (0.10.0)
@@ -289,14 +280,14 @@ GEM
       rspec-core (~> 3.0.0)
       rspec-expectations (~> 3.0.0)
       rspec-mocks (~> 3.0.0)
-    rspec-core (3.0.2)
+    rspec-core (3.0.4)
       rspec-support (~> 3.0.0)
-    rspec-expectations (3.0.2)
+    rspec-expectations (3.0.4)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.0.0)
-    rspec-mocks (3.0.2)
+    rspec-mocks (3.0.4)
       rspec-support (~> 3.0.0)
-    rspec-rails (3.0.1)
+    rspec-rails (3.0.2)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       railties (>= 3.0)
@@ -304,7 +295,7 @@ GEM
       rspec-expectations (~> 3.0.0)
       rspec-mocks (~> 3.0.0)
       rspec-support (~> 3.0.0)
-    rspec-support (3.0.2)
+    rspec-support (3.0.4)
     ruby-progressbar (1.5.1)
     ruby2ruby (2.0.8)
       ruby_parser (~> 3.1)
@@ -318,10 +309,13 @@ GEM
       sass (~> 3.2.0)
       sprockets (~> 2.8, <= 2.11.0)
       sprockets-rails (~> 2.0)
-    sdoc (0.4.0)
-      json (~> 1.8)
-      rdoc (~> 4.0, < 5.0)
+    sdoc (0.4.1)
+      json (~> 1.7, >= 1.7.7)
+      rdoc (~> 4.0)
     sexp_processor (4.4.3)
+    simple_form (3.1.0.rc2)
+      actionpack (~> 4.0)
+      activemodel (~> 4.0)
     simplecov (0.9.0)
       docile (~> 1.1.0)
       multi_json
@@ -361,7 +355,9 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     ttfunk (1.2.0)
-    tzinfo (1.2.1)
+    turbolinks (2.2.2)
+      coffee-rails
+    tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.5.3)
       execjs (>= 0.3.0)
@@ -431,10 +427,11 @@ DEPENDENCIES
   ruby_gntp
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
-  simple_form (~> 3.1.0.rc2)!
+  simple_form
   simplecov
   spring
   spring-commands-rspec
+  turbolinks
   uglifier (>= 1.3.0)
   unicorn
   webrick (= 1.3.1)
