@@ -3,7 +3,7 @@ class PesosController < ApplicationController
 
   before_action :set_peso, only: [:show, :edit, :update, :destroy]
 
-  before_action ->(texto=t('activerecord.models.peso.other'), url=resultados_path) {
+  before_action ->(texto=t('activerecord.models.peso.other'), url=pesos_path) {
     add_crumb(texto, url) }, except: [:index, :destroy]
   before_action ->(texto=t('views.edit.titulo', model: Peso.model_name.human), url=edit_peso_path(@peso)) {
     add_crumb(texto, url) }, only: [:edit, :update]
