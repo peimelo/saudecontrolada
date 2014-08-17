@@ -3,13 +3,13 @@
   <%= f.input :exame_nome, autofocus: true %>
   <div class="row">
     <div class="col-sm-6">
-      <%= f.input :data, as: :string,
-                  input_html: { 'data-inputmask' => "'alias': 'date'" } %>
+      <%= f.input :data, as: :string, input_html: { class: 'datepicker inputmask' } %>
     </div>
     <div class="col-sm-6">
       <%= f.input :valor %>
     </div>
   </div>
+
   <%= botao_salvar %>
   <% if (action_name == 'edit' or action_name == 'update') and !registro.exame_id.nil? %>
     <%= botao_cancelar resultado_path(registro.exame_id) %>

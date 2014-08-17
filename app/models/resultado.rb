@@ -1,11 +1,14 @@
 class Resultado < ActiveRecord::Base
-  # include SearchModule
-
   # relacionamentos -------------------------------------------------------------------------------
   belongs_to :exame
   belongs_to :user
 
   # scopes --------------------------------------------------------------------------------------
+  scope :exportar, -> {
+    includes(:exame)
+    .order('exames.nome ASC, data DESC')
+  }
+
   scope :listar, ->(search=nil, format=nil, page=nil, order='exames.nome ASC, data DESC') {
     select('resultados.exame_id, exames.nome AS nome, COUNT(*) AS total')
     .joins(:exame)

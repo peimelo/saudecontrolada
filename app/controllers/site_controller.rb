@@ -3,6 +3,7 @@ class SiteController < ApplicationController
 
   def index
     if user_signed_in?
+      session[:data_ultimo_resultado] = nil
       redirect_to dashboard_index_path
     end
   end

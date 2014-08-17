@@ -15,6 +15,6 @@
 <%- resource_class.omniauth_providers.each do |provider| %>
   <% imagem_provider = provider == :google_oauth2 ? 'google-plus' : provider %>
   <% nome_provider = provider == :google_oauth2 ? 'Google' : provider %>
-  <%= link_to raw('<i class="fa fa-' + imagem_provider.to_s + '-square "></i> ') + nome_provider.to_s.titleize,
+  <%= link_to icon(imagem_provider.to_s + '-square fa-lg', nome_provider.to_s.titleize),
               omniauth_authorize_path(resource_name, provider) %>&nbsp;&nbsp;&nbsp;&nbsp;
 <% end -%>

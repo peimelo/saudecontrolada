@@ -18,11 +18,12 @@ class ResultadosController < ApplicationController
     add_crumb(texto, resultados_path(params[:id])) }, only: :show
 
   def index
-    @resultados = current_user.resultado.listar(params[:search], params[:format], params[:page],
-                                                sort_column + ' ' + sort_direction)
-
-    @resultados = current_user.resultado.listar(params[:search], params[:format], params[:page],
-                                                sort_column + ' ' + sort_direction)
+    if params[:format].nil?
+      @resultados = current_user.resultado.listar(params[:search], params[:format], params[:page],
+                                                  sort_column + ' ' + sort_direction)
+    else
+      @resultados = current_user.resultado.exportar()
+    end
 
     respond_to do |format|
       format.html
@@ -73,8 +74,7 @@ class ResultadosController < ApplicationController
   end
 
   def new
-    #ultimo_resultado = current_user.resultado.select(:data).order('data DESC').first
-    @resultado = Resultado.new#(data: (ultimo_resultado.data rescue nil))
+    @resultado = Resultado.new(data: session[:data_ultimo_resultado])
   end
 
   def edit
@@ -85,6 +85,7 @@ class ResultadosController < ApplicationController
 
     respond_to do |format|
       if @resultado.save
+        session[:data_ultimo_resultado] = @resultado.data
         format.html { redirect_to resultados_url, notice: t('mensagens.flash.create', crud: Resultado.model_name.human) }
         format.json { render action: 'show', status: :created, location: @resultado }
       else
@@ -134,6 +135,7 @@ class ResultadosController < ApplicationController
     end
 
   def sort_direction
+    # no index mostra agrupado por nome de exame, no show mostra por data do resultado
     if action_name == 'index'
       %w[asc desc].include?(params[:direction]) ? params[:direction] : 'asc'
     else
