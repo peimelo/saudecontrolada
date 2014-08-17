@@ -6,7 +6,7 @@ class Resultado < ActiveRecord::Base
   # scopes --------------------------------------------------------------------------------------
   scope :exportar, -> {
     includes(:exame)
-    .order('exames.nome ASC, data DESC')
+    .order('exames.nome ASC, data ASC')
   }
 
   scope :listar, ->(search=nil, format=nil, page=nil, order='exames.nome ASC, data DESC') {
