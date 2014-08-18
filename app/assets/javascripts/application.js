@@ -34,3 +34,7 @@
 //= require nested_form_fields
 //= require resultados
 // require_tree .
+
+/*$(function() {
+    $("#select").combobox();
+});*/

@@ -25,7 +25,7 @@ pt-BR:
       updated: 'Sua senha foi alterada com sucesso. Você está logado.'
       updated_not_active: 'Sua senha foi alterada com sucesso.'
     registrations:
-      destroyed: 'Até logo! Sua conta foi excluída com sucesso. Esperamos vê-lo novamente em breve.'
+      destroyed: 'Até logo. Sua conta foi excluída com sucesso. Esperamos vê-lo novamente em breve.'
       signed_up: 'Entrou com sucesso. Se não foi autorizado, a confirmação será enviada por e-mail.'
       signed_up_but_inactive: 'Você foi cadastrado com sucesso. No entanto, não foi possível entrar, pois sua conta não foi ativada.'
       signed_up_but_locked: 'Você foi cadastrado com sucesso. No entanto, não foi possível entrar, pois sua conta está bloqueada.'
@@ -33,7 +33,7 @@ pt-BR:
       update_needs_confirmation: 'Você atualizou a sua conta com sucesso, mas o seu novo endereço de e-mail precisa ser confirmado. Por favor, acesse-o e clique no link de confirmação que enviamos.'
       updated: 'Sua conta foi atualizada com sucesso.'
     sessions:
-      signed_in: 'Entrou com sucesso!'
+      signed_in: 'Entrou com sucesso.'
       signed_out: 'Saiu com sucesso.'
     unlocks:
       send_instructions: 'Dentro de instantes, você receberá um e-mail com instruções para o desbloqueio da sua conta.'
