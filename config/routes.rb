@@ -27,4 +27,5 @@ Saudecontrolada::Application.routes.draw do
   resources :resultados#, except: :show
   resources :unidades, except: :show
   resources :users, only: :index
+  post 'versions/:id/revert' => 'versions#revert', as: 'revert_version'
 end

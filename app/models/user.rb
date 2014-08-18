@@ -54,6 +54,15 @@ class User < ActiveRecord::Base
       authentication.user
     end
   end
+  
+  def idade
+    if self.date_of_birth
+      now = Time.now.utc.to_date
+      now.year - self.date_of_birth.year - (self.date_of_birth.to_date.change(year: now.year) > now ? 1 : 0)
+    else
+      nil
+    end
+  end
 
   def self.new_with_session(params, session)
     if session['devise.user_attributes']

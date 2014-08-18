@@ -41,7 +41,6 @@ class ResultadosController < ApplicationController
       page(params[:page])
 
     @exame = Exame.find(params[:id])
-
     @valor_medio = current_user.resultado.where('exame_id = ?', params[:id]).average(:valor)
 
     resultados = current_user.resultado.where('exame_id = ?', params[:id]).order('data DESC')
@@ -50,12 +49,16 @@ class ResultadosController < ApplicationController
     maximo = []
     minimo = []
     valor = []
+    valor_superior = @exame.valor_superior(current_user.idade)
+    valor_inferior = @exame.valor_inferior(current_user.idade)
+    
     resultados.reverse.each do |v|
       categories << l(v.data, format: :default)
       valor << v.valor.to_f
-      maximo << @exame.valor[0].valor_superior.round(2).to_f if @exame.valor.size == 1 and !@exame.valor[0].valor_superior.nil?
-      minimo << @exame.valor[0].valor_inferior.round(2).to_f if @exame.valor.size == 1 and !@exame.valor[0].valor_inferior.nil?
+      maximo << valor_superior
+      minimo << valor_inferior
     end
+    
     @chart_resultado = LazyHighCharts::HighChart.new('graph') do |f|
       f.xAxis(categories: categories, labels: { step: (valor.size / 2) })
 

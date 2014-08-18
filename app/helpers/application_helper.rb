@@ -41,6 +41,10 @@ module ApplicationHelper
       title: t('titles.excluir', model: model.model_name.human)
     }.merge(options)
 
+    if options[:sem_confimar] == true
+      options.delete(:data)  
+    end
+    
     options[:texto_botao] ||= ''
 
     label = icon('trash-o fa-lg', options[:texto_botao])
@@ -106,6 +110,12 @@ module ApplicationHelper
   def limpar_filtro(acao)
     if !params[:search].blank?
       raw('<p><strong>') + t('labels.filtro') + raw('</strong> "') + params[:search] + raw('" (') + link_to(t('links.limpar_filtro'), acao) + raw(')</p>')
+    end
+  end
+
+  def link_form(text, destination, options = {})
+    form_tag(destination, :method => options.delete(:method)) do
+      button_tag text
     end
   end
 

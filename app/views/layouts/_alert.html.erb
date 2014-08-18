@@ -6,7 +6,7 @@
 <% elsif flash[:notice] %>
   <div class="alert alert-success alert-dismissable">
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-    <%= icon('check-circle fa-lg', flash[:notice]) %>
+    <%= icon('check fa-lg') + ' ' + raw(flash[:notice]) %>
   </div>
 <% end %>
 <%= yield :alert_model_error %>

@@ -25,7 +25,7 @@ class UnidadesController < ApplicationController
     @unidade = Unidade.new(unidade_params)
 
     if @unidade.save
-      redirect_to unidades_url, notice: t('mensagens.flash.create', crud: Unidade.model_name.human)
+      redirect_to unidades_url, notice: t('mensagens.flash.paper_trail.create', undo_link: undo_link)
     else
       render :new
     end
@@ -33,7 +33,7 @@ class UnidadesController < ApplicationController
 
   def update
     if @unidade.update(unidade_params)
-      redirect_to unidades_url, notice: t('mensagens.flash.update', crud: Unidade.model_name.human)
+      redirect_to unidades_url, notice: t('mensagens.flash.paper_trail.update', undo_link: undo_link)
     else
       render :edit
     end
@@ -41,7 +41,7 @@ class UnidadesController < ApplicationController
 
   def destroy
     if @unidade.destroy
-      redirect_to unidades_url, notice: t('mensagens.flash.destroy', crud: Unidade.model_name.human)
+      redirect_to unidades_url, notice: t('mensagens.flash.paper_trail.destroy', undo_link: undo_link)
     else
       redirect_to unidades_url, alert: @unidade.errors.messages[:base][0]
     end
@@ -58,5 +58,10 @@ class UnidadesController < ApplicationController
 
     def sort_column
       Unidade.column_names.include?(params[:sort]) ? params[:sort] : 'nome'
+    end
+    
+    def undo_link
+      view_context.link_to(view_context.icon('undo', t('links.desfazer')),
+        revert_version_path(@unidade.versions.last), method: :post) rescue nil
     end
 end

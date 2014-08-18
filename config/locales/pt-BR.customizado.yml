@@ -16,23 +16,28 @@ pt-BR:
 
   links:
     administracao: Administração
+    alteracao: Alteração
     alterar: Alterar
     cadastrar: Cadastrar-se
     cadastros: Cadastros
     cancelar: Cancelar
     chamados: Chamados
+    desfazer: Desfazer
     disable_with: Aguarde...
     download: 'Download '
     entrar: Entrar
     excel: Excel
+    exclusao: Exclusão
     excluir: Excluir
     gerenciar_responsaveis: Gerenciar Responsáveis
+    inclusao: Inclusão
     incluir: Incluir
     inventarios: Inventários
     limpar_filtro: Limpar filtro
     listar_todos: Listar Todos
     menu: Menu
     outros: Outros
+    refazer: Refazer
     responder: Responder
     salvar: Salvar
     unidades: Unidades
@@ -52,9 +57,14 @@ pt-BR:
     flash:
       acompanhamento: 'A partir de agora você receberá e-mails de acompanhamento deste registro de %{model}.'
       acompanhamento_desfazer: 'A partir de agora você não receberá mais e-mails de acompanhamento deste registro de %{model}.'
-      create: 'Registro de %{crud} incluído com sucesso.'
-      destroy: 'Registro de %{crud} excluído com sucesso.'
-      update: 'Registro de %{crud} alterado com sucesso.'
+      create: Registro incluído com sucesso.
+      destroy: Registro excluído com sucesso.
+      paper_trail:
+        create: 'Registro incluído com sucesso. %{undo_link}'
+        destroy: 'Registro excluído com sucesso. %{undo_link}'
+        operacao_desfeita: '%{operacao} desfeita.'
+        update: 'Registro alterado com sucesso. %{undo_link}'        
+      update: Registro alterado com sucesso.
     contato_enviado: Sua mensagem foi enviada com sucesso. Em breve entraremos em contato. Obrigado.
     sem_registros: Não existem registros cadastrados.
 

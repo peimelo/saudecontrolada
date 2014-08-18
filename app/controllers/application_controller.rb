@@ -107,6 +107,17 @@ class ApplicationController < ActionController::Base
                                   nome: "#{ controlador.nome } / #{ acao.nome }",
                                   recurso_categoria_id: recurso_categoria.id)
     end
+    
+    def translate_version(version)
+      case version
+        when 'create'
+          t('links.inclusao')
+        when 'destroy'
+          t('links.exclusao')
+        when 'update'
+          t('links.alteracao')
+      end
+    end
 
     def sort_direction
       %w[asc desc].include?(params[:direction]) ? params[:direction] : 'asc'

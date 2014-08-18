@@ -1,5 +1,4 @@
 GEM
-  remote: https://rubygems.org/
   specs:
     actionmailer (4.1.4)
       actionpack (= 4.1.4)
@@ -225,6 +224,9 @@ GEM
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
     orm_adapter (0.5.0)
+    paper_trail (3.0.3)
+      activerecord (>= 3.0, < 5.0)
+      activesupport (>= 3.0, < 5.0)
     pdf-core (0.2.5)
     polyglot (0.3.5)
     prawn (1.2.1)
@@ -420,6 +422,7 @@ DEPENDENCIES
   omniauth-facebook
   omniauth-google-oauth2
   omniauth-linkedin
+  paper_trail (~> 3.0.3)
   prawn (~> 1.2.1)
   prawn-table (~> 0.1.0)
   quiet_assets

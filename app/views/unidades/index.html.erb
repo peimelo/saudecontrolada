@@ -23,7 +23,7 @@
           <tr>
             <td width="100">
               <%= botao_alterar registro, edit_unidade_path(registro), model_class %>
-              <%= botao_excluir registro, model_class %>
+              <%= botao_excluir registro, model_class, { sem_confimar: true } %>
             </td>
             <td><%= registro.nome %></td>
           </tr>

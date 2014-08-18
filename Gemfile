@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+#source 'https://rubygems.org'
 ruby '2.1.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -56,6 +56,9 @@ gem 'delocalize'
 
 # graficos
 gem 'lazy_high_charts'
+
+# log de modificacões
+gem 'paper_trail', '~> 3.0.3'
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring', group: :development
