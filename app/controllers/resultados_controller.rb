@@ -49,8 +49,8 @@ class ResultadosController < ApplicationController
     maximo = []
     minimo = []
     valor = []
-    valor_superior = @exame.valor_superior(current_user.idade)
-    valor_inferior = @exame.valor_inferior(current_user.idade)
+    valor_superior = @exame.valor_superior(current_user.idade, current_user.gender)
+    valor_inferior = @exame.valor_inferior(current_user.idade, current_user.gender)
     
     resultados.reverse.each do |v|
       categories << l(v.data, format: :default)
