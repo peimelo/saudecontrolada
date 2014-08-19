@@ -25,7 +25,19 @@
 // require jquery.inputmask.phone.extensions
 // require jquery.inputmask.regex.extensions
 
-//= require bootstrap-sprockets
+// require bootstrap-sprockets
+// require bootstrap/transition.js
+// require bootstrap/modal.js
+//= require bootstrap/dropdown.js
+// require bootstrap/scrollspy.js
+//= require bootstrap/tab.js
+// require bootstrap/tooltip.js
+// require bootstrap/popover.js
+//= require bootstrap/alert.js
+// require bootstrap/button.js
+// require bootstrap/collapse.js
+// require bootstrap/carousel.js
+// require bootstrap/affix.js
 
 //= require highcharts/highcharts
 //= require highcharts/highcharts-more
