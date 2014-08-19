@@ -12,6 +12,8 @@ class Exame < ActiveRecord::Base
   
   # methods ---------------------------------------------------------------------------------------
     def valor_inferior(idade, sexo)
+      return nil if idade.nil?
+
       self.valor.each do |valor|
         if valor.idade_inferior and valor.idade_superior
           if idade >= valor.idade_inferior and idade <= valor.idade_superior
@@ -34,6 +36,8 @@ class Exame < ActiveRecord::Base
     end
 
     def valor_superior(idade, sexo)
+      return nil if idade.nil?
+
       self.valor.each do |valor|
         if valor.idade_inferior and valor.idade_superior
           if idade >= valor.idade_inferior and idade <= valor.idade_superior

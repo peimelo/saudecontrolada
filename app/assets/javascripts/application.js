@@ -35,7 +35,7 @@
 // require bootstrap/popover.js
 //= require bootstrap/alert.js
 // require bootstrap/button.js
-// require bootstrap/collapse.js
+//= require bootstrap/collapse.js
 // require bootstrap/carousel.js
 // require bootstrap/affix.js
 
