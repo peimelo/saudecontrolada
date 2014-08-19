@@ -43,7 +43,7 @@ class Exame < ActiveRecord::Base
       elsif self.valor.size > 1
         self.valor.each do |valor|
           if valor.idade_inferior and valor.idade_superior
-            if idade >= valor.idade_inferior and idade <= valor.idade_superior and (valor.sexo.blank? or valor.sexo == sexo)
+            if idade >= valor.idade_inferior and idade <= valor.idade_superior
               return valor.valor_superior.round(2).to_f if valor.valor_superior and (valor.sexo.blank? or valor.sexo == sexo)
             end
           elsif valor.idade_inferior and valor.idade_superior.nil?
@@ -54,6 +54,8 @@ class Exame < ActiveRecord::Base
             if idade <= valor.idade_superior
               return valor.valor_superior.round(2).to_f if valor.valor_superior and (valor.sexo.blank? or valor.sexo == sexo)
             end
+          else
+            return valor.valor_superior.round(2).to_f if valor.valor_superior and (valor.sexo.blank? or valor.sexo == sexo)
           end
         end
       end
