@@ -24,7 +24,9 @@ Saudecontrolada::Application.routes.draw do
   resources :referencias, except: :show
   resources :recursos, except: :show
   resources :recursos_categorias, except: :show
-  resources :resultados#, except: :show
+  resources :resultados#, except: :new
+  #TODO: ver a melhor rota
+  get 'resultados/new(/:exame_nome)' => 'resultados#new', as: 'new_resultado_exame'
   resources :unidades, except: :show
   resources :users, only: :index
   post 'versions/:id/revert' => 'versions#revert', as: 'revert_version'

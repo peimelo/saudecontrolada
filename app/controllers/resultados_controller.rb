@@ -78,6 +78,7 @@ class ResultadosController < ApplicationController
 
   def new
     @resultado = Resultado.new(data: session[:data_ultimo_resultado])
+    @resultado.exame_nome = params[:exame_nome] if !params[:exame_nome].nil?
   end
 
   def edit
@@ -89,7 +90,7 @@ class ResultadosController < ApplicationController
     respond_to do |format|
       if @resultado.save
         session[:data_ultimo_resultado] = @resultado.data
-        format.html { redirect_to resultados_url, notice: t('mensagens.flash.create', crud: Resultado.model_name.human) }
+        format.html { redirect_to resultados_url, notice: t('mensagens.flash.paper_trail.create', undo_link: undo_link) }
         format.json { render action: 'show', status: :created, location: @resultado }
       else
         format.html { render action: 'new' }
@@ -101,8 +102,9 @@ class ResultadosController < ApplicationController
   def update
     respond_to do |format|
       if @resultado.update(resultado_params)
+        session[:data_ultimo_resultado] = @resultado.data
         format.html { redirect_to resultado_url(@resultado.exame_id),
-                                  notice: t('mensagens.flash.update', crud: Resultado.model_name.human) }
+                                  notice: t('mensagens.flash.update') }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -144,5 +146,10 @@ class ResultadosController < ApplicationController
     else
       %w[asc desc].include?(params[:direction]) ? params[:direction] : 'desc'
     end
+  end
+
+  def undo_link
+    view_context.link_to(view_context.icon('eye', t('links.visualizar')),
+                         resultado_path(@resultado.exame_id))
   end
 end

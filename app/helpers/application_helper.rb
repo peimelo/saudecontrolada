@@ -120,7 +120,8 @@ module ApplicationHelper
   end
 
   def numero_formatado(numero)
-    number_to_human(numero, strip_insignificant_zeros: false, significant: false)
+    # number_to_human(numero, strip_insignificant_zeros: false, significant: false)
+    number_to_currency(numero, delimiter: '.', separator: ',', unit: '')
   end
   
   def sortable(model, column)

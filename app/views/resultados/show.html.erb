@@ -2,8 +2,6 @@
 <%- model_class = Resultado -%>
 <%= titulo icon('flask', @exame.nome) %>
 
-<%#= render 'shared/botoes_incluir_e_download', controller: nil, model: model_class,
-           url_xls: resultados_path(format: 'xls'), url_pdf: resultados_path(format: 'pdf') %>
 
 <br />
 
@@ -29,6 +27,9 @@
   </div>
   <div class="tab-pane" id="resultados">
     <br />
+    <p><%= link_to icon('file-o fa-lg', t('links.incluir')), new_resultado_exame_path(@exame.nome),
+                class: 'btn btn-primary', title: t('titles.incluir', model: model_class.model_name.human) %></p>
+
     <%= page_entries_info @resultados, model: model_class %>
 
     <% if not @resultados.empty? %>
@@ -39,6 +40,7 @@
               <th><%= t('bootstrap.actions') %></th>
               <th><%= sortable model_class, 'data' %></th>
               <th><%= sortable model_class, 'valor' %></th>
+              <th><%= model_class.human_attribute_name(:unidade) %></th>
             </tr>
           </thead>
           <tbody>
@@ -50,6 +52,7 @@
                 </td>
                 <td><%=l registro.data %></td>
                 <td><%= numero_formatado registro.valor %></td>
+                <td><%= registro.exame.unidade.nil? ? '' : registro.exame.unidade.nome %></td>
               </tr>
             <% end %>
           </tbody>

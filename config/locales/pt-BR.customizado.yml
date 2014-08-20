@@ -41,6 +41,7 @@ pt-BR:
     responder: Responder
     salvar: Salvar
     unidades: Unidades
+    visualizar: Visualizar
     voltar: Voltar
 
   mensagens:
@@ -57,14 +58,14 @@ pt-BR:
     flash:
       acompanhamento: 'A partir de agora você receberá e-mails de acompanhamento deste registro de %{model}.'
       acompanhamento_desfazer: 'A partir de agora você não receberá mais e-mails de acompanhamento deste registro de %{model}.'
-      create: Registro incluído com sucesso.
-      destroy: Registro excluído com sucesso.
+      create: Incluído com sucesso.
+      destroy: Excluído com sucesso.
       paper_trail:
-        create: 'Registro incluído com sucesso. %{undo_link}'
-        destroy: 'Registro excluído com sucesso. %{undo_link}'
+        create: 'Incluído com sucesso. %{undo_link}'
+        destroy: 'Excluído com sucesso. %{undo_link}'
         operacao_desfeita: '%{operacao} desfeita.'
-        update: 'Registro alterado com sucesso. %{undo_link}'        
-      update: Registro alterado com sucesso.
+        update: 'Alterado com sucesso. %{undo_link}'
+      update: Alterado com sucesso.
     contato_enviado: Sua mensagem foi enviada com sucesso. Em breve entraremos em contato. Obrigado.
     sem_registros: Não existem registros cadastrados.
 
@@ -78,8 +79,8 @@ pt-BR:
     download_registros: Download dos registros cadastrados
     entrar: Entrar no %{model}
     excluir: Excluir %{model}
-    incluir: Incluir novo registro de %{model}
-    salvar: Salvar o registro de %{model}
+    incluir: Incluir %{model}
+    salvar: Salvar %{model}
     visualizar: Visualizar %{model}
 
   sexo:
