@@ -67,7 +67,7 @@ class ResultadosController < ApplicationController
       f.tooltip(valueSuffix: (@exame.unidade.nome rescue ''))
 
       f.series(name: 'Limite Máximo', data: maximo, color: '#ff9b99') if maximo.size > 0
-      f.series(name: @exame.nome, data: valor, color: '#000000')
+      f.series(name: @exame.nome, data: valor, color: '#000000', marker: { enabled: true, radius: 5, fillColor: '#00cccc' })
       f.series(name: 'Limite Mínimo', data: minimo, color: '#f7be34') if minimo.size > 0
 
       f.legend(align: 'center', borderWidth: 1, layout: 'horizontal')
