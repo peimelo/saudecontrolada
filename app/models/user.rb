@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
   has_many :resultado, dependent: :delete_all
 
   # validações ------------------------------------------------------------------------------------
-  validates :name, presence: true
+  validates :date_of_birth, :gender, :name, presence: true
 
   # methods ---------------------------------------------------------------------------------------
   def self.from_omniauth(auth, current_user)

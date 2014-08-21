@@ -1,6 +1,6 @@
 <%= currently_at t('.title') %>
 <div class="row">
-  <div class="col-sm-4 col-sm-offset-4">
+  <div class="col-sm-6 col-sm-offset-3">
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <%= titulo t('.title') %>
       <%= f.input :email, required: false, autofocus: true %>
