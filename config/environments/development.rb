@@ -43,7 +43,9 @@ Saudecontrolada::Application.configure do
 
   # Do not compress assets
   ##config.assets.compress = false
-
+  
   # para funcionar quando se usa vagrant
+  # You can find your apparent IP by hitting the old error page's "Show env dump" and looking at "REMOTE_ADDR"
+  # por exemplo: TRUSTED_IP=10.0.2.2 rails s
   BetterErrors::Middleware.allow_ip! ENV['TRUSTED_IP'] if ENV['TRUSTED_IP']
 end
