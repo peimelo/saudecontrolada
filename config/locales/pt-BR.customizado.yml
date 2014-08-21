@@ -1,4 +1,8 @@
 pt-BR:
+  banco_dados:
+    registro:
+      geral: Geral
+
   confirmation:
     no: Não
     yes: Sim

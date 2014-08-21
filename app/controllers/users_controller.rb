@@ -18,10 +18,6 @@ class UsersController < ApplicationController
   end
 
   private
-    def set_user
-      @user = User.find(params[:id])
-    end
-    
     def sort_column
       User.column_names.include?(params[:sort]) ? params[:sort] : 'current_sign_in_at'
     end

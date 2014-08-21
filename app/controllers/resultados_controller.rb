@@ -3,6 +3,7 @@ class ResultadosController < ApplicationController
 
   before_action :set_resultado, only: [:edit, :update, :destroy]
 
+  # breadcrumb ------------------------------------------------------------------------------------
   before_action ->(texto=t('activerecord.models.resultado.other'), url=resultados_path) {
     add_crumb(texto, url) }, except: [:index, :destroy]
 
@@ -17,6 +18,7 @@ class ResultadosController < ApplicationController
   before_action ->(texto=Exame.find(params[:id]).nome) {
     add_crumb(texto, resultados_path(params[:id])) }, only: :show
 
+  # CRUD ------------------------------------------------------------------------------------------
   def index
     if params[:format].nil?
       @resultados = current_user.resultado.listar(params[:search], params[:format], params[:page],
@@ -28,7 +30,7 @@ class ResultadosController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        pdf = ResultadosPdf.new(@resultados, Resultado)
+        pdf = ResultadosPdf.new(@resultados, Resultado, current_user)
         send_data pdf.render, filename: (Resultado.model_name.human + '.pdf'), disposition: 'inline'
       end
       #TODO: impressao nao esta correta

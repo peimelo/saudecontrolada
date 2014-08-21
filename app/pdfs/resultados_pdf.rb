@@ -1,8 +1,9 @@
 class ResultadosPdf < Prawn::Document
-  def initialize(registros, model)
+  def initialize(registros, model, current_user)
     super(top_margin: 50)
     @registros = registros
     @model = model
+    @current_user = current_user
     
     titulo
     tabela
@@ -36,5 +37,6 @@ class ResultadosPdf < Prawn::Document
   
   def titulo
     text I18n.t('activerecord.models.resultado.other'), size: 20, style: :bold
+    text "#{ @current_user.name } - #{I18n.l(Time.now) }", size: 15, style: :bold
   end
 end 
