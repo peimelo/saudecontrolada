@@ -17,7 +17,7 @@ pt-BR:
     download_pdf: PDF
     eh_gratis: É Gratis!
     filtro: 'Filtro aplicado: '
-    valor_medio: 'Valor Médio: %{valor}'
+    valor_medio: '<strong>Valor Médio</strong>: %{valor}'
 
   links:
     administracao: Administração

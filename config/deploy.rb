@@ -41,22 +41,15 @@ set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets}
 # Default value for keep_releases is 5
 # set :keep_releases, 5
 
-namespace :deploy do
-
-  desc 'Restart application'
-  task :restart do
-    on roles(:app), in: :sequence, wait: 5 do
-      # Your restart mechanism here, for example:
-      execute :touch, release_path.join('tmp/restart.txt')
-    end
-  end
-
-  after 'deploy:publishing', 'deploy:restart'
-  namespace :deploy do
-    task :restart do
-      invoke 'unicorn:legacy_restart'
-    end
-  end
+# namespace :deploy do
+#
+#   desc 'Restart application'
+#   task :restart do
+#     on roles(:app), in: :sequence, wait: 5 do
+#       # Your restart mechanism here, for example:
+#       execute :touch, release_path.join('tmp/restart.txt')
+#     end
+#   end
 
   # desc 'Symlink para condomine e condominio_homologacao'
   # task :create_symlink do
@@ -79,4 +72,12 @@ namespace :deploy do
   # end
   # end
 
+# end
+
+after 'deploy:publishing', 'deploy:restart'
+namespace :deploy do
+  task :restart do
+    invoke 'unicorn:legacy_restart'
+  end
 end
+
