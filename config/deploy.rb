@@ -6,6 +6,9 @@ set :rails_env, 'production'
 set :repo_url, 'git@bitbucket.org:peimelo/saudecontrolada.git'
 
 set :rbenv_ruby, '2.1.2'
+
+set :unicorn_config_path, '/var/www/saudecontrolada/current/config/unicorn.rb'
+
 #set :rbenv_type, :deploy
 
 # Default branch is :master
@@ -48,6 +51,13 @@ namespace :deploy do
     end
   end
 
+  after 'deploy:publishing', 'deploy:restart'
+  namespace :deploy do
+    task :restart do
+      invoke 'unicorn:legacy_restart'
+    end
+  end
+
   # desc 'Symlink para condomine e condominio_homologacao'
   # task :create_symlink do
   #   on roles(:app), in: :sequence, wait: 5 do
@@ -56,7 +66,7 @@ namespace :deploy do
   #   end
   # end
 
-  after :publishing, :restart
+  # after :publishing, :restart
 
   # after :restart, :create_symlink
 

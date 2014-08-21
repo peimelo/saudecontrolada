@@ -65,6 +65,7 @@ gem 'spring', group: :development
 gem 'spring-commands-rspec', group: :development
 
 group :development do
+  gem 'capistrano3-unicorn'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'bullet'
