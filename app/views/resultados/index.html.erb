@@ -7,30 +7,32 @@
 
 <%= render 'shared/campo_buscar', model_class: model_class, url: resultados_path %>
 
-<%= page_entries_info @resultados, model: model_class %>
-
-<% if not @resultados.empty? %>
-  <div class="table-responsive">
-    <table class="table table-bordered table-condensed table-hover table-striped">
-      <thead>
-        <tr>
-          <th><%= t('bootstrap.actions') %></th>
-          <th><%= sortable model_class, 'exames.nome' %></th>
-          <th><%= model_class.human_attribute_name(:total) %></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @resultados.each do |registro| %>
+<% unless @resultados.nil? %>
+  <%= page_entries_info @resultados, model: model_class %>
+  
+  <% if not @resultados.empty? %>
+    <div class="table-responsive">
+      <table class="table table-bordered table-condensed table-hover table-striped">
+        <thead>
           <tr>
-            <td width="60">
-              <%= botao_visualizar resultado_path(registro.exame_id), model_class %>
-            </td>
-            <td><%= link_to registro.nome, resultado_path(registro.exame_id) %></td>
-            <td><%= registro.total %></td>
+            <th><%= t('bootstrap.actions') %></th>
+            <th><%= sortable model_class, 'exames.nome' %></th>
+            <th><%= model_class.human_attribute_name(:total) %></th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
+        </thead>
+        <tbody>
+          <% @resultados.each do |registro| %>
+            <tr>
+              <td width="60">
+                <%= botao_visualizar resultado_path(registro.exame_id), model_class %>
+              </td>
+              <td><%= link_to registro.nome, resultado_path(registro.exame_id) %></td>
+              <td><%= registro.total %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
+  <%= will_paginate %>
 <% end %>
-<%= will_paginate %>
