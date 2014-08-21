@@ -11,14 +11,14 @@
         <Cell><Data ss:Type="String"><%= model_class.human_attribute_name(:nome) %></Data></Cell>
         <Cell><Data ss:Type="String"><%= model_class.human_attribute_name(:data) %></Data></Cell>
         <Cell><Data ss:Type="String"><%= model_class.human_attribute_name(:valor) %></Data></Cell>
-        <Cell><Data ss:Type="String"><%= model_class.human_attribute_name(:unidade) %></Data></Cell>
       </Row>
     <% @resultados.each do |registro| %>
       <Row>
         <Cell><Data ss:Type="String"><%= registro.exame.nome %></Data></Cell>
         <Cell><Data ss:Type="String"><%=l registro.data %></Data></Cell>
-        <Cell><Data ss:Type="String"><%= numero_formatado registro.valor %></Data></Cell>
-        <Cell><Data ss:Type="String"><%= registro.exame.unidade.nil? ? '' : registro.exame.unidade.nome %></Data></Cell>
+        <Cell><Data ss:Type="String">
+          <%= numero_formatado(registro.valor, (registro.exame.unidade.nome rescue '')) %>
+        </Data></Cell>
       </Row>
     <% end %>
     </Table>

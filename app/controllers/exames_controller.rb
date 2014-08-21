@@ -5,6 +5,18 @@ class ExamesController < ApplicationController
   before_action :user_administrador_sistema?
   before_action :set_exame, only: [:edit, :update, :destroy]
 
+  # breadcrumb ------------------------------------------------------------------------------------
+  before_action ->(texto=t('activerecord.models.exame.other'), url=exames_path) {
+    add_crumb(texto, url) }, except: [:index, :destroy]
+
+  before_action only: [:edit, :update] do
+    add_crumb(t('views.edit.titulo', model: Exame.model_name.human), edit_exame_path(@exame))
+  end
+
+  before_action ->(texto=t('views.new.titulo', model: Exame.model_name.human), url=new_exame_path) {
+    add_crumb(texto, url) }, only: [:new, :create]
+
+  # CRUD ------------------------------------------------------------------------------------------
   def index
     @exames = Exame.listar(params[:search], params[:format], params[:page], sort_column + ' ' + sort_direction)
 
@@ -20,9 +32,6 @@ class ExamesController < ApplicationController
 
   def new
     @exame = Exame.new
-    # @exame.build_valores_referencias
-    # @exame.valores_referencias.build
-    # @exame.valores_referencias << ValorReferencia.new
   end
 
   def edit

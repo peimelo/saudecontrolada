@@ -11,51 +11,44 @@ class Exame < ActiveRecord::Base
   validates :nome, presence: true, uniqueness: { case_sensitive: false }
   
   # methods ---------------------------------------------------------------------------------------
-    def valor_inferior(idade, sexo)
-      return nil if idade.nil?
+    def valor_referencia(idade, sexo)
+      retorno = nil
+
+      return retorno if idade.nil?
 
       self.valor.each do |valor|
+        retorno ||= valor
+
         if valor.idade_inferior and valor.idade_superior
           if idade >= valor.idade_inferior and idade <= valor.idade_superior
-            return valor.valor_inferior.round(2).to_f if valor.valor_inferior and (valor.sexo.blank? or valor.sexo == sexo)
+            return valor if valida_sexo_e_referencia(valor, sexo)
           end
         elsif valor.idade_inferior and valor.idade_superior.nil?
           if idade >= valor.idade_inferior
-            return valor.valor_inferior.round(2).to_f if valor.valor_inferior and (valor.sexo.blank? or valor.sexo == sexo)
+            return valor if valida_sexo_e_referencia(valor, sexo)
           end
         elsif valor.idade_inferior.nil? and valor.idade_superior
           if idade <= valor.idade_superior
-            return valor.valor_inferior.round(2).to_f if valor.valor_inferior and (valor.sexo.blank? or valor.sexo == sexo)
+            return valor if valida_sexo_e_referencia(valor, sexo)
           end
         else
-          return valor.valor_inferior.round(2).to_f if valor.valor_inferior and (valor.sexo.blank? or valor.sexo == sexo)
+          return valor if valida_sexo_e_referencia(valor, sexo)
         end
       end
 
-      nil
+      retorno
     end
 
-    def valor_superior(idade, sexo)
-      return nil if idade.nil?
-
-      self.valor.each do |valor|
-        if valor.idade_inferior and valor.idade_superior
-          if idade >= valor.idade_inferior and idade <= valor.idade_superior
-            return valor.valor_superior.round(2).to_f if valor.valor_superior and (valor.sexo.blank? or valor.sexo == sexo)
-          end
-        elsif valor.idade_inferior and valor.idade_superior.nil?
-          if idade >= valor.idade_inferior
-            return valor.valor_superior.round(2).to_f if valor.valor_superior and (valor.sexo.blank? or valor.sexo == sexo)
-          end
-        elsif valor.idade_inferior.nil? and valor.idade_superior
-          if idade <= valor.idade_superior
-            return valor.valor_superior.round(2).to_f if valor.valor_superior and (valor.sexo.blank? or valor.sexo == sexo)
-          end
-        else
-          return valor.valor_superior.round(2).to_f if valor.valor_superior and (valor.sexo.blank? or valor.sexo == sexo)
+  private
+    def valida_sexo_e_referencia(valor, sexo)
+      if valor.sexo.blank? or valor.sexo == sexo
+        if valor.referencia and
+          (valor.referencia.nome == 'Limítrofe' or
+          valor.referencia.nome == 'Suficiência')
+          return true
         end
       end
 
-      nil
+      false
     end
 end

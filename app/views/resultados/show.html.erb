@@ -40,7 +40,6 @@
               <th><%= t('bootstrap.actions') %></th>
               <th><%= sortable model_class, 'data' %></th>
               <th><%= sortable model_class, 'valor' %></th>
-              <th><%= model_class.human_attribute_name(:unidade) %></th>
             </tr>
           </thead>
           <tbody>
@@ -51,8 +50,7 @@
                   <%= botao_excluir registro, model_class, { registro_nome: l(registro.data) } %>
                 </td>
                 <td><%=l registro.data %></td>
-                <td><%= numero_formatado registro.valor %></td>
-                <td><%= registro.exame.unidade.nil? ? '' : registro.exame.unidade.nome %></td>
+                <td><%= numero_formatado(registro.valor, (registro.exame.unidade.nome rescue '')) %></td>
               </tr>
             <% end %>
           </tbody>

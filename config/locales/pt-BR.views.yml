@@ -173,14 +173,19 @@ pt-BR:
       texto_principal: |
         Ajudando você a ter uma vida mais saudável e tranquila.
       titulo_cadastrar: Crie sua conta
-      destaque_1_titulo: É grátis!
+      destaque_1_titulo: <i class='fa fa-money fa-lg'></i> É Grátis!
       destaque_1_texto: |
         Você não precisa pagar nada. Queremos ajudar você a cuidar da sua saúde.
-      destaque_2_titulo: Controle de Peso
+      destaque_2_titulo: |
+        É Responsivo! <i class='fa fa-laptop fa-lg'></i> <i class='fa fa-tablet fa-lg'></i>
+        <i class='fa fa-mobile fa-lg'></i>
       destaque_2_texto: |
-        Controle a evolução do seu peso, o peso ideal e o IMC.
-      destaque_3_titulo: Resultados de Exames
+        Significa que você pode acessar do seu computador, tablet ou celular.
+      destaque_3_titulo: Controle de Peso
       destaque_3_texto: |
+        Controle a evolução do seu peso, o peso ideal e o IMC.
+      destaque_4_titulo: Resultados de Exames
+      destaque_4_texto: |
         Todos os seus resultados em um só lugar e com gráficos.
   # -----------------------------------------------------------------------------------------------
   users:

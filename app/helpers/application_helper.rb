@@ -109,7 +109,8 @@ module ApplicationHelper
 
   def limpar_filtro(acao)
     if !params[:search].blank?
-      raw('<p><strong>') + t('labels.filtro') + raw('</strong> "') + params[:search] + raw('" (') + link_to(t('links.limpar_filtro'), acao) + raw(')</p>')
+      raw('<p><strong>') + icon('filter', t('labels.filtro')) + raw('</strong> "') + params[:search] + raw('" (') +
+          link_to(icon('eraser', t('links.limpar_filtro')), acao) + raw(')</p>')
     end
   end
 
@@ -119,9 +120,8 @@ module ApplicationHelper
     end
   end
 
-  def numero_formatado(numero)
-    # number_to_human(numero, strip_insignificant_zeros: false, significant: false)
-    number_to_currency(numero, delimiter: '.', separator: ',', unit: '')
+  def numero_formatado(numero, unidade='')
+    number_to_currency(numero, delimiter: '.', format: '%n %u', separator: ',', unit: unidade)
   end
   
   def sortable(model, column)

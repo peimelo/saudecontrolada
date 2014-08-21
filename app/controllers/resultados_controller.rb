@@ -51,14 +51,15 @@ class ResultadosController < ApplicationController
     maximo = []
     minimo = []
     valor = []
-    valor_superior = @exame.valor_superior(current_user.idade, current_user.gender)# rescue nil
-    valor_inferior = @exame.valor_inferior(current_user.idade, current_user.gender)# rescue nil
+    valor_referencia = @exame.valor_referencia(current_user.idade, current_user.gender)
+    valor_superior = valor_referencia.valor_superior unless valor_referencia.nil?
+    valor_inferior = valor_referencia.valor_inferior unless valor_referencia.nil?
     
     resultados.reverse.each do |v|
       categories << l(v.data, format: :default)
       valor << v.valor.to_f
-      maximo << valor_superior
-      minimo << valor_inferior
+      maximo << valor_superior.to_f unless valor_superior.nil?
+      minimo << valor_inferior.to_f unless valor_inferior.nil?
     end
     
     @chart_resultado = LazyHighCharts::HighChart.new('graph') do |f|
@@ -66,7 +67,7 @@ class ResultadosController < ApplicationController
 
       f.yAxis(title: { text: ("Valor (#{ @exame.unidade.nome })" rescue 'Valor') })
 
-      f.tooltip(valueSuffix: (@exame.unidade.nome rescue ''))
+      f.tooltip(valueSuffix: (' ' + @exame.unidade.nome rescue ''))
 
       f.series(name: 'Limite Máximo', data: maximo, color: '#ff9b99') if maximo.size > 0
       f.series(name: @exame.nome, data: valor, color: '#000000', marker: { enabled: true, radius: 5, fillColor: '#00cccc' })
@@ -79,8 +80,7 @@ class ResultadosController < ApplicationController
   end
 
   def new
-    @resultado = Resultado.new(data: session[:data_ultimo_resultado])
-    @resultado.exame_nome = params[:exame_nome] if !params[:exame_nome].nil?
+    @resultado = Resultado.new(data: session[:data_ultimo_resultado], exame_nome: params[:exame_nome])
   end
 
   def edit
