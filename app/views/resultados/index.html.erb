@@ -2,10 +2,8 @@
 <%- model_class = Resultado -%>
 <%= titulo icon('file-text-o', t('activerecord.models.resultado.other')) %>
 
-<%= render 'shared/botoes_incluir_e_download', controller: 'resultados', model: model_class,
-           url_xls: resultados_path(format: 'xls'), url_pdf: resultados_path(format: 'pdf') %>
-
-<br />
+<p><%= render 'shared/botoes_incluir_e_download', controller: 'resultados', model: model_class,
+           url_xls: resultados_path(format: 'xls'), url_pdf: resultados_path(format: 'pdf') %></p>
 
 <div class="panel panel-default">
   <div class="panel-body">
