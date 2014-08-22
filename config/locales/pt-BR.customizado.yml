@@ -12,6 +12,8 @@ pt-BR:
     por: Filtrar Por
 
   labels:
+    data_inicial: Data Inicial
+    data_final: Data Final
     download_em: 'Download em: '
     download_excel: Excel
     download_pdf: PDF
@@ -23,6 +25,7 @@ pt-BR:
     administracao: Administração
     alteracao: Alteração
     alterar: Alterar
+    buscar: Buscar
     cadastrar: Cadastrar-se
     cadastros: Cadastros
     cancelar: Cancelar

@@ -107,10 +107,16 @@ module ApplicationHelper
     valor ? t('true') : t('false')
   end
 
-  def limpar_filtro(acao)
+  def limpar_filtro(url)
     if !params[:search].blank?
       raw('<p><strong>') + icon('filter', t('labels.filtro')) + raw('</strong> "') + params[:search] + raw('" (') +
-          link_to(icon('eraser', t('links.limpar_filtro')), acao) + raw(')</p>')
+          link_to(icon('eraser', t('links.limpar_filtro')), url) + raw(')</p>')
+    end
+  end
+
+  def limpar_filtro_nome_data(url)
+    if !params[:nome].blank? or !params[:data_inicial].blank? or !params[:data_final].blank?
+      link_to(icon('eraser', t('links.limpar_filtro')), url)
     end
   end
 

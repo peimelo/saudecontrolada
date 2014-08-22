@@ -21,9 +21,15 @@ class ResultadosController < ApplicationController
   # CRUD ------------------------------------------------------------------------------------------
   def index
     if params[:format].nil?
-      if params[:search]
-        @resultados = current_user.resultado.listar(params[:search], params[:format], params[:page],
-                                                  sort_column + ' ' + sort_direction)
+      if !params[:nome].nil? or !params[:data_inicial].blank? or !params[:data_final].blank?
+        @resultados = current_user.resultado.listar(
+            params[:nome],
+            params[:data_inicial],
+            params[:data_final],
+            params[:format],
+            params[:page],
+            sort_column + ' ' + sort_direction
+        )
       else
         @resultados = nil
       end
