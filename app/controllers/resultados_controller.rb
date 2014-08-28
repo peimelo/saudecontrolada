@@ -75,13 +75,13 @@ class ResultadosController < ApplicationController
     @chart_resultado = LazyHighCharts::HighChart.new('graph') do |f|
       f.xAxis(categories: categories, labels: { step: (valor.size / 2) })
 
-      f.yAxis(title: { text: ("Valor (#{ @exame.unidade.nome })" rescue 'Valor') })
+      f.yAxis(title: { text: I18n.t('resultados.meu_valor') })
 
       f.tooltip(valueSuffix: (' ' + @exame.unidade.nome rescue ''))
 
-      f.series(name: 'Limite Máximo', data: maximo, color: '#ff9b99') if maximo.size > 0
-      f.series(name: @exame.nome, data: valor, color: '#000000', marker: { enabled: true, radius: 5, fillColor: '#00cccc' })
-      f.series(name: 'Limite Mínimo', data: minimo, color: '#f7be34') if minimo.size > 0
+      f.series(name: I18n.t('resultados.limite_maximo'), data: maximo, color: '#ff9b99') if maximo.size > 0
+      f.series(name: I18n.t('resultados.meu_valor'), data: valor, color: '#000000', marker: { enabled: true, radius: 5, fillColor: '#00cccc' })
+      f.series(name: I18n.t('resultados.limite_minimo'), data: minimo, color: '#f7be34') if minimo.size > 0
 
       f.legend(align: 'center', borderWidth: 1, layout: 'horizontal')
 

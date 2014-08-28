@@ -18,7 +18,7 @@ pt-BR:
     download_excel: Excel
     download_pdf: PDF
     eh_gratis: É Gratis!
-    filtro: 'Filtro aplicado: '
+    filtro: 'Filtro: '
     valor_medio: '<strong>Valor Médio</strong>: %{valor}'
 
   links:

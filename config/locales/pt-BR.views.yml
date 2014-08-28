@@ -67,8 +67,8 @@ pt-BR:
   # -----------------------------------------------------------------------------------------------
   exames:
     form:
-      adicionar_valor_referencia: Adicionar Valor de Referência
-      remover_valor_referencia: Remover Valor de Referência
+      incluir_valor_referencia: Incluir Valor de Referência
+      excluir_valor_referencia: Excluir Valor de Referência
   # -----------------------------------------------------------------------------------------------
   layouts:
     main_nav:
@@ -167,6 +167,11 @@ pt-BR:
     menu: Categorias de Recursos
     new:
       titulo: Incluindo Categoria de Recurso
+  # -----------------------------------------------------------------------------------------------
+  resultados:
+    limite_maximo: Limite Máximo
+    limite_minimo: Limite Mínimo
+    meu_valor: Meu Valor
   # -----------------------------------------------------------------------------------------------
   site:
     index:

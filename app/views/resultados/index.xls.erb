@@ -11,6 +11,7 @@
         <Cell><Data ss:Type="String"><%= model_class.human_attribute_name(:nome) %></Data></Cell>
         <Cell><Data ss:Type="String"><%= model_class.human_attribute_name(:data) %></Data></Cell>
         <Cell><Data ss:Type="String"><%= model_class.human_attribute_name(:valor) %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= Referencia.model_name.human %></Data></Cell>
       </Row>
     <% @resultados.each do |registro| %>
       <Row>
@@ -19,6 +20,7 @@
         <Cell><Data ss:Type="String">
           <%= numero_formatado(registro.valor, (registro.exame.unidade.nome rescue '')) %>
         </Data></Cell>
+        <Cell><Data ss:Type="String"><%= registro.exame.valor_referencia_extenso(current_user.idade, current_user.gender) %></Data></Cell>
       </Row>
     <% end %>
     </Table>

@@ -15,12 +15,14 @@ class ResultadosPdf < Prawn::Document
       @model.human_attribute_name(:nome),
       @model.human_attribute_name(:data),
       @model.human_attribute_name(:valor),
+      Referencia.model_name.human,
     ]] +
     @registros.map do |registro|
       [
         registro.exame.nome,
         I18n.l(registro.data),
         ApplicationController.helpers.numero_formatado(registro.valor, (registro.exame.unidade.nome rescue '')),
+        registro.exame.valor_referencia_extenso(@current_user.idade, @current_user.gender),
       ]
     end    
   end

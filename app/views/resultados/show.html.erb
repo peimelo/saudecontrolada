@@ -15,7 +15,7 @@
     <br />
     <div class="panel panel-primary">
       <div class="panel-heading">
-        <h3 class="panel-title"><%= icon('flask fa-lg', @exame.nome) %></h3>
+        <h3 class="panel-title"><%= icon('flask fa-lg', @exame.nome_unidade) %></h3>
       </div>
       <div class="panel-body">
         <%= high_chart('resultado', @chart_resultado) %>
@@ -40,6 +40,7 @@
               <th><%= t('bootstrap.actions') %></th>
               <th><%= sortable model_class, 'data' %></th>
               <th><%= sortable model_class, 'valor' %></th>
+              <th><%= Referencia.model_name.human %></th>
             </tr>
           </thead>
           <tbody>
@@ -51,6 +52,7 @@
                 </td>
                 <td><%=l registro.data %></td>
                 <td><%= numero_formatado(registro.valor, (registro.exame.unidade.nome rescue '')) %></td>
+                <td><%= registro.exame.valor_referencia_extenso(current_user.idade, current_user.gender) %></td>
               </tr>
             <% end %>
           </tbody>

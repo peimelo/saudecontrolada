@@ -41,12 +41,12 @@
         </div>
       </div>
       <div class="panel-footer">
-        <%= builder.remove_nested_fields_link icon('trash-o fa-lg', t('.remover_valor_referencia')) %>
+        <%= builder.remove_nested_fields_link icon('trash-o fa-lg', t('.excluir_valor_referencia')) %>
       </div>
     </div>
   <% end %>
 
-  <p><%= f.add_nested_fields_link :valor, icon('plus fa-lg', t('.adicionar_valor_referencia')) %></p>
+  <p><%= f.add_nested_fields_link :valor, icon('plus fa-lg', t('.incluir_valor_referencia')) %></p>
   <hr />
   <%= botao_salvar %>
   <%= botao_cancelar url_cancelar %>
