@@ -30,6 +30,8 @@
     <p><%= link_to icon('file-o fa-lg', t('links.incluir')), new_resultado_exame_path(@exame.nome),
                 class: 'btn btn-primary', title: t('titles.incluir', model: model_class.model_name.human) %></p>
 
+    <p><%= @exame.valor_referencia_extenso(current_user.idade, current_user.gender) %></p>
+
     <%= page_entries_info @resultados, model: model_class %>
 
     <% if not @resultados.empty? %>
@@ -40,7 +42,6 @@
               <th><%= t('bootstrap.actions') %></th>
               <th><%= sortable model_class, 'data' %></th>
               <th><%= sortable model_class, 'valor' %></th>
-              <th><%= Referencia.model_name.human %></th>
             </tr>
           </thead>
           <tbody>
@@ -52,7 +53,6 @@
                 </td>
                 <td><%=l registro.data %></td>
                 <td><%= numero_formatado(registro.valor, (registro.exame.unidade.nome rescue '')) %></td>
-                <td><%= registro.exame.valor_referencia_extenso(current_user.idade, current_user.gender) %></td>
               </tr>
             <% end %>
           </tbody>
