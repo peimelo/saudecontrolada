@@ -16,16 +16,16 @@ class Exame < ActiveRecord::Base
   end
   
   def valor_referencia_extenso(idade, sexo)
-    retorno = ''
+    retorno = '| '
     valor = valor_referencia(idade, sexo)
     return retorno if valor.nil?
 
-    retorno += "Idade inferior: #{ valor.idade_inferior.to_i } " if valor.idade_inferior
-    retorno += "Idade superior: #{ valor.idade_superior.to_i } " if valor.idade_superior
-    retorno += "Valor inferior: #{ valor.valor_inferior.to_i } " if valor.valor_inferior
-    retorno += "Valor superior: #{ valor.valor_superior.to_i } " if valor.valor_superior
-    retorno += "Sexo: #{ valor.sexo } " unless valor.sexo.blank?
-    retorno += "Referência: #{ valor.referencia.nome } " unless valor.referencia.blank?
+    retorno += "Idade inferior: #{ valor.idade_inferior.to_i } | " if valor.idade_inferior
+    retorno += "Idade superior: #{ valor.idade_superior.to_i } | " if valor.idade_superior
+    retorno += "Valor inferior: #{ valor.valor_inferior } | " if valor.valor_inferior
+    retorno += "Valor superior: #{ valor.valor_superior } | " if valor.valor_superior
+    retorno += "Sexo: #{ valor.sexo } | " unless valor.sexo.blank?
+    retorno += "Referência: #{ valor.referencia.nome } |" unless valor.referencia.blank?
 
     retorno
   end

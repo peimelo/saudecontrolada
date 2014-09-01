@@ -2,12 +2,12 @@
 <%- model_class = Resultado -%>
 <%= titulo icon('flask', @exame.nome) %>
 
-
 <br />
 
 <ul class="nav nav-tabs" role="tablist" id="myTab">
-  <li class="active"><a href="#grafico" role="tab" data-toggle="tab"><%= icon('bar-chart-o fa-lg', 'Gráfico') %></a></li>
-  <li><a href="#resultados" role="tab" data-toggle="tab"><%= icon('file-text-o fa-lg', 'Resultados') %></a></li>
+  <li class="active"><a href="#grafico" role="tab" data-toggle="tab"><%= icon('bar-chart-o fa-lg', t('links.grafico')) %></a></li>
+  <li><a href="#resultados" role="tab" data-toggle="tab"><%= icon('file-text-o fa-lg', t('links.resultados')) %></a></li>
+  <li><a href="#valor_referencia" role="tab" data-toggle="tab"><%= icon('book fa-lg', Referencia.model_name.human) %></a></li>
 </ul>
 
 <div class="tab-content">
@@ -60,5 +60,34 @@
       </div>
     <% end %>
     <%= will_paginate %>
+  </div>
+  <div class="tab-pane" id="valor_referencia">
+    <br />
+    <div class="table-responsive">
+      <table class="table table-bordered table-condensed table-hover table-striped">
+        <thead>
+          <tr>
+            <th><%= Valor.human_attribute_name(:sexo) %></th>
+            <th><%= Valor.human_attribute_name(:idade_inferior) %></th>
+            <th><%= Valor.human_attribute_name(:idade_superior) %></th>
+            <th><%= Valor.human_attribute_name(:valor_inferior) %></th>
+            <th><%= Valor.human_attribute_name(:valor_superior) %></th>
+            <th><%= Referencia.model_name.human %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @exame.valor.each do |registro| %>
+            <tr>
+              <td><%= registro.sexo %></td>
+              <td><%= registro.idade_inferior.nil? ? '' : registro.idade_inferior.to_i %></td>
+              <td><%= registro.idade_superior.nil? ? '' : registro.idade_superior.to_i %></td>
+              <td><%= registro.valor_inferior %></td>
+              <td><%= registro.valor_superior %></td>
+              <td><%= registro.referencia.nil? ? '' : registro.referencia.nome %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
