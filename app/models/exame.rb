@@ -36,7 +36,7 @@ class Exame < ActiveRecord::Base
     return retorno if idade.nil?
 
     self.valor.each do |valor|
-      # retorno ||= valor
+      retorno ||= valor
 
       if valor.idade_inferior and valor.idade_superior
         if idade >= valor.idade_inferior and idade <= valor.idade_superior
