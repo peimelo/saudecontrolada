@@ -20,11 +20,24 @@ class Exame < ActiveRecord::Base
     valor = valor_referencia(idade, sexo)
     return retorno if valor.nil?
 
-    retorno += "Idade inferior: #{ valor.idade_inferior.to_i } | " if valor.idade_inferior
-    retorno += "Idade superior: #{ valor.idade_superior.to_i } | " if valor.idade_superior
-    retorno += "Valor inferior: #{ valor.valor_inferior } | " if valor.valor_inferior
-    retorno += "Valor superior: #{ valor.valor_superior } | " if valor.valor_superior
     retorno += "Sexo: #{ valor.sexo } | " unless valor.sexo.blank?
+
+    if valor.idade_inferior and valor.idade_superior
+      retorno += "Idade: #{ valor.idade_inferior.to_i } ~ #{ valor.idade_superior.to_i } | "
+    elsif valor.idade_inferior and !valor.idade_superior
+      retorno += "Idade acima de: #{ valor.idade_inferior.to_i } | " 
+    elsif !valor.idade_inferior and valor.idade_superior
+      retorno += "Idade abaixo de: #{ valor.idade_superior.to_i } | " 
+    end
+    
+    if valor.valor_inferior and valor.valor_superior
+      retorno += "Valor: #{ valor.valor_inferior } ~ #{ valor.valor_superior } | "
+    elsif valor.valor_inferior and !valor.valor_superior
+      retorno += "Valor acima de: #{ valor.valor_inferior } | " 
+    elsif !valor.valor_inferior and valor.valor_superior
+      retorno += "Valor abaixo de: #{ valor.valor_superior } | " 
+    end
+
     retorno += "Referência: #{ valor.referencia.nome } |" unless valor.referencia.blank?
 
     retorno

@@ -54,7 +54,6 @@ pt-BR:
     index:
       imc: Índice de Massa Corporal (IMC)
       meu_imc: '<strong>IMC</strong>'
-      peso_por_data: Peso por Data
       peso_medio: '<strong>Peso Médio</strong>'
       sem_dados: '<strong>Para o gráfico ser gerado é preciso incluir registros em </strong>'
   # -----------------------------------------------------------------------------------------------
@@ -142,13 +141,6 @@ pt-BR:
         <p>Atenciosamente,</p>
         <p>Equipe do <a href="http://saudecontrolada.com.br/">Saúde Controlada</a></p>
       subject: "Criado novo Usuário: %{email}"
-  # -----------------------------------------------------------------------------------------------
-  pesos:
-    edit:
-      titulo: Alterando Peso e Altura
-    menu: Peso e Altura
-    new:
-      titulo: Incluindo Peso e Altura
   # -----------------------------------------------------------------------------------------------
   recursos:
     edit:

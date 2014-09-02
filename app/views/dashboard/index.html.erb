@@ -19,7 +19,7 @@
 
 <div class="panel panel-primary">
   <div class="panel-heading">
-    <h3 class="panel-title"><%= raw('<i class="fa fa-cutlery"></i> ') + t('.peso_por_data') %></h3>
+    <h3 class="panel-title"><%= icon('line-chart', t('activerecord.models.peso.other')) %></h3>
   </div>
   <div class="panel-body">
     <%= high_chart('peso', @chart_peso) unless @peso_atual.nil? %>

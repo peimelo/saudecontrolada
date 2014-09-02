@@ -1,6 +1,6 @@
 /*
  *= require_self
- *= require font-awesome
+ * require font-awesome
 
  * require jquery-ui
  * require jquery-ui/accordion
@@ -22,3 +22,6 @@
 
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+
+@import "font-awesome-sprockets";
+@import "font-awesome";

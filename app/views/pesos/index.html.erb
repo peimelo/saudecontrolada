@@ -1,6 +1,6 @@
-<%= currently_at t('pesos.menu') %>
+<%= currently_at t('activerecord.models.peso.other') %>
 <%- model_class = Peso -%>
-<%= titulo raw('<i class="fa fa-cutlery"></i> ') + model_class.model_name.human %>
+<%= titulo icon('line-chart', model_class.model_name.human) %>
 
 <%= render 'shared/botoes_incluir_e_download', controller: 'pesos', model: model_class,
            url_xls: pesos_path(format: 'xls'), url_pdf: pesos_path(format: 'pdf') %>
