@@ -1,6 +1,6 @@
 <br />
 <div class="row">
-  <div class="col-md-6">
+  <div class="col-sm-6">
     <%= form_tag url, method: :get, id: 'acoes_search' do %>
       <div class="input-group">
         <%= text_field_tag :search, params[:search], class: 'form-control',
@@ -12,8 +12,6 @@
           </span>
       </div>
     <% end %>
-  </div>
-  <div class="col-md-6">
     <%= limpar_filtro(url) %>
   </div>
 </div>

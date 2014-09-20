@@ -1,26 +1,52 @@
 //= require jquery
 //= require jquery_ujs
 
+// require jquery-ui
+// require jquery-ui/accordion
+//= require jquery-ui/autocomplete
+// require jquery-ui/button
+//= require jquery-ui/datepicker
+//= require jquery-ui/datepicker-pt-BR
+//= require date
+// require jquery-ui/dialog
+// require jquery-ui/menu
+// require jquery-ui/progressbar
+// require jquery-ui/selectmenu
+// require jquery-ui/slider
+// require jquery-ui/spinner
+// require jquery-ui/tabs
+// require jquery-ui/tooltip
+
 //= require jquery.inputmask
 //= require jquery.inputmask.date.extensions
-//= require jquery.inputmask-multi
-//= require jquery.inputmask.numeric.extensions
+// require jquery.inputmask-multi
+// require jquery.inputmask.numeric.extensions
 // require jquery.inputmask.extensions
 // require jquery.inputmask.phone.extensions
 // require jquery.inputmask.regex.extensions
 
-//= require bootstrap-sprockets
+// require bootstrap-sprockets
+// require bootstrap/transition.js
+// require bootstrap/modal.js
+//= require bootstrap/dropdown.js
+// require bootstrap/scrollspy.js
+//= require bootstrap/tab.js
+// require bootstrap/tooltip.js
+// require bootstrap/popover.js
+//= require bootstrap/alert.js
+// require bootstrap/button.js
+//= require bootstrap/collapse.js
+// require bootstrap/carousel.js
+// require bootstrap/affix.js
 
 //= require highcharts/highcharts
 //= require highcharts/highcharts-more
 //= require highcharts/modules/exporting
 //= require highchart_config
+//= require nested_form_fields
+//= require resultados
 // require_tree .
 
-$(document).ready(function() {
-    $("#user_date_of_birth").inputmask("d/m/y",{ "placeholder": "dd/mm/aaaa" });
-    $("#peso_data").inputmask("d/m/y",{ "placeholder": "dd/mm/aaaa" });
-    $("#peso_altura").inputmask({ "mask": "9,99" });
-//    $("#peso_peso").inputmask({ "mask": ["9[,99]","99[,99]","999[,99]"] });
-//    $("#peso_peso").inputmask({ "mask": ["99[9,99]"] });
-});
+/*$(function() {
+    $("#select").combobox();
+});*/

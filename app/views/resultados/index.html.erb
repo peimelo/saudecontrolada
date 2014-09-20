@@ -1,0 +1,63 @@
+<%= currently_at t('activerecord.models.resultado.other') %>
+<%- model_class = Resultado -%>
+<%= titulo icon('file-text-o', t('activerecord.models.resultado.other')) %>
+
+<p><%= render 'shared/botoes_incluir_e_download', controller: 'resultados', model: model_class,
+           url_xls: resultados_path(format: 'xls'), url_pdf: resultados_path(format: 'pdf') %></p>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+    <h4><%= " #{ t('links.buscar') } #{ t('activerecord.models.resultado.other') } "%></h4>
+    <%= form_tag resultados_path, method: :get, id: 'resultados_search' do %>
+      <div class="row">
+        <div class="form-group col-xs-12 col-sm-12 col-md-6">
+          <label for="nomeInput"><%= t('activerecord.models.exame.one') %></label>
+          <%= text_field_tag :nome, params[:nome], { id: 'nomeInput', class: 'form-control' } %>
+        </div>
+        <div class="form-group col-xs-6 col-sm-6 col-md-3">
+          <label for="nomeInput"><%= t('labels.data_inicial') %></label>
+          <%= text_field_tag :data_inicial, params[:data_inicial], class: 'form-control datepicker inputmask' %>
+        </div>
+        <div class="form-group col-xs-6 col-sm-6 col-md-3">
+          <label for="nomeInput"><%= t('labels.data_final') %></label>
+          <%= text_field_tag :data_final, params[:data_final], class: 'form-control datepicker inputmask' %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 col-md-6">
+          <p><%= botao t('links.buscar'), class: 'btn btn-default' %>&nbsp;&nbsp;<%= limpar_filtro_nome_data(resultados_path) %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<% unless @resultados.nil? %>
+  <%= page_entries_info @resultados, model: model_class %>
+  
+  <% if not @resultados.empty? %>
+    <div class="table-responsive">
+      <table class="table table-bordered table-condensed table-hover table-striped">
+        <thead>
+          <tr>
+            <th><%= t('bootstrap.actions') %></th>
+            <th><%= model_class.human_attribute_name(:nome) %></th>
+            <th><%= model_class.human_attribute_name(:total) %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @resultados.each do |registro| %>
+            <tr>
+              <td width="60">
+                <%= botao_visualizar resultado_path(registro.exame_id), model_class %>
+              </td>
+              <td><%= link_to registro.nome, resultado_path(registro.exame_id) %></td>
+              <td><%= registro.total %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
+  <%= will_paginate %>
+<% end %>

@@ -1,24 +1,11 @@
-<%= currently_at t('pesos.menu') %>
+<%= currently_at t('activerecord.models.peso.other') %>
 <%- model_class = Peso -%>
-<%= titulo raw('<i class="fa fa-cutlery"></i> ') + model_class.model_name.human %>
+<%= titulo icon('line-chart', model_class.model_name.human) %>
 
-<div class="row">
-  <div class="col-xs-6"><%= botao_incluir 'pesos', model_class %></div>
-  <div class="col-xs-6">
-    <div class="btn-group pull-right">
-      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" title="<%= t('titles.download_registros')%>">
-        <%= raw "<i class='fa fa-download fa-lg'></i> " + t('links.download') + ' ' %><span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu" role="menu">
-        <li><a href="#"><%= link_to t('labels.download_excel'), pesos_path(format: 'xls') %></a></li>
-        <li><a href="#"><%= link_to t('labels.download_pdf'), pesos_path(format: 'pdf'), target: '_blank' %></a></li>
-      </ul>
-    </div>
-  </div>
-</div>
+<%= render 'shared/botoes_incluir_e_download', controller: 'pesos', model: model_class,
+           url_xls: pesos_path(format: 'xls'), url_pdf: pesos_path(format: 'pdf') %>
 
 <br />
-
 <%= page_entries_info @pesos, model: model_class %>
 
 <% if not @pesos.empty? %>
@@ -41,9 +28,9 @@
               <%= botao_alterar registro, edit_peso_path(registro), model_class %>
               <%= botao_excluir registro, model_class, { registro_nome: l(registro.data) } %>
             </td>
-            <td><%= l(registro.data) %></td>
-            <td><%= number_to_human(registro.altura, precision: 3) %></td>
-            <td><%= number_to_human(registro.peso, precision: 4) %></td>
+            <td><%=l registro.data %></td>
+            <td><%= numero_formatado(registro.altura) %></td>
+            <td><%= numero_formatado(registro.peso) %></td>
             <td><%= registro.peso_ideal %></td>
             <td><%= situacao_imc registro.imc %></td>
           </tr>
@@ -52,5 +39,4 @@
     </table>
   </div>
 <% end %>
-
 <%= will_paginate %>

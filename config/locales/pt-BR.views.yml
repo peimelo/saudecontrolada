@@ -1,5 +1,12 @@
 pt-BR:
-  # -----------------------------------------------------------------------------------------------
+  views:
+    edit:
+      titulo: Alterando %{model}
+    new:
+      titulo: Incluindo %{model}
+    show:
+      titulo: Visualizando %{model}
+# -----------------------------------------------------------------------------------------------
   acoes:
     column:
       name: Ação
@@ -47,7 +54,6 @@ pt-BR:
     index:
       imc: Índice de Massa Corporal (IMC)
       meu_imc: '<strong>IMC</strong>'
-      peso_por_data: Peso por Data
       peso_medio: '<strong>Peso Médio</strong>'
       sem_dados: '<strong>Para o gráfico ser gerado é preciso incluir registros em </strong>'
   # -----------------------------------------------------------------------------------------------
@@ -57,6 +63,11 @@ pt-BR:
     menu: Erros
     show:
       titulo: Erro
+  # -----------------------------------------------------------------------------------------------
+  exames:
+    form:
+      incluir_valor_referencia: Incluir Valor de Referência
+      excluir_valor_referencia: Excluir Valor de Referência
   # -----------------------------------------------------------------------------------------------
   layouts:
     main_nav:
@@ -131,13 +142,6 @@ pt-BR:
         <p>Equipe do <a href="http://saudecontrolada.com.br/">Saúde Controlada</a></p>
       subject: "Criado novo Usuário: %{email}"
   # -----------------------------------------------------------------------------------------------
-  pesos:
-    edit:
-      titulo: Alterando Peso e Altura
-    menu: Peso e Altura
-    new:
-      titulo: Incluindo Peso e Altura
-  # -----------------------------------------------------------------------------------------------
   recursos:
     edit:
       titulo: Alterando Recurso
@@ -146,23 +150,40 @@ pt-BR:
       titulo: Incluindo Recurso
   # -----------------------------------------------------------------------------------------------
   recursos_categorias:
+    column:
+      name: Categoria de Recurso
     edit:
-      titulo: Alterando Recurso de Categoria
-    menu: Recursos de Categorias
+      titulo: Alterando Categoria de Recurso
+    index:
+      titulo: 'Categorias de Recursos (%{qtde_registros})'
+    menu: Categorias de Recursos
     new:
-      titulo: Incluindo Recurso de Categoria
+      titulo: Incluindo Categoria de Recurso
+  # -----------------------------------------------------------------------------------------------
+  resultados:
+    limite_maximo: Limite Máximo
+    limite_minimo: Limite Mínimo
+    meu_valor: Meu Valor
   # -----------------------------------------------------------------------------------------------
   site:
     index:
       texto_principal: |
-        Sua saúde no controle das suas mãos.
+        Ajudando você a ter uma vida mais saudável e tranquila.
       titulo_cadastrar: Crie sua conta
-      destaque_1_titulo: Peso e Altura
+      destaque_1_titulo: <i class='fa fa-money fa-lg'></i> É Grátis!
       destaque_1_texto: |
-        Coloque seu peso e altura para gerar um gráfico baseado no seu limite ideal.
-      destaque_2_titulo: Diabetes
+        Você não precisa pagar nada. Queremos ajudar você a cuidar da sua saúde.
+      destaque_2_titulo: |
+        É Responsivo! <i class='fa fa-laptop fa-lg'></i> <i class='fa fa-tablet fa-lg'></i>
+        <i class='fa fa-mobile fa-lg'></i>
       destaque_2_texto: |
-        Com as informações da sua glicemia você saberá como está seu tratamento.
+        Significa que você pode acessar do seu computador, tablet ou celular.
+      destaque_3_titulo: Controle de Peso
+      destaque_3_texto: |
+        Controle a evolução do seu peso, o peso ideal e o IMC.
+      destaque_4_titulo: Resultados de Exames
+      destaque_4_texto: |
+        Todos os seus resultados em um só lugar e com gráficos.
   # -----------------------------------------------------------------------------------------------
   users:
     index:

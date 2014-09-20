@@ -97,15 +97,25 @@ class ApplicationController < ActionController::Base
       controlador   = Controlador.find_by_nome(self.class.controller_path)
       controlador ||= Controlador.create(nome: self.class.controller_path)
 
-      #TODO: intercionalizar
       recurso_categoria   = RecursoCategoria.first
-      recurso_categoria ||= RecursoCategoria.create(nome: 'Geral')
+      recurso_categoria ||= RecursoCategoria.create(nome: t('banco_dados.registro.geral'))
 
       @recurso   = Recurso.find_by_acao_id_and_controlador_id(acao.id, controlador.id)
       @recurso ||= Recurso.create(acao_id: acao.id,
                                   controlador_id: controlador.id,
                                   nome: "#{ controlador.nome } / #{ acao.nome }",
                                   recurso_categoria_id: recurso_categoria.id)
+    end
+    
+    def translate_version(version)
+      case version
+        when 'create'
+          t('links.inclusao')
+        when 'destroy'
+          t('links.exclusao')
+        when 'update'
+          t('links.alteracao')
+      end
     end
 
     def sort_direction

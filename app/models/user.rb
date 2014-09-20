@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  include DateModule
+  include SearchModule
 
   # Include default devise modules. Others available are:
   devise :confirmable,
@@ -17,15 +17,12 @@ class User < ActiveRecord::Base
   has_many :authentication, dependent: :delete_all
   has_many :erro, dependent: :nullify
   has_many :peso, dependent: :delete_all
+  has_many :resultado, dependent: :delete_all
 
   # validações ------------------------------------------------------------------------------------
-  validates :name, presence: true
+  validates :date_of_birth, :gender, :name, presence: true
 
   # methods ---------------------------------------------------------------------------------------
-  def date_of_birth=(value)
-    write_attribute(:date_of_birth, format_date_usa(value))
-  end
-
   def self.from_omniauth(auth, current_user)
     authentication = Authentication.where(provider: auth.provider, uid: auth.uid.to_s).first_or_initialize
     if authentication.user.blank?
@@ -57,6 +54,15 @@ class User < ActiveRecord::Base
       authentication.user
     end
   end
+  
+  def idade
+    if self.date_of_birth
+      now = Time.now.utc.to_date
+      now.year - self.date_of_birth.year - (self.date_of_birth.to_date.change(year: now.year) > now ? 1 : 0)
+    else
+      nil
+    end
+  end
 
   def self.new_with_session(params, session)
     if session['devise.user_attributes']
@@ -66,14 +72,6 @@ class User < ActiveRecord::Base
       end
     else
       super
-    end
-  end
-
-  def self.search(search)
-    if search
-      where('name LIKE ?', "%#{search}%")
-    else
-      all
     end
   end
 

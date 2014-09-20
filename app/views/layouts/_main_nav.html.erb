@@ -8,16 +8,24 @@
               <%= icon('cog fa-lg', t('links.administracao')) %> <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
+              <%= nav_tab icon('flask', t('activerecord.models.exame.other')), exames_path,
+                          { current: current_tab, titulo: t('activerecord.models.exame.other') } %>
+              <%= nav_tab icon('book', t('activerecord.models.referencia.other')), referencias_path,
+                          { current: current_tab, titulo: t('activerecord.models.referencia.other') } %>
+              <%= nav_tab icon('superscript', t('activerecord.models.unidade.other')), unidades_path,
+                          { current: current_tab, titulo: t('activerecord.models.unidade.other') } %>
+              <li class="divider"></li>
               <%= nav_tab icon('wrench', t('acoes.menu')), acoes_path, { current: current_tab, titulo: t('acoes.menu') } %>
               <%= nav_tab icon('cogs', t('controladores.menu')), controladores_path,
                           { current: current_tab, titulo: t('controladores.menu') } %>
               <li class="divider"></li>
-              <%= nav_tab icon('list-alt', t('recursos_categorias.menu')), recursos_categorias_path, {current: current_tab, titulo: t('recursos_categorias.menu')} %>
-              <%= nav_tab icon('tasks', t('recursos.menu')), recursos_path, {current: current_tab, titulo: t('recursos.menu')} %>
+              <%= nav_tab icon('list-alt', t('recursos_categorias.menu')), recursos_categorias_path,
+                          { current: current_tab, titulo: t('recursos_categorias.menu') } %>
+              <%= nav_tab icon('tasks', t('recursos.menu')), recursos_path, { current: current_tab, titulo: t('recursos.menu') } %>
               <li class="divider"></li>
               <%= nav_tab icon('bullhorn', t('contatos.menu')), contatos_path, { current: current_tab, titulo: t('contatos.menu') } %>
               <%= nav_tab icon('bug', t('erros.menu')), erros_path, { current: current_tab, titulo: t('erros.menu') } %>
-              <%= nav_tab icon('user', t('users.menu')), users_path, { current: current_tab, titulo: t('users.menu') } %>
+              <%= nav_tab icon('users', t('users.menu')), users_path, { current: current_tab, titulo: t('users.menu') } %>
             </ul>
           </li>
         <% end %>
@@ -28,7 +36,10 @@
           <ul class="dropdown-menu">
             <%= nav_tab icon('dashboard', t('dashboard.menu')), dashboard_index_path,
                         { current: current_tab, titulo: t('dashboard.menu') } %>
-            <%= nav_tab raw('<i class="fa fa-cutlery"></i> ') + t('pesos.menu'), pesos_path, { current: current_tab, titulo: t('pesos.menu') } %>
+            <%= nav_tab icon('line-chart', t('activerecord.models.peso.other')), pesos_path,
+                        { current: current_tab, titulo: t('activerecord.models.peso.other') } %>
+            <%= nav_tab icon('file-text-o', t('activerecord.models.resultado.other')), resultados_path,
+                        { current: current_tab, titulo: t('activerecord.models.resultado.other') } %>
           </ul>
         </li>
         <li class="dropdown">

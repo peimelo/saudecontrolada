@@ -1,0 +1,93 @@
+<%= currently_at t('activerecord.models.resultado.other') %>
+<%- model_class = Resultado -%>
+<%= titulo icon('flask', @exame.nome) %>
+
+<br />
+
+<ul class="nav nav-tabs" role="tablist" id="myTab">
+  <li class="active"><a href="#grafico" role="tab" data-toggle="tab"><%= icon('bar-chart-o fa-lg', t('links.grafico')) %></a></li>
+  <li><a href="#resultados" role="tab" data-toggle="tab"><%= icon('file-text-o fa-lg', t('links.resultados')) %></a></li>
+  <li><a href="#valor_referencia" role="tab" data-toggle="tab"><%= icon('book fa-lg', Referencia.model_name.human) %></a></li>
+</ul>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="grafico">
+    <br />
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= icon('flask fa-lg', @exame.nome_unidade) %></h3>
+      </div>
+      <div class="panel-body">
+        <%= high_chart('resultado', @chart_resultado) %>
+      </div>
+      <div class="panel-footer">
+        <%= raw "#{ t('labels.valor_medio', valor: numero_formatado(@valor_medio)) }" %>
+      </div>
+    </div>
+  </div>
+  <div class="tab-pane" id="resultados">
+    <br />
+    <p><%= link_to icon('file-o fa-lg', t('links.incluir')), new_resultado_exame_path(@exame.nome),
+                class: 'btn btn-primary', title: t('titles.incluir', model: model_class.model_name.human) %></p>
+
+    <p><%= @exame.valor_referencia_extenso(current_user.idade, current_user.gender) %></p>
+
+    <%= page_entries_info @resultados, model: model_class %>
+
+    <% if not @resultados.empty? %>
+      <div class="table-responsive">
+        <table class="table table-bordered table-condensed table-hover table-striped">
+          <thead>
+            <tr>
+              <th><%= t('bootstrap.actions') %></th>
+              <th><%= sortable model_class, 'data' %></th>
+              <th><%= sortable model_class, 'valor' %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @resultados.each do |registro| %>
+              <tr>
+                <td width="100">
+                  <%= botao_alterar registro, edit_resultado_path(registro), model_class %>
+                  <%= botao_excluir registro, model_class, { registro_nome: l(registro.data) } %>
+                </td>
+                <td><%=l registro.data %></td>
+                <td><%= numero_formatado(registro.valor, (registro.exame.unidade.nome rescue '')) %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    <% end %>
+    <%= will_paginate %>
+  </div>
+  <div class="tab-pane" id="valor_referencia">
+    <br />
+    <div class="table-responsive">
+      <table class="table table-bordered table-condensed table-hover table-striped">
+        <thead>
+          <tr>
+            <th><%= Valor.human_attribute_name(:sexo) %></th>
+            <th><%= Valor.human_attribute_name(:idade_inferior) %></th>
+            <th><%= Valor.human_attribute_name(:idade_superior) %></th>
+            <th><%= Valor.human_attribute_name(:valor_inferior) %></th>
+            <th><%= Valor.human_attribute_name(:valor_superior) %></th>
+            <th><%= Referencia.model_name.human %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @exame.valor.each do |registro| %>
+            <tr>
+              <td><%= registro.sexo %></td>
+              <td><%= registro.idade_inferior.nil? ? '' : registro.idade_inferior.to_i %></td>
+              <td><%= registro.idade_superior.nil? ? '' : registro.idade_superior.to_i %></td>
+              <td><%= registro.valor_inferior %></td>
+              <td><%= registro.valor_superior %></td>
+              <td><%= registro.referencia.nil? ? '' : registro.referencia.nome %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

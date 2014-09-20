@@ -1,6 +1,7 @@
 class Peso < ActiveRecord::Base
-  include DateModule
-
+  # armazenamento de logs
+  # has_paper_trail
+  
   # relacionamentos -------------------------------------------------------------------------------
   belongs_to :user
 
@@ -10,20 +11,8 @@ class Peso < ActiveRecord::Base
   validates :peso, numericality: { greater_than_or_equal_to: 3.35, less_than_or_equal_to: 400 }
 
   # methods ---------------------------------------------------------------------------------------
-  def altura=(value)
-    write_attribute(:altura, value.to_s.gsub(',', '.').to_f)
-  end
-
-  def data=(value)
-    write_attribute(:data, format_date_usa(value))
-  end
-
   def imc
     (self.peso / (self.altura * self.altura)).round(2)
-  end
-
-  def peso=(value)
-    write_attribute(:peso, value.to_s.gsub(',', '.').to_f)
   end
 
   def peso_ideal

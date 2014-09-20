@@ -41,9 +41,13 @@ module ApplicationHelper
       title: t('titles.excluir', model: model.model_name.human)
     }.merge(options)
 
+    if options[:sem_confimar] == true
+      options.delete(:data)  
+    end
+    
     options[:texto_botao] ||= ''
 
-    label = raw('<i class="glyphicon glyphicon-trash"></i> ') + options[:texto_botao]
+    label = icon('trash-o fa-lg', options[:texto_botao])
 
     link_to label, registro, options
   end
@@ -75,9 +79,20 @@ module ApplicationHelper
         class: 'btn btn-primary'
     }.merge(options)
 
-    label = raw('<i class="glyphicon glyphicon-ok"></i> ') + t('links.salvar')
+    label = icon('check fa-lg', t('links.salvar'))
 
     button_tag label, options
+  end
+
+  def botao_visualizar(path, model, options={})
+    options = {
+        class: 'btn btn-default',
+        title: t('titles.visualizar', model: model.model_name.human)
+    }.merge(options)
+
+    label = icon('eye fa-lg')
+
+    link_to label, path, options
   end
 
   def corrigir_erros(tem_erro)
@@ -92,12 +107,29 @@ module ApplicationHelper
     valor ? t('true') : t('false')
   end
 
-  def limpar_filtro(acao)
+  def limpar_filtro(url)
     if !params[:search].blank?
-      raw('<p><strong>') + t('labels.filtro') + raw('</strong> "') + params[:search] + raw('" (') + link_to(t('links.limpar_filtro'), acao) + raw(')</p>')
+      raw('<p><strong>') + icon('filter', t('labels.filtro')) + raw('</strong> "') + params[:search] + raw('" (') +
+          link_to(icon('eraser', t('links.limpar_filtro')), url) + raw(')</p>')
     end
   end
 
+  def limpar_filtro_nome_data(url)
+    if !params[:nome].blank? or !params[:data_inicial].blank? or !params[:data_final].blank?
+      link_to(icon('eraser', t('links.limpar_filtro')), url)
+    end
+  end
+
+  def link_form(text, destination, options = {})
+    form_tag(destination, :method => options.delete(:method)) do
+      button_tag text
+    end
+  end
+
+  def numero_formatado(numero, unidade='')
+    number_to_currency(numero, delimiter: '.', format: '%n %u', separator: ',', unit: unidade)
+  end
+  
   def sortable(model, column)
     title = model.human_attribute_name(column)
     icone = column == sort_column ? " <i class='fa fa-sort-#{sort_direction}'></i>" : ''
@@ -112,6 +144,14 @@ module ApplicationHelper
   end
 
   def titulo(title)
+    content_for :title do
+      if title.scan('</i> ') == []
+        title
+      else
+        title.split('</i> ')[1]
+      end
+    end
+
     content_tag(:h3, title)
   end
 

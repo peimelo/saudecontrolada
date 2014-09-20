@@ -1,0 +1,26 @@
+/* Datepicker Styles */
+
+.ui-datepicker-trigger {
+    border:none;
+    background:none;
+/*    float: left;*/
+}
+
+input.datepicker.hasDatepicker {
+    float: left;
+    width: 82%;
+}
+/*
+button.ui-datepicker-trigger {
+  background: #FFF;
+  color: #333;
+  padding: 9px 14px;
+}
+*/
+button.ui-datepicker-trigger:hover {
+    background: #CCC;
+}
+/*
+button.ui-datepicker-trigger i.fa.icon-calendar {
+    color: black;
+}*/

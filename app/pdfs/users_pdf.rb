@@ -1,6 +1,4 @@
 class UsersPdf < Prawn::Document
-  require 'prawn/table'
-
   def initialize(registros, model)
     super(top_margin: 50)
     @registros = registros

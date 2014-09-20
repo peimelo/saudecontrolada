@@ -8,7 +8,7 @@ role :app, %w{ubuntu@saudecontrolada.com.br}
 role :web, %w{ubuntu@saudecontrolada.com.br}
 role :db,  %w{ubuntu@saudecontrolada.com.br}
 
-set :branch, 'master'
+set :branch, 'develop'
 # set :deploy_to, '/home/ubuntu/apps/saudecontrolada'
 
 # Extended Server Syntax

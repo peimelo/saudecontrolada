@@ -3,6 +3,13 @@ class PesosController < ApplicationController
 
   before_action :set_peso, only: [:show, :edit, :update, :destroy]
 
+  before_action ->(texto=t('activerecord.models.peso.other'), url=pesos_path) {
+    add_crumb(texto, url) }, except: [:index, :destroy]
+  before_action ->(texto=t('views.edit.titulo', model: Peso.model_name.human), url=edit_peso_path(@peso)) {
+    add_crumb(texto, url) }, only: [:edit, :update]
+  before_action ->(texto=t('views.new.titulo', model: Peso.model_name.human), url=new_peso_path) {
+    add_crumb(texto, url) }, only: [:new, :create]
+
   def index
     if params[:format].nil?
       @pesos = current_user.peso.page(params[:page]).order(sort_column + ' ' + sort_direction)
@@ -44,9 +51,6 @@ class PesosController < ApplicationController
       end
       format.xls
     end
-  end
-
-  def show
   end
 
   def new

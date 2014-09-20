@@ -1,0 +1,21 @@
+<%= corrigir_erros registro.errors.any? %>
+<%= simple_form_for(registro) do |f| %>
+  <%= f.input :exame_nome, autofocus: true %>
+  <div class="row">
+    <div class="col-sm-6">
+      <%= f.input :data, as: :string, input_html: { class: 'datepicker inputmask' } %>
+    </div>
+    <div class="col-sm-6">
+      <%= f.input :valor %>
+    </div>
+  </div>
+
+  <%#= f.association :exame, label_method: :nome %>
+
+  <%= botao_salvar %>
+  <% if (action_name == 'edit' or action_name == 'update') and !registro.exame_id.nil? %>
+    <%= botao_cancelar resultado_path(registro.exame_id) %>
+  <% else %>
+    <%= botao_cancelar url_cancelar %>
+  <% end %>
+<% end %>

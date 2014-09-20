@@ -22,10 +22,10 @@ pt-BR:
     # ---------------------------------------------------------------------------------------------
     hints:
       defaults:
-        altura: 'Por exemplo: 1,7 ou 1,75'
+        altura: 'Exemplo: 1,7 ou 1,75'
 #        data: 'Formato válido: dd/mm/aaaa'
 #        date_of_birth: 'Formato válido: dd/mm/aaaa'
-        peso: 'Por exemplo: 65,55 ou 165,55'
+        peso: 'Exemplo: 65,55 ou 165,55'
       user:
         edit:
           current_password: nós precisamos da sua senha atual para confirmar suas alterações
@@ -56,7 +56,7 @@ pt-BR:
 #          password_confirmation: Confirme sua senha
     # ---------------------------------------------------------------------------------------------
     required:
-      text: O campo é de preenchimento obrigatório
+      text: O campo é de preenchimento obrigatório.
       mark: '*'
       # You can uncomment the line below if you need to overwrite the whole required html.
       # When using html, text and mark won't be used.

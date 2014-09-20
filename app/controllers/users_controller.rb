@@ -5,11 +5,7 @@ class UsersController < ApplicationController
   before_action :user_administrador_sistema?
 
   def index
-    if params[:format] # xls mostra tudo
-      @users = User.order(:created_at)
-    else
-      @users = User.search(params[:search]).order(sort_column + ' ' + sort_direction).page(params[:page])
-    end
+    @users = User.listar(params[:search], params[:format], params[:page], sort_column + ' ' + sort_direction)
 
     respond_to do |format|
       format.html
@@ -22,10 +18,6 @@ class UsersController < ApplicationController
   end
 
   private
-    def set_user
-      @user = User.find(params[:id])
-    end
-    
     def sort_column
       User.column_names.include?(params[:sort]) ? params[:sort] : 'current_sign_in_at'
     end
