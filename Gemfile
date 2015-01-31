@@ -1,8 +1,8 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 ruby '2.1.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.4'
+gem 'rails', '4.1.8'
 
 # Use mysql as the database for Active Record
 gem 'mysql2'
@@ -63,6 +63,9 @@ gem 'paper_trail', '~> 3.0.5'
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring', group: :development
 gem 'spring-commands-rspec', group: :development
+
+# customizar json dos models
+gem 'active_model_serializers'
 
 group :development do
   gem 'capistrano3-unicorn'
