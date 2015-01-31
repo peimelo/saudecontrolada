@@ -30,4 +30,10 @@ Saudecontrolada::Application.routes.draw do
   resources :unidades, except: :show
   resources :users, only: :index
   post 'versions/:id/revert' => 'versions#revert', as: 'revert_version'
+
+  # API
+  namespace :api, defaults: { format: :json } do
+    resources :pesos, only: [:index]
+  end
+
 end
