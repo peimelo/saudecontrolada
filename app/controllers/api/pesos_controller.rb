@@ -4,7 +4,8 @@ class API::PesosController < ApplicationController
   # GET /pesos
   # GET /pesos.json
   def index
-    render json: Peso.all.order('created_at DESC').limit(2)
+    user = User.find_by_email('peimelo@gmail.com')
+    render json: user.peso.all
   end
 
   # GET /pesos/1
