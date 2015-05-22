@@ -18,13 +18,7 @@ rails_best_practices_output.html
 .project
 
 config/database.yml
-# <<<<<<< HEAD
-# config/environments/production.rb
-# config/initializers/setup_email.rb
-# config/initializers/secret_token.rb
-# =======
 config/env.rb
-# >>>>>>> release_1
 
 coverage
 

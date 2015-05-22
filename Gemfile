@@ -105,7 +105,7 @@ gem 'capistrano'
 gem 'capistrano-bundler'
 gem 'capistrano-rails'
 gem 'capistrano-rbenv'
-gem 'unicorn'
+# gem 'unicorn'
 
 # authentication
 gem 'devise', '~> 3.3.0'
