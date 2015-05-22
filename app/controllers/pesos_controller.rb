@@ -17,34 +17,9 @@ class PesosController < ApplicationController
       @pesos = current_user.peso.order(sort_column + ' ' + sort_direction)
     end
 
-    # categories = []
-    # maximo = []
-    # minimo = []
-    # peso = []
-    # @pesos.reverse.each do |p|
-    #   categories << l(p.data, format: :default)
-    #   peso << p.peso.to_f
-    #   maximo << (24.99 * p.altura * p.altura).round(2).to_f
-    #   minimo << (18.5 * p.altura * p.altura).round(2).to_f
-    # end
-    #
-    # @chart = LazyHighCharts::HighChart.new('graph') do |f|
-    #   f.xAxis(categories: categories, labels: { enabled: false })
-    #
-    #   f.title(text: 'Peso por Data')
-    #   f.tooltip(valueSuffix: ' Kg')
-    #
-    #   f.series(name: 'Limite Máximo', data: maximo, color: '#8a403b')
-    #   f.series(name: 'Peso', data: peso)
-    #   f.series(name: 'Limite Mínimo', data: minimo, color: '#b02e25')
-    #
-    #   f.legend(align: 'center', borderWidth: 1, layout: 'horizontal')
-    #
-    #   f.plotOptions(line: { lineWidth: 4, marker: { enabled: false } })
-    # end
-
     respond_to do |format|
       format.html
+      format.json { render json: @pesos }
       format.pdf do
         pdf = PesosPdf.new(@pesos, Peso)
         send_data pdf.render, filename: (Peso.model_name.human + '.pdf'), disposition: 'inline'
