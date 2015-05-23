@@ -1,5 +1,5 @@
 # config valid only for Capistrano 3.1
-lock '3.2.1'
+lock '3.4.0'
 
 set :application, 'saudecontrolada'
 set :rails_env, 'production'
@@ -7,7 +7,7 @@ set :repo_url, 'git@bitbucket.org:peimelo/saudecontrolada.git'
 
 set :rbenv_ruby, '2.1.2'
 
-set :unicorn_config_path, '/var/www/saudecontrolada/current/config/unicorn.rb'
+#set :unicorn_config_path, '/var/www/saudecontrolada/current/config/unicorn.rb'
 
 #set :rbenv_type, :deploy
 
@@ -74,10 +74,10 @@ set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets}
 
 # end
 
-namespace :deploy do
-  task :restart do
-    invoke 'unicorn:legacy_restart'
-  end
-end
-
-after 'deploy:publishing', 'deploy:restart'
+# namespace :deploy do
+#   task :restart do
+#     invoke 'unicorn:legacy_restart'
+#   end
+# end
+#
+# after 'deploy:publishing', 'deploy:restart'

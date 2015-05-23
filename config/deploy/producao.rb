@@ -8,8 +8,8 @@ role :app, %w{ubuntu@saudecontrolada.com.br}
 role :web, %w{ubuntu@saudecontrolada.com.br}
 role :db,  %w{ubuntu@saudecontrolada.com.br}
 
-set :branch, 'develop'
-# set :deploy_to, '/home/ubuntu/apps/saudecontrolada'
+set :branch, 'master'
+set :deploy_to, '/var/www/saudecontrolada'
 
 # Extended Server Syntax
 # ======================
@@ -40,3 +40,15 @@ server 'saudecontrolada.com.br', user: 'ubuntu', roles: %w{app}#, my_property: :
 #     # password: 'please use keys'
 #   }
 # setting per server overrides global ssh_options
+
+namespace :deploy do
+  desc 'Restart application'
+  task :restart do
+    on roles(:app), in: :sequence, wait: 5 do
+      # Your restart mechanism here, for example:
+      execute :touch, release_path.join('tmp/restart.txt')
+    end
+  end
+
+  after :publishing, :restart
+end
