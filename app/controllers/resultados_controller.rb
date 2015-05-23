@@ -3,7 +3,7 @@ class ResultadosController < ApplicationController
 
   before_action :set_resultado, only: [:edit, :update, :destroy]
 
-  # breadcrumb ------------------------------------------------------------------------------------
+  # breadcrumb ----------------------------------------------------------------
   before_action ->(texto=t('activerecord.models.resultado.other'), url=resultados_path) {
     add_crumb(texto, url) }, except: [:index, :destroy]
 
@@ -18,7 +18,7 @@ class ResultadosController < ApplicationController
   before_action ->(texto=Exame.find(params[:id]).nome) {
     add_crumb(texto, resultados_path(params[:id])) }, only: :show
 
-  # CRUD ------------------------------------------------------------------------------------------
+  # CRUD ----------------------------------------------------------------------
   def index
     if params[:format].nil?
       if !params[:nome].nil? or !params[:data_inicial].blank? or !params[:data_final].blank?
