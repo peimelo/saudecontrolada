@@ -1,5 +1,12 @@
 require 'simplecov'
-SimpleCov.start
+require 'codeclimate-test-reporter'
+SimpleCov.start do
+  formatter SimpleCov::Formatter::MultiFormatter[
+    SimpleCov::Formatter::HTMLFormatter,
+    CodeClimate::TestReporter::Formatter
+  ]
+end
+# SimpleCov.start
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV["RAILS_ENV"] ||= 'test'
