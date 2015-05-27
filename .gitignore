@@ -17,7 +17,6 @@ rails_best_practices_output.html
 .env.development
 .project
 
-config/database.yml
 config/env.rb
 
 coverage
