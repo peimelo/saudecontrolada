@@ -13,6 +13,7 @@ development:
 test:
   <<: *default
   database: saudecontrolada_test
+  username: travis
 
 production:
   <<: *default
