@@ -5,7 +5,7 @@
 [![security](https://hakiri.io/github/peimelo/saudecontrolada/master.svg)](https://hakiri.io/github/peimelo/saudecontrolada/master)
 [![Build Status](https://travis-ci.org/peimelo/saudecontrolada.svg?branch=master)](https://travis-ci.org/peimelo/saudecontrolada)
 
-[![Build Status](http://rails-brakeman.com/peimelo/saudecontrolada.svg)](http://rails-brakeman.com/peimelo/saudecontrolada)
+[![Build Status](http://rails-brakeman.com/peimelo/saudecontrolada.png)](http://rails-brakeman.com/peimelo/saudecontrolada)
 {<img src="http://rails-brakeman.com/peimelo/saudecontrolada.png" alt="Build Status" />}[http://rails-brakeman.com/peimelo/saudecontrolada]
 
 [![Dependency Status](https://gemnasium.com/peimelo/saudecontrolada.svg)](https://gemnasium.com/peimelo/saudecontrolada)
