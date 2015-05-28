@@ -5,7 +5,6 @@
 [![Test Coverage](https://codeclimate.com/github/peimelo/saudecontrolada/badges/coverage.svg)](https://codeclimate.com/github/peimelo/saudecontrolada/coverage)
 
 [![security](https://hakiri.io/github/peimelo/saudecontrolada/master.svg)](https://hakiri.io/github/peimelo/saudecontrolada/master)
-{<img src="https://hakiri.io/github/peimelo/saudecontrolada/master.svg" alt="security" />}[https://hakiri.io/github/peimelo/saudecontrolada/master]
 
 [![Build Status](https://travis-ci.org/peimelo/saudecontrolada.svg?branch=master)](https://travis-ci.org/peimelo/saudecontrolada)
 
