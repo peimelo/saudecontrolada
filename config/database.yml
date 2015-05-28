@@ -17,6 +17,6 @@ test:
 
 production:
   <<: *default
-  database: saudecontrolada_production
+  database: saudecontrolada
   username: <%= ENV['SAUDECONTROLADA_DATABASE_USERNAME'] %>
   password: <%= ENV['SAUDECONTROLADA_DATABASE_PASSWORD'] %>
