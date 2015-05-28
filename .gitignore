@@ -14,7 +14,6 @@ rails_best_practices_output.html
 /.sass-cache
 /.settings
 
-.env.development
 .project
 
 config/env.rb
