@@ -10,6 +10,7 @@ role :db,  %w{ubuntu@saudecontrolada.com.br}
 
 set :branch, 'master'
 set :deploy_to, '/var/www/saudecontrolada'
+set :repo_url, 'git@github.com:peimelo/saudecontrolada.git'
 
 # Extended Server Syntax
 # ======================

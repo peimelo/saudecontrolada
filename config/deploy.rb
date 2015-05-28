@@ -3,7 +3,6 @@ lock '3.4.0'
 
 set :application, 'saudecontrolada'
 set :rails_env, 'production'
-set :repo_url, 'git@github.com:peimelo/saudecontrolada.git'
 
 set :rbenv_ruby, '2.1.2'
 
