@@ -1,4 +1,4 @@
-== Saúde Controlada
+# Saúde Controlada
 
 {<img src="https://codeclimate.com/github/peimelo/saudecontrolada/badges/gpa.svg" />}[https://codeclimate.com/github/peimelo/saudecontrolada]
 {<img src="https://codeclimate.com/github/peimelo/saudecontrolada/badges/coverage.svg" />}[https://codeclimate.com/github/peimelo/saudecontrolada/coverage]
@@ -6,11 +6,11 @@
 {<img src="https://travis-ci.org/peimelo/saudecontrolada.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/peimelo/saudecontrolada]
 {<img src="http://rails-brakeman.com/peimelo/saudecontrolada.png" alt="Build Status" />}[http://rails-brakeman.com/peimelo/saudecontrolada]
 {<img src="https://gemnasium.com/peimelo/saudecontrolada.svg" alt="Dependency Status" />}[https://gemnasium.com/peimelo/saudecontrolada]
-{<img src="http://inch-ci.org/github/peimelo/saudecontrolada.svg?branch=master" alt="Inline docs" />}[http://inch-ci.org/github/peimelo/saudecontrolada]
+[![Inline docs](http://inch-ci.org/github/peimelo/saudecontrolada.svg?branch=master)](http://inch-ci.org/github/peimelo/saudecontrolada)
 
-= Descrição
+## Descrição
 
-Site online do Saúde Controlada (https://saudecontrolada.com.br)
+[![Site online do Saúde Controlada](https://saudecontrolada.com.br)]
 
 * rake db:create
 * rake db:migrate
