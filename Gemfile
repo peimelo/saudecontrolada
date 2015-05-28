@@ -67,6 +67,8 @@ gem 'spring-commands-rspec', group: :development
 # customizar json dos models
 gem 'active_model_serializers'
 
+gem 'newrelic_rpm'
+
 group :development do
   gem 'capistrano3-unicorn'
   gem 'better_errors'
