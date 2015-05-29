@@ -21,6 +21,7 @@ module Saudecontrolada
     # Devise
     #config.action_mailer.default_url_options = { host: Rails.application.secrets.mailer_host }
     config.action_mailer.default_url_options = { host: 'localhost:3000' }
+    Rails.application.routes.default_url_options[:host] = 'localhost:3000'
 
     config.generators do |g|
       g.fixture_replacement :factory_girl, dir: 'spec/factories'
