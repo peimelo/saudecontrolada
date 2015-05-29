@@ -7,7 +7,7 @@ RSpec.describe PesosController, type: :controller do
   let(:user_admin) { create(:user_admin) }
 
   let(:valid_attributes) { attributes_for(:peso) }
-  let(:invalid_attributes) { attributes_for(:peso_invalida) }
+  let(:invalid_attributes) { attributes_for(:peso_invalido) }
 
   let!(:formato_excel_session) { { format: :xls } }
   let(:pesquisar_session) { { search: peso.nome } }
