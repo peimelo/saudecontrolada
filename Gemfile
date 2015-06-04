@@ -68,6 +68,7 @@ gem 'spring-commands-rspec', group: :development
 gem 'active_model_serializers'
 
 gem 'newrelic_rpm'
+gem 'airbrake'
 
 group :development do
   gem 'capistrano3-unicorn'
