@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/peimelo/saudecontrolada.png?label=ready&title=Ready)](https://waffle.io/peimelo/saudecontrolada)
 # Saúde Controlada
 
 [![Code Climate](https://codeclimate.com/github/peimelo/saudecontrolada/badges/gpa.svg)](https://codeclimate.com/github/peimelo/saudecontrolada)
