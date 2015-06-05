@@ -1,10 +1,8 @@
-require 'faker'
-
 FactoryGirl.define do
-  factory :recurso_categoria, :class => 'RecursoCategoria' do
-    sequence(:nome) { Faker::Name.first_name.downcase }
+  factory :recurso_categoria do
+    sequence(:nome) { |n| "recurso_categoria_#{ n }" }
 
-    factory :recurso_categoria_invalida do
+    factory :invalid_recurso_categoria do
       nome nil
     end
   end

@@ -1,5 +1,3 @@
-require 'faker'
-
 FactoryGirl.define do
   factory :user do
     date_of_birth { rand(1..100).days.from_now.strftime("%d/%m/%Y") }

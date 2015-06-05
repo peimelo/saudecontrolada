@@ -1,10 +1,20 @@
 require 'simplecov'
 require 'codeclimate-test-reporter'
+
 SimpleCov.start do
   formatter SimpleCov::Formatter::MultiFormatter[
     SimpleCov::Formatter::HTMLFormatter,
     CodeClimate::TestReporter::Formatter
   ]
+
+  add_group 'Controllers', 'app/controllers'
+  add_group 'Models', 'app/models'
+  add_group 'Helpers', 'app/helpers'
+  add_group 'Mailers', 'app/mailers'
+  add_group 'Libs', 'lib'
+  add_group 'Config', 'config'
+  add_group 'Pdfs', 'app/pdfs'
+  add_group 'Specs', 'spec'
 end
 # SimpleCov.start
 
