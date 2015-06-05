@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :controlador do
-    sequence(:nome) { Faker::Name.first_name }
+    sequence(:nome) { |n| "controlador_#{ n }" }
 
     factory :controlador_invalido do
       nome nil
