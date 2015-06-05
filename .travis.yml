@@ -4,7 +4,7 @@ rvm:
 env:
   - DB=mysql
 script:
-  - RAILS_ENV=test bundle exec rake db:migrate db:structure:load
+  - RAILS_ENV=test bundle exec rake db:migrate
   - bundle exec rake
 before_script:
   - mysql -e 'create database saudecontrolada_test;'
