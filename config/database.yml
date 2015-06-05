@@ -13,10 +13,10 @@ development:
 test:
   <<: *default
   database: saudecontrolada_test
-  username: travis
+  username: <%= ENV['DATABASE_TEST_USERNAME'] %>
 
 production:
   <<: *default
   database: saudecontrolada
-  username: <%= ENV['SAUDECONTROLADA_DATABASE_USERNAME'] %>
-  password: <%= ENV['SAUDECONTROLADA_DATABASE_PASSWORD'] %>
+  username: <%= ENV['DATABASE_PROD_USERNAME'] %>
+  password: <%= ENV['DATABASE_PROD_PASSWORD'] %>

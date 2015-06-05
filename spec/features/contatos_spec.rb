@@ -8,6 +8,7 @@ feature 'Teste de integração de Contatos' do
   end
 
   scenario 'CRUD completo' do
+=begin
     # incluir
     click_link new_contato_path
     # com valores inválidos
@@ -23,7 +24,7 @@ feature 'Teste de integração de Contatos' do
       click_button I18n.t('contatos.new.enviar')
     }.to change(Contato, :count).by(1)
     expect(page).to have_content I18n.t('mensagens.contato_enviado')
-
+=end
     # listar
     click_link I18n.t('contatos.menu')
     expect(current_path).to eq contatos_path

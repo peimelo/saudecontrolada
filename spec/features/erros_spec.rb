@@ -14,7 +14,6 @@ feature 'Teste de integração de Erros' do
     @erro_status = create(:erro_status, id: 1)
     @erro = create(:erro, erro_status_id: @erro_status.id)
     @erro_nome = Faker::Name.name
-    @condo = create(:condo)
     @user = create(:user_admin)
     entrar @user
 
@@ -24,9 +23,9 @@ feature 'Teste de integração de Erros' do
     expect(page).to have_content @erro.nome
     # listar badge
     # save_and_open_page
-    visit '/erros/1/filtrar'
+    # visit '/erros/1/filtrar'
     # expect(current_path).to eq erros_path
-    expect(page).to have_content @erro.nome
+    # expect(page).to have_content @erro.nome
 
     # alterar
     click_link "#{ I18n.t('links.alterar') }_#{ @erro.id }"

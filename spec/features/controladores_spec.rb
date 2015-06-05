@@ -5,7 +5,6 @@ feature 'Teste de integração de Controladores' do
     @controlador = create(:controlador)
     @controlador_nome = Faker::Name.name
     @controlador_nome2 = Faker::Name.name
-    @condo = create(:condo)
     @recurso = create(:recurso)
     @user = create(:user_admin)
     entrar @user

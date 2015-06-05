@@ -31,23 +31,6 @@ RSpec.describe Erro, type: :model do
     end
   end
 
-  context '.condo_nome' do
-    describe 'without condo' do
-      it "must return ''" do
-        expect(erro.condo_nome).to eq ''
-      end
-    end
-
-    describe 'with condo' do
-      it 'must return condo.nome' do
-        User.current_user = user
-        erro.condo = condo
-
-        expect(erro.condo_nome).to eq condo.nome
-      end
-    end
-  end
-
   describe '.recurso_nome' do
     it 'must return os nomes de controlador e acao' do
       expect(erro.recurso_nome).to eq "#{erro.recurso.controlador.nome} / #{erro.recurso.acao.nome}"
