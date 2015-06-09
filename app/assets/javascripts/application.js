@@ -17,8 +17,8 @@
 // require jquery-ui/tabs
 // require jquery-ui/tooltip
 
-//= require jquery.inputmask
-//= require jquery.inputmask.date.extensions
+//= require inputmask/jquery.inputmask
+//= require inputmask/jquery.inputmask.date.extensions
 // require jquery.inputmask-multi
 // require jquery.inputmask.numeric.extensions
 // require jquery.inputmask.extensions
@@ -46,7 +46,3 @@
 //= require nested_form_fields
 //= require resultados
 // require_tree .
-
-/*$(function() {
-    $("#select").combobox();
-});*/
