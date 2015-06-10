@@ -2,7 +2,7 @@ class DashboardController < ApplicationController
   def index
     @chart = @chart = LazyHighCharts::HighChart.new('graph')
     @peso_medio = current_user.peso.average(:peso)
-    @peso_atual = current_user.peso.page(params[:page]).order(data: :desc).first
+    @peso_atual = current_user.peso.order(data: :desc).first
     return if @peso_atual.nil?
 
     @meu_imc = @peso_atual.imc.to_f
