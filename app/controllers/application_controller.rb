@@ -106,7 +106,7 @@ class ApplicationController < ActionController::Base
                                   nome: "#{ controlador.nome } / #{ acao.nome }",
                                   recurso_categoria_id: recurso_categoria.id)
     end
-    
+
     def translate_version(version)
       case version
         when 'create'

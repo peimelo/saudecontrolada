@@ -7,7 +7,7 @@ class CreateRecursoCategoria < ActiveRecord::Migration
 
     execute "INSERT INTO recursos_categorias (nome) VALUES ('Geral');"
 
-    add_index :recursos_categorias, :nome, :unique => true    
+    add_index :recursos_categorias, :nome, :unique => true
   end
   
   def down

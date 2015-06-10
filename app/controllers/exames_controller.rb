@@ -67,7 +67,7 @@ class ExamesController < ApplicationController
     @exames = Exame.order(:nome).where("nome LIKE ?", "%#{params[:term]}%")
     render json: @exames.map(&:nome)
   end
-  
+
   private
     def exame_params
       params.require(:exame).permit(

@@ -1,6 +1,6 @@
 class Unidade < ActiveRecord::Base
   include SearchModule
-  
+
   # armazenamento de logs
   has_paper_trail
 

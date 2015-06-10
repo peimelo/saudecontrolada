@@ -1,7 +1,7 @@
 class Peso < ActiveRecord::Base
   # armazenamento de logs
   # has_paper_trail
-  
+
   # relacionamentos -------------------------------------------------------------------------------
   belongs_to :user
 

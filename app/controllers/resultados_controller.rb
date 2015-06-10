@@ -65,14 +65,14 @@ class ResultadosController < ApplicationController
     valor_referencia = @exame.valor_referencia(current_user.idade, current_user.gender)
     valor_superior = valor_referencia.valor_superior unless valor_referencia.nil?
     valor_inferior = valor_referencia.valor_inferior unless valor_referencia.nil?
-    
+
     resultados.reverse.each do |v|
       categories << l(v.data, format: :default)
       valor << v.valor.to_f
       maximo << valor_superior.to_f unless valor_superior.nil?
       minimo << valor_inferior.to_f unless valor_inferior.nil?
     end
-    
+
     @chart_resultado = LazyHighCharts::HighChart.new('graph') do |f|
       f.xAxis(categories: categories, labels: { step: (valor.size / 2) })
 

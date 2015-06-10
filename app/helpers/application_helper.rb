@@ -42,9 +42,9 @@ module ApplicationHelper
     }.merge(options)
 
     if options[:sem_confimar] == true
-      options.delete(:data)  
+      options.delete(:data)
     end
-    
+
     options[:texto_botao] ||= ''
 
     label = icon('trash-o fa-lg', options[:texto_botao])

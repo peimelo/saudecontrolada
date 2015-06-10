@@ -6,7 +6,7 @@ class VersionsController < ApplicationController
     else
       @version.item.destroy
     end
-    
+
     if params[:redo] == 'true'
       link_name = view_context.icon('undo', t('links.desfazer'))
       params[:redo] = 'false'
@@ -14,7 +14,7 @@ class VersionsController < ApplicationController
       link_name = view_context.icon('repeat', t('links.refazer'))
       params[:redo] = 'true'
     end
-    
+
     link = view_context.link_to(link_name, revert_version_path(@version.next, redo: params[:redo]), method: :post)
     
     redirect_to :back, notice: "#{ t('mensagens.flash.paper_trail.operacao_desfeita', \

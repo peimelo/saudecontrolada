@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   helper_method :sort_column, :sort_direction
-  
+
   skip_before_action :tem_permissao?
   before_action :user_administrador_sistema?
 
@@ -12,7 +12,7 @@ class UsersController < ApplicationController
       format.pdf do
         pdf = UsersPdf.new(@users, User)
         send_data pdf.render, filename: (User.model_name.human + '.pdf'), disposition: 'inline'
-      end  
+      end
       format.xls
     end
   end

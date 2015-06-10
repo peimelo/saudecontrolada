@@ -6,7 +6,7 @@ class CreateValores < ActiveRecord::Migration
       t.decimal :idade_superior, precision: 6, scale: 3, null: true
       t.decimal :valor_inferior, precision: 6, scale: 2, null: true
       t.decimal :valor_superior, precision: 6, scale: 2, null: true
-      
+
       t.references :exame, null: false
       t.references :referencia, null: true
 

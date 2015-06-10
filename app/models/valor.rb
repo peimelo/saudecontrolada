@@ -8,10 +8,10 @@ class Valor < ActiveRecord::Base
   # validações ------------------------------------------------------------------------------------
   validates :idade_inferior, numericality: { less_than_or_equal_to: :idade_superior },
     unless: Proc.new { |a| a.idade_inferior.blank? or a.idade_superior.blank? }
-  
+
   validates :idade_superior, numericality: { greater_than_or_equal_to: :idade_inferior },
     unless: Proc.new { |a| a.idade_inferior.blank? or a.idade_superior.blank? }
-  
+
   validates :valor_inferior, numericality: { less_than_or_equal_to: :valor_superior },
     unless: Proc.new { |a| a.valor_inferior.blank? or a.valor_superior.blank? }
   

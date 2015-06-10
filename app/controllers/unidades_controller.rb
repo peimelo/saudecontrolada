@@ -59,7 +59,7 @@ class UnidadesController < ApplicationController
     def sort_column
       Unidade.column_names.include?(params[:sort]) ? params[:sort] : 'nome'
     end
-    
+
     def undo_link
       view_context.link_to(view_context.icon('undo', t('links.desfazer')),
         revert_version_path(@unidade.versions.last), method: :post) rescue nil

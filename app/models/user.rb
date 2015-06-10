@@ -54,7 +54,7 @@ class User < ActiveRecord::Base
       authentication.user
     end
   end
-  
+
   def idade
     if self.date_of_birth
       now = Time.now.utc.to_date
