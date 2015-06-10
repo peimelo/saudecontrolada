@@ -7,17 +7,6 @@ pt-BR:
     show:
       titulo: Visualizando %{model}
 # -----------------------------------------------------------------------------------------------
-  acoes:
-    column:
-      name: Ação
-    edit:
-      titulo: Alterando Ação
-    index:
-      titulo: 'Ações (%{qtde_registros})'
-    menu: Ações
-    new:
-      titulo: Incluindo Ação
-  # -----------------------------------------------------------------------------------------------
   contatos:
     index:
       titulo: 'Contatos (%{qtde_registros})'
@@ -27,17 +16,6 @@ pt-BR:
         Escreva sua dúvida, sugestão, crítica, elogio, etc.
       enviar: 'Enviar'
       titulo: Contato
-  # -----------------------------------------------------------------------------------------------
-  controladores:
-    column:
-      name: Controlador
-    edit:
-      titulo: Alterando Controlador
-    index:
-      titulo: 'Controladores (%{qtde_registros})'
-    menu: Controladores
-    new:
-      titulo: Incluindo Controlador
   # -----------------------------------------------------------------------------------------------
   crud:
     tabela:
@@ -56,13 +34,6 @@ pt-BR:
       meu_imc: '<strong>IMC</strong>'
       peso_medio: '<strong>Peso Médio</strong>'
       sem_dados: '<strong>Para o gráfico ser gerado é preciso incluir registros em </strong>'
-  # -----------------------------------------------------------------------------------------------
-  erros:
-    edit:
-      titulo: Alterando Erro
-    menu: Erros
-    show:
-      titulo: Erro
   # -----------------------------------------------------------------------------------------------
   exames:
     form:
@@ -99,33 +70,6 @@ pt-BR:
         <p>Equipe do <a href="http://saudecontrolada.com.br/">Saúde Controlada</a></p>
       subject: Novo contato
     # ---------------------------------------------------------------------------------------------
-    erro:
-      mensagem_html: |
-        <p>Olá,</p>
-        <p>Foi gerado um erro através do site:</p>
-        <hr>
-        <dl>
-          <dt>Quando:</dt>
-          <dd>%{quando}</dd>
-          <dt>Recurso:</dt>
-          <dd>%{recurso}</dd>
-          <dt>Erro:</dt>
-          <dd>%{erro}</dd>
-          <dt>Descrição:</dt>
-          <dd>%{descricao}</dd>
-          <dt>Usuário:</dt>
-          <dd>%{usuario}</dd>
-          <dt>IP:</dt>
-          <dd>%{ip}</dd>
-          <dt>Dispositivo:</dt>
-          <dd>%{dispositivo}</dd>
-        </dl>
-        <a href="http://saudecontrolada.com.br/erros/%{id}/edit">Ver o erro no site</a>
-        <hr>
-        <p>Atenciosamente,</p>
-        <p>Equipe do <a href="http://saudecontrolada.com.br/">Saúde Controlada</a></p>
-      subject: "Erro: %{erro}"
-    # ---------------------------------------------------------------------------------------------
     novo_user:
       mensagem_html: |
         <p>Olá,</p>
@@ -141,24 +85,6 @@ pt-BR:
         <p>Atenciosamente,</p>
         <p>Equipe do <a href="http://saudecontrolada.com.br/">Saúde Controlada</a></p>
       subject: "Criado novo Usuário: %{email}"
-  # -----------------------------------------------------------------------------------------------
-  recursos:
-    edit:
-      titulo: Alterando Recurso
-    menu: Recursos
-    new:
-      titulo: Incluindo Recurso
-  # -----------------------------------------------------------------------------------------------
-  recursos_categorias:
-    column:
-      name: Categoria de Recurso
-    edit:
-      titulo: Alterando Categoria de Recurso
-    index:
-      titulo: 'Categorias de Recursos (%{qtde_registros})'
-    menu: Categorias de Recursos
-    new:
-      titulo: Incluindo Categoria de Recurso
   # -----------------------------------------------------------------------------------------------
   resultados:
     limite_maximo: Limite Máximo

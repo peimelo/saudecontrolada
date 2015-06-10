@@ -3,16 +3,12 @@ Saudecontrolada::Application.routes.draw do
 
   devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
 
-  # TODO: tentar validar se o user eh admin
   authenticated :user do
     mount DelayedJobWeb, at: Rails.application.secrets.delayed_job_web_path
   end
 
-  resources :acoes, except: :show
   resources :contatos, only: [:index, :new, :create]
-  resources :controladores, except: :show
   get 'dashboard/index'
-  resources :erros, except: [:new, :create]
 
   resources :exames, except: :show do
     collection do
@@ -22,9 +18,7 @@ Saudecontrolada::Application.routes.draw do
 
   resources :pesos, except: :show
   resources :referencias, except: :show
-  resources :recursos, except: :show
-  resources :recursos_categorias, except: :show
-  resources :resultados#, except: :new
+  resources :resultados
   #TODO: ver a melhor rota
   get 'resultados/new(/:exame_nome)' => 'resultados#new', as: 'new_resultado_exame'
   resources :unidades, except: :show
@@ -35,5 +29,4 @@ Saudecontrolada::Application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :pesos, only: [:index]
   end
-
 end
