@@ -146,7 +146,7 @@ GEM
     foreigner (1.7.4)
       activerecord (>= 3.0.0)
     formatador (0.2.5)
-    guard (2.12.5)
+    guard (2.12.6)
       formatador (>= 0.2.4)
       listen (~> 2.7)
       lumberjack (~> 1.0)
@@ -230,6 +230,9 @@ GEM
       rack (~> 1.0)
     omniauth-facebook (2.0.1)
       omniauth-oauth2 (~> 1.2)
+    omniauth-github (1.1.2)
+      omniauth (~> 1.0)
+      omniauth-oauth2 (~> 1.1)
     omniauth-google-oauth2 (0.2.6)
       omniauth (> 1.0)
       omniauth-oauth2 (~> 1.1)
@@ -310,7 +313,7 @@ GEM
     rspec-mocks (3.2.1)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.2.0)
-    rspec-rails (3.2.2)
+    rspec-rails (3.2.3)
       actionpack (>= 3.0, < 4.3)
       activesupport (>= 3.0, < 4.3)
       railties (>= 3.0, < 4.3)
@@ -432,6 +435,7 @@ DEPENDENCIES
   newrelic_rpm
   omniauth
   omniauth-facebook
+  omniauth-github
   omniauth-google-oauth2
   omniauth-linkedin
   paper_trail (~> 3.0.5)

@@ -15,14 +15,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   alias_method :facebook, :all
+  alias_method :github, :all
   alias_method :google_oauth2, :all
   alias_method :linkedin, :all
-  #alias_method :twitter, :all
 end
-
-  private
-
-# REDIRECT URIS no https://console.developers.google.com/:
-# http://exemplo.com.br/users/auth/google_oauth2/callback
-# ativar as APIs:
-# Contacts API e Google+ API
