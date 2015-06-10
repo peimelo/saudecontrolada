@@ -7,14 +7,6 @@ pt-BR:
         email: E-mail
         ip: IP
         telefones: Telefone(s)
-      erro:
-        created_at: Quando
-        descricao: Descrição
-        ip: IP
-        recurso_nome: Recurso
-        resolucao: Resolução
-        status_erro_id: Status do erro
-        usuario_email: E-mail do Usuário
       peso:
         altura: Altura (m)
         imc: IMC
@@ -47,30 +39,18 @@ pt-BR:
         valor_superior: Valor Superior
     # ---------------------------------------------------------------------------------------------
     models:
-      acao:
-        one: Ação
-        other: Ações
       contato:
         one: Contato
         other: Contatos
-      controlador:
-        one: Controlador
-        other: Controladores
       exame:
         one: Exame
         other: Exames
       peso:
         one: Controle do Peso
         other: Controle do Peso
-      recurso:
-        one: Recurso
-        other: Recursos
       referencia:
         one: Referência
         other: Referências
-      recurso_categoria:
-        one: Categoria de Recurso
-        other: Categorias de Recursos
       resultado:
         one: Resultado de Exame
         other: Resultados de Exames

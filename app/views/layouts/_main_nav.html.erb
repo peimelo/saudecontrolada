@@ -15,16 +15,7 @@
               <%= nav_tab icon('superscript', t('activerecord.models.unidade.other')), unidades_path,
                           { current: current_tab, titulo: t('activerecord.models.unidade.other') } %>
               <li class="divider"></li>
-              <%= nav_tab icon('wrench', t('acoes.menu')), acoes_path, { current: current_tab, titulo: t('acoes.menu') } %>
-              <%= nav_tab icon('cogs', t('controladores.menu')), controladores_path,
-                          { current: current_tab, titulo: t('controladores.menu') } %>
-              <li class="divider"></li>
-              <%= nav_tab icon('list-alt', t('recursos_categorias.menu')), recursos_categorias_path,
-                          { current: current_tab, titulo: t('recursos_categorias.menu') } %>
-              <%= nav_tab icon('tasks', t('recursos.menu')), recursos_path, { current: current_tab, titulo: t('recursos.menu') } %>
-              <li class="divider"></li>
               <%= nav_tab icon('bullhorn', t('contatos.menu')), contatos_path, { current: current_tab, titulo: t('contatos.menu') } %>
-              <%= nav_tab icon('bug', t('erros.menu')), erros_path, { current: current_tab, titulo: t('erros.menu') } %>
               <%= nav_tab icon('users', t('users.menu')), users_path, { current: current_tab, titulo: t('users.menu') } %>
             </ul>
           </li>

@@ -12,16 +12,6 @@ class MailNotifier < ActionMailer::Base
      )
   end
 
-  def erro(erro)
-    @erro    = erro
-    @usuario = erro.user.email rescue '-'
-
-    mail(
-      subject: I18n.t('mail_notifier.erro.subject', erro: @erro.nome),
-      to: Rails.application.secrets.mailer_from
-    )
-  end
-
   def novo_user(user)
     @user = user
 
