@@ -49,13 +49,14 @@ class ResultadosController < ApplicationController
   end
 
   def show
-    @resultados = current_user.resultado.where('exame_id = ?', params[:id]).order(sort_column + ' ' + sort_direction).
+    @exame = Exame.find(params[:id])
+
+    @resultados = current_user.resultado.where('exame_id = ?', @exame.id).order(sort_column + ' ' + sort_direction).
       page(params[:page])
 
-    @exame = Exame.find(params[:id])
-    @valor_medio = current_user.resultado.where('exame_id = ?', params[:id]).average(:valor)
+    @valor_medio = current_user.resultado.where('exame_id = ?', @exame.id).average(:valor)
 
-    resultados = current_user.resultado.where('exame_id = ?', params[:id]).order('data DESC')
+    resultados = current_user.resultado.where('exame_id = ?', @exame.id).order('data DESC')
 
     categories = []
     maximo = []
