@@ -1,12 +1,10 @@
 class ContatosController < ApplicationController
-  helper_method :sort_column, :sort_direction
-
   skip_before_action :authenticate_user!, only: [:new, :create]
   skip_before_action :tem_permissao?
   before_action :user_administrador_sistema?, only: [:index]
 
   def index
-    @contatos = Contato.order(sort_column + ' ' + sort_direction).page(params[:page])
+    @contatos = Contato.order(created_at: :desc).page(params[:page])
   end
 
   def new
@@ -29,9 +27,5 @@ class ContatosController < ApplicationController
   private
     def contato_params
       params.require(:contato).permit(:email, :mensagem, :nome, :telefones)
-    end
-    
-    def sort_column
-      Contato.column_names.include?(params[:sort]) ? params[:sort] : 'created_at'
     end
 end
