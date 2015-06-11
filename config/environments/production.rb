@@ -84,13 +84,13 @@ Saudecontrolada::Application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   # rotacao do arquivo de log, 5 de 100Mb cada, por exemplo, production.log, production.log.0, production.log.1, ...
-  config.logger = Logger.new(Rails.root.join("log", Rails.env + ".log"), 5, 100*1024*1024)
+  config.logger = Logger.new(Rails.root.join('log', Rails.env + '.log'), 5, 100*1024*1024)
   
 
   Rails.application.config.middleware.use ExceptionNotification::Rack,
   email: {
-    email_prefix: "[ERROR] ",
-    sender_address: %{"notifier" <notifier@example.com>},
-    exception_recipients: %w{exceptions@example.com}
+    email_prefix: '[ERROR] ',
+    sender_address: Rails.application.secrets.mailer_sender,
+    exception_recipients: Rails.application.secrets.email_user_name
   }
 end
