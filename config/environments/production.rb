@@ -91,7 +91,7 @@ Saudecontrolada::Application.configure do
   email: {
     email_prefix: "[ERROR] ",
     email_format: :html,
-    sender_address: %{"notifier" <notifier@example.com>},
-    exception_recipients: %w{exceptions@example.com}
+    sender_address: Rails.application.secrets.mailer_sender,
+    exception_recipients: Rails.application.secrets.email_user_name
   }
 end
