@@ -1,11 +1,9 @@
-require 'faker'
-
 FactoryGirl.define do
   factory :contato do
-    email Faker::Internet.email
-    mensagem Faker::Lorem.paragraph
+    email 'exemplo@exemplo.com'
+    mensagem 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
 
-    factory :contato_invalido do
+    factory :invalid_contato do
       email nil
       mensagem nil
     end

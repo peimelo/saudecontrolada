@@ -1,23 +1,21 @@
 class Resultado < ActiveRecord::Base
   # include DateModule
 
-  # relacionamentos -------------------------------------------------------------------------------
   belongs_to :exame
   belongs_to :user
 
-  # scopes --------------------------------------------------------------------------------------
   scope :exportar, -> {
     includes(:exame)
     .order('exames.nome ASC, data ASC')
   }
 
   scope :listar, ->(
-      nome='',
-      data_inicial='',
-      data_final='',
-      format=nil,
-      page=nil,
-      order='exames.nome ASC, data DESC'
+      nome = '',
+      data_inicial = '',
+      data_final = '',
+      format = nil,
+      page = nil,
+      order = 'exames.nome ASC, data DESC'
   ) {
     select('resultados.exame_id, exames.nome AS nome, COUNT(*) AS total')
     .joins(:exame)
@@ -29,12 +27,10 @@ class Resultado < ActiveRecord::Base
     .page(page) if format.nil?
   }
 
-  # validações ------------------------------------------------------------------------------------
   validates :data, :exame_id, :exame_nome, presence: true
   validates :valor, numericality: { less_than_or_equal_to: 99999999.99 },
             unless: Proc.new { |a| a.valor.blank? }
 
-  # methods ---------------------------------------------------------------------------------------
   def exame_nome
     exame.try(:nome)
   end

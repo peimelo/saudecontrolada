@@ -5,7 +5,7 @@ FactoryGirl.define do
     peso 70
     user
 
-    factory :peso_invalido do
+    factory :invalid_peso do
       altura nil
     end
   end

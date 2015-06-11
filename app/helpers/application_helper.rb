@@ -129,7 +129,7 @@ module ApplicationHelper
   def numero_formatado(numero, unidade='')
     number_to_currency(numero, delimiter: '.', format: '%n %u', separator: ',', unit: unidade)
   end
-  
+
   def sortable(model, column)
     title = model.human_attribute_name(column)
     icone = column == sort_column ? " <i class='fa fa-sort-#{sort_direction}'></i>" : ''

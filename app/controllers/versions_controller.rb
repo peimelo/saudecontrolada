@@ -16,7 +16,7 @@ class VersionsController < ApplicationController
     end
 
     link = view_context.link_to(link_name, revert_version_path(@version.next, redo: params[:redo]), method: :post)
-    
+
     redirect_to :back, notice: "#{ t('mensagens.flash.paper_trail.operacao_desfeita', \
       operacao: translate_version(@version.event)) } #{ link }"
   end

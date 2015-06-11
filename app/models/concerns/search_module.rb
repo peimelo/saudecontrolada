@@ -3,7 +3,7 @@ module SearchModule
 
   included do
     # scopes --------------------------------------------------------------------------------------
-    scope :listar, ->(search=nil, format=nil, page=nil, order='nome') {
+    scope :listar, ->(search = nil, format = nil, page = nil, order = 'nome') {
       search(search)
       .order(order)
       .page(page) if format.nil?

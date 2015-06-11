@@ -9,7 +9,7 @@ class CreateRecursoCategoria < ActiveRecord::Migration
 
     add_index :recursos_categorias, :nome, :unique => true
   end
-  
+
   def down
     drop_table :recursos_categorias
   end  

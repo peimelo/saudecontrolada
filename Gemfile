@@ -95,6 +95,7 @@ group :test do
   gem 'faker'
   gem 'launchy'
   # gem 'rack_session_access' get e set em session com capybara
+  gem 'shoulda-matchers', require: false
   gem 'simplecov', :require => false
 end
 

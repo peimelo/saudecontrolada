@@ -1,29 +1,22 @@
-require 'rails_helper'
+RSpec.describe Contato do
+  it { expect(build(:contato)).to be_valid }
 
-RSpec.describe Contato, type: :model do
-  let(:contato) { create(:contato) }
-
-  it 'must create a new instance with valid attributes' do
-    expect(contato).to be_persisted
+  describe 'validations' do
+    it { should validate_presence_of(:email) }
+    it { should validate_presence_of(:mensagem) }
   end
 
-  it 'is invalid without a email' do
-    expect(Contato.create.errors[:email].any?).to be_truthy
-  end  
-
-  it 'is invalid without a mensagem' do
-    expect(Contato.create.errors[:mensagem].any?).to be_truthy
-  end  
-
-  it 'accepts a correctly-formatted email address' do
-    %w[user@foo.com THE_USER@foo.bar.org first.last@foo.jp].each do |address|
-      expect(build(:contato, email: address)).to be_valid
+  describe 'email format' do
+    it 'accepts a correctly-formatted email address' do
+      %w[user@foo.com THE_USER@foo.bar.org first.last@foo.jp].each do |address|
+        expect(build(:contato, email: address)).to be_valid
+      end
     end
-  end
 
-  it 'rejects an incorrectly-formatted email address' do
-    %w[user@foo,com user_at_foo.org example.user@foo.].each do |address|
-      expect(build(:contato, email: address)).to_not be_valid
+    it 'rejects an incorrectly-formatted email address' do
+      %w[user@foo,com user_at_foo.org example.user@foo.].each do |address|
+        expect(build(:contato, email: address)).to_not be_valid
+      end
     end
   end
 end
