@@ -2,8 +2,8 @@ class Exame < ActiveRecord::Base
   include SearchModule
 
   belongs_to :unidade
-  has_many :valor, dependent: :delete_all
   has_many :resultado, dependent: :restrict_with_error
+  has_many :valor, dependent: :delete_all
   accepts_nested_attributes_for :valor, allow_destroy: true, reject_if: :all_blank
 
   validates :nome, presence: true, uniqueness: { case_sensitive: false }

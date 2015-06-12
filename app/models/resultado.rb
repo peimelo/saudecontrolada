@@ -1,8 +1,10 @@
 class Resultado < ActiveRecord::Base
-  # include DateModule
-
   belongs_to :exame
   belongs_to :user
+
+  validates :data, :exame_id, :exame_nome, presence: true
+  validates :valor, numericality: { less_than_or_equal_to: 99999999.99 },
+            unless: Proc.new { |a| a.valor.blank? }
 
   scope :exportar, -> {
     includes(:exame)
@@ -20,16 +22,12 @@ class Resultado < ActiveRecord::Base
     select('resultados.exame_id, exames.nome AS nome, COUNT(*) AS total')
     .joins(:exame)
     .where('exames.nome LIKE ?', "%#{ nome }%")
-    .where('resultados.data >= ?', data_inicial.blank? ? '1000-01-01' : self.format_date_usa(data_inicial)) #unless data_inicial.blank?
-    .where('resultados.data <= ?', data_final.blank? ? '9999-12-31' : self.format_date_usa(data_final)) #unless data_inicial.blank?
+    .where('resultados.data >= ?', data_inicial.blank? ? '1000-01-01' : self.format_date_usa(data_inicial))
+    .where('resultados.data <= ?', data_final.blank? ? '9999-12-31' : self.format_date_usa(data_final))
     .group('resultados.exame_id, exames.nome')
     .order(order)
     .page(page) if format.nil?
   }
-
-  validates :data, :exame_id, :exame_nome, presence: true
-  validates :valor, numericality: { less_than_or_equal_to: 99999999.99 },
-            unless: Proc.new { |a| a.valor.blank? }
 
   def exame_nome
     exame.try(:nome)
