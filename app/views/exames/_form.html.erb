@@ -17,15 +17,18 @@
       </div>
       <div class="panel-body">
         <div class="row">
-          <div class="col-xs-4">
+          <div class="col-xs-3">
             <%= builder.input :valor_inferior, as: :string %>
           </div>
-          <div class="col-xs-4">
+          <div class="col-xs-3">
             <%= builder.input :valor_superior %>
           </div>
           <div class="col-xs-4">
             <%= builder.association :referencia, collection: Referencia.order(:nome), label_method: :nome,
                               allow_blank: true %>
+          </div>
+          <div class="col-xs-2">
+            <%= builder.input :valido %>
           </div>
         </div>
         <div class="row">

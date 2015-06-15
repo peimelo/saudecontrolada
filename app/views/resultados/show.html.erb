@@ -73,6 +73,7 @@
             <th><%= Valor.human_attribute_name(:valor_inferior) %></th>
             <th><%= Valor.human_attribute_name(:valor_superior) %></th>
             <th><%= Referencia.model_name.human %></th>
+            <th><%= Valor.human_attribute_name(:valido) %></th>
           </tr>
         </thead>
         <tbody>
@@ -84,6 +85,7 @@
               <td><%= registro.valor_inferior %></td>
               <td><%= registro.valor_superior %></td>
               <td><%= registro.referencia.nil? ? '' : registro.referencia.nome %></td>
+              <td><%= registro.valido? %></td>
             </tr>
           <% end %>
         </tbody>

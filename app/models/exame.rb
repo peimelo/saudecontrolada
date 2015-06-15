@@ -46,22 +46,22 @@ class Exame < ActiveRecord::Base
     return retorno if idade.nil?
 
     self.valor.each do |valor|
-      retorno ||= valor
+      next if !valor.valido?
 
       if valor.idade_inferior and valor.idade_superior
         if idade >= valor.idade_inferior and idade <= valor.idade_superior
-          return valor if valida_sexo_e_referencia(valor, sexo)
+          return valor if valida_sexo(valor, sexo)
         end
       elsif valor.idade_inferior and valor.idade_superior.nil?
         if idade >= valor.idade_inferior
-          return valor if valida_sexo_e_referencia(valor, sexo)
+          return valor if valida_sexo(valor, sexo)
         end
       elsif valor.idade_inferior.nil? and valor.idade_superior
         if idade <= valor.idade_superior
-          return valor if valida_sexo_e_referencia(valor, sexo)
+          return valor if valida_sexo(valor, sexo)
         end
       else
-        return valor if valida_sexo_e_referencia(valor, sexo)
+        return valor if valida_sexo(valor, sexo)
       end
     end
 
@@ -69,17 +69,9 @@ class Exame < ActiveRecord::Base
   end
 
   private
-    def valida_sexo_e_referencia(valor, sexo)
-      if valor.sexo.nil?
-        if valor.referencia and
-          (valor.referencia.nome == 'Limítrofe' or
-          valor.referencia.nome == 'Suficiência')
-          return true
-        end
-      else
-        if valor.sexo == sexo
-          return true
-        end
+    def valida_sexo(valor, sexo)
+      if valor.sexo.blank? or valor.sexo == sexo
+        return true
       end
 
       false

@@ -79,6 +79,7 @@ class ExamesController < ApplicationController
           :idade_superior,
           :referencia_id,
           :sexo,
+          :valido,
           :valor_inferior,
           :valor_superior,
           :_destroy
