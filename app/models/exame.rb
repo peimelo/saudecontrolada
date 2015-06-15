@@ -70,10 +70,14 @@ class Exame < ActiveRecord::Base
 
   private
     def valida_sexo_e_referencia(valor, sexo)
-      if valor.sexo.blank? or valor.sexo == sexo
+      if valor.sexo.nil?
         if valor.referencia and
           (valor.referencia.nome == 'Limítrofe' or
           valor.referencia.nome == 'Suficiência')
+          return true
+        end
+      else
+        if valor.sexo == sexo
           return true
         end
       end
