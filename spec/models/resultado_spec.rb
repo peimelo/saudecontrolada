@@ -14,6 +14,20 @@ RSpec.describe Resultado do
   end
 
   describe 'scopes' do
-    it { expect(Resultado).to be_respond_to(:listar) }
+    it '.exportar' do
+      user = create(:user)
+      resultado = create(:resultado, user: user)
+
+      expect(user.resultado.exportar).to match [resultado]
+    end
+
+    it '.listar' do
+      user = create(:user)
+      resultado = create(:resultado, user: user)
+
+      expect(user.resultado.listar[0].exame_id).to eq resultado.exame_id
+    end
   end
+
+  it { expect(Resultado).to be_respond_to(:format_date_usa) }
 end
