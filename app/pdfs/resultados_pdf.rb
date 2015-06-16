@@ -10,14 +10,18 @@ class ResultadosPdf < Prawn::Document
   end
   
   def linhas
+    valor_referencia = @exame.valor_referencia(@current_user.idade, @current_user.gender)
+
     [[
       @model.human_attribute_name(:data),
       @model.human_attribute_name(:valor),
+      @model.human_attribute_name(:resultado),
     ]] +
     @resultados.map do |registro|
       [
         I18n.l(registro.data),
         ApplicationController.helpers.numero_formatado(registro.valor, (registro.exame.unidade.nome rescue '')),
+        ApplicationController.helpers.situacao_resultado_exame(registro.valor, valor_referencia),
       ]
     end    
   end

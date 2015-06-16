@@ -99,6 +99,32 @@ module ApplicationHelper
     render partial: 'layouts/alert_model_error', locals: {tem_erro: tem_erro}
   end
 
+  def situacao_resultado_exame(valor, valor_referencia)
+    if valor_referencia.valor_inferior and valor_referencia.valor_superior
+      if valor >= valor_referencia.valor_inferior and valor <= valor_referencia.valor_superior
+        'OK'
+      elsif valor > valor_referencia.valor_superior
+        'Acima'
+      elsif valor < valor_referencia.valor_inferior
+        'Abaixo'
+      end
+    elsif valor_referencia.valor_inferior and valor_referencia.valor_superior.nil?
+      if valor >= valor_referencia.valor_inferior
+        'OK'
+      elsif valor < valor_referencia.valor_inferior
+        'Abaixo'
+      end
+    elsif valor_referencia.valor_inferior.nil? and valor_referencia.valor_superior
+      if valor <= valor_referencia.valor_superior
+        'OK'
+      elsif valor > valor_referencia.valor_superior
+        'Acima'
+      end
+    else
+      ''
+    end
+  end
+
   def imagem_true(valor)
     icon('check fa-lg') if valor
   end
