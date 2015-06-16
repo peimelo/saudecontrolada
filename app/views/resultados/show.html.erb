@@ -42,6 +42,7 @@
               <th><%= t('bootstrap.actions') %></th>
               <th><%= sortable model_class, 'data' %></th>
               <th><%= sortable model_class, 'valor' %></th>
+              <th><%= model_class.human_attribute_name(:resultado) %></th>
             </tr>
           </thead>
           <tbody>
@@ -53,6 +54,7 @@
                 </td>
                 <td><%=l registro.data %></td>
                 <td><%= numero_formatado(registro.valor, (registro.exame.unidade.nome rescue '')) %></td>
+                <td><%= situacao_resultado_exame(registro.valor, @exame.valor_referencia(current_user.idade, current_user.gender)) %></td>
               </tr>
             <% end %>
           </tbody>
