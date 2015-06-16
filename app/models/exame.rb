@@ -20,11 +20,11 @@ class Exame < ActiveRecord::Base
     retorno += "Sexo: #{ valor.sexo } | " unless valor.sexo.blank?
 
     if valor.idade_inferior and valor.idade_superior
-      retorno += "Idade: #{ valor.idade_inferior.to_i } ~ #{ valor.idade_superior.to_i } | "
+      retorno += "Idade: #{ valor.idade_inferior.to_i } ~ #{ valor.idade_superior.to_i } anos | "
     elsif valor.idade_inferior and !valor.idade_superior
-      retorno += "Idade acima de: #{ valor.idade_inferior.to_i } | " 
+      retorno += "Idade acima de: #{ valor.idade_inferior.to_i } anos | " 
     elsif !valor.idade_inferior and valor.idade_superior
-      retorno += "Idade abaixo de: #{ valor.idade_superior.to_i } | " 
+      retorno += "Idade abaixo de: #{ valor.idade_superior.to_i } anos | " 
     end
     
     if valor.valor_inferior and valor.valor_superior
@@ -37,7 +37,7 @@ class Exame < ActiveRecord::Base
 
     retorno += "Referência: #{ valor.referencia.nome } |" unless valor.referencia.blank?
 
-    retorno
+    retorno == '| ' ? '' : retorno
   end
 
   def valor_referencia(idade, sexo)
