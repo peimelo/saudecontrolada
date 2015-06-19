@@ -121,3 +121,5 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-linkedin'
 
 gem 'exception_notification'
+
+gem 'ancestry'

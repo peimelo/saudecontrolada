@@ -1,5 +1,5 @@
 class Exame < ActiveRecord::Base
-  include SearchModule
+  include SearchModule, Tree
 
   belongs_to :unidade
   has_many :resultado, dependent: :restrict_with_error

@@ -33,6 +33,8 @@ GEM
     airbrake (4.2.1)
       builder
       multi_json
+    ancestry (2.1.0)
+      activerecord (>= 3.0.0)
     arel (5.0.1.20140414130214)
     autoprefixer-rails (5.2.0)
       execjs
@@ -400,6 +402,7 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers
   airbrake
+  ancestry
   autoprefixer-rails
   better_errors
   binding_of_caller
