@@ -132,7 +132,7 @@ module ApplicationHelper
 
   def situacao_resultado_exame(valor, valor_referencia)
     return '' if valor_referencia.nil?
-    
+
     if valor_referencia.valor_inferior and valor_referencia.valor_superior
       if valor >= valor_referencia.valor_inferior and valor <= valor_referencia.valor_superior
         'OK'
