@@ -35,6 +35,7 @@ pt-BR:
     sessions:
       signed_in: 'Entrou com sucesso.'
       signed_out: 'Saiu com sucesso.'
+      already_signed_out: 'Saiu com sucesso.'
     unlocks:
       send_instructions: 'Dentro de instantes, você receberá um e-mail com instruções para o desbloqueio da sua conta.'
       send_paranoid_instructions: 'Se sua conta existir, você receberá um e-mail com instruções para desbloqueá-la em alguns minutos.'

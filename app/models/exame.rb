@@ -1,12 +1,12 @@
 class Exame < ActiveRecord::Base
-  include SearchModule
+  include SearchModule, Tree
 
   belongs_to :unidade
   has_many :resultado, dependent: :restrict_with_error
   has_many :valor, dependent: :delete_all
   accepts_nested_attributes_for :valor, allow_destroy: true, reject_if: :all_blank
 
-  validates :nome, presence: true, uniqueness: { case_sensitive: false }
+  validates :nome, presence: true, uniqueness: { case_sensitive: false, scope: :ancestry }
 
   def nome_unidade
     self.nome + (self.unidade.nil? ? '' : " (#{ self.unidade.nome })")

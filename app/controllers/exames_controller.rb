@@ -1,6 +1,4 @@
 class ExamesController < ApplicationController
-  helper_method :sort_column, :sort_direction
-
   skip_before_action :tem_permissao?
   before_action :user_administrador_sistema?
   before_action :set_exame, only: [:edit, :update, :destroy]
@@ -18,7 +16,8 @@ class ExamesController < ApplicationController
 
   # CRUD ------------------------------------------------------------------------------------------
   def index
-    @exames = Exame.listar(params[:search], params[:format], params[:page], sort_column + ' ' + sort_direction)
+    @exames = Exame.arrange_as_array({order: :nome})
+    @exames = @exames.paginate(page: params[:page]) unless params[:format].present?
 
     respond_to do |format|
       format.html
@@ -71,6 +70,7 @@ class ExamesController < ApplicationController
   private
     def exame_params
       params.require(:exame).permit(
+        :ancestry,
         :nome,
         :unidade_id,
         valor_attributes: [
@@ -89,9 +89,5 @@ class ExamesController < ApplicationController
 
     def set_exame
       @exame = Exame.find(params[:id])
-    end
-
-    def sort_column
-      Exame.column_names.include?(params[:sort]) ? params[:sort] : 'nome'
     end
 end

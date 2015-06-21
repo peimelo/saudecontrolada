@@ -54,7 +54,7 @@ module ApplicationHelper
 
   def botao_incluir(controller, model, options={})
     options = {
-      class: 'btn btn-primary',
+      class: 'btn btn-success',
       id: t('links.incluir'),
       method: :get,
       title: t('titles.incluir', model: model.model_name.human)

@@ -1,12 +1,18 @@
 <%= corrigir_erros registro.errors.any? %>
 <%= simple_form_for registro do |f| %>
   <div class="row">
-    <div class="col-xs-8">
+    <div class="col-xs-4">
       <%= f.input :nome, autofocus: true %>
     </div>
     <div class="col-xs-4">
       <%= f.association :unidade, collection: Unidade.order(:nome), label_method: :nome,
                               allow_blank: true %>
+    </div>
+    <div class="col-xs-4">
+      <%= f.input :ancestry, collection: Exame.arrange_as_array({order: :nome}, @exame.possible_parents),
+          value_method: :id,
+          label_method: :name_for_selects,
+          include_blank: true %>
     </div>
   </div>
 
