@@ -70,8 +70,8 @@ class ExamesController < ApplicationController
   private
     def exame_params
       params.require(:exame).permit(
+        :ancestry,
         :nome,
-        :parent_id,
         :unidade_id,
         valor_attributes: [
           :id,

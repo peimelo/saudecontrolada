@@ -8,7 +8,7 @@ pt-BR:
         ip: IP
         telefones: Telefone(s)
       exame:
-        parent_id: Exame pai
+        ancestry: Exame pai
       peso:
         altura: Altura (m)
         imc: IMC

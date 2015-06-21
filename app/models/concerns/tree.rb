@@ -1,7 +1,7 @@
 module Tree
   extend ActiveSupport::Concern
 
-  require "will_paginate/array"
+  require 'will_paginate/array'
 
   included do
     has_ancestry
@@ -15,13 +15,13 @@ module Tree
     end
 
     def possible_parents
-      parents = self.class.arrange_as_array#(:order => 'name')
+      parents = self.class.arrange_as_array(order: :nome)
       return new_record? ? parents : parents - subtree
     end
   end
 
   module ClassMethods
-    def arrange_as_array(options={}, hash=nil)
+    def arrange_as_array(options = {}, hash = nil)
       hash ||= arrange(options) unless hash.is_a? Array
 
       arr = []
