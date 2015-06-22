@@ -8,6 +8,8 @@ class Exame < ActiveRecord::Base
 
   validates :nome, presence: true, uniqueness: { case_sensitive: false, scope: :ancestry }
 
+  before_validation :validate_ancestry_blank
+
   def nome_unidade
     self.nome + (self.unidade.nil? ? '' : " (#{ self.unidade.nome })")
   end
@@ -69,11 +71,15 @@ class Exame < ActiveRecord::Base
   end
 
   private
-    def valida_sexo(valor, sexo)
-      if valor.sexo.blank? or valor.sexo == sexo
-        return true
-      end
-
-      false
+  def valida_sexo(valor, sexo)
+    if valor.sexo.blank? or valor.sexo == sexo
+      return true
     end
+
+    false
+  end
+
+  def validate_ancestry_blank
+    self.ancestry = nil if ancestry.blank?
+  end
 end
