@@ -19,29 +19,30 @@ class User < ActiveRecord::Base
   validates :date_of_birth, :gender, :name, presence: true
 
   def self.from_omniauth(auth, current_user)
-    authentication = Authentication.where(provider: auth.provider, uid: auth.uid.to_s).first_or_initialize
+    authentication = Authentication.where(provider: auth['provider'], uid: auth['uid']).first_or_initialize
     if authentication.user.blank?
       user = current_user.nil? ? User.where('email = ?', auth['info']['email']).first : current_user
       if user.blank?
         user = User.new
-        user.email = auth.info.email
-        user.name = auth.info.name
-        user.confirmed_at, user.confirmation_sent_at = Time.now
+        user.email = auth['info']['email']
+        user.name = auth['info']['name']
+        ##user.confirmed_at, user.confirmation_sent_at = Time.now
         # Set a random password for omniauthenticated users
-        user.password, user.password_confirmation = Devise.friendly_token
+        ##user.password, user.password_confirmation = Devise.friendly_token
 
-        user.save
+        ##user.save
 
-        if user.persisted?
-          authentication.user_id = user.id
-          authentication.save
-        else
+
+        ##if user.persisted?
+          ##authentication.user_id = user.id
+          ##authentication.save
+        ##else
           # se nao foi persistido pode ser porque nao foi fornecido o email pelo provider
           # entao retiramos a confirmacao para evitar o acesso direto com qualquer email
           # preenchido na tela de novo cadastro para onde sera direcionado daqui pelo omniauth_callbacks_controller
-          user.confirmed_at, user.confirmation_sent_at = nil
-          user.password, user.password_confirmation = nil
-        end
+          ##user.confirmed_at, user.confirmation_sent_at = nil
+          ##user.password, user.password_confirmation = nil
+        ##end
       end
 
       user

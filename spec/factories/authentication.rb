@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :authentication do
-    provider 'google'
+    provider 'github'
     uid '123'
     user
 

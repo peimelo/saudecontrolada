@@ -107,6 +107,31 @@ RSpec.describe User do
     end
   end
 
+  describe '.from_omniauth' do
+    it 'usuario ja foi criado via provider' do
+      user = create(:user)
+      auth = create(:authentication, user: user)
+      expect(User.from_omniauth(auth, user)).to eq user
+    end
+
+    it 'usuario existente antes e retornado pelo provider' do
+      user = create(:user)
+      auth = build(:authentication, user: nil)
+      expect(User.from_omniauth(auth, user)).to eq user
+    end
+
+    it 'usuario criado atraves do provider' do
+      auth = Hash.new
+      auth['provider'] = 'github'
+      auth['uid'] = '123'
+      auth['info'] = Hash.new
+      auth['info']['email'] = 'email@email.com'
+      auth['info']['name'] = 'name'
+
+      expect(User.from_omniauth(auth, nil)).to_not be_persisted
+    end
+  end
+
   describe '#idade' do
     it 'nascido a 30 anos atras' do
       expect(build(:user).idade).to eq 30
