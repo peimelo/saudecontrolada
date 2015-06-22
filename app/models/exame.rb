@@ -15,31 +15,31 @@ class Exame < ActiveRecord::Base
   end
   
   def valor_referencia_extenso(idade, sexo)
-    retorno = '| '
     valor = valor_referencia(idade, sexo)
-    return retorno if valor.nil?
+    return '' if valor.nil?
 
-    retorno += "Sexo: #{ valor.sexo } | " unless valor.sexo.blank?
+    retorno = '|'
+    retorno += " Sexo: #{ valor.sexo } |" unless valor.sexo.blank?
 
     if valor.idade_inferior and valor.idade_superior
-      retorno += "Idade: #{ valor.idade_inferior.to_i } ~ #{ valor.idade_superior.to_i } anos | "
-    elsif valor.idade_inferior and !valor.idade_superior
-      retorno += "Idade acima de: #{ valor.idade_inferior.to_i } anos | " 
-    elsif !valor.idade_inferior and valor.idade_superior
-      retorno += "Idade abaixo de: #{ valor.idade_superior.to_i } anos | " 
+      retorno += " Idade: #{ valor.idade_inferior.to_i } ~ #{ valor.idade_superior.to_i } anos |"
+    elsif valor.idade_inferior and valor.idade_superior.nil?
+      retorno += " Idade acima de: #{ valor.idade_inferior.to_i } anos |"
+    elsif valor.idade_inferior.nil? and valor.idade_superior
+      retorno += " Idade abaixo de: #{ valor.idade_superior.to_i } anos |"
     end
     
     if valor.valor_inferior and valor.valor_superior
-      retorno += "Valor: #{ valor.valor_inferior } ~ #{ valor.valor_superior } | "
+      retorno += " Valor: #{ valor.valor_inferior } ~ #{ valor.valor_superior } |"
     elsif valor.valor_inferior and !valor.valor_superior
-      retorno += "Valor acima de: #{ valor.valor_inferior } | " 
+      retorno += " Valor acima de: #{ valor.valor_inferior } |"
     elsif !valor.valor_inferior and valor.valor_superior
-      retorno += "Valor abaixo de: #{ valor.valor_superior } | " 
+      retorno += " Valor abaixo de: #{ valor.valor_superior } |"
     end
 
     retorno += "Referência: #{ valor.referencia.nome } |" unless valor.referencia.blank?
 
-    retorno == '| ' ? '' : retorno
+    retorno == '|' ? '' : retorno
   end
 
   def valor_referencia(idade, sexo)

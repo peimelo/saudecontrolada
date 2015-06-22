@@ -10,7 +10,7 @@ RSpec.describe Exame do
 
   describe 'validations' do
     it { should validate_presence_of(:nome) }
-    it { should validate_uniqueness_of(:nome).case_insensitive }
+    it { should validate_uniqueness_of(:nome).case_insensitive.scoped_to(:ancestry) }
   end
 
   describe 'scopes' do
@@ -29,6 +29,52 @@ RSpec.describe Exame do
     it 'com unidade' do
       @exame.unidade = build(:unidade, nome: 'unidade')
       expect(@exame.nome_unidade).to eq "#{@exame.nome} (#{@exame.unidade.nome})"
+    end
+  end
+
+  describe '#valor_referencia_extenso' do
+    before :each do
+      @exame = create(:exame)
+    end
+
+    it 'retorna "" se valor.nil?' do
+      expect(@exame.valor_referencia_extenso(30, 'Masculino')).to eq ''
+    end
+
+    it 'retorna "sexo masculino"' do
+      create(:valor, exame_id: @exame.id, sexo: 'Feminino', valido: true)
+      create(:valor, exame_id: @exame.id, sexo: 'Masculino', valido: true)
+      expect(@exame.valor_referencia_extenso(30, 'Masculino')).to eq '| Sexo: Masculino |'
+    end
+
+    it 'retorna "idade inferior e superior"' do
+      create(:valor, exame_id: @exame.id, idade_inferior: 30, idade_superior: 40, valido: true)
+      expect(@exame.valor_referencia_extenso(30, 'Masculino')).to eq '| Idade: 30 ~ 40 anos |'
+    end
+
+    it 'retorna "idade inferior"' do
+      create(:valor, exame_id: @exame.id, idade_inferior: 30, valido: true)
+      expect(@exame.valor_referencia_extenso(30, 'Masculino')).to eq '| Idade acima de: 30 anos |'
+    end
+
+    it 'retorna "idade superior"' do
+      create(:valor, exame_id: @exame.id, idade_superior: 30, valido: true)
+      expect(@exame.valor_referencia_extenso(30, 'Masculino')).to eq '| Idade abaixo de: 30 anos |'
+    end
+
+    it 'retorna "valor inferior e superior"' do
+      create(:valor, exame_id: @exame.id, valor_inferior: 30, valor_superior: 40, valido: true)
+      expect(@exame.valor_referencia_extenso(30, 'Masculino')).to eq '| Valor: 30.0 ~ 40.0 |'
+    end
+
+    it 'retorna "valor inferior"' do
+      create(:valor, exame_id: @exame.id, valor_inferior: 30, valido: true)
+      expect(@exame.valor_referencia_extenso(30, 'Masculino')).to eq '| Valor acima de: 30.0 |'
+    end
+
+    it 'retorna "valor superior"' do
+      create(:valor, exame_id: @exame.id, valor_superior: 30, valido: true)
+      expect(@exame.valor_referencia_extenso(30, 'Masculino')).to eq '| Valor abaixo de: 30.0 |'
     end
   end
 end

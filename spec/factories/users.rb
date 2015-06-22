@@ -1,9 +1,9 @@
 FactoryGirl.define do
   factory :user do
-    date_of_birth { rand(1..100).days.from_now.strftime("%d/%m/%Y") }
-    sequence(:email) { Faker::Internet.email }
+    date_of_birth 30.years.ago
+    sequence(:email) { |n| "email_#{n}@exemplo.com" }
     gender 'Masculino'
-    sequence(:name) { Faker::Name.first_name }
+    sequence(:name) { |n| "nome_#{n}" }
     password 'senha123'
     password_confirmation 'senha123'
     

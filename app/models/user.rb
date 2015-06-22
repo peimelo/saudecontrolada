@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
   include SearchModule
 
-  # Include default devise modules. Others available are:
   devise :confirmable,
          :database_authenticatable,
          :lockable,
@@ -13,16 +12,12 @@ class User < ActiveRecord::Base
          :validatable,
          :timeoutable
 
-  # relacionamentos -------------------------------------------------------------------------------
   has_many :authentication, dependent: :delete_all
-  has_many :erro, dependent: :nullify
   has_many :peso, dependent: :delete_all
   has_many :resultado, dependent: :delete_all
 
-  # validações ------------------------------------------------------------------------------------
   validates :date_of_birth, :gender, :name, presence: true
 
-  # methods ---------------------------------------------------------------------------------------
   def self.from_omniauth(auth, current_user)
     authentication = Authentication.where(provider: auth.provider, uid: auth.uid.to_s).first_or_initialize
     if authentication.user.blank?
@@ -56,14 +51,10 @@ class User < ActiveRecord::Base
   end
 
   def idade
-    if self.date_of_birth
-      now = Time.now.utc.to_date
-      now.year - self.date_of_birth.year - (self.date_of_birth.to_date.change(year: now.year) > now ? 1 : 0)
-    else
-      nil
-    end
+    now = Time.now.utc.to_date
+    now.year - self.date_of_birth.year - (self.date_of_birth.to_date.change(year: now.year) > now ? 1 : 0)
   end
-
+=begin
   def self.new_with_session(params, session)
     if session['devise.user_attributes']
       new(session['devise.user_attributes'], without_protection: true) do |user|
@@ -95,4 +86,5 @@ class User < ActiveRecord::Base
     clean_up_passwords
     result
   end
+=end
 end

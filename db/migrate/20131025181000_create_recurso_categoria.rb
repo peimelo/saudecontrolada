@@ -12,5 +12,5 @@ class CreateRecursoCategoria < ActiveRecord::Migration
 
   def down
     drop_table :recursos_categorias
-  end  
+  end
 end
