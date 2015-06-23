@@ -3,7 +3,7 @@
 <%= titulo icon('user', t('users.menu')) %>
 
 <%= render 'shared/botoes_incluir_e_download', controller: nil, model: nil,
-           url_xls: users_path(format: 'xls'), url_pdf: users_path(format: 'pdf') %>
+           url_xls: users_path(format: 'xlsx'), url_pdf: users_path(format: 'pdf') %>
 
 <%= page_entries_info @users, model: model_class %>
 

@@ -12,7 +12,9 @@ class UsersController < ApplicationController
         pdf = UsersPdf.new(@users, User)
         send_data pdf.render, filename: (User.model_name.human + '.pdf'), disposition: 'inline'
       end
-      format.xls
+      format.xlsx {
+        response.headers['Content-Disposition'] = "attachment; filename=#{ t('activerecord.models.user.other') }.xlsx"
+      }
     end
   end
 

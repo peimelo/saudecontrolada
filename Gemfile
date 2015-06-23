@@ -123,3 +123,7 @@ gem 'omniauth-linkedin'
 gem 'exception_notification'
 
 gem 'ancestry'
+
+# xls
+gem 'axlsx'
+gem 'axlsx_rails'
