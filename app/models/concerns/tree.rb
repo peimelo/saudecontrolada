@@ -7,7 +7,7 @@ module Tree
     has_ancestry
 
     def name_for_selects
-      "#{'|' if depth > 0}" + "#{'---' * depth} #{nome}"
+      "#{'|---' * depth} #{nome}"
     end
 
     def name_for_tree
