@@ -1,5 +1,5 @@
 module AncestryHelper
-  # arranged as tree expects 3 arguments. The hash from has_ancestry.arrange() method, 
+  # arranged as tree expects 3 arguments. The hash from has_ancestry.arrange() method,
   # options, and a render block
   def arranged_tree_as_list(hash, options = {}, &block)
 

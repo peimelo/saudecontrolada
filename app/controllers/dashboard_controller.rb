@@ -70,7 +70,7 @@ class DashboardController < ApplicationController
           { from: 25, to: 29.99, color: '#ff9b99' }, # acima
           { from: 30, to: 81, color: '#b02e25' }, # obeso 8a403b
         ]
-	    )
+    )
 
 	    f.series(
         name: 'Meu IMC',

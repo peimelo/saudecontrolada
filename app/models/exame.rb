@@ -13,7 +13,7 @@ class Exame < ActiveRecord::Base
   def nome_unidade
     self.nome + (self.unidade.nil? ? '' : " (#{ self.unidade.nome })")
   end
-  
+
   def valor_referencia_extenso(idade, sexo)
     valor = valor_referencia(idade, sexo)
     return '' if valor.nil?
