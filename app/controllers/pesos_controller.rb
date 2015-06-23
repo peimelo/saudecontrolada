@@ -71,6 +71,7 @@ class PesosController < ApplicationController
   end
 
   private
+
     def peso_params
       params.require(:peso).permit(:altura, :data, :peso)
     end

@@ -48,6 +48,7 @@ class ReferenciasController < ApplicationController
   end
 
   private
+
     def referencia_params
       params.require(:referencia).permit(:nome)
     end

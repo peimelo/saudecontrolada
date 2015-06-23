@@ -133,6 +133,7 @@ class ResultadosController < ApplicationController
   end
 
   private
+
     def resultado_params
       params.require(:resultado).permit(:data, :exame_nome, :valor)
     end
@@ -149,17 +150,17 @@ class ResultadosController < ApplicationController
       end
     end
 
-  def sort_direction
-    # no index mostra agrupado por nome de exame, no show mostra por data do resultado
-    if action_name == 'index'
-      %w[asc desc].include?(params[:direction]) ? params[:direction] : 'asc'
-    else
-      %w[asc desc].include?(params[:direction]) ? params[:direction] : 'desc'
+    def sort_direction
+      # no index mostra agrupado por nome de exame, no show mostra por data do resultado
+      if action_name == 'index'
+        %w[asc desc].include?(params[:direction]) ? params[:direction] : 'asc'
+      else
+        %w[asc desc].include?(params[:direction]) ? params[:direction] : 'desc'
+      end
     end
-  end
 
-  def undo_link
-    view_context.link_to(view_context.icon('eye', t('links.visualizar')),
-                         resultado_path(@resultado.exame_id))
-  end
+    def undo_link
+      view_context.link_to(view_context.icon('eye', t('links.visualizar')),
+                           resultado_path(@resultado.exame_id))
+    end
 end

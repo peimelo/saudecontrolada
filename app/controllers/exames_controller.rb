@@ -68,6 +68,7 @@ class ExamesController < ApplicationController
   end
 
   private
+
     def exame_params
       params.require(:exame).permit(
         :nome,

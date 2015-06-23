@@ -1,6 +1,4 @@
-require 'rails_helper'
-
-RSpec.describe SiteController, type: :controller do
+RSpec.describe SiteController do
   let(:user) { create(:user) }
 
   context 'public access' do

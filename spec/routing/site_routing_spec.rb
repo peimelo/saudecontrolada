@@ -1,6 +1,4 @@
-require 'rails_helper'
-
-RSpec.describe SiteController, type: :routing do
+RSpec.describe SiteController do
   describe 'routing' do
 
     it 'routes to root #index' do

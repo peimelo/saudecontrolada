@@ -13,6 +13,10 @@ RSpec.describe ResultadosController do
       expect(get: '/resultados/new').to route_to('resultados#new')
     end
 
+    it 'routes to #new with exame' do
+      expect(get: '/resultados/new/exame').to route_to('resultados#new', exame_nome: 'exame')
+    end
+
     it 'routes to #edit' do
       expect(get: '/resultados/1/edit').to route_to('resultados#edit', id: '1')
     end

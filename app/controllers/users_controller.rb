@@ -18,6 +18,7 @@ class UsersController < ApplicationController
   end
 
   private
+
     def sort_column
       User.column_names.include?(params[:sort]) ? params[:sort] : 'current_sign_in_at'
     end

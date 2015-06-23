@@ -48,6 +48,7 @@ class UnidadesController < ApplicationController
   end
 
   private
+
     def unidade_params
       params.require(:unidade).permit(:nome)
     end

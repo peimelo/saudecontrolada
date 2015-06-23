@@ -25,6 +25,7 @@ class ContatosController < ApplicationController
   end
   
   private
+
     def contato_params
       params.require(:contato).permit(:email, :mensagem, :nome, :telefones)
     end
