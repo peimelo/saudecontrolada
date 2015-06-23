@@ -103,10 +103,6 @@ module ApplicationHelper
     icon('check fa-lg') if valor
   end
 
-  def label_sim_nao(valor)
-    valor ? t('true') : t('false')
-  end
-
   def limpar_filtro(url)
     if !params[:search].blank?
       raw('<p><strong>') + icon('filter', t('labels.filtro')) + raw('</strong> "') + params[:search] + raw('" (') +
@@ -117,12 +113,6 @@ module ApplicationHelper
   def limpar_filtro_nome_data(url)
     if !params[:nome].blank? or !params[:data_inicial].blank? or !params[:data_final].blank?
       link_to(icon('eraser', t('links.limpar_filtro')), url)
-    end
-  end
-
-  def link_form(text, destination, options = {})
-    form_tag(destination, :method => options.delete(:method)) do
-      button_tag text
     end
   end
 
@@ -166,11 +156,6 @@ module ApplicationHelper
     link_to raw(title + icone), sort: column, direction: direction
   end
 
-  def tem_permissao?(acao, controlador=controller.controller_name)
-    privileges = find_privileges
-    privileges.item_existe?(acao, controlador) || session[:administrador]
-  end
-
   def titulo(title)
     content_for :title do
       if title.scan('</i> ') == []
@@ -182,9 +167,4 @@ module ApplicationHelper
 
     content_tag(:h3, title)
   end
-
-  private
-    def find_privileges
-      session[:privileges] ||= Privileges.new
-    end
 end
