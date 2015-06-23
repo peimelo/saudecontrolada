@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  # captura todos os erros, essa é a classe pai de todos os erros
   rescue_from StandardError, with: :server_error if Rails.env == 'production'
 
   before_filter :authenticate_user!
