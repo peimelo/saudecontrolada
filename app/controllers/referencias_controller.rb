@@ -1,7 +1,6 @@
 class ReferenciasController < ApplicationController
   helper_method :sort_column, :sort_direction
 
-  skip_before_action :tem_permissao?
   before_action :user_administrador_sistema?
   before_action :set_referencia, only: [:edit, :update, :destroy]
 

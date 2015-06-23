@@ -1,6 +1,5 @@
 class ContatosController < ApplicationController
   skip_before_action :authenticate_user!, only: [:new, :create]
-  skip_before_action :tem_permissao?
   before_action :user_administrador_sistema?, only: [:index]
 
   def index

@@ -8,42 +8,42 @@ class ApplicationController < ActionController::Base
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
   protected
+
+    def configure_permitted_parameters
+      devise_parameter_sanitizer.for(:account_update) { |u| u.permit(
+        :current_password,
+        :date_of_birth,
+        :email,
+        :gender,
+        :name,
+        :password,
+        :password_confirmation)
+      }
+
+      devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(
+        :date_of_birth,
+        :email,
+        :gender,
+        :name,
+        :password,
+        :password_confirmation)
+      }
+    end
+
     def server_error(exception)
       ExceptionNotifier.ignored_exceptions = []
 
       ExceptionNotifier.notify_exception(
-        exception,
-        env: request.env,
-        data: { current_user: current_user }
+          exception,
+          env: request.env,
+          data: { current_user: current_user }
       )
 
       render file: "#{Rails.root}/public/erro.html", layout: false
     end
 
-    def configure_permitted_parameters
-      devise_parameter_sanitizer.for(:account_update) { |u| u.permit(
-          :current_password,
-          :date_of_birth,
-          :email,
-          :gender,
-          :name,
-          :password,
-          :password_confirmation
-        )
-      }
-
-      devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(
-          :date_of_birth,
-          :email,
-          :gender,
-          :name,
-          :password,
-          :password_confirmation
-        )
-      }
-    end
-
   private
+
     def translate_version(version)
       case version
         when 'create'
@@ -61,8 +61,7 @@ class ApplicationController < ActionController::Base
 
     def user_administrador_sistema?
       unless current_user.admin?
-        erro()
-        false
+        redirect_to root_path, alert: t('mensagens.erros.sem_permissao')
       end
     end
 end

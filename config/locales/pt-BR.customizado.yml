@@ -62,8 +62,8 @@ pt-BR:
       generico: Fomos notificados e vamos tratar o mais breve possível.
       pagina_nao_encontrada: A página que você tentou acessar não existe.
       pedimos_desculpa: Ops, ocorreu um erro.
-      registro_nao_encontrado: O registro que você tentou acessar não existe ou deve ter sido excluído.
       preencher_endereco: Desculpe, mas não foi possível preencher o endereço automaticamente.
+      registro_nao_encontrado: O registro que você tentou acessar não existe ou deve ter sido excluído.
       sem_permissao: Você não tem permissão para acessar essa funcionalidade.
     flash:
       acompanhamento: 'A partir de agora você receberá e-mails de acompanhamento deste registro de %{model}.'
