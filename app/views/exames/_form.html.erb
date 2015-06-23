@@ -9,7 +9,7 @@
                               allow_blank: true %>
     </div>
     <div class="col-xs-4">
-      <%= f.input :ancestry, collection: Exame.arrange_as_array({order: :nome}, @exame.possible_parents),
+      <%= f.input :parent_id, collection: Exame.arrange_as_array({order: :nome}, @exame.possible_parents),
           value_method: :id,
           label_method: :name_for_selects,
           include_blank: true %>
