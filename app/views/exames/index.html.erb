@@ -25,7 +25,7 @@
               <%= botao_alterar registro, edit_exame_path(registro), model_class %>
               <%= botao_excluir registro, model_class %>
             </td>
-            <td><%= "#{'|' if registro.depth > 0} #{'---' * registro.depth} #{registro.nome}" %></td>
+            <td><%= registro.name_for_selects %></td>
           </tr>
         <% end %>
       </tbody>
