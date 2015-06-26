@@ -15,13 +15,13 @@ RSpec.describe Peso do
   end
 
   describe '#imc' do
-    it '1.80m e 70Kg deve retornar 21.6' do
+    it '1,80m e 70Kg deve retornar 21.6' do
       expect(build(:peso, altura: 1.8, peso: 70).imc).to eq 21.6
     end
   end
 
   describe '#peso_ideal' do
-    it '1.80m e 70Kg deve retornar "59,91 ~ 80,97"' do
+    it '1,80m e 70Kg deve retornar "59,91 ~ 80,97"' do
       expect(build(:peso, altura: 1.8, peso: 70).peso_ideal).to eq '59,91 ~ 80,97'
     end
   end

@@ -24,7 +24,9 @@ class PesosController < ApplicationController
         pdf = PesosPdf.new(@pesos, Peso)
         send_data pdf.render, filename: (Peso.model_name.human + '.pdf'), disposition: 'inline'
       end
-      format.xls
+      format.xlsx {
+        response.headers['Content-Disposition'] = "attachment; filename=#{ t('activerecord.models.peso.other') }.xlsx"
+      }
     end
   end
 
