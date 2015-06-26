@@ -8,14 +8,59 @@ RSpec.describe PesosController do
   let(:formato_excel_session) { { format: :xlsx } }
   let!(:formato_pdf_session) { { format: :pdf } }
 
-	# -----------------------------------------------------------------------------------------------
-  shared_examples('acesso em todas as funcionalidades') do
+  context 'usuario nao logado' do
+    describe 'GET #index' do
+      it 'requires login' do
+        get :index
+        expect(response).to require_login
+      end
+    end
+
+    describe 'GET #new' do
+      it 'requires login' do
+        get :new
+        expect(response).to require_login
+      end
+    end
+
+    describe 'GET #edit' do
+      it 'requires login' do
+        get :edit, id: 1
+        expect(response).to require_login
+      end
+    end
+
+    describe 'POST #create' do
+      it 'requires login' do
+        post :create, peso: valid_attributes
+        expect(response).to require_login
+      end
+    end
+
+    describe 'PATCH #update' do
+      it 'requires login' do
+        patch :update, id: 1, peso: valid_attributes
+        expect(response).to require_login
+      end
+    end
+
+    describe 'DELETE #destroy' do
+      it 'requires login' do
+        delete :destroy, id: 1
+        expect(response).to require_login
+      end
+    end
+  end
+
+  context 'usuario logado' do
+    before :each do
+      login_user(user)
+    end
 
     describe 'GET #index' do
       it 'populates an array of pesos' do
-        @peso = create(:peso, user: user)
         get :index
-        expect(assigns(:pesos).include? @peso).to be_truthy
+        expect(assigns(:pesos).include? peso).to be_truthy
       end
 
       it 'renders the :index template' do
@@ -127,75 +172,21 @@ RSpec.describe PesosController do
     end
 
     describe 'DELETE #destroy' do
-      context 'without dependent tables' do
-        before :each do
-          delete :destroy, { id: peso }
-        end
+      before :each do
+        delete :destroy, { id: peso }
+      end
 
-        it 'deletes the peso' do
-          expect(Peso.exists?(peso)).to be_falsey
-        end
-  
-        it 'redirects to pesos#index' do
-          expect(response).to redirect_to pesos_url
-        end
+      it 'deletes the peso' do
+        expect(Peso.exists?(peso)).to be_falsey
+      end
+
+      it 'redirects to pesos#index' do
+        expect(response).to redirect_to pesos_url
       end
     end
   end
 
-  context 'usuario nao logado' do
-    describe 'GET #index' do
-      it 'requires login' do
-        get :index
-        expect(response).to require_login
-      end
-    end
-
-    describe 'GET #new' do
-      it 'requires login' do
-        get :new
-        expect(response).to require_login
-      end
-    end
-
-    describe 'GET #edit' do
-      it 'requires login' do
-        get :edit, id: 1
-        expect(response).to require_login
-      end
-    end
-
-    describe 'POST #create' do
-      it 'requires login' do
-        post :create, peso: valid_attributes
-        expect(response).to require_login
-      end
-    end
-
-    describe 'PATCH #update' do
-      it 'requires login' do
-        patch :update, id: 1, peso: valid_attributes
-        expect(response).to require_login
-      end
-    end
-
-    describe 'DELETE #destroy' do
-      it 'requires login' do
-        delete :destroy, id: 1
-        expect(response).to require_login
-      end
-    end
-  end
-
-  context 'usuario logado' do
-    before :each do
-      login_user(user)
-    end
-
-    it_behaves_like 'acesso em todas as funcionalidades'
-  end
-
-	context 'usuario logado tentando acessar dados de outro usuario' do
+  context 'usuario logado tentando acessar dados de outro usuario' do
     before :each do
       outro_user = create(:user)
       @peso_outro_user = create(:peso, user: outro_user)
