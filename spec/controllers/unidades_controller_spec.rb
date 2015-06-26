@@ -1,10 +1,10 @@
-RSpec.describe ReferenciasController do
-  let(:referencia) { create(:referencia) }
+RSpec.describe UnidadesController do
+  let(:unidade) { create(:unidade) }
   let(:user) { create(:user) }
   let(:user_admin) { create(:user_admin) }
 
-  let(:valid_attributes) { attributes_for(:referencia) }
-  let(:invalid_attributes) { attributes_for(:invalid_referencia) }
+  let(:valid_attributes) { attributes_for(:unidade) }
+  let(:invalid_attributes) { attributes_for(:invalid_unidade) }
 
   context 'usuario nao logado' do
     describe 'GET #index' do
@@ -30,14 +30,14 @@ RSpec.describe ReferenciasController do
 
     describe 'POST #create' do
       it 'requires login' do
-        post :create, referencia: valid_attributes
+        post :create, unidade: valid_attributes
         expect(response).to require_login
       end
     end
 
     describe 'PATCH #update' do
       it 'requires login' do
-        patch :update, id: 1, referencia: valid_attributes
+        patch :update, id: 1, unidade: valid_attributes
         expect(response).to require_login
       end
     end
@@ -78,14 +78,14 @@ RSpec.describe ReferenciasController do
 
     describe 'POST #create' do
       it 'requires login' do
-        post :create, referencia: valid_attributes
+        post :create, unidade: valid_attributes
         expect(response).to redirect_to root_url
       end
     end
 
     describe 'PATCH #update' do
       it 'requires login' do
-        patch :update, id: 1, referencia: valid_attributes
+        patch :update, id: 1, unidade: valid_attributes
         expect(response).to redirect_to root_url
       end
     end
@@ -104,9 +104,9 @@ RSpec.describe ReferenciasController do
     end
 
     describe 'GET #index' do
-      it 'populates an array of referencias' do
+      it 'populates an array of unidades' do
         get :index
-        expect(assigns(:referencias).include? referencia).to be_truthy
+        expect(assigns(:unidades).include? unidade).to be_truthy
       end
 
       it 'renders the :index template' do
@@ -120,8 +120,8 @@ RSpec.describe ReferenciasController do
         get :new
       end
 
-      it 'assigns a new Referencia to @referencia' do
-        expect(assigns(:referencia)).to be_a_new(Referencia)
+      it 'assigns a new Unidade to @unidade' do
+        expect(assigns(:unidade)).to be_a_new(Unidade)
       end
 
       it 'renders the :new template' do
@@ -131,11 +131,11 @@ RSpec.describe ReferenciasController do
 
     describe 'GET #edit' do
       before :each do
-        get :edit, { id: referencia }
+        get :edit, { id: unidade }
       end
 
-      it 'assigns the requested referencia to @referencia' do
-        expect(assigns(:referencia)).to eq referencia
+      it 'assigns the requested unidade to @unidade' do
+        expect(assigns(:unidade)).to eq unidade
       end
 
       it 'renders the :edit template' do
@@ -146,25 +146,25 @@ RSpec.describe ReferenciasController do
     describe 'POST #create' do
       context 'with valid attributes' do
         before :each do
-          post :create, { referencia: valid_attributes }
+          post :create, { unidade: valid_attributes }
         end
 
-        it 'creates a new referencia' do
-          expect(Referencia.exists?(assigns[:referencia])).to be_truthy
+        it 'creates a new unidade' do
+          expect(Unidade.exists?(assigns[:unidade])).to be_truthy
         end
 
-        it 'redirects to referencias#edit' do
-          expect(response).to redirect_to referencias_url
+        it 'redirects to unidades#edit' do
+          expect(response).to redirect_to unidades_url
         end
       end
 
       context 'with invalid attributes' do
         before :each do
-          post :create, { referencia: invalid_attributes }
+          post :create, { unidade: invalid_attributes }
         end
 
-        it 'does not save the new referencia' do
-          expect(Referencia.exists?(assigns[:referencia])).to be_falsey
+        it 'does not save the new unidade' do
+          expect(Unidade.exists?(assigns[:unidade])).to be_falsey
         end
 
         it 're-renders the new method' do
@@ -176,29 +176,29 @@ RSpec.describe ReferenciasController do
     describe 'PATCH #update' do
       context 'valid attributes' do
         before :each do
-          put :update, id: referencia, referencia: valid_attributes
+          put :update, id: unidade, unidade: valid_attributes
         end
 
-        it 'saves @referencia' do
-          expect(assigns(:referencia).save).to be_truthy
+        it 'saves @unidade' do
+          expect(assigns(:unidade).save).to be_truthy
         end
 
-        it 'redirects to referencias#index' do
-          expect(response).to redirect_to referencias_url
+        it 'redirects to unidades#index' do
+          expect(response).to redirect_to unidades_url
         end
       end
 
       context 'invalid attributes' do
         before :each do
-          patch :update, id: referencia, referencia: invalid_attributes
+          patch :update, id: unidade, unidade: invalid_attributes
         end
 
-        it 'locates the requested @referencia' do
-          expect(assigns(:referencia)).to eq referencia
+        it 'locates the requested @unidade' do
+          expect(assigns(:unidade)).to eq unidade
         end
 
-        it 'does not saves @referencia' do
-          expect(assigns(:referencia).save).to be_falsey
+        it 'does not saves @unidade' do
+          expect(assigns(:unidade).save).to be_falsey
         end
 
         it 're-renders the edit method' do
@@ -209,15 +209,15 @@ RSpec.describe ReferenciasController do
 
     describe 'DELETE #destroy' do
       before :each do
-        delete :destroy, { id: referencia }
+        delete :destroy, { id: unidade }
       end
 
-      it 'deletes the referencia' do
-        expect(Referencia.exists?(referencia)).to be_falsey
+      it 'deletes the unidade' do
+        expect(Unidade.exists?(unidade)).to be_falsey
       end
 
-      it 'redirects to referencias#index' do
-        expect(response).to redirect_to referencias_url
+      it 'redirects to unidades#index' do
+        expect(response).to redirect_to unidades_url
       end
     end
   end

@@ -3,7 +3,7 @@
 <%= titulo icon('superscript', t('activerecord.models.unidade.other')) %>
 
 <%= render 'shared/botoes_incluir_e_download', controller: 'unidades', model: model_class,
-           url_xls: unidades_path(format: 'xls'), url_pdf: nil %>
+           url_xls: nil, url_pdf: nil %>
 
 <%= render 'shared/campo_buscar', model_class: model_class, url: unidades_path %>
 

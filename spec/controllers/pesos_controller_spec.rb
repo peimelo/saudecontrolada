@@ -6,7 +6,7 @@ RSpec.describe PesosController do
   let(:invalid_attributes) { attributes_for(:invalid_peso) }
 
   let(:formato_excel_session) { { format: :xlsx } }
-  let!(:formato_pdf_session) { { format: :pdf } }
+  let(:formato_pdf_session) { { format: :pdf } }
 
   context 'usuario nao logado' do
     describe 'GET #index' do

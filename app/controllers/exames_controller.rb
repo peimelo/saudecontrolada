@@ -15,16 +15,25 @@ class ExamesController < ApplicationController
 
   # CRUD ------------------------------------------------------------------------------------------
   def index
-    @exames = Exame.arrange_as_array({order: :nome})
-    @exames = @exames.paginate(page: params[:page]) unless params[:format].present?
+    if params[:term]
+      @exames = Exame.where('nome LIKE ?', "%#{ params[:term] }%").order(:nome)
+    else
+      @exames = Exame.arrange_as_array({order: :nome})
+      @exames = @exames.paginate(page: params[:page]) unless params[:format].present?
+    end
 
     respond_to do |format|
+      format.json do
+        render json: @exames.map(&:nome)
+      end
       format.html
       format.pdf do
         pdf = ExamesPdf.new(@exames, Exame)
         send_data pdf.render, filename: (Exame.model_name.human + '.pdf'), disposition: 'inline'
       end
-      format.xls
+      format.xlsx {
+        response.headers['Content-Disposition'] = "attachment; filename=#{ t('activerecord.models.exame.other') }.xlsx"
+      }
     end
   end
 
@@ -59,11 +68,6 @@ class ExamesController < ApplicationController
     else
       redirect_to exames_url, alert: @exame.errors.messages[:base][0]
     end
-  end
-
-  def autocomplete
-    @exames = Exame.order(:nome).where("nome LIKE ?", "%#{params[:term]}%")
-    render json: @exames.map(&:nome)
   end
 
   private

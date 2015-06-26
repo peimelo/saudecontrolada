@@ -28,9 +28,5 @@ RSpec.describe ExamesController do
     it 'routes to #destroy' do
       expect(delete: '/exames/1').to route_to('exames#destroy', id: '1')
     end
-
-    it 'routes to #autocomplete' do
-      expect(get: '/exames/autocomplete').to route_to('exames#autocomplete')
-    end
   end
 end

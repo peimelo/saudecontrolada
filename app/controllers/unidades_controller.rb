@@ -6,11 +6,6 @@ class UnidadesController < ApplicationController
 
   def index
     @unidades = Unidade.listar(params[:search], params[:format], params[:page], sort_column + ' ' + sort_direction)
-
-    respond_to do |format|
-      format.html
-      format.xls
-    end
   end
 
   def new
@@ -39,11 +34,8 @@ class UnidadesController < ApplicationController
   end
 
   def destroy
-    if @unidade.destroy
-      redirect_to unidades_url, notice: t('mensagens.flash.paper_trail.destroy', undo_link: undo_link)
-    else
-      redirect_to unidades_url, alert: @unidade.errors.messages[:base][0]
-    end
+    @unidade.destroy
+    redirect_to unidades_url, notice: t('mensagens.flash.paper_trail.destroy', undo_link: undo_link)
   end
 
   private

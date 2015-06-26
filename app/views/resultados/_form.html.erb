@@ -1,6 +1,6 @@
 <%= corrigir_erros registro.errors.any? %>
 <%= simple_form_for(registro) do |f| %>
-  <%= f.input :exame_nome, autofocus: true %>
+  <%= f.input :exame_nome, autofocus: true, input_html: { data: { autocomplete_source: exames_path } } %>
   <div class="row">
     <div class="col-sm-6">
       <%= f.input :data, as: :string, input_html: { class: 'datepicker inputmask' } %>

@@ -6,11 +6,6 @@ class ReferenciasController < ApplicationController
 
   def index
     @referencias = Referencia.listar(params[:search], params[:format], params[:page], sort_column + ' ' + sort_direction)
-
-    respond_to do |format|
-      format.html
-      format.xls
-    end
   end
 
   def new

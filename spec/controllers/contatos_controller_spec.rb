@@ -6,7 +6,7 @@ RSpec.describe ContatosController do
   let(:valid_attributes) { attributes_for(:contato) }
   let(:invalid_attributes) { attributes_for(:invalid_contato) }
 
-  let!(:formato_excel_session) { { format: :xls } }
+  let(:formato_excel_session) { { format: :xls } }
 
   shared_examples('public access to create a new contato') do
     describe 'GET #new' do

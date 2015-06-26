@@ -2,8 +2,8 @@ RSpec.describe UsersController do
   let(:user) { create(:user) }
   let(:user_admin) { create(:user_admin) }
 
-  let!(:formato_excel_session) { { format: :xlsx } }
-  let!(:formato_pdf_session) { { format: :pdf } }
+  let(:formato_excel_session) { { format: :xlsx } }
+  let(:formato_pdf_session) { { format: :pdf } }
 
   context 'not logged user access' do
     describe 'GET #index' do
