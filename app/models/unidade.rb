@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: unidades
+#
+#  id         :integer          not null, primary key
+#  nome       :string(255)      not null
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 class Unidade < ActiveRecord::Base
   include SearchModule
 

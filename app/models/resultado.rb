@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: resultados
+#
+#  id         :integer          not null, primary key
+#  data       :date             not null
+#  valor      :decimal(10, 2)
+#  exame_id   :integer          not null
+#  user_id    :integer          not null
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 class Resultado < ActiveRecord::Base
   include DateModule
 
