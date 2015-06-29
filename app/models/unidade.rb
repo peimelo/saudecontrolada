@@ -4,7 +4,7 @@ class Unidade < ActiveRecord::Base
   # armazenamento de logs
   has_paper_trail
 
-  has_many :exame, dependent: :nullify
+  has_many :exame, dependent: :restrict_with_error
 
   validates :nome, presence: true, uniqueness: { case_sensitive: false }
 end

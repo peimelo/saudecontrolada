@@ -34,8 +34,11 @@ class ReferenciasController < ApplicationController
   end
 
   def destroy
-    @referencia.destroy
-    redirect_to referencias_url, notice: t('mensagens.flash.destroy', crud: Referencia.model_name.human)
+    if @referencia.destroy
+      redirect_to referencias_url, notice: t('mensagens.flash.destroy', crud: Referencia.model_name.human)
+    else
+      redirect_to referencias_url, alert: @referencia.errors.messages[:base][0]
+    end
   end
 
   private

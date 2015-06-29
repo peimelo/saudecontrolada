@@ -23,9 +23,26 @@ RSpec.describe Resultado do
 
     it '.listar' do
       user = create(:user)
+      exame = create(:exame)
+      resultado = create(:resultado, user: user, exame: exame)
+
+      expect(user.resultado.listar(exame.id)[0].exame_id).to eq resultado.exame_id
+    end
+
+    it '.listar_por_total_exame' do
+      user = create(:user)
       resultado = create(:resultado, user: user)
 
-      expect(user.resultado.listar[0].exame_id).to eq resultado.exame_id
+      expect(user.resultado.listar_por_total_exame[0].exame_id).to eq resultado.exame_id
+    end
+
+    it '.media_valor_de_exame' do
+      user = create(:user)
+      exame = create(:exame)
+      resultado1 = create(:resultado, user: user, exame: exame, valor: 10)
+      resultado2 = create(:resultado, user: user, exame: exame, valor: 30)
+
+      expect(user.resultado.media_valor_de_exame(exame)).to eq (resultado1.valor + resultado2.valor)/2
     end
   end
 

@@ -3,7 +3,7 @@
 <%= titulo icon('file-text-o', t('activerecord.models.resultado.other')) %>
 
 <p><%= render 'shared/botoes_incluir_e_download', controller: 'resultados', model: model_class,
-           url_xls: resultados_path(format: 'xls'), url_pdf: resultados_path(format: 'pdf') %></p>
+           url_xls: nil, url_pdf: resultados_path(format: 'pdf') %></p>
 
 <div class="panel panel-default">
   <div class="panel-body">
@@ -49,9 +49,9 @@
           <% @resultados.each do |registro| %>
             <tr>
               <td width="60">
-                <%= botao_visualizar resultado_path(registro.exame_id), model_class %>
+                <%= botao_visualizar resultado_path(registro.exame), model_class %>
               </td>
-              <td><%= link_to registro.nome, resultado_path(registro.exame_id) %></td>
+              <td><%= link_to registro.nome, resultado_path(registro.exame) %></td>
               <td><%= registro.total %></td>
             </tr>
           <% end %>

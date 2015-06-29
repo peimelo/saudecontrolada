@@ -175,7 +175,7 @@ RSpec.describe ExamesController do
           expect(Exame.exists?(assigns[:exame])).to be_truthy
         end
 
-        it 'redirects to exames#edit' do
+        it 'redirects to exames#index' do
           expect(response).to redirect_to exames_url
         end
       end

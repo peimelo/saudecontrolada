@@ -2,6 +2,7 @@ RSpec.describe ReferenciasController do
   let(:referencia) { create(:referencia) }
   let(:user) { create(:user) }
   let(:user_admin) { create(:user_admin) }
+  let(:valor) { create(:valor, referencia: referencia) }
 
   let(:valid_attributes) { attributes_for(:referencia) }
   let(:invalid_attributes) { attributes_for(:invalid_referencia) }
@@ -208,16 +209,26 @@ RSpec.describe ReferenciasController do
     end
 
     describe 'DELETE #destroy' do
-      before :each do
-        delete :destroy, { id: referencia }
+      context 'with dependent Valor' do
+        it 'not deletes' do
+          valor
+          delete :destroy, { id: referencia }
+          expect(Referencia.exists?(referencia)).to be_truthy
+        end
       end
 
-      it 'deletes the referencia' do
-        expect(Referencia.exists?(referencia)).to be_falsey
-      end
+      context 'without dependent tables' do
+        before :each do
+          delete :destroy, { id: referencia }
+        end
 
-      it 'redirects to referencias#index' do
-        expect(response).to redirect_to referencias_url
+        it 'deletes the referencia' do
+          expect(Referencia.exists?(referencia)).to be_falsey
+        end
+
+        it 'redirects to referencias#index' do
+          expect(response).to redirect_to referencias_url
+        end
       end
     end
   end

@@ -34,8 +34,11 @@ class UnidadesController < ApplicationController
   end
 
   def destroy
-    @unidade.destroy
-    redirect_to unidades_url, notice: t('mensagens.flash.paper_trail.destroy', undo_link: undo_link)
+    if @unidade.destroy
+      redirect_to unidades_url, notice: t('mensagens.flash.paper_trail.destroy', undo_link: undo_link)
+    else
+      redirect_to unidades_url, alert: @unidade.errors.messages[:base][0]
+    end
   end
 
   private

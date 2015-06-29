@@ -1,11 +1,11 @@
-RSpec.describe PesosController do
+RSpec.describe ResultadosController do
   let(:user) { create(:user) }
-  let(:peso) { create(:peso, user: user) }
+  let(:resultado) { create(:resultado, user: user) }
+  let(:exame) { create(:exame) }
 
-  let(:valid_attributes) { attributes_for(:peso) }
-  let(:invalid_attributes) { attributes_for(:invalid_peso) }
+  let(:valid_attributes) { attributes_for(:resultado, exame_nome: exame.nome) }
+  let(:invalid_attributes) { attributes_for(:invalid_resultado) }
 
-  let(:formato_excel_session) { { format: :xlsx } }
   let(:formato_pdf_session) { { format: :pdf } }
 
   context 'usuario nao logado' do
@@ -32,14 +32,14 @@ RSpec.describe PesosController do
 
     describe 'POST #create' do
       it 'requires login' do
-        post :create, peso: valid_attributes
+        post :create, resultado: valid_attributes
         expect(response).to require_login
       end
     end
 
     describe 'PATCH #update' do
       it 'requires login' do
-        patch :update, id: 1, peso: valid_attributes
+        patch :update, id: 1, resultado: valid_attributes
         expect(response).to require_login
       end
     end
@@ -58,19 +58,19 @@ RSpec.describe PesosController do
     end
 
     describe 'GET #index' do
-      it 'populates an array of pesos' do
+      it 'se nao passar parametros para pesquisa retona nulo' do
         get :index
-        expect(assigns(:pesos).include? peso).to be_truthy
+        expect(assigns(:resultados)).to be_nil
+      end
+
+      it 'passando nome do exame na pesquisa deve retorna-lo' do
+        get :index, { nome: resultado.exame.nome }
+        expect(assigns(:resultados)[0].nome).to eq resultado.exame.nome
       end
 
       it 'renders the :index template' do
         get :index
         expect(response).to render_template :index
-      end
-
-      it 'download Excel and response have content in xlsx format' do
-        get :index, formato_excel_session
-        expect(response.headers['Content-Type']).to have_content 'application/vnd.openxmlformats-officedocument'
       end
 
       it 'download Pdf and response have content in application/pdf' do
@@ -79,13 +79,27 @@ RSpec.describe PesosController do
       end
     end
 
+    describe 'GET #show' do
+      before :each do
+        get :show, { id: resultado.exame.id }
+      end
+
+      it 'se nao passar parametros para pesquisa retona nulo' do
+        expect(assigns(:resultados).include? resultado).to be_truthy
+      end
+
+      it 'renders the :show template' do
+        expect(response).to render_template :show
+      end
+    end
+
     describe 'GET #new' do
       before :each do
         get :new
       end
 
-      it 'assigns a new Peso to @peso' do
-        expect(assigns(:peso)).to be_a_new(Peso)
+      it 'assigns a new Resultado to @resultado' do
+        expect(assigns(:resultado)).to be_a_new(Resultado)
       end
 
       it 'renders the :new template' do
@@ -95,11 +109,11 @@ RSpec.describe PesosController do
 
     describe 'GET #edit' do
       before :each do
-        get :edit, { id: peso }
+        get :edit, { id: resultado }
       end
 
-      it 'assigns the requested peso to @peso' do
-        expect(assigns(:peso)).to eq peso
+      it 'assigns the requested resultado to @resultado' do
+        expect(assigns(:resultado)).to eq resultado
       end
 
       it 'renders the :edit template' do
@@ -110,25 +124,25 @@ RSpec.describe PesosController do
     describe 'POST #create' do
       context 'with valid attributes' do
         before :each do
-          post :create, { peso: valid_attributes }
+          post :create, { resultado: valid_attributes }
         end
 
-        it 'creates a new peso' do
-          expect(Peso.exists?(assigns[:peso])).to be_truthy
+        it 'creates a new resultado' do
+          expect(Resultado.exists?(assigns[:resultado])).to be_truthy
         end
 
-        it 'redirects to pesos#index' do
-          expect(response).to redirect_to pesos_url
+        it 'redirects to resultados#index' do
+          expect(response).to redirect_to resultados_url
         end
       end
 
       context 'with invalid attributes' do
         before :each do
-          post :create, { peso: invalid_attributes }
+          post :create, { resultado: invalid_attributes }
         end
 
-        it 'does not save the new peso' do
-          expect(Peso.exists?(assigns[:peso])).to be_falsey
+        it 'does not save the new resultado' do
+          expect(Resultado.exists?(assigns[:resultado])).to be_falsey
         end
 
         it 're-renders the new method' do
@@ -140,29 +154,30 @@ RSpec.describe PesosController do
     describe 'PATCH #update' do
       context 'valid attributes' do
         before :each do
-          put :update, id: peso, peso: valid_attributes
+          put :update, id: resultado, resultado: valid_attributes
         end
 
-        it 'saves @peso' do
-          expect(assigns(:peso).save).to be_truthy
+        it 'saves @resultado' do
+          expect(assigns(:resultado).save).to be_truthy
         end
 
-        it 'redirects to pesos#index' do
-          expect(response).to redirect_to pesos_url
+        it 'redirects to resultados#show' do
+          resultado.reload
+          expect(response).to redirect_to resultado_url(resultado.exame)
         end
       end
 
       context 'invalid attributes' do
         before :each do
-          patch :update, id: peso, peso: invalid_attributes
+          patch :update, id: resultado, resultado: invalid_attributes
         end
 
-        it 'locates the requested @peso' do
-          expect(assigns(:peso)).to eq peso
+        it 'locates the requested @resultado' do
+          expect(assigns(:resultado)).to eq resultado
         end
 
-        it 'does not saves @peso' do
-          expect(assigns(:peso).save).to be_falsey
+        it 'does not saves @resultado' do
+          expect(assigns(:resultado).save).to be_falsey
         end
 
         it 're-renders the edit method' do
@@ -173,15 +188,15 @@ RSpec.describe PesosController do
 
     describe 'DELETE #destroy' do
       before :each do
-        delete :destroy, { id: peso }
+        delete :destroy, { id: resultado }
       end
 
-      it 'deletes the peso' do
-        expect(Peso.exists?(peso)).to be_falsey
+      it 'deletes the resultado' do
+        expect(Resultado.exists?(resultado)).to be_falsey
       end
 
-      it 'redirects to pesos#index' do
-        expect(response).to redirect_to pesos_url
+      it 'redirects to resultados#index' do
+        expect(response).to redirect_to resultado_url(resultado.exame)
       end
     end
   end
@@ -189,33 +204,33 @@ RSpec.describe PesosController do
   context 'usuario logado tentando acessar dados de outro usuario' do
     before :each do
       outro_user = create(:user)
-      @peso_outro_user = create(:peso, user: outro_user)
+      @resultado_outro_user = create(:resultado, user: outro_user)
 
       login_user(user)
     end
 
     describe 'GET #index' do
       it 'nao listar dados do outro user' do
-        get :index
-        expect(assigns(:pesos).include? @peso_outro_user).to be_falsey
+        get :index, { nome: @resultado_outro_user.exame.nome }
+        expect(assigns(:resultados)[0]).to be_nil
       end
     end
 
     describe 'GET #edit' do
       it 'raise ActiveRecord::RecordNotFound' do
-        expect{ get :edit, { id: @peso_outro_user } }.to raise_error(ActiveRecord::RecordNotFound)
+        expect{ get :edit, { id: @resultado_outro_user } }.to raise_error(ActiveRecord::RecordNotFound)
       end
     end
 
     describe 'PATCH #update' do
       it 'raise ActiveRecord::RecordNotFound' do
-        expect{ patch :update, id: @peso_outro_user, peso: valid_attributes }.to raise_error(ActiveRecord::RecordNotFound)
+        expect{ patch :update, id: @resultado_outro_user, resultado: valid_attributes }.to raise_error(ActiveRecord::RecordNotFound)
       end
     end
 
     describe 'DELETE #destroy' do
       it 'raise ActiveRecord::RecordNotFound' do
-        expect{ delete :destroy, { id: @peso_outro_user } }.to raise_error(ActiveRecord::RecordNotFound)
+        expect{ delete :destroy, { id: @resultado_outro_user } }.to raise_error(ActiveRecord::RecordNotFound)
       end
     end
   end

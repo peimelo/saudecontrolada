@@ -5,8 +5,7 @@ FactoryGirl.define do
     user
 
     factory :invalid_resultado do
-      exame nil
-      user nil
+      data nil
     end
   end
 end

@@ -40,8 +40,8 @@
           <thead>
             <tr>
               <th><%= t('bootstrap.actions') %></th>
-              <th><%= sortable model_class, 'data' %></th>
-              <th><%= sortable model_class, 'valor' %></th>
+              <th><%= model_class.human_attribute_name(:data) %></th>
+              <th><%= model_class.human_attribute_name(:valor) %></th>
               <th><%= model_class.human_attribute_name(:resultado) %></th>
             </tr>
           </thead>

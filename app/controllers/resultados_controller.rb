@@ -1,6 +1,4 @@
 class ResultadosController < ApplicationController
-  helper_method :sort_column, :sort_direction
-
   before_action :set_resultado, only: [:edit, :update, :destroy]
 
   # breadcrumb ----------------------------------------------------------------
@@ -24,7 +22,7 @@ class ResultadosController < ApplicationController
       if params[:nome].blank? and params[:data_inicial].blank? and params[:data_final].blank?
         @resultados = nil
       else
-        @resultados = current_user.resultado.listar(
+        @resultados = current_user.resultado.listar_por_total_exame(
           params[:nome],
           params[:data_inicial],
           params[:data_final]
@@ -40,20 +38,15 @@ class ResultadosController < ApplicationController
         pdf = ResultadosPdf.new(@resultados, Resultado, current_user)
         send_data pdf.render, filename: (Resultado.model_name.human + '.pdf'), disposition: 'inline'
       end
-      #TODO: impressao nao esta correta
-      format.xls
     end
   end
 
   def show
     @exame = Exame.find(params[:id])
 
-    @resultados = current_user.resultado.where('exame_id = ?', @exame.id).order(sort_column + ' ' + sort_direction).
-      page(params[:page])
+    @resultados = current_user.resultado.listar(@exame.id).page(params[:page])
 
-    @valor_medio = current_user.resultado.where('exame_id = ?', @exame.id).average(:valor)
-
-    resultados = current_user.resultado.where('exame_id = ?', @exame.id).order('data DESC')
+    @valor_medio = current_user.resultado.media_valor_de_exame(@exame)
 
     categories = []
     maximo = []
@@ -63,7 +56,7 @@ class ResultadosController < ApplicationController
     valor_superior = valor_referencia.valor_superior unless valor_referencia.nil?
     valor_inferior = valor_referencia.valor_inferior unless valor_referencia.nil?
 
-    resultados.reverse.each do |v|
+    @resultados.reverse.each do |v|
       categories << l(v.data, format: :default)
       valor << v.valor.to_f
       maximo << valor_superior.to_f unless valor_superior.nil?
@@ -113,7 +106,7 @@ class ResultadosController < ApplicationController
     respond_to do |format|
       if @resultado.update(resultado_params)
         session[:data_ultimo_resultado] = @resultado.data
-        format.html { redirect_to resultado_url(@resultado.exame_id),
+        format.html { redirect_to resultado_url(@resultado.exame),
                                   notice: t('mensagens.flash.update') }
         format.json { head :no_content }
       else
@@ -126,7 +119,7 @@ class ResultadosController < ApplicationController
   def destroy
     @resultado.destroy
     respond_to do |format|
-      format.html { redirect_to resultado_url(@resultado.exame_id),
+      format.html { redirect_to resultado_url(@resultado.exame),
                                 notice: t('mensagens.flash.destroy', crud: Resultado.model_name.human) }
       format.json { head :no_content }
     end
@@ -140,23 +133,6 @@ class ResultadosController < ApplicationController
 
     def set_resultado
       @resultado = current_user.resultado.find(params[:id])
-    end
-
-    def sort_column
-      if action_name == 'index'
-        'exames.nome'
-      else
-        Resultado.column_names.include?(params[:sort]) ? params[:sort] : 'data'
-      end
-    end
-
-    def sort_direction
-      # no index mostra agrupado por nome de exame, no show mostra por data do resultado
-      if action_name == 'index'
-        %w[asc desc].include?(params[:direction]) ? params[:direction] : 'asc'
-      else
-        %w[asc desc].include?(params[:direction]) ? params[:direction] : 'desc'
-      end
     end
 
     def undo_link
