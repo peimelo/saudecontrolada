@@ -90,39 +90,27 @@ class ResultadosController < ApplicationController
   def create
     @resultado = current_user.resultado.build(resultado_params)
 
-    respond_to do |format|
-      if @resultado.save
-        session[:data_ultimo_resultado] = @resultado.data
-        format.html { redirect_to resultados_url, notice: t('mensagens.flash.paper_trail.create', undo_link: undo_link) }
-        format.json { render action: 'show', status: :created, location: @resultado }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @resultado.errors, status: :unprocessable_entity }
-      end
+    if @resultado.save
+      session[:data_ultimo_resultado] = @resultado.data
+      redirect_to resultados_url, notice: t('mensagens.flash.paper_trail.create', undo_link: undo_link)
+    else
+      render action: :new
     end
   end
 
   def update
-    respond_to do |format|
-      if @resultado.update(resultado_params)
-        session[:data_ultimo_resultado] = @resultado.data
-        format.html { redirect_to resultado_url(@resultado.exame),
-                                  notice: t('mensagens.flash.update') }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @resultado.errors, status: :unprocessable_entity }
-      end
+    if @resultado.update(resultado_params)
+      session[:data_ultimo_resultado] = @resultado.data
+      redirect_to resultado_url(@resultado.exame), notice: t('mensagens.flash.update')
+    else
+      render action: :edit
     end
   end
 
   def destroy
     @resultado.destroy
-    respond_to do |format|
-      format.html { redirect_to resultado_url(@resultado.exame),
-                                notice: t('mensagens.flash.destroy', crud: Resultado.model_name.human) }
-      format.json { head :no_content }
-    end
+    redirect_to resultado_url(@resultado.exame),
+      notice: t('mensagens.flash.destroy', crud: Resultado.model_name.human)
   end
 
   private
