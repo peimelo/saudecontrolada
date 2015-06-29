@@ -41,35 +41,24 @@ class PesosController < ApplicationController
   def create
     @peso = current_user.peso.build(peso_params)
 
-    respond_to do |format|
-      if @peso.save
-        format.html { redirect_to pesos_url, notice: t('mensagens.flash.create', crud: Peso.model_name.human) }
-        format.json { render action: 'show', status: :created, location: @peso }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @peso.errors, status: :unprocessable_entity }
-      end
+    if @peso.save
+      redirect_to pesos_url, notice: t('mensagens.flash.create', crud: Peso.model_name.human)
+    else
+      render action: :new
     end
   end
 
   def update
-    respond_to do |format|
-      if @peso.update(peso_params)
-        format.html { redirect_to pesos_url, notice: t('mensagens.flash.update', crud: Peso.model_name.human) }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @peso.errors, status: :unprocessable_entity }
-      end
+    if @peso.update(peso_params)
+      redirect_to pesos_url, notice: t('mensagens.flash.update', crud: Peso.model_name.human)
+    else
+      render action: :edit
     end
   end
 
   def destroy
     @peso.destroy
-    respond_to do |format|
-      format.html { redirect_to pesos_url, notice: t('mensagens.flash.destroy', crud: Peso.model_name.human) }
-      format.json { head :no_content }
-    end
+    redirect_to pesos_url, notice: t('mensagens.flash.destroy', crud: Peso.model_name.human)
   end
 
   private
