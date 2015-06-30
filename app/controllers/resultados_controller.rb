@@ -46,8 +46,8 @@ class ResultadosController < ApplicationController
   end
 
   def new
-    @exame = Exame.find_by_nome(params[:exame_nome]) # breadcrumb
-    @resultado = Resultado.new(data: session[:data_ultimo_resultado], exame_nome: @exame.nome)
+    @exame = Exame.find_by_nome(params[:exame_nome]) # breadcrumbs
+    @resultado = Resultado.new(data: session[:data_ultimo_resultado], exame_nome: params[:exame_nome])
   end
 
   def edit

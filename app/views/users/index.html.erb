@@ -1,6 +1,7 @@
-<%= currently_at t('users.menu') %>
+<%= currently_at t('activerecord.models.user.other') %>
 <%- model_class = User -%>
-<%= titulo icon('user', t('users.menu')) %>
+<% breadcrumb :users %>
+<%= titulo icon('users', t('activerecord.models.user.other')) %>
 
 <%= render 'shared/botoes_incluir_e_download', controller: nil, model: nil,
            url_xls: users_path(format: 'xlsx'), url_pdf: users_path(format: 'pdf') %>

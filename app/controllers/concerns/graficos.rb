@@ -1,4 +1,6 @@
 module Graficos
+  extend ActiveSupport::Concern
+
   def grafico_linha(titulo_y, registros, valor_minimo, valor_maximo, sulfixo_tooltip)
     categorias = []
     maximo = []

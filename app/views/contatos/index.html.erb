@@ -1,6 +1,7 @@
-<%= currently_at t('contatos.menu') %>
+<%= currently_at t('activerecord.models.contato.other') %>
 <%- model_class = Contato -%>
-<%= titulo icon('bullhorn fa-lg', t('contatos.menu')) %>
+<% breadcrumb :contatos %>
+<%= titulo icon('bullhorn fa-lg', t('activerecord.models.contato.other')) %>
 
 <%= render 'shared/botoes_incluir_e_download', controller: nil, model: nil,
            url_xls: contatos_path(format: 'xls'), url_pdf: nil %>

@@ -10,7 +10,6 @@ pt-BR:
   contatos:
     index:
       titulo: 'Contatos (%{qtde_registros})'
-    menu: Contatos
     new:
       informacao: |
         Escreva sua dúvida, sugestão, crítica, elogio, etc.
@@ -110,14 +109,6 @@ pt-BR:
       destaque_4_titulo: Resultados de Exames
       destaque_4_texto: |
         Todos os seus resultados em um só lugar e com gráficos.
-  # -----------------------------------------------------------------------------------------------
-  users:
-    index:
-      incluir: Incluir novo Convite
-      titulo: 'Usuários (%{qtde_registros})'
-    edit:
-      titulo: Alterando Usuário
-    menu: Usuários
   # will_paginate ---------------------------------------------------------------------------------
   will_paginate:
     previous_label: "&#8592; Anterior"

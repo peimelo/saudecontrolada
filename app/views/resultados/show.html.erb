@@ -29,7 +29,7 @@
   <div class="tab-pane" id="resultados">
     <br />
     <p><%= link_to icon('file-o fa-lg', t('links.incluir')), new_resultado_exame_path(@exame.nome),
-                class: 'btn btn-primary', title: t('titles.incluir', model: model_class.model_name.human) %></p>
+                class: 'btn btn-success', title: t('titles.incluir', model: model_class.model_name.human) %></p>
 
     <p><%= @exame.valor_referencia_extenso(current_user.idade, current_user.gender) %></p>
 

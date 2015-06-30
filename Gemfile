@@ -125,5 +125,5 @@ gem 'ancestry'
 gem 'axlsx'
 gem 'axlsx_rails'
 
-# breadcrumb
+# breadcrumbs
 gem 'gretel'

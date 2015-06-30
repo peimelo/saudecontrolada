@@ -1,5 +1,6 @@
 <%= currently_at t('activerecord.models.referencia.other') %>
 <%- model_class = Referencia -%>
+<% breadcrumb :referencias %>
 <%= titulo icon('book', t('activerecord.models.referencia.other')) %>
 
 <%= render 'shared/botoes_incluir_e_download', controller: 'referencias', model: model_class,
