@@ -1,5 +1,6 @@
 <%= currently_at t('activerecord.models.resultado.other') %>
 <%- model_class = Resultado -%>
+<% breadcrumb :resultados %>
 <%= titulo icon('file-text-o', t('activerecord.models.resultado.other')) %>
 
 <p><%= render 'shared/botoes_incluir_e_download', controller: 'resultados', model: model_class,

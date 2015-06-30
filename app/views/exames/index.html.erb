@@ -1,5 +1,6 @@
 <%= currently_at t('activerecord.models.exame.other') %>
 <%- model_class = Exame -%>
+<% breadcrumb :exames %>
 <%= titulo icon('flask', t('activerecord.models.exame.other')) %>
 
 <%= render 'shared/botoes_incluir_e_download', controller: 'exames', model: model_class,

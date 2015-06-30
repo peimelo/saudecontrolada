@@ -37,9 +37,6 @@ gem 'font-awesome-sass'
 # paginacao
 gem 'bootstrap-will_paginate'
 
-# breadcrumb
-gem 'crummy'
-
 # enviar e-mail em background
 gem 'delayed_job_active_record'
 gem 'daemons'
@@ -127,3 +124,6 @@ gem 'ancestry'
 # xls
 gem 'axlsx'
 gem 'axlsx_rails'
+
+# breadcrumb
+gem 'gretel'

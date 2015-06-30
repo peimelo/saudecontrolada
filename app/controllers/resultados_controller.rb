@@ -3,22 +3,6 @@ class ResultadosController < ApplicationController
 
   before_action :set_resultado, only: [:edit, :update, :destroy]
 
-  # breadcrumb ----------------------------------------------------------------
-  before_action ->(texto=t('activerecord.models.resultado.other'), url=resultados_path) {
-    add_crumb(texto, url) }, except: [:index, :destroy]
-
-  before_action only: [:edit, :update] do
-    add_crumb(@resultado.exame.nome, resultado_path(@resultado.exame_id))
-    add_crumb(t('views.edit.titulo', model: Resultado.model_name.human), edit_resultado_path(@resultado))
-  end
-
-  before_action ->(texto=t('views.new.titulo', model: Resultado.model_name.human), url=new_resultado_path) {
-    add_crumb(texto, url) }, only: [:new, :create]
-
-  before_action ->(texto=Exame.find(params[:id]).nome) {
-    add_crumb(texto, resultados_path(params[:id])) }, only: :show
-
-  # CRUD ----------------------------------------------------------------------
   def index
     if params[:format].nil?
       if params[:nome].blank? and params[:data_inicial].blank? and params[:data_final].blank?
@@ -62,7 +46,8 @@ class ResultadosController < ApplicationController
   end
 
   def new
-    @resultado = Resultado.new(data: session[:data_ultimo_resultado], exame_nome: params[:exame_nome])
+    @exame = Exame.find_by_nome(params[:exame_nome]) # breadcrumb
+    @resultado = Resultado.new(data: session[:data_ultimo_resultado], exame_nome: @exame.nome)
   end
 
   def edit
