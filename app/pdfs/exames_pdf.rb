@@ -5,7 +5,7 @@ class ExamesPdf < Prawn::Document
     @model = model
     
     titulo
-    tabela
+    tabela_linhas()
   end
   
   def linhas
@@ -20,15 +20,7 @@ class ExamesPdf < Prawn::Document
     end    
   end
   
-  def tabela
-    table linhas do
-      row(0).font_style = :bold
-      self.row_colors = ['DDDDDD', 'FFFFFF']
-      self.header = true
-    end
-  end
-  
   def titulo
     text I18n.t('activerecord.models.exame.other'), size: 20, style: :bold
   end
-end 
+end

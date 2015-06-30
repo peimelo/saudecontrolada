@@ -87,7 +87,7 @@ RSpec.describe ResultadosController do
         get :show, { id: resultado.exame.id }
       end
 
-      it 'se nao passar parametros para pesquisa retona nulo' do
+      it 'traz a lista dos resultados de um exame' do
         expect(assigns(:resultados).include? resultado).to be_truthy
       end
 
