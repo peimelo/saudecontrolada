@@ -13,7 +13,7 @@ class PesosPdf < Prawn::Document
     [[
       @model.human_attribute_name(:data),
       @model.human_attribute_name(:altura),
-      @model.human_attribute_name(:peso),
+      @model.human_attribute_name(:valor),
       @model.human_attribute_name(:peso_ideal),
       @model.human_attribute_name(:situacao_imc)
     ]] +
@@ -21,7 +21,7 @@ class PesosPdf < Prawn::Document
       [
         I18n.l(registro.data),
         ApplicationController.helpers.number_to_human(registro.altura),
-        ApplicationController.helpers.number_to_human(registro.peso, precision: 4),
+        ApplicationController.helpers.number_to_human(registro.valor, precision: 4),
         registro.peso_ideal,
         ApplicationController.helpers.situacao_imc(registro.imc, false)
       ]

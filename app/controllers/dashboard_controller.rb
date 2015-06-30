@@ -1,7 +1,9 @@
 class DashboardController < ApplicationController
+  include Graficos
+
   def index
     @chart = @chart = LazyHighCharts::HighChart.new('graph')
-    @peso_medio = current_user.peso.average(:peso)
+    @peso_medio = current_user.peso.average(:valor)
     @peso_atual = current_user.peso.order(data: :desc).first
     return if @peso_atual.nil?
 
@@ -80,31 +82,12 @@ class DashboardController < ApplicationController
 
     pesos = current_user.peso.order(data: :desc)
 
-    categories = []
-    maximo = []
-    minimo = []
-    peso = []
-    pesos.reverse.each do |p|
-      categories << l(p.data, format: :default)
-      peso << p.peso.to_f
-      maximo << (24.99 * p.altura * p.altura).round(2).to_f
-      minimo << (18.5 * p.altura * p.altura).round(2).to_f
-    end
-
-    @chart_peso = LazyHighCharts::HighChart.new('graph') do |f|
-      f.xAxis(categories: categories, labels: { step: (peso.size / 2) })
-
-      f.yAxis(title: { text: 'Peso (kg)' })
-
-      f.tooltip(valueSuffix: ' kg')
-
-      f.series(name: 'Limite Máximo', data: maximo, color: '#ff9b99')
-      f.series(name: 'Peso', data: peso, color: '#000000')
-      f.series(name: 'Limite Mínimo', data: minimo, color: '#f7be34')
-
-      f.legend(align: 'center', borderWidth: 1, layout: 'horizontal')
-
-      f.plotOptions(line: { lineWidth: 5, marker: { enabled: peso.size > 1 ? false : true } })
-    end
+    @chart_peso = grafico_linha(
+      t('activerecord.attributes.peso.valor'),
+      pesos,
+      (18.5 * pesos[0].altura * pesos[0].altura).round(2).to_f,
+      (24.99 * pesos[0].altura * pesos[0].altura).round(2).to_f,
+      'kg'
+    )
   end
 end

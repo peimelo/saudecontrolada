@@ -1,4 +1,6 @@
 class ResultadosController < ApplicationController
+  include Graficos
+
   before_action :set_resultado, only: [:edit, :update, :destroy]
 
   # breadcrumb ----------------------------------------------------------------
@@ -48,36 +50,15 @@ class ResultadosController < ApplicationController
 
     @valor_medio = current_user.resultado.media_valor_de_exame(@exame)
 
-    categories = []
-    maximo = []
-    minimo = []
-    valor = []
     valor_referencia = @exame.valor_referencia(current_user.idade, current_user.gender)
-    valor_superior = valor_referencia.valor_superior unless valor_referencia.nil?
-    valor_inferior = valor_referencia.valor_inferior unless valor_referencia.nil?
 
-    @resultados.reverse.each do |v|
-      categories << l(v.data, format: :default)
-      valor << v.valor.to_f
-      maximo << valor_superior.to_f unless valor_superior.nil?
-      minimo << valor_inferior.to_f unless valor_inferior.nil?
-    end
-
-    @chart_resultado = LazyHighCharts::HighChart.new('graph') do |f|
-      f.xAxis(categories: categories, labels: { step: (valor.size / 2) })
-
-      f.yAxis(title: { text: I18n.t('resultados.meu_valor') })
-
-      f.tooltip(valueSuffix: (' ' + @exame.unidade.nome rescue ''))
-
-      f.series(name: I18n.t('resultados.limite_maximo'), data: maximo, color: '#ff9b99') if maximo.size > 0
-      f.series(name: I18n.t('resultados.meu_valor'), data: valor, color: '#000000', marker: { enabled: true, radius: 5, fillColor: '#00cccc' })
-      f.series(name: I18n.t('resultados.limite_minimo'), data: minimo, color: '#f7be34') if minimo.size > 0
-
-      f.legend(align: 'center', borderWidth: 1, layout: 'horizontal')
-
-      f.plotOptions(line: { lineWidth: 5, marker: { enabled: valor.size > 1 ? false : true } })
-    end
+    @chart_resultado = grafico_linha(
+      I18n.t('resultados.meu_valor'),
+      @resultados,
+      (valor_referencia.valor_inferior.to_f unless valor_referencia.nil?),
+      (valor_referencia.valor_superior.to_f unless valor_referencia.nil?),
+      (@exame.unidade.nome rescue '')
+    )
   end
 
   def new

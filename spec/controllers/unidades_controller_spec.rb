@@ -106,7 +106,7 @@ RSpec.describe UnidadesController do
 
     describe 'GET #index' do
       it 'populates an array of unidades' do
-        get :index
+        get :index, { search: unidade.nome }
         expect(assigns(:unidades).include? unidade).to be_truthy
       end
 

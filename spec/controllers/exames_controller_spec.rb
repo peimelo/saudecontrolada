@@ -132,6 +132,7 @@ RSpec.describe ExamesController do
       end
 
       it 'download Pdf and response have content in application/pdf' do
+        exame
         get :index, formato_pdf_session
         expect(response.headers['Content-Type']).to have_content 'application/pdf'
       end

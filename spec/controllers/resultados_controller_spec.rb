@@ -74,6 +74,9 @@ RSpec.describe ResultadosController do
       end
 
       it 'download Pdf and response have content in application/pdf' do
+        create(:resultado, user: user, exame: exame)
+        create(:resultado, user: user, exame: exame)
+
         get :index, formato_pdf_session
         expect(response.headers['Content-Type']).to have_content 'application/pdf'
       end

@@ -14,9 +14,9 @@
       <thead>
         <tr>
           <th><%= t('bootstrap.actions') %></th>
-          <th><%= sortable model_class, 'data' %></th>
-          <th><%= sortable model_class, 'altura' %></th>
-          <th><%= sortable model_class, 'peso' %></th>
+          <th><%= model_class.human_attribute_name(:data) %></th>
+          <th><%= model_class.human_attribute_name(:altura) %></th>
+          <th><%= model_class.human_attribute_name(:valor) %></th>
           <th><%= model_class.human_attribute_name(:peso_ideal) %></th>
           <th><%= model_class.human_attribute_name(:situacao_imc) %></th>
         </tr>
@@ -30,7 +30,7 @@
             </td>
             <td><%=l registro.data %></td>
             <td><%= numero_formatado(registro.altura) %></td>
-            <td><%= numero_formatado(registro.peso) %></td>
+            <td><%= numero_formatado(registro.valor) %></td>
             <td><%= registro.peso_ideal %></td>
             <td><%= situacao_imc registro.imc %></td>
           </tr>

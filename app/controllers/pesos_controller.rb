@@ -1,6 +1,4 @@
 class PesosController < ApplicationController
-  helper_method :sort_column, :sort_direction
-
   before_action :set_peso, only: [:show, :edit, :update, :destroy]
 
   before_action ->(texto=t('activerecord.models.peso.other'), url=pesos_path) {
@@ -12,9 +10,9 @@ class PesosController < ApplicationController
 
   def index
     if params[:format].nil?
-      @pesos = current_user.peso.page(params[:page]).order(sort_column + ' ' + sort_direction)
+      @pesos = current_user.peso.page(params[:page]).order(data: :desc)
     else
-      @pesos = current_user.peso.order(sort_column + ' ' + sort_direction)
+      @pesos = current_user.peso.order(data: :desc)
     end
 
     respond_to do |format|
@@ -64,18 +62,10 @@ class PesosController < ApplicationController
   private
 
     def peso_params
-      params.require(:peso).permit(:altura, :data, :peso)
+      params.require(:peso).permit(:altura, :data, :valor)
     end
 
     def set_peso
       @peso = current_user.peso.find(params[:id])
-    end
-
-    def sort_column
-      Peso.column_names.include?(params[:sort]) ? params[:sort] : 'data'
-    end
-
-    def sort_direction
-      %w[asc desc].include?(params[:direction]) ? params[:direction] : 'desc'
     end
 end
