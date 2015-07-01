@@ -41,7 +41,7 @@ module ButtonHelper
       title: t('titles.excluir', model: model.model_name.human)
     }.merge(options)
 
-    if options[:sem_confimar] == true
+    if options[:sem_confirmar] == true
       options.delete(:data)
     end
 
