@@ -2,7 +2,6 @@ class DashboardController < ApplicationController
   include Graficos
 
   def index
-    @chart = @chart = LazyHighCharts::HighChart.new('graph')
     @peso_medio = current_user.peso.average(:valor)
     @peso_atual = current_user.peso.order(data: :desc).first
     return if @peso_atual.nil?
