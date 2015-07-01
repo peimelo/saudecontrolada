@@ -36,7 +36,7 @@ class ExamesController < ApplicationController
     @exame = Exame.new(exame_params)
 
     if @exame.save
-      redirect_to exames_url, notice: t('mensagens.flash.create', crud: Exame.model_name.human)
+      redirect_to exames_url, notice: t('mensagens.flash.create')
     else
       render :new
     end
@@ -44,7 +44,7 @@ class ExamesController < ApplicationController
 
   def update
     if @exame.update(exame_params)
-      redirect_to exames_url, notice: t('mensagens.flash.update', crud: Exame.model_name.human)
+      redirect_to exames_url, notice: t('mensagens.flash.update')
     else
       render :edit
     end
@@ -52,7 +52,7 @@ class ExamesController < ApplicationController
 
   def destroy
     if @exame.destroy
-      redirect_to exames_url, notice: t('mensagens.flash.destroy', crud: Exame.model_name.human)
+      redirect_to exames_url, notice: t('mensagens.flash.destroy')
     else
       redirect_to exames_url, alert: @exame.errors.messages[:base][0]
     end

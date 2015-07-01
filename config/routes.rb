@@ -7,11 +7,8 @@ Saudecontrolada::Application.routes.draw do
     mount DelayedJobWeb, at: Rails.application.secrets.delayed_job_web_path
   end
 
-
   #TODO: ver a melhor rota
   get 'resultados/new(/:exame_nome)' => 'resultados#new', as: 'new_resultado_exame'
-
-  post 'versions/:id/revert' => 'versions#revert', as: 'revert_version'
 
   resources :contatos, only: [:index, :new, :create]
   resources :dashboard, only: :index

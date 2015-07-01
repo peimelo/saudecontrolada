@@ -18,7 +18,7 @@ class ReferenciasController < ApplicationController
     @referencia = Referencia.new(referencia_params)
 
     if @referencia.save
-      redirect_to referencias_url, notice: t('mensagens.flash.create', crud: Referencia.model_name.human)
+      redirect_to referencias_url, notice: t('mensagens.flash.create')
     else
       render :new
     end
@@ -26,7 +26,7 @@ class ReferenciasController < ApplicationController
 
   def update
     if @referencia.update(referencia_params)
-      redirect_to referencias_url, notice: t('mensagens.flash.update', crud: Referencia.model_name.human)
+      redirect_to referencias_url, notice: t('mensagens.flash.update')
     else
       render :edit
     end
@@ -34,7 +34,7 @@ class ReferenciasController < ApplicationController
 
   def destroy
     if @referencia.destroy
-      redirect_to referencias_url, notice: t('mensagens.flash.destroy', crud: Referencia.model_name.human)
+      redirect_to referencias_url, notice: t('mensagens.flash.destroy')
     else
       redirect_to referencias_url, alert: @referencia.errors.messages[:base][0]
     end

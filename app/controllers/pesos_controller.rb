@@ -33,7 +33,7 @@ class PesosController < ApplicationController
     @peso = current_user.peso.build(peso_params)
 
     if @peso.save
-      redirect_to pesos_url, notice: t('mensagens.flash.create', crud: Peso.model_name.human)
+      redirect_to pesos_url, notice: t('mensagens.flash.create')
     else
       render action: :new
     end
@@ -41,7 +41,7 @@ class PesosController < ApplicationController
 
   def update
     if @peso.update(peso_params)
-      redirect_to pesos_url, notice: t('mensagens.flash.update', crud: Peso.model_name.human)
+      redirect_to pesos_url, notice: t('mensagens.flash.update')
     else
       render action: :edit
     end
@@ -49,7 +49,7 @@ class PesosController < ApplicationController
 
   def destroy
     @peso.destroy
-    redirect_to pesos_url, notice: t('mensagens.flash.destroy', crud: Peso.model_name.human)
+    redirect_to pesos_url, notice: t('mensagens.flash.destroy')
   end
 
   private

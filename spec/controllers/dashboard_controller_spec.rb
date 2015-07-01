@@ -47,7 +47,7 @@ RSpec.describe DashboardController do
       it 'nao retornar imc do outro user' do
         create(:peso, user: user, valor: 50)
         get :index
-        expect(assigns(:meu_imc)).not_to eq 21.6
+        expect(assigns(:meu_imc)).to_not eq 21.6
       end
     end
   end

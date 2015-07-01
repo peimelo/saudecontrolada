@@ -2,7 +2,6 @@ class MailNotifier < ActionMailer::Base
   default from: Rails.application.secrets.mailer_sender
   default reply_to: Rails.application.secrets.mailer_from
 
-  # methods ---------------------------------------------------------------------------------------
   def contato(contato)
     @contato  = contato
 

@@ -58,7 +58,7 @@ class ResultadosController < ApplicationController
 
     if @resultado.save
       session[:data_ultimo_resultado] = @resultado.data
-      redirect_to resultados_url, notice: t('mensagens.flash.paper_trail.create', undo_link: undo_link)
+      redirect_to resultados_url, notice: t('mensagens.flash.with_link.create', with_link: with_link)
     else
       render action: :new
     end
@@ -67,7 +67,7 @@ class ResultadosController < ApplicationController
   def update
     if @resultado.update(resultado_params)
       session[:data_ultimo_resultado] = @resultado.data
-      redirect_to resultado_url(@resultado.exame), notice: t('mensagens.flash.update')
+      redirect_to resultado_url(@resultado.exame), notice: t('mensagens.flash.with_link.update', with_link: with_link)
     else
       render action: :edit
     end
@@ -89,8 +89,7 @@ class ResultadosController < ApplicationController
       @resultado = current_user.resultado.find(params[:id])
     end
 
-    def undo_link
-      view_context.link_to(view_context.icon('eye', t('links.visualizar')),
-                           resultado_path(@resultado.exame_id))
+    def with_link
+      view_context.link_to(view_context.icon('eye', t('links.visualizar')), edit_resultado_path(@resultado))
     end
 end

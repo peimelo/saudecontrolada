@@ -70,16 +70,26 @@ pt-BR:
       acompanhamento_desfazer: 'A partir de agora você não receberá mais e-mails de acompanhamento deste registro de %{model}.'
       create: Incluído com sucesso.
       destroy: Excluído com sucesso.
-      paper_trail:
-        create: 'Incluído com sucesso. %{undo_link}'
-        destroy: 'Excluído com sucesso. %{undo_link}'
-        operacao_desfeita: '%{operacao} desfeita.'
-        update: 'Alterado com sucesso. %{undo_link}'
       update: Alterado com sucesso.
+      with_link:
+        create: 'Incluído com sucesso. %{with_link}'
+        update: 'Alterado com sucesso. %{with_link}'
     contato_enviado: Sua mensagem foi enviada com sucesso. Em breve entraremos em contato. Obrigado.
     sem_registros: Não existem registros cadastrados.
 
   nome_sistema: Saúde Controlada
+
+  peso:
+    imc:
+      abaixo: Abaixo do peso
+      normal: Normal
+      acima: Acima do peso
+      obesidade: Obesidade
+
+  resultado_exame:
+    acima: Acima
+    abaixo: Abaixo
+    ok: OK
 
   titles:
     alterar: Alterar %{model}
