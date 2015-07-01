@@ -12,7 +12,7 @@ pt-BR:
       peso:
         altura: Altura (m)
         imc: IMC
-        peso: Peso (kg)
+        valor: Valor (kg)
         peso_ideal: Peso Ideal (kg)
         situacao_imc: Situação
       resultado:

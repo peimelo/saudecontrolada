@@ -1,11 +1,10 @@
 class UnidadesController < ApplicationController
-  helper_method :sort_column, :sort_direction
-
   before_action :user_administrador_sistema?
   before_action :set_unidade, only: [:edit, :update, :destroy]
 
   def index
-    @unidades = Unidade.listar(params[:search], params[:format], params[:page], sort_column + ' ' + sort_direction)
+    @unidades = Unidade.listar(params[:search])
+    @unidades = @unidades.page(params[:page]) unless params[:format].present?
   end
 
   def new
@@ -34,8 +33,11 @@ class UnidadesController < ApplicationController
   end
 
   def destroy
-    @unidade.destroy
-    redirect_to unidades_url, notice: t('mensagens.flash.paper_trail.destroy', undo_link: undo_link)
+    if @unidade.destroy
+      redirect_to unidades_url, notice: t('mensagens.flash.paper_trail.destroy', undo_link: undo_link)
+    else
+      redirect_to unidades_url, alert: @unidade.errors.messages[:base][0]
+    end
   end
 
   private
@@ -46,10 +48,6 @@ class UnidadesController < ApplicationController
 
     def set_unidade
       @unidade = Unidade.find(params[:id])
-    end
-
-    def sort_column
-      Unidade.column_names.include?(params[:sort]) ? params[:sort] : 'nome'
     end
 
     def undo_link

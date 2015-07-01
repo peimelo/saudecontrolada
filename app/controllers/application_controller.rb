@@ -54,10 +54,6 @@ class ApplicationController < ActionController::Base
       end
     end
 
-    def sort_direction
-      %w[asc desc].include?(params[:direction]) ? params[:direction] : 'asc'
-    end
-
     def user_administrador_sistema?
       unless current_user.admin?
         redirect_to root_path, alert: t('mensagens.erros.sem_permissao')

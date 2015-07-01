@@ -1,5 +1,6 @@
 <%= currently_at t('activerecord.models.resultado.other') %>
 <%- model_class = Resultado -%>
+<% breadcrumb :show_resultado, @exame %>
 <%= titulo icon('flask', @exame.nome) %>
 
 <br />
@@ -28,7 +29,7 @@
   <div class="tab-pane" id="resultados">
     <br />
     <p><%= link_to icon('file-o fa-lg', t('links.incluir')), new_resultado_exame_path(@exame.nome),
-                class: 'btn btn-primary', title: t('titles.incluir', model: model_class.model_name.human) %></p>
+                class: 'btn btn-success', title: t('titles.incluir', model: model_class.model_name.human) %></p>
 
     <p><%= @exame.valor_referencia_extenso(current_user.idade, current_user.gender) %></p>
 
@@ -40,8 +41,8 @@
           <thead>
             <tr>
               <th><%= t('bootstrap.actions') %></th>
-              <th><%= sortable model_class, 'data' %></th>
-              <th><%= sortable model_class, 'valor' %></th>
+              <th><%= model_class.human_attribute_name(:data) %></th>
+              <th><%= model_class.human_attribute_name(:valor) %></th>
               <th><%= model_class.human_attribute_name(:resultado) %></th>
             </tr>
           </thead>

@@ -1,11 +1,10 @@
 class ReferenciasController < ApplicationController
-  helper_method :sort_column, :sort_direction
-
   before_action :user_administrador_sistema?
   before_action :set_referencia, only: [:edit, :update, :destroy]
 
   def index
-    @referencias = Referencia.listar(params[:search], params[:format], params[:page], sort_column + ' ' + sort_direction)
+    @referencias = Referencia.listar(params[:search])
+    @referencias = @referencias.page(params[:page]) unless params[:format].present?
   end
 
   def new
@@ -34,8 +33,11 @@ class ReferenciasController < ApplicationController
   end
 
   def destroy
-    @referencia.destroy
-    redirect_to referencias_url, notice: t('mensagens.flash.destroy', crud: Referencia.model_name.human)
+    if @referencia.destroy
+      redirect_to referencias_url, notice: t('mensagens.flash.destroy', crud: Referencia.model_name.human)
+    else
+      redirect_to referencias_url, alert: @referencia.errors.messages[:base][0]
+    end
   end
 
   private
@@ -46,9 +48,5 @@ class ReferenciasController < ApplicationController
 
     def set_referencia
       @referencia = Referencia.find(params[:id])
-    end
-
-    def sort_column
-      Referencia.column_names.include?(params[:sort]) ? params[:sort] : 'nome'
     end
 end

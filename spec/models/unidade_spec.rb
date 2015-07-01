@@ -12,7 +12,7 @@ RSpec.describe Unidade do
   it { expect(build(:unidade)).to be_valid }
 
   describe 'associations' do
-    it { should have_many(:exame).dependent(:nullify) }
+    it { should have_many(:exame).dependent(:restrict_with_error) }
   end
 
   describe 'validations' do

@@ -110,7 +110,6 @@ GEM
     coffee-script-source (1.9.1.1)
     colored (1.2)
     colorize (0.7.7)
-    crummy (1.8.0)
     daemons (1.2.2)
     database_cleaner (1.4.1)
     debug_inspector (0.0.2)
@@ -158,6 +157,8 @@ GEM
     foreigner (1.7.4)
       activerecord (>= 3.0.0)
     formatador (0.2.5)
+    gretel (3.0.8)
+      rails (>= 3.2.0)
     guard (2.12.6)
       formatador (>= 0.2.4)
       listen (~> 2.7)
@@ -428,7 +429,6 @@ DEPENDENCIES
   capybara
   codeclimate-test-reporter
   coffee-rails (~> 4.1.0)
-  crummy
   daemons
   database_cleaner
   delayed_job_active_record
@@ -441,6 +441,7 @@ DEPENDENCIES
   faker
   font-awesome-sass
   foreigner
+  gretel
   guard-brakeman
   guard-rspec
   jbuilder (~> 2.0)

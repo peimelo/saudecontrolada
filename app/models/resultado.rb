@@ -23,24 +23,38 @@ class Resultado < ActiveRecord::Base
 
   scope :exportar, -> {
     includes(exame: [:unidade, valor: :referencia])
-    .ordenado
+    .ordenado_por_nome_data
   }
 
-  scope :listar, -> (
+  scope :listar, -> (exame_id) {
+    includes(:exame)
+      .where('exame_id = ?', exame_id)
+      .ordenado_por_data_desc
+  }
+
+  scope :listar_por_total_exame, -> (
     nome = '',
     data_inicial = '',
     data_final = ''
   ) {
     select('resultados.exame_id, exames.nome AS nome, COUNT(*) AS total')
-    .joins(:exame)
-    .where('exames.nome LIKE ?', "%#{ nome }%")
-    .where('resultados.data >= ?', data_inicial.blank? ? '1000-01-01' : format_date_usa(data_inicial))
-    .where('resultados.data <= ?', data_final.blank? ? '9999-12-31' : format_date_usa(data_final))
-    .group('resultados.exame_id, exames.nome')
-    .ordenado
+      .joins(:exame)
+      .where('exames.nome LIKE ?', "%#{ nome }%")
+      .where('resultados.data >= ?', data_inicial.blank? ? '1000-01-01' : format_date_usa(data_inicial))
+      .where('resultados.data <= ?', data_final.blank? ? '9999-12-31' : format_date_usa(data_final))
+      .group('resultados.exame_id, exames.nome')
+      .ordenado_por_nome_data
   }
 
-  scope :ordenado, -> {
+  scope :media_valor_de_exame, -> (exame) {
+    where('exame_id = ?', exame.id).average(:valor)
+  }
+
+  scope :ordenado_por_data_desc, -> {
+    order(data: :desc)
+  }
+
+  scope :ordenado_por_nome_data, -> {
     order('exames.nome ASC, data ASC')
   }
 

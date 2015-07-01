@@ -1,6 +1,7 @@
-<%= currently_at t('users.menu') %>
+<%= currently_at t('activerecord.models.user.other') %>
 <%- model_class = User -%>
-<%= titulo icon('user', t('users.menu')) %>
+<% breadcrumb :users %>
+<%= titulo icon('users', t('activerecord.models.user.other')) %>
 
 <%= render 'shared/botoes_incluir_e_download', controller: nil, model: nil,
            url_xls: users_path(format: 'xlsx'), url_pdf: users_path(format: 'pdf') %>
@@ -11,10 +12,10 @@
   <table class="table table-bordered table-condensed table-hover table-striped">
     <thead>
       <tr>
-        <th><%= sortable model_class, 'current_sign_in_at' %></th>
-        <th><%= sortable model_class, 'email' %></th>
-        <th><%= sortable model_class, 'sign_in_count' %></th>
-        <th><%= sortable model_class, 'created_at' %></th>
+        <th><%= model_class.human_attribute_name(:current_sign_in_at) %></th>
+        <th><%= model_class.human_attribute_name(:email) %></th>
+        <th><%= model_class.human_attribute_name(:sign_in_count) %></th>
+        <th><%= model_class.human_attribute_name(:created_at) %></th>
       </tr>
     </thead>
     <tbody>

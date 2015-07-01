@@ -1,5 +1,6 @@
 <%= currently_at t('activerecord.models.referencia.other') %>
 <%- model_class = Referencia -%>
+<% breadcrumb :referencias %>
 <%= titulo icon('book', t('activerecord.models.referencia.other')) %>
 
 <%= render 'shared/botoes_incluir_e_download', controller: 'referencias', model: model_class,
@@ -15,7 +16,7 @@
       <thead>
         <tr>
           <th><%= t('bootstrap.actions') %></th>
-          <th><%= sortable model_class, 'nome' %></th>
+          <th><%= model_class.human_attribute_name(:nome) %></th>
         </tr>
       </thead>
       <tbody>

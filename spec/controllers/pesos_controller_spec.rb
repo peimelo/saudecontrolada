@@ -74,6 +74,7 @@ RSpec.describe PesosController do
       end
 
       it 'download Pdf and response have content in application/pdf' do
+        peso
         get :index, formato_pdf_session
         expect(response.headers['Content-Type']).to have_content 'application/pdf'
       end
@@ -117,7 +118,7 @@ RSpec.describe PesosController do
           expect(Peso.exists?(assigns[:peso])).to be_truthy
         end
 
-        it 'redirects to pesos#edit' do
+        it 'redirects to pesos#index' do
           expect(response).to redirect_to pesos_url
         end
       end

@@ -2,10 +2,9 @@ module SearchModule
   extend ActiveSupport::Concern
 
   included do
-    scope :listar, ->(search = nil, format = nil, page = nil, order = 'nome') {
+    scope :listar, -> (search = nil, order = 'nome') {
       search(search)
-      .order(order)
-      .page(page) if format.nil?
+        .order(order)
     }
   end
 

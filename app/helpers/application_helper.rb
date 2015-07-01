@@ -148,14 +148,6 @@ module ApplicationHelper
     end
   end
 
-  def sortable(model, column)
-    title = model.human_attribute_name(column)
-    icone = column == sort_column ? " <i class='fa fa-sort-#{sort_direction}'></i>" : ''
-    direction = column == sort_column && sort_direction == 'asc' ? 'desc' : 'asc'
-
-    link_to raw(title + icone), sort: column, direction: direction
-  end
-
   def titulo(title)
     content_for :title do
       if title.scan('</i> ') == []

@@ -30,8 +30,6 @@
 #
 
 class User < ActiveRecord::Base
-  include SearchModule
-
   devise :confirmable,
          :database_authenticatable,
          :lockable,
@@ -48,6 +46,10 @@ class User < ActiveRecord::Base
   has_many :resultado, dependent: :delete_all
 
   validates :date_of_birth, :gender, :name, presence: true
+
+  scope :listar, -> {
+    order(current_sign_in_at: :desc)
+  }
 
   def self.from_omniauth(auth, current_user)
     authentication = Authentication.where(provider: auth['provider'], uid: auth['uid']).first_or_initialize

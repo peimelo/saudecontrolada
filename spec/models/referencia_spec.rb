@@ -12,7 +12,7 @@ RSpec.describe Referencia do
   it { expect(build(:referencia)).to be_valid }
 
   describe 'associations' do
-    it { should have_many(:valor).dependent(:nullify) }
+    it { should have_many(:valor).dependent(:restrict_with_error) }
   end
 
   describe 'validations' do

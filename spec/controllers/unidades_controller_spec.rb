@@ -1,5 +1,6 @@
 RSpec.describe UnidadesController do
   let(:unidade) { create(:unidade) }
+  let(:exame) { create(:exame, unidade:unidade) }
   let(:user) { create(:user) }
   let(:user_admin) { create(:user_admin) }
 
@@ -105,7 +106,7 @@ RSpec.describe UnidadesController do
 
     describe 'GET #index' do
       it 'populates an array of unidades' do
-        get :index
+        get :index, { search: unidade.nome }
         expect(assigns(:unidades).include? unidade).to be_truthy
       end
 
@@ -153,7 +154,7 @@ RSpec.describe UnidadesController do
           expect(Unidade.exists?(assigns[:unidade])).to be_truthy
         end
 
-        it 'redirects to unidades#edit' do
+        it 'redirects to unidades#index' do
           expect(response).to redirect_to unidades_url
         end
       end
@@ -208,16 +209,26 @@ RSpec.describe UnidadesController do
     end
 
     describe 'DELETE #destroy' do
-      before :each do
-        delete :destroy, { id: unidade }
+      context 'with dependent Exame' do
+        it 'not deletes' do
+          exame
+          delete :destroy, { id: unidade }
+          expect(Unidade.exists?(unidade)).to be_truthy
+        end
       end
 
-      it 'deletes the unidade' do
-        expect(Unidade.exists?(unidade)).to be_falsey
-      end
+      context 'without dependent tables' do
+        before :each do
+          delete :destroy, { id: unidade }
+        end
 
-      it 'redirects to unidades#index' do
-        expect(response).to redirect_to unidades_url
+        it 'deletes the unidade' do
+          expect(Unidade.exists?(unidade)).to be_falsey
+        end
+
+        it 'redirects to unidades#index' do
+          expect(response).to redirect_to unidades_url
+        end
       end
     end
   end

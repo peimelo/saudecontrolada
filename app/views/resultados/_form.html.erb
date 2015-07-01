@@ -10,12 +10,12 @@
     </div>
   </div>
 
-  <%#= f.association :exame, label_method: :nome %>
-
   <%= botao_salvar %>
-  <% if (action_name == 'edit' or action_name == 'update') and !registro.exame_id.nil? %>
-    <%= botao_cancelar resultado_path(registro.exame_id) %>
+  <% if !@exame.nil? %>
+    <%= botao_cancelar resultado_path(@exame) %>
+  <% elsif !registro.exame.nil? %>
+    <%= botao_cancelar resultado_path(registro.exame) %>
   <% else %>
-    <%= botao_cancelar url_cancelar %>
+    <%= botao_cancelar resultados_path %>
   <% end %>
 <% end %>

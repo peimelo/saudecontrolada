@@ -1,3 +1,4 @@
 <%= currently_at t('activerecord.models.resultado.other') %>
+<% breadcrumb :edit_resultado, @resultado %>
 <%= titulo t('views.edit.titulo', model: Resultado.model_name.human) %>
-<%= render 'form', registro: @resultado, url_cancelar: resultados_path %>
+<%= render 'form', registro: @resultado %>
