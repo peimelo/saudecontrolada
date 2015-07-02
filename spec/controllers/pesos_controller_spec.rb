@@ -204,19 +204,22 @@ RSpec.describe PesosController do
 
     describe 'GET #edit' do
       it 'raise ActiveRecord::RecordNotFound' do
-        expect{ get :edit, { id: @peso_outro_user } }.to raise_error(ActiveRecord::RecordNotFound)
+        get :edit, { id: @peso_outro_user }
+        expect(response).to render_erro
       end
     end
 
     describe 'PATCH #update' do
       it 'raise ActiveRecord::RecordNotFound' do
-        expect{ patch :update, id: @peso_outro_user, peso: valid_attributes }.to raise_error(ActiveRecord::RecordNotFound)
+        patch :update, id: @peso_outro_user, peso: valid_attributes
+        expect(response).to render_erro
       end
     end
 
     describe 'DELETE #destroy' do
       it 'raise ActiveRecord::RecordNotFound' do
-        expect{ delete :destroy, { id: @peso_outro_user } }.to raise_error(ActiveRecord::RecordNotFound)
+        delete :destroy, { id: @peso_outro_user }
+        expect(response).to render_erro
       end
     end
   end

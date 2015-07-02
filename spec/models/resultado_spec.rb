@@ -44,9 +44,10 @@ RSpec.describe Resultado do
 
     it '.listar_por_total_exame' do
       user = create(:user)
-      resultado = create(:resultado, user: user)
+      exame = create(:exame)
+      resultado = create(:resultado, user: user, exame: exame)
 
-      expect(user.resultado.listar_por_total_exame[0].exame_id).to eq resultado.exame_id
+      expect(user.resultado.listar_por_total_exame(exame.nome, 10.days.ago.strftime("%d/%m/%Y"))[0].exame_id).to eq resultado.exame_id
     end
 
     it '.media_valor_de_exame' do
