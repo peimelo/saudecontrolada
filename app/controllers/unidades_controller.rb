@@ -18,7 +18,7 @@ class UnidadesController < ApplicationController
     @unidade = Unidade.new(unidade_params)
 
     if @unidade.save
-      redirect_to unidades_url, notice: t('mensagens.flash.with_link.create')
+      redirect_to unidades_url, notice: t('mensagens.flash.create')
     else
       render :new
     end
@@ -26,7 +26,7 @@ class UnidadesController < ApplicationController
 
   def update
     if @unidade.update(unidade_params)
-      redirect_to unidades_url, notice: t('mensagens.flash.with_link.update')
+      redirect_to unidades_url, notice: t('mensagens.flash.update')
     else
       render :edit
     end
