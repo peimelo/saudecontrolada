@@ -73,7 +73,7 @@ class DashboardController < ApplicationController
         ]
     )
 
-	    f.series(
+    f.series(
         name: 'Meu IMC',
         data: [@meu_imc]
 	    )

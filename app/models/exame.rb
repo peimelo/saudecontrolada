@@ -41,7 +41,7 @@ class Exame < ActiveRecord::Base
     elsif valor.idade_inferior.nil? and valor.idade_superior
       retorno += " Idade abaixo de: #{ valor.idade_superior.to_i } anos |"
     end
-    
+
     if valor.valor_inferior and valor.valor_superior
       retorno += " Valor: #{ valor.valor_inferior } ~ #{ valor.valor_superior } |"
     elsif valor.valor_inferior and !valor.valor_superior

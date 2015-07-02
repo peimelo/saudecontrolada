@@ -43,17 +43,6 @@ class ApplicationController < ActionController::Base
 
   private
 
-    def translate_version(version)
-      case version
-        when 'create'
-          t('links.inclusao')
-        when 'destroy'
-          t('links.exclusao')
-        when 'update'
-          t('links.alteracao')
-      end
-    end
-
     def user_administrador_sistema?
       unless current_user.admin?
         redirect_to root_path, alert: t('mensagens.erros.sem_permissao')
