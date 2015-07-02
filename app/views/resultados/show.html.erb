@@ -22,7 +22,7 @@
         <%= high_chart('resultado', @chart_resultado) %>
       </div>
       <div class="panel-footer">
-        <%= raw "#{ t('labels.valor_medio', valor: numero_formatado(@valor_medio)) }" %>
+        <%= label_valor(t('labels.valor_medio'), numero_formatado(@valor_medio)) %>
       </div>
     </div>
   </div>
