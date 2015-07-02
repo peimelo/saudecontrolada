@@ -8,7 +8,7 @@ module ApplicationHelper
   end
 
   def label_valor(label, valor)
-    content_tag(:strong, label) + ': ' + valor
+    content_tag(:strong, label) + valor
   end
 
   def limpar_filtro(url, params)

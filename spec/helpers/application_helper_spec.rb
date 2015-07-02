@@ -12,6 +12,14 @@ RSpec.describe ApplicationHelper do
     end
   end
 
+  describe '#label_valor' do
+    it 'mostra label em negrito e depois o valor' do
+      %w[strong Label: valor].each do |item|
+        expect(helper.label_valor('Label: ', 'valor')).to include(item)
+      end
+    end
+  end
+
   describe '#limpar_filtro' do
     it 'sem parametro retorna nulo' do
       params = Hash.new

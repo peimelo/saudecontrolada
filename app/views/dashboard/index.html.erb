@@ -10,9 +10,9 @@
   </div>
   <div class="panel-footer">
     <% if @peso_atual.nil? %>
-      <%= raw t('.sem_dados') %><%= link_peso %>.
+      <%= label_valor(t('.sem_dados'), link_peso) %>
     <% else %>
-      <%= raw "#{ t('.meu_imc') }: #{ numero_formatado(@peso_atual.imc) } (#{ situacao_imc @peso_atual.imc })" %>
+      <%= label_valor(t('.meu_imc'), numero_formatado(@peso_atual.imc)) %> (<%= situacao_imc @peso_atual.imc %>)
     <% end %>
   </div>
 </div>
@@ -26,9 +26,9 @@
   </div>
   <div class="panel-footer">
     <% if @peso_atual.nil? %>
-      <%= raw t('.sem_dados') %><%= link_peso %>.
+      <%= label_valor(t('.sem_dados'), link_peso) %>
     <% else %>
-      <%= raw "#{ t('.peso_medio') }: #{ numero_formatado(@peso_medio) } kg" %>
+      <%= label_valor(t('.peso_medio'), numero_formatado(@peso_medio, 'kg')) %>
     <% end %>
   </div>
 </div>
