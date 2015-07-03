@@ -8,7 +8,7 @@ wb.add_worksheet(name: t('activerecord.models.peso.other')) do |sheet|
   sheet.add_row [
     model.human_attribute_name(:data),
     model.human_attribute_name(:altura),
-    model.human_attribute_name(:peso),
+    model.human_attribute_name(:valor),
     model.human_attribute_name(:peso_ideal),
     model.human_attribute_name(:situacao_imc)
   ], style: header_style
@@ -17,7 +17,7 @@ wb.add_worksheet(name: t('activerecord.models.peso.other')) do |sheet|
     sheet.add_row [
       l(registro.data),
       number_to_human(registro.altura),
-      number_to_human(registro.peso),
+      number_to_human(registro.valor),
       registro.peso_ideal,
       situacao_imc(registro.imc, false),
     ]

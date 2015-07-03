@@ -3,7 +3,8 @@ module SearchModule
 
   included do
     scope :listar, -> (search = nil, order = 'nome') {
-      search(search)
+      select(:id, :nome)
+        .search(search)
         .order(order)
     }
   end

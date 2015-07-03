@@ -27,6 +27,15 @@ RSpec.describe Peso do
     it { should validate_numericality_of(:valor).is_greater_than_or_equal_to(3.35).is_less_than_or_equal_to(400) }
   end
 
+  describe 'scopes' do
+    it '.listar' do
+      user = create(:user)
+      peso = create(:peso, user: user)
+
+      expect(user.peso.listar).to match [peso]
+    end
+  end
+
   describe '#imc' do
     it '1,80m e 70Kg deve retornar 21.6' do
       expect(build(:peso, altura: 1.8, valor: 70).imc).to eq 21.6

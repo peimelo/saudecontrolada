@@ -18,6 +18,11 @@ class Peso < ActiveRecord::Base
   validates :altura, numericality: { greater_than: 0.48, less_than_or_equal_to: 2.5 }
   validates :valor, numericality: { greater_than_or_equal_to: 3.35, less_than_or_equal_to: 400 }
 
+  scope :listar, -> {
+    select(:id, :altura, :data, :valor)
+      .order(data: :desc)
+  }
+
   def imc
     (self.valor / (self.altura * self.altura)).round(2)
   end

@@ -2,11 +2,8 @@ class PesosController < ApplicationController
   before_action :set_peso, only: [:show, :edit, :update, :destroy]
 
   def index
-    if params[:format].nil?
-      @pesos = current_user.peso.page(params[:page]).order(data: :desc)
-    else
-      @pesos = current_user.peso.order(data: :desc)
-    end
+    @pesos = current_user.peso.listar
+    @pesos = @pesos.page(params[:page]) unless params[:format].present?
 
     respond_to do |format|
       format.html

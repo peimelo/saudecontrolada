@@ -220,21 +220,21 @@ RSpec.describe ResultadosController do
     end
 
     describe 'GET #edit' do
-      it 'raise ActiveRecord::RecordNotFound' do
+      it 'mostra tela de erro' do
         get :edit, { id: @resultado_outro_user }
         expect(response).to render_erro
       end
     end
 
     describe 'PATCH #update' do
-      it 'raise ActiveRecord::RecordNotFound' do
+      it 'mostra tela de erro' do
         patch :update, id: @resultado_outro_user, resultado: valid_attributes
         expect(response).to render_erro
       end
     end
 
     describe 'DELETE #destroy' do
-      it 'raise ActiveRecord::RecordNotFound' do
+      it 'mostra tela de erro' do
         delete :destroy, { id: @resultado_outro_user }
         expect(response).to render_erro
       end
