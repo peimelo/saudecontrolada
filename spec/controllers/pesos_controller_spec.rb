@@ -115,7 +115,7 @@ RSpec.describe PesosController do
         end
 
         it 'creates a new peso' do
-          expect(Peso.exists?(assigns[:peso])).to be_truthy
+          expect(Peso.exists?(assigns[:peso].id)).to be_truthy
         end
 
         it 'redirects to pesos#index' do
@@ -129,7 +129,7 @@ RSpec.describe PesosController do
         end
 
         it 'does not save the new peso' do
-          expect(Peso.exists?(assigns[:peso])).to be_falsey
+          expect(Peso.exists?(assigns[:peso].id)).to be_falsey
         end
 
         it 're-renders the new method' do
@@ -178,7 +178,7 @@ RSpec.describe PesosController do
       end
 
       it 'deletes the peso' do
-        expect(Peso.exists?(peso)).to be_falsey
+        expect(Peso.exists?(peso.id)).to be_falsey
       end
 
       it 'redirects to pesos#index' do

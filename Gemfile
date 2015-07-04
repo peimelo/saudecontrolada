@@ -1,14 +1,14 @@
 source 'http://rubygems.org'
-ruby '2.1.2'
+ruby '2.2.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.8'
+gem 'rails', '4.2.3'
 
 # Use mysql as the database for Active Record
 gem 'mysql2'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0.0'
+gem 'sass-rails', '~> 5.0'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -28,9 +28,9 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # layout
-gem 'bootstrap-sass', '~> 3.3.0'
+gem 'bootstrap-sass'#, '~> 3.3.0'
 gem 'autoprefixer-rails'
-gem 'simple_form', '~> 3.1.0'
+gem 'simple_form'#, '~> 3.1.0'
 gem 'nested_form_fields'
 # icons
 gem 'font-awesome-sass'
@@ -49,14 +49,14 @@ gem 'prawn-table', '~> 0.2.0'
 # usar no migrate comando para gerar fk
 gem 'foreigner'
 
-gem 'delocalize'
+# gem 'delocalize'
 
 # graficos
 gem 'lazy_high_charts'
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-gem 'spring', group: :development
-gem 'spring-commands-rspec', group: :development
+# gem 'spring', group: :development
+# gem 'spring-commands-rspec', group: :development
 
 # customizar json dos models
 gem 'active_model_serializers'
@@ -66,8 +66,8 @@ gem 'airbrake'
 
 group :development do
   gem 'capistrano3-unicorn'
-  gem 'better_errors'
-  gem 'binding_of_caller'
+  # gem 'better_errors'
+  # gem 'binding_of_caller'
   gem 'bullet'
   gem 'guard-brakeman'
   gem 'letter_opener'
@@ -78,7 +78,7 @@ group :development do
   gem 'rb-fsevent', :require => false
   gem 'rb-fchange', :require => false
   gem 'ruby_gntp'
-  gem 'webrick', '1.3.1'
+  # gem 'webrick', '1.3.1'
 end
 
 group :test do
@@ -94,6 +94,16 @@ group :test do
 end
 
 group :development, :test do
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug'
+
+  # Access an IRB console on exception pages or by using <%= console %> in views
+  gem 'web-console', '~> 2.0'
+
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'spring'
+  gem 'spring-commands-rspec'
+
   gem 'factory_girl_rails'
   gem 'guard-rspec', require: false
   gem 'rspec-rails'

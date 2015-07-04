@@ -4,7 +4,7 @@
 <%= titulo icon('bullhorn fa-lg', t('activerecord.models.contato.other')) %>
 
 <%= render 'shared/botoes_incluir_e_download', controller: nil, model: nil,
-           url_xls: contatos_path(format: 'xls'), url_pdf: nil %>
+           url_xls: contatos_path(format: 'xlsx'), url_pdf: nil %>
 
 <%= page_entries_info @acoes, model: model_class %>
 

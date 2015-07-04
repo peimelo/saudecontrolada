@@ -1,0 +1,27 @@
+wb = xlsx_package.workbook
+wb.use_shared_strings = true # para funcionar no iPhone
+header_style = wb.styles.add_style(b: true, border: Axlsx::STYLE_THIN_BORDER)
+
+model = Contato
+
+wb.add_worksheet(name: t('activerecord.models.contato.other')) do |sheet|
+  sheet.add_row [
+    model.human_attribute_name(:created_at),
+    model.human_attribute_name(:nome),
+    model.human_attribute_name(:email),
+    model.human_attribute_name(:telefones),
+    model.human_attribute_name(:ip),
+    model.human_attribute_name(:mensagem)
+  ], style: header_style
+
+  @contatos.each do |registro|
+    sheet.add_row [
+      l(registro.created_at, format: :data_hora),
+      registro.nome,
+      registro.email,
+      registro.telefones,
+      registro.ip,
+      registro.mensagem
+    ]
+  end
+end

@@ -151,7 +151,7 @@ RSpec.describe ReferenciasController do
         end
 
         it 'creates a new referencia' do
-          expect(Referencia.exists?(assigns[:referencia])).to be_truthy
+          expect(Referencia.exists?(assigns[:referencia].id)).to be_truthy
         end
 
         it 'redirects to referencias#edit' do
@@ -165,7 +165,7 @@ RSpec.describe ReferenciasController do
         end
 
         it 'does not save the new referencia' do
-          expect(Referencia.exists?(assigns[:referencia])).to be_falsey
+          expect(Referencia.exists?(assigns[:referencia].id)).to be_falsey
         end
 
         it 're-renders the new method' do
@@ -213,7 +213,7 @@ RSpec.describe ReferenciasController do
         it 'not deletes' do
           valor
           delete :destroy, { id: referencia }
-          expect(Referencia.exists?(referencia)).to be_truthy
+          expect(Referencia.exists?(referencia.id)).to be_truthy
         end
       end
 
@@ -223,7 +223,7 @@ RSpec.describe ReferenciasController do
         end
 
         it 'deletes the referencia' do
-          expect(Referencia.exists?(referencia)).to be_falsey
+          expect(Referencia.exists?(referencia.id)).to be_falsey
         end
 
         it 'redirects to referencias#index' do
