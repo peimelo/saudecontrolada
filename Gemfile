@@ -28,9 +28,9 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # layout
-gem 'bootstrap-sass', '~> 3.3.0'
+gem 'bootstrap-sass'#, '~> 3.3.0'
 gem 'autoprefixer-rails'
-gem 'simple_form', '~> 3.1.0'
+gem 'simple_form'#, '~> 3.1.0'
 gem 'nested_form_fields'
 # icons
 gem 'font-awesome-sass'
@@ -49,7 +49,7 @@ gem 'prawn-table', '~> 0.2.0'
 # usar no migrate comando para gerar fk
 gem 'foreigner'
 
-gem 'delocalize'
+# gem 'delocalize'
 
 # graficos
 gem 'lazy_high_charts'

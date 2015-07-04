@@ -6,7 +6,7 @@ RSpec.describe ContatosController do
   let(:valid_attributes) { attributes_for(:contato) }
   let(:invalid_attributes) { attributes_for(:invalid_contato) }
 
-  let(:formato_excel_session) { { format: :xls } }
+  let(:formato_excel_session) { { format: :xlsx } }
 
   shared_examples('public access to create a new contato') do
     describe 'GET #new' do
@@ -27,7 +27,7 @@ RSpec.describe ContatosController do
         end
 
         it 'creates a new contato' do
-          expect(Contato.exists?(assigns[:contato])).to be_truthy
+          expect(Contato.exists?(assigns[:contato].id)).to be_truthy
         end
 
         it 'redirects to contatos#new' do
@@ -41,7 +41,7 @@ RSpec.describe ContatosController do
         end
 
         it 'does not save the new contato' do
-          expect(Contato.exists?(assigns[:contato])).to be_falsey
+          expect(Contato.exists?(assigns[:contato].id)).to be_falsey
         end
 
         it 're-renders the new method' do
@@ -109,7 +109,7 @@ RSpec.describe ContatosController do
 
       it 'download Excel and response have content in application/xls' do
         get :index, formato_excel_session
-        expect(response.headers['Content-Type']).to have_content 'application/xls'
+        expect(response.headers['Content-Type']).to have_content 'application/vnd.openxmlformats-officedocument'
       end
     end
   end

@@ -131,7 +131,7 @@ RSpec.describe ResultadosController do
         end
 
         it 'creates a new resultado' do
-          expect(Resultado.exists?(assigns[:resultado])).to be_truthy
+          expect(Resultado.exists?(assigns[:resultado].id)).to be_truthy
         end
 
         it 'redirects to resultados#index' do
@@ -145,7 +145,7 @@ RSpec.describe ResultadosController do
         end
 
         it 'does not save the new resultado' do
-          expect(Resultado.exists?(assigns[:resultado])).to be_falsey
+          expect(Resultado.exists?(assigns[:resultado].id)).to be_falsey
         end
 
         it 're-renders the new method' do
@@ -195,7 +195,7 @@ RSpec.describe ResultadosController do
       end
 
       it 'deletes the resultado' do
-        expect(Resultado.exists?(resultado)).to be_falsey
+        expect(Resultado.exists?(resultado.id)).to be_falsey
       end
 
       it 'redirects to resultados#index' do

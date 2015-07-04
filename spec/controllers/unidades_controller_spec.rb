@@ -151,7 +151,7 @@ RSpec.describe UnidadesController do
         end
 
         it 'creates a new unidade' do
-          expect(Unidade.exists?(assigns[:unidade])).to be_truthy
+          expect(Unidade.exists?(assigns[:unidade].id)).to be_truthy
         end
 
         it 'redirects to unidades#index' do
@@ -165,7 +165,7 @@ RSpec.describe UnidadesController do
         end
 
         it 'does not save the new unidade' do
-          expect(Unidade.exists?(assigns[:unidade])).to be_falsey
+          expect(Unidade.exists?(assigns[:unidade].id)).to be_falsey
         end
 
         it 're-renders the new method' do
@@ -213,7 +213,7 @@ RSpec.describe UnidadesController do
         it 'not deletes' do
           exame
           delete :destroy, { id: unidade }
-          expect(Unidade.exists?(unidade)).to be_truthy
+          expect(Unidade.exists?(unidade.id)).to be_truthy
         end
       end
 
@@ -223,7 +223,7 @@ RSpec.describe UnidadesController do
         end
 
         it 'deletes the unidade' do
-          expect(Unidade.exists?(unidade)).to be_falsey
+          expect(Unidade.exists?(unidade.id)).to be_falsey
         end
 
         it 'redirects to unidades#index' do

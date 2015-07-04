@@ -13,7 +13,7 @@
 
 FactoryGirl.define do
   factory :peso do
-    altura '1,80'
+    altura 1.8
     data { rand(1..100).days.ago.strftime('%d/%m/%Y') }
     valor 70
     user

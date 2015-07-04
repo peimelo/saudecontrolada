@@ -173,7 +173,7 @@ RSpec.describe ExamesController do
         end
 
         it 'creates a new exame' do
-          expect(Exame.exists?(assigns[:exame])).to be_truthy
+          expect(Exame.exists?(assigns[:exame].id)).to be_truthy
         end
 
         it 'redirects to exames#index' do
@@ -187,7 +187,7 @@ RSpec.describe ExamesController do
         end
 
         it 'does not save the new exame' do
-          expect(Exame.exists?(assigns[:exame])).to be_falsey
+          expect(Exame.exists?(assigns[:exame].id)).to be_falsey
         end
 
         it 're-renders the new method' do
@@ -235,7 +235,7 @@ RSpec.describe ExamesController do
         it 'not deletes' do
           resultado
           delete :destroy, { id: exame }
-          expect(Exame.exists?(exame)).to be_truthy
+          expect(Exame.exists?(exame.id)).to be_truthy
         end
       end
 
@@ -243,7 +243,7 @@ RSpec.describe ExamesController do
         it 'deletes exame and valor' do
           valor
           delete :destroy, { id: exame }
-          expect(Valor.exists?(valor)).to be_falsey
+          expect(Valor.exists?(valor.id)).to be_falsey
         end
       end
 
@@ -253,7 +253,7 @@ RSpec.describe ExamesController do
         end
 
         it 'deletes the exame' do
-          expect(Exame.exists?(exame)).to be_falsey
+          expect(Exame.exists?(exame.id)).to be_falsey
         end
 
         it 'redirects to exames#index' do

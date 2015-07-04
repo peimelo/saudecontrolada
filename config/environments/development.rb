@@ -40,11 +40,10 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   # ---------------------------------------------
-    config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.delivery_method = :letter_opener
 
-    # para funcionar quando se usa vagrant
-    # You can find your apparent IP by hitting the old error page's "Show env dump" and looking at "REMOTE_ADDR"
-    # por exemplo: TRUSTED_IP=10.0.2.2 rails s
-    BetterErrors::Middleware.allow_ip! ENV['TRUSTED_IP'] if ENV['TRUSTED_IP']
-  end
+  # para funcionar quando se usa vagrant
+  # You can find your apparent IP by hitting the old error page's "Show env dump" and looking at "REMOTE_ADDR"
+  # por exemplo: TRUSTED_IP=10.0.2.2 rails s
+  BetterErrors::Middleware.allow_ip! ENV['TRUSTED_IP'] if ENV['TRUSTED_IP']
 end
