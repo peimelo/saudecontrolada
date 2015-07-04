@@ -23,7 +23,7 @@ RSpec.describe DashboardController do
 
     describe 'GET #index' do
       it 'retornar meu imc' do
-        create(:peso, user: user)
+        create(:peso, altura: 1.8, valor: 70, user: user)
         get :index
         expect(assigns(:meu_imc)).to eq 21.6
       end

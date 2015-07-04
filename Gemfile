@@ -27,14 +27,11 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-# layout
 gem 'bootstrap-sass'#, '~> 3.3.0'
 gem 'autoprefixer-rails'
 gem 'simple_form'#, '~> 3.1.0'
 gem 'nested_form_fields'
-# icons
 gem 'font-awesome-sass'
-# paginacao
 gem 'bootstrap-will_paginate'
 
 # enviar e-mail em background
@@ -42,23 +39,11 @@ gem 'delayed_job_active_record'
 gem 'daemons'
 gem 'delayed_job_web'
 
-# pdf
 gem 'prawn', '~> 2.0.0'
 gem 'prawn-table', '~> 0.2.0'
 
-# usar no migrate comando para gerar fk
-# gem 'foreigner'
-
-# gem 'delocalize'
-
-# graficos
 gem 'lazy_high_charts'
 
-# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-# gem 'spring', group: :development
-# gem 'spring-commands-rspec', group: :development
-
-# customizar json dos models
 gem 'active_model_serializers'
 
 gem 'newrelic_rpm'
@@ -78,7 +63,6 @@ group :development do
   gem 'rb-fsevent', :require => false
   gem 'rb-fchange', :require => false
   gem 'ruby_gntp'
-  # gem 'webrick', '1.3.1'
 end
 
 group :test do
@@ -116,7 +100,6 @@ gem 'capistrano-rails'
 gem 'capistrano-rbenv'
 # gem 'unicorn'
 
-# authentication
 gem 'devise', '~> 3.5.0'
 gem 'omniauth'
 gem 'omniauth-facebook'
@@ -128,9 +111,7 @@ gem 'exception_notification'
 
 gem 'ancestry'
 
-# xls
 gem 'axlsx'
 gem 'axlsx_rails'
 
-# breadcrumbs
 gem 'gretel'

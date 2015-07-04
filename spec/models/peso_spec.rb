@@ -12,7 +12,14 @@
 #
 
 RSpec.describe Peso do
-  it { expect(build(:peso)).to be_valid }
+  let(:peso) { create(:peso, user: @user) }
+  let(:build_peso) { build(:peso, altura: 1.8, valor: 70, user: @user) }
+
+  before(:all) do
+    @user = create(:user)
+  end
+
+  it { expect(build_peso).to be_valid }
 
   describe 'associations' do
     it { should belong_to(:user) }
@@ -29,22 +36,19 @@ RSpec.describe Peso do
 
   describe 'scopes' do
     it '.listar' do
-      user = create(:user)
-      peso = create(:peso, user: user)
-
-      expect(user.peso.listar).to match [peso]
+      expect(@user.peso.listar).to match [peso]
     end
   end
 
   describe '#imc' do
     it '1,80m e 70Kg deve retornar 21.6' do
-      expect(build(:peso, altura: 1.8, valor: 70).imc).to eq 21.6
+      expect(build_peso.imc).to eq 21.6
     end
   end
 
   describe '#peso_ideal' do
     it '1,80m e 70Kg deve retornar "59,91 ~ 80,97"' do
-      expect(build(:peso, altura: 1.8, valor: 70).peso_ideal).to eq '59,91 ~ 80,97'
+      expect(build_peso.peso_ideal).to eq '59,91 ~ 80,97'
     end
   end
 end

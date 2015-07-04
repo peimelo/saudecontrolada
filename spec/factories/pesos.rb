@@ -13,9 +13,9 @@
 
 FactoryGirl.define do
   factory :peso do
-    altura 1.8
+    altura { rand(0.48..2.5) }
     data { rand(1..100).days.ago.strftime('%d/%m/%Y') }
-    valor 70
+    valor { rand(3.35..400) }
     user
 
     factory :invalid_peso do
