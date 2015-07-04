@@ -158,8 +158,6 @@ GEM
     ffi (1.9.10)
     font-awesome-sass (4.3.2.1)
       sass (~> 3.2)
-    foreigner (1.7.4)
-      activerecord (>= 3.0.0)
     formatador (0.2.5)
     git-version-bump (0.15.1)
     globalid (0.3.5)
@@ -454,7 +452,6 @@ DEPENDENCIES
   factory_girl_rails
   faker
   font-awesome-sass
-  foreigner
   gretel
   guard-brakeman
   guard-rspec

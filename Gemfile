@@ -47,7 +47,7 @@ gem 'prawn', '~> 2.0.0'
 gem 'prawn-table', '~> 0.2.0'
 
 # usar no migrate comando para gerar fk
-gem 'foreigner'
+# gem 'foreigner'
 
 # gem 'delocalize'
 
