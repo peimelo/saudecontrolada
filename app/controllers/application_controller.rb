@@ -30,6 +30,8 @@ class ApplicationController < ActionController::Base
     end
 
     def server_error(exception)
+      logger.warn "##### ERRO = #{exception}"
+
       ExceptionNotifier.ignored_exceptions = []
 
       ExceptionNotifier.notify_exception(

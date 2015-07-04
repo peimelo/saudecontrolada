@@ -4,7 +4,7 @@
 #
 #  id         :integer          not null, primary key
 #  data       :date             not null
-#  valor      :decimal(10, 2)
+#  valor      :decimal(10, 2)   not null
 #  exame_id   :integer          not null
 #  user_id    :integer          not null
 #  created_at :datetime

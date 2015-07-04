@@ -4,7 +4,7 @@
 #
 #  id         :integer          not null, primary key
 #  data       :date             not null
-#  valor      :decimal(10, 2)
+#  valor      :decimal(10, 2)   not null
 #  exame_id   :integer          not null
 #  user_id    :integer          not null
 #  created_at :datetime
@@ -17,7 +17,7 @@ class Resultado < ActiveRecord::Base
   belongs_to :exame
   belongs_to :user
 
-  validates :data, :exame_id, :exame_nome, presence: true
+  validates :data, :exame_id, :exame_nome, :valor, presence: true
   validates :valor, numericality: { less_than_or_equal_to: 99999999.99 },
             unless: Proc.new { |a| a.valor.blank? }
 

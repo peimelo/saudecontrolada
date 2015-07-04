@@ -6,7 +6,7 @@
 #  nome       :string(255)
 #  email      :string(255)      not null
 #  telefones  :string(255)
-#  mensagem   :text             not null
+#  mensagem   :text(65535)      not null
 #  ip         :string(255)
 #  created_at :datetime
 #  updated_at :datetime

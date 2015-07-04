@@ -5,6 +5,14 @@ RSpec.describe ApplicationHelper do
     end
   end
 
+  describe '#data_formatada' do
+    it 'diferente de false retorna o icone correspondente' do
+      time = Time.now
+      expect(helper.data_formatada(nil)).to eq ''
+      expect(helper.data_formatada(time)).to eq time.strftime('%d/%m/%Y')
+    end
+  end
+
   describe '#imagem_true' do
     it 'diferente de false retorna o icone correspondente' do
       expect(helper.imagem_true(false)).to eq nil

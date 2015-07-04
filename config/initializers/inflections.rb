@@ -13,6 +13,7 @@ ActiveSupport::Inflector.inflections(:en) do |inflect|
   inflect.irregular 'erro_status', 'erros_status'
   inflect.irregular 'recurso_categoria', 'recursos_categorias'
   inflect.irregular 'referencia', 'referencias'
+  inflect.irregular 'resultado', 'resultados'
   inflect.irregular 'valor', 'valores'
 end
 

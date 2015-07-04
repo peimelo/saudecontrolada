@@ -23,13 +23,6 @@ class Peso < ActiveRecord::Base
       .order(data: :desc)
   }
 
-  # def altura
-  #   self.altura.round(2).to_s.gsub('.', ',')
-  # end
-  # def altura=(al)
-  #   altura = al
-  # end
-
   def imc
     (self.valor / (self.altura * self.altura)).round(2)
   end

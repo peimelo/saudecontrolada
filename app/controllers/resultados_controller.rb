@@ -82,6 +82,8 @@ class ResultadosController < ApplicationController
   private
 
     def resultado_params
+      params[:resultado][:valor] = params[:resultado][:valor].gsub(',', '.') unless params[:resultado][:valor].nil?
+
       params.require(:resultado).permit(:data, :exame_nome, :valor)
     end
 

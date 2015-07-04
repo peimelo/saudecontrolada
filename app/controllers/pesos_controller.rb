@@ -52,6 +52,9 @@ class PesosController < ApplicationController
   private
 
     def peso_params
+      params[:peso][:altura] = params[:peso][:altura].gsub(',', '.') unless params[:peso][:altura].nil?
+      params[:peso][:valor] = params[:peso][:valor].gsub(',', '.') unless params[:peso][:valor].nil?
+
       params.require(:peso).permit(:altura, :data, :valor)
     end
 

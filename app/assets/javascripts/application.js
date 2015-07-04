@@ -20,7 +20,7 @@
 //= require inputmask/jquery.inputmask
 //= require inputmask/jquery.inputmask.date.extensions
 // require jquery.inputmask-multi
-// require jquery.inputmask.numeric.extensions
+//= require inputmask/jquery.inputmask.numeric.extensions
 // require jquery.inputmask.extensions
 // require jquery.inputmask.phone.extensions
 // require jquery.inputmask.regex.extensions

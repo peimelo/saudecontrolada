@@ -5,10 +5,10 @@
       <%= f.input :data, as: :string, input_html: { class: 'datepicker inputmask', value: "#{data_formatada(registro.data)}" } %>
     </div>
     <div class="col-sm-4">
-      <%= f.input :altura %>
+      <%= f.input :altura, input_html: { class: 'inputmask_altura' } %>
     </div>
     <div class="col-sm-4">
-      <%= f.input :valor, autofocus: true %>
+      <%= f.input :valor, autofocus: true, input_html: { class: 'inputmask_peso' } %>
     </div>
   </div>
   <%= botao_salvar %>
