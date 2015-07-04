@@ -1,8 +1,8 @@
-<%= corrigir_erros @peso.errors.any? %>
-<%= simple_form_for(@peso) do |f| %>
+<%= corrigir_erros registro.errors.any? %>
+<%= simple_form_for(registro) do |f| %>
   <div class="row">
     <div class="col-sm-4">
-      <%= f.input :data, as: :string, input_html: { class: 'datepicker inputmask', value: "#{l @peso.data}" } %>
+      <%= f.input :data, as: :string, input_html: { class: 'datepicker inputmask', value: "#{data_formatada(registro.data)}" } %>
     </div>
     <div class="col-sm-4">
       <%= f.input :altura %>

@@ -3,6 +3,10 @@ module ApplicationHelper
     render partial: 'layouts/alert_model_error', locals: { tem_erro: tem_erro }
   end
 
+  def data_formatada(data)
+    data.nil? ? '' : l(data)
+  end
+
   def imagem_true(valor)
     icon('check fa-lg') if valor
   end

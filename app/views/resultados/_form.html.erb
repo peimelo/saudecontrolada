@@ -3,7 +3,7 @@
   <%= f.input :exame_nome, autofocus: true, input_html: { data: { autocomplete_source: exames_path } } %>
   <div class="row">
     <div class="col-sm-6">
-      <%= f.input :data, as: :string, input_html: { class: 'datepicker inputmask' } %>
+      <%= f.input :data, as: :string, input_html: { class: 'datepicker inputmask', value: "#{data_formatada(registro.data)}" } %>
     </div>
     <div class="col-sm-6">
       <%= f.input :valor %>
@@ -11,8 +11,8 @@
   </div>
 
   <%= botao_salvar %>
-  <% if !@exame.nil? %>
-    <%= botao_cancelar resultado_path(@exame) %>
+  <% if !exame.nil? %>
+    <%= botao_cancelar resultado_path(exame) %>
   <% elsif !registro.exame.nil? %>
     <%= botao_cancelar resultado_path(registro.exame) %>
   <% else %>

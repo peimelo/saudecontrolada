@@ -3,7 +3,7 @@ class ExamesController < ApplicationController
   before_action :set_exame, only: [:edit, :update, :destroy]
 
   def index
-    if params[:term]
+    if params[:term] # autocomplete
       @exames = Exame.where('nome LIKE ?', "%#{ params[:term] }%").order(:nome)
     else
       @exames = Exame.arrange_as_array({order: :nome})

@@ -1,4 +1,4 @@
 <%= currently_at t('activerecord.models.resultado.other') %>
 <% breadcrumb :new_resultado, @exame %>
 <%= titulo t('views.new.titulo', model: Resultado.model_name.human) %>
-<%= render 'form', registro: @resultado %>
+<%= render 'form', registro: @resultado, exame: @exame %>
