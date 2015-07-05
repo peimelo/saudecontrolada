@@ -12,6 +12,15 @@ $(function() {
 });
 
 $(function() {
+    $(".inputmask_idade").inputmask('numeric', {
+        allowPlus: false,
+        allowMinus: false,
+        digits: 3,
+        integerDigits: 3,
+        radixPoint: ','});
+});
+
+$(function() {
     $(".inputmask_peso").inputmask('numeric', {
         allowPlus: false,
         allowMinus: false,
@@ -27,16 +36,4 @@ $(function() {
         digits: 2,
         integerDigits: 8,
         radixPoint: ','});
-});
-
-$(function() {
-    $(".datepicker").datepicker({
-        showOn: "button",
-        showOtherMonths: true,
-        changeMonth: true,
-        changeYear: true,
-        selectOtherMonths: true,
-        dayNamesMin: ['Do','Seg','Ter','Qua','Qui','Sex','Sáb'],
-        buttonText: "<i class='fa fa-calendar fa-lg'></i>"
-    });
 });

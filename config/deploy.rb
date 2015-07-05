@@ -4,7 +4,7 @@ lock '3.4.0'
 set :application, 'saudecontrolada'
 set :rails_env, 'production'
 
-set :rbenv_ruby, '2.1.2'
+set :rbenv_ruby, '2.2.2'
 
 #set :unicorn_config_path, '/var/www/saudecontrolada/current/config/unicorn.rb'
 
@@ -41,4 +41,4 @@ set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets}
 # set :keep_releases, 5
 
 require 'airbrake/capistrano3'
-after "deploy:finished", "airbrake:deploy"
+after 'deploy:finished', 'airbrake:deploy'

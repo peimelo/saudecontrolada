@@ -1,6 +1,7 @@
 class ExamesController < ApplicationController
-  before_action :user_administrador_sistema?
+  before_action :user_administrador_sistema?, only: [:new, :edit, :create, :update, :destroy]
   before_action :set_exame, only: [:edit, :update, :destroy]
+  before_action :set_referencia, only: [:new, :edit, :create, :update]
 
   def index
     if params[:term] # autocomplete
@@ -61,6 +62,27 @@ class ExamesController < ApplicationController
   private
 
     def exame_params
+      unless params[:exame][:valor_attributes].nil?
+
+        params[:exame][:valor_attributes].each do |valor|
+          unless valor[1][:idade_inferior].nil?
+            valor[1][:idade_inferior] = valor[1][:idade_inferior].gsub(',', '.')
+          end
+
+          unless valor[1][:idade_superior].nil?
+            valor[1][:idade_superior] = valor[1][:idade_superior].gsub(',', '.')
+          end
+
+          unless valor[1][:valor_inferior].nil?
+            valor[1][:valor_inferior] = valor[1][:valor_inferior].gsub(',', '.')
+          end
+
+          unless valor[1][:valor_superior].nil?
+            valor[1][:valor_superior] = valor[1][:valor_superior].gsub(',', '.')
+          end
+        end
+      end
+
       params.require(:exame).permit(
         :nome,
         :parent_id,
@@ -81,5 +103,9 @@ class ExamesController < ApplicationController
 
     def set_exame
       @exame = Exame.find(params[:id])
+    end
+
+    def set_referencia
+      @referencias = Referencia.listar
     end
 end

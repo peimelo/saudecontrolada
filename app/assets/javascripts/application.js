@@ -7,7 +7,7 @@
 // require jquery-ui/button
 //= require jquery-ui/datepicker
 //= require jquery-ui/datepicker-pt-BR
-//= require date
+//= require datepicker
 // require jquery-ui/dialog
 // require jquery-ui/menu
 // require jquery-ui/progressbar
@@ -24,6 +24,7 @@
 // require jquery.inputmask.extensions
 // require jquery.inputmask.phone.extensions
 // require jquery.inputmask.regex.extensions
+//= require inputmask
 
 // require bootstrap-sprockets
 // require bootstrap/transition.js

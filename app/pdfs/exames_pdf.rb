@@ -15,7 +15,7 @@ class ExamesPdf < Prawn::Document
     ]] +
     @registros.map do |registro|
       [
-        registro.nome
+        registro.name_for_selects
       ]
     end    
   end

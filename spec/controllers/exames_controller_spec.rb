@@ -63,7 +63,7 @@ RSpec.describe ExamesController do
     describe 'GET #index' do
       it 'requires login' do
         get :index
-        expect(response).to redirect_to root_url
+        expect(response).to render_template :index
       end
     end
 

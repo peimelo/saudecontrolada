@@ -83,11 +83,11 @@
           <% @exame.valor.each do |registro| %>
             <tr>
               <td><%= registro.sexo %></td>
-              <td><%= registro.idade_inferior.nil? ? '' : registro.idade_inferior.to_i %></td>
-              <td><%= registro.idade_superior.nil? ? '' : registro.idade_superior.to_i %></td>
-              <td><%= registro.valor_inferior %></td>
-              <td><%= registro.valor_superior %></td>
-              <td><%= registro.referencia.nil? ? '' : registro.referencia.nome %></td>
+              <td><%= numero_formatado(registro.idade_inferior) %></td>
+              <td><%= numero_formatado(registro.idade_superior) %></td>
+              <td><%= numero_formatado(registro.valor_inferior) %></td>
+              <td><%= numero_formatado(registro.valor_superior) %></td>
+              <td><%= registro.referencia.try(:nome) %></td>
               <td><%= imagem_true(registro.valido?) %></td>
             </tr>
           <% end %>
