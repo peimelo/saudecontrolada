@@ -3,7 +3,15 @@ class ContatosController < ApplicationController
   before_action :user_administrador_sistema?, only: [:index]
 
   def index
-    @contatos = Contato.order(created_at: :desc).page(params[:page])
+    @contatos = Contato.listar
+    @contatos = @contatos.page(params[:page]) unless params[:format].present?
+
+    respond_to do |format|
+      format.html
+      format.xlsx {
+        response.headers['Content-Disposition'] = "attachment; filename=#{ t('activerecord.models.contato.other') }.xlsx"
+      }
+    end
   end
 
   def new

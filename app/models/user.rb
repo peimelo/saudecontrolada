@@ -48,7 +48,8 @@ class User < ActiveRecord::Base
   validates :date_of_birth, :gender, :name, presence: true
 
   scope :listar, -> {
-    order(current_sign_in_at: :desc)
+    select(:id, :current_sign_in_at, :email, :sign_in_count, :created_at, :confirmed_at)
+      .order(current_sign_in_at: :desc)
   }
 
   def self.from_omniauth(auth, current_user)
