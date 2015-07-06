@@ -4,27 +4,30 @@ class ResultadosController < ApplicationController
   before_action :set_resultado, only: [:edit, :update, :destroy]
 
   def index
-    if params[:format].nil?
-      if params[:nome].blank? and params[:data_inicial].blank? and params[:data_final].blank?
-        @resultados = nil
-      else
-        @resultados = current_user.resultado.listar_por_total_exame(
-          params[:nome],
-          params[:data_inicial],
-          params[:data_final]
-        ).page(params[:page])
-      end
-    else
-      @resultados = current_user.resultado.exportar
-    end
+    @resultados = current_user.resultado.listar
+    @resultados = @resultados.page(params[:page]) unless params[:format].present?
 
-    respond_to do |format|
-      format.html
-      format.pdf do
-        pdf = ResultadosPdf.new(@resultados, Resultado, current_user)
-        send_data pdf.render, filename: (Resultado.model_name.human + '.pdf'), disposition: 'inline'
-      end
-    end
+    # if params[:format].nil?
+    #   if params[:nome].blank? and params[:data_inicial].blank? and params[:data_final].blank?
+    #     @resultados = nil
+    #   else
+    #     @resultados = current_user.resultado.listar_por_total_exame(
+    #       params[:nome],
+    #       params[:data_inicial],
+    #       params[:data_final]
+    #     ).page(params[:page])
+    #   end
+    # else
+    #   @resultados = current_user.resultado.exportar
+    # end
+    #
+    # respond_to do |format|
+    #   format.html
+    #   format.pdf do
+    #     pdf = ResultadosPdf.new(@resultados, Resultado, current_user)
+    #     send_data pdf.render, filename: (Resultado.model_name.human + '.pdf'), disposition: 'inline'
+    #   end
+    # end
   end
 
   def show

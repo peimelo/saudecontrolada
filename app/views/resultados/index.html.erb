@@ -33,32 +33,29 @@
   </div>
 </div>
 
-<% unless @resultados.nil? %>
-  <%= page_entries_info @resultados, model: model_class %>
-
-  <% if not @resultados.empty? %>
-    <div class="table-responsive">
-      <table class="table table-bordered table-condensed table-hover table-striped">
-        <thead>
+<%= page_entries_info @resultados, model: model_class %>
+<% unless @resultados.empty? %>
+  <div class="table-responsive">
+    <table class="table table-bordered table-condensed table-hover table-striped">
+      <thead>
+        <tr>
+          <th><%= t('bootstrap.actions') %></th>
+          <th><%= model_class.human_attribute_name(:data) %></th>
+          <th><%= model_class.human_attribute_name(:descricao) %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @resultados.each do |registro| %>
           <tr>
-            <th><%= t('bootstrap.actions') %></th>
-            <th><%= model_class.human_attribute_name(:nome) %></th>
-            <th><%= model_class.human_attribute_name(:total) %></th>
+            <td width="60">
+              <%= botao_visualizar resultado_path(registro), model_class %>
+            </td>
+            <td><%= l registro.data %></td>
+            <td><%= registro.descricao %></td>
           </tr>
-        </thead>
-        <tbody>
-          <% @resultados.each do |registro| %>
-            <tr>
-              <td width="60">
-                <%= botao_visualizar resultado_path(registro.exame), model_class %>
-              </td>
-              <td><%= link_to registro.nome, resultado_path(registro.exame) %></td>
-              <td><%= registro.total %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-  <% end %>
-  <%= will_paginate %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 <% end %>
+<%= will_paginate %>

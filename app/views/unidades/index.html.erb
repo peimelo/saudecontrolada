@@ -10,7 +10,7 @@
 
 <%= page_entries_info @unidades, model: model_class %>
 
-<% if not @unidades.empty? %>
+<% unless @unidades.empty? %>
   <div class="table-responsive">
     <table class="table table-bordered table-condensed table-hover table-striped">
       <thead>
