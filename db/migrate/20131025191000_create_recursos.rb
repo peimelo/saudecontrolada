@@ -7,7 +7,7 @@ class CreateRecursos < ActiveRecord::Migration
       t.boolean :visivel, :null => false, :default => false
       t.references :recurso_categoria, :null => false
 
-      t.timestamps
+      t.timestamps null: false
     end
 
     add_index :recursos, [:acao_id, :controlador_id], :unique => true

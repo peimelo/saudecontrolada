@@ -10,7 +10,7 @@ class CreateValores < ActiveRecord::Migration
       t.references :exame, null: false
       t.references :referencia, null: true
 
-      t.timestamps
+      t.timestamps null: false
     end
 
     add_foreign_key :valores, :exames

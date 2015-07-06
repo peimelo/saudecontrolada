@@ -11,7 +11,7 @@ class CreateErros < ActiveRecord::Migration
       t.string     :dispositivo
       t.references :condo, :null => true
 
-      t.timestamps
+      t.timestamps null: false
     end
 
     add_foreign_key :erros, :recursos

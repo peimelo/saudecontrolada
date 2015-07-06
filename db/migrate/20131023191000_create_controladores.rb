@@ -3,7 +3,7 @@ class CreateControladores < ActiveRecord::Migration
     create_table :controladores do |t|
       t.string :nome, :null => false
 
-      t.timestamps
+      t.timestamps null: false
     end
 
     add_index :controladores, :nome, :unique => true

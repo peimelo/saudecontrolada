@@ -3,7 +3,7 @@ class CreateReferencias < ActiveRecord::Migration
     create_table :referencias do |t|
       t.string :nome, null: false
 
-      t.timestamps
+      t.timestamps null: false
     end
 
     add_index :referencias, :nome, unique: true

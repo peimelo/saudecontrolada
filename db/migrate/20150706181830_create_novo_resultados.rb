@@ -6,7 +6,7 @@ class CreateNovoResultados < ActiveRecord::Migration
 
       t.references :user, null: false
 
-      t.timestamps
+      t.timestamps null: false
     end
 
     add_foreign_key :resultados, :users

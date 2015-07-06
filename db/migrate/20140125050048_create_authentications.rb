@@ -4,7 +4,7 @@ class CreateAuthentications < ActiveRecord::Migration
       t.references :user, null: false
       t.string :provider, null: false
       t.string :uid, null: false
-      t.timestamps
+      t.timestamps null: false
     end
     add_foreign_key :authentications, :users
   end

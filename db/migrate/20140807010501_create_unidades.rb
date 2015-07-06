@@ -3,7 +3,7 @@ class CreateUnidades < ActiveRecord::Migration
     create_table :unidades do |t|
       t.string :nome, null: false
 
-      t.timestamps
+      t.timestamps null: false
     end
 
     add_index :unidades, :nome, unique: true

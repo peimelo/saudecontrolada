@@ -7,7 +7,7 @@ class CreateResultados < ActiveRecord::Migration
       t.references :exame, null: false
       t.references :user, null: false
 
-      t.timestamps
+      t.timestamps null: false
     end
 
     add_foreign_key :resultados, :exames

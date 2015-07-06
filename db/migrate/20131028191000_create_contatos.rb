@@ -7,7 +7,7 @@ class CreateContatos < ActiveRecord::Migration
       t.text   :mensagem, :null => false
       t.string :ip
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

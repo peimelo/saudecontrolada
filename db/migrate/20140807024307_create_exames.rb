@@ -5,7 +5,7 @@ class CreateExames < ActiveRecord::Migration
 
       t.references :unidade, null: true
 
-      t.timestamps
+      t.timestamps null: false
     end
 
     add_index :exames, :nome, unique: true

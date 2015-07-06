@@ -6,7 +6,7 @@ class CreatePesos < ActiveRecord::Migration
       t.decimal :altura, precision: 3, scale: 2, null: false
       t.references :user, null: false
 
-      t.timestamps
+      t.timestamps null: false
     end
 
     add_foreign_key :pesos, :users

@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: exames_resultados
+#
+#  id           :integer          not null, primary key
+#  valor        :decimal(10, 2)   not null
+#  exame_id     :integer          not null
+#  created_at   :datetime
+#  updated_at   :datetime
+#  resultado_id :integer          not null
+#
+
 class ExameResultado < ActiveRecord::Base
   self.table_name = 'exames_resultados'
 

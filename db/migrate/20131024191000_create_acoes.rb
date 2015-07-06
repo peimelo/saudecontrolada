@@ -3,7 +3,7 @@ class CreateAcoes < ActiveRecord::Migration
     create_table :acoes do |t|
       t.string :nome, :null => false
 
-      t.timestamps
+      t.timestamps null: false
     end
 
     add_index :acoes, :nome, :unique => true
