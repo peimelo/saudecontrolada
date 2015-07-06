@@ -16,6 +16,7 @@ pt-BR:
         peso_ideal: Peso Ideal (kg)
         situacao_imc: Situação
       resultado:
+        descricao: Descrição
         exame_nome: Exame
       user:
         confirmation_token: Token para Confirmação

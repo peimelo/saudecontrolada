@@ -1,34 +1,24 @@
-# == Schema Information
-#
-# Table name: resultados
-#
-#  id         :integer          not null, primary key
-#  data       :date             not null
-#  descricao  :string(255)      not null
-#  user_id    :integer          not null
-#  created_at :datetime
-#  updated_at :datetime
-#
+class ExameResultado < ActiveRecord::Base
+  self.table_name = 'exames_resultados'
 
-class Resultado < ActiveRecord::Base
-  include DateModule
+  # include DateModule
 
-  # belongs_to :exame
-  belongs_to :user
-  has_many :exame_resultado
-  has_many :exame, through: :exame_resultado
-
-  validates :data, :descricao, :user_id, presence: true
-  # validates :valor, numericality: { less_than_or_equal_to: 99999999.99 },
-  #           unless: Proc.new { |a| a.valor.blank? }
+  belongs_to :exame
+  belongs_to :resultado
+  # belongs_to :user
+=begin
+  validates :data, :exame_id, :exame_nome, :valor, presence: true
+  validates :valor, numericality: { less_than_or_equal_to: 99999999.99 },
+            unless: Proc.new { |a| a.valor.blank? }
 
   scope :exportar, -> {
     includes(exame: [:unidade, valor: :referencia])
     .ordenado_por_nome_data
   }
 
-  scope :listar, -> {
-    select(:id, :data, :descricao)
+  scope :listar, -> (exame_id) {
+    includes(:exame)
+      .where('exame_id = ?', exame_id)
       .ordenado_por_data_desc
   }
 
@@ -65,4 +55,5 @@ class Resultado < ActiveRecord::Base
   def exame_nome=(nome)
     self.exame_id = Exame.find_by_nome(nome).id rescue nil
   end
+=end
 end
