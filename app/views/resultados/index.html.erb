@@ -4,24 +4,24 @@
 <%= titulo icon('file-text-o', t('activerecord.models.resultado.other')) %>
 
 <p><%= render 'shared/botoes_incluir_e_download', controller: 'resultados', model: model_class,
-           url_xls: nil, url_pdf: resultados_path(format: 'pdf') %></p>
+           url_xls: nil, url_pdf: nil %></p>
 
 <div class="panel panel-default">
   <div class="panel-body">
     <h4><%= " #{ t('links.buscar') } #{ t('activerecord.models.resultado.other') } "%></h4>
     <%= form_tag resultados_path, method: :get, id: 'resultados_search' do %>
       <div class="row">
-        <div class="form-group col-xs-12 col-sm-12 col-md-6">
-          <label for="nomeInput"><%= t('activerecord.models.exame.one') %></label>
-          <%= text_field_tag :nome, params[:nome], { id: 'nomeInput', class: 'form-control' } %>
-        </div>
         <div class="form-group col-xs-6 col-sm-6 col-md-3">
           <label for="nomeInput"><%= t('labels.data_inicial') %></label>
-          <%= text_field_tag :data_inicial, params[:data_inicial], class: 'form-control datepicker inputmask' %>
+          <%= text_field_tag :data_inicial, params[:data_inicial], class: 'form-control datepicker inputmask_data' %>
         </div>
         <div class="form-group col-xs-6 col-sm-6 col-md-3">
           <label for="nomeInput"><%= t('labels.data_final') %></label>
-          <%= text_field_tag :data_final, params[:data_final], class: 'form-control datepicker inputmask' %>
+          <%= text_field_tag :data_final, params[:data_final], class: 'form-control datepicker inputmask_data' %>
+        </div>
+        <div class="form-group col-xs-12 col-sm-12 col-md-6">
+          <label for="nomeInput"><%= model_class.human_attribute_name(:descricao) %></label>
+          <%= text_field_tag :descricao, params[:descricao], { id: 'descricaoInput', class: 'form-control' } %>
         </div>
       </div>
       <div class="row">

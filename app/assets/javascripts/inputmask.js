@@ -38,7 +38,7 @@ $(function() {
         radixPoint: ','});
 });
 
-/* Aplicar mascara e estilo */
+/* User no nested form de resultado */
 function resultado_inputmask(){
     $(".inputmask_resultado").inputmask('numeric', {
         allowPlus: false,
@@ -48,14 +48,3 @@ function resultado_inputmask(){
         radixPoint: ','});
 }
 
-//$(function() {
-//    $('.add_nested_fields_link').on('click', function(event){
-        //Below $(this) refers to $('.add_fields'). I assume that is a button and is not what you want to apply the datepicker to.
-        //$(this).datepicker({ dateFormat: 'yy-mm-dd', autoSize:true });
-        //$(document).find('.inputmask_data').removeClass('datepicker');
-        //$(document).find('.inputmask_data').removeClass('hasDatepicker');
-        //console.log('valor');
-        //console.log($(this));
-        //console.log(event.field);
-    //});
-//});

@@ -5,7 +5,11 @@ class ResultadosController < ApplicationController
   include Graficos
 
   def index
-    @resultados = current_user.resultado.listar
+    @resultados = current_user.resultado.listar(
+      params[:data_inicial],
+      params[:data_final],
+      params[:descricao]
+    )
     @resultados = @resultados.page(params[:page]) unless params[:format].present?
 
     # if params[:format].nil?

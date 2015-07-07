@@ -16,7 +16,7 @@ module ApplicationHelper
   end
 
   def limpar_filtro(url, params)
-    if !params[:search].blank? or !params[:nome].blank? or !params[:data_inicial].blank? or !params[:data_final].blank?
+    if !params[:search].blank? or !params[:nome].blank?  or !params[:descricao].blank? or !params[:data_inicial].blank? or !params[:data_final].blank?
       link_to(icon('eraser', t('links.limpar_filtro')), url)
     end
   end

@@ -9,18 +9,28 @@
     </div>
   </div>
 
-  <hr>
+  <legend>Valores de Exames</legend>
+  <div class="row">
+    <div class="col-xs-5">
+      <label>Exame</label>
+    </div>
+    <div class="col-xs-5">
+      <label>Valor</label>
+    </div>
+    <div class="col-xs-2">
+      <label>Excluir</label>
+    </div>
+  </div>
 
   <%= f.nested_fields_for :exame_resultado do |builder| %>
     <div class="row">
       <div class="col-xs-5">
-        <%= builder.association :exame, collection: @exames, label_method: :nome %>
+        <%= builder.association :exame, collection: @exames, label_method: :nome, label: false %>
       </div>
       <div class="col-xs-5">
-        <%= builder.input :valor, input_html: { class: 'inputmask_resultado' } %>
+        <%= builder.input :valor, label: false, input_html: { class: 'inputmask_resultado' } %>
       </div>
       <div class="col-xs-2">
-        <p><label>Excluir</label></p>
         <%= builder.remove_nested_fields_link icon('trash-o fa-lg') %>
       </div>
       <%= javascript_tag 'resultado_inputmask()' %>

@@ -27,8 +27,15 @@ class Resultado < ActiveRecord::Base
     .ordenado_por_nome_data
   }
 
-  scope :listar, -> {
+  scope :listar, -> (
+    data_inicial = '',
+    data_final = '',
+    descricao = ''
+  ) {
     select(:id, :data, :descricao)
+      .where('data >= ?', data_inicial.blank? ? '1000-01-01' : format_date_usa(data_inicial))
+      .where('resultados.data <= ?', data_final.blank? ? '9999-12-31' : format_date_usa(data_final))
+      .where('descricao LIKE ?', "%#{ descricao }%")
       .ordenado_por_data_desc
   }
 
