@@ -24,8 +24,8 @@
 #  created_at             :datetime
 #  updated_at             :datetime
 #  name                   :string(255)      not null
-#  gender                 :string(255)
-#  date_of_birth          :date
+#  gender                 :string(255)      not null
+#  date_of_birth          :date             not null
 #  admin                  :boolean          default(FALSE), not null
 #
 

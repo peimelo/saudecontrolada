@@ -47,8 +47,9 @@
       <tbody>
         <% @resultados.each do |registro| %>
           <tr>
-            <td width="60">
-              <%= botao_visualizar resultado_path(registro), model_class %>
+            <td width="100">
+              <%= botao_alterar registro, edit_resultado_path(registro), model_class %>
+              <%= botao_excluir registro, model_class %>
             </td>
             <td><%= l registro.data %></td>
             <td><%= registro.descricao %></td>

@@ -1,21 +1,35 @@
 <%= corrigir_erros registro.errors.any? %>
 <%= simple_form_for(registro) do |f| %>
-  <%= f.input :exame_nome, autofocus: true, input_html: { data: { autocomplete_source: exames_path } } %>
   <div class="row">
     <div class="col-sm-6">
-      <%= f.input :data, as: :string, input_html: { class: 'datepicker inputmask', value: "#{data_formatada(registro.data)}" } %>
+      <%= f.input :data, as: :string, autofocus: true, input_html: { class: 'datepicker inputmask_data', value: "#{data_formatada(registro.data)}" } %>
     </div>
     <div class="col-sm-6">
-      <%= f.input :valor, autofocus: true, input_html: { class: 'inputmask_resultado' } %>
+      <%= f.input :descricao %>
     </div>
   </div>
 
-  <%= botao_salvar %>
-  <% if !exame.nil? %>
-    <%= botao_cancelar resultado_path(exame) %>
-  <% elsif !registro.exame.nil? %>
-    <%= botao_cancelar resultado_path(registro.exame) %>
-  <% else %>
-    <%= botao_cancelar resultados_path %>
+  <hr>
+
+  <%= f.nested_fields_for :exame_resultado do |builder| %>
+    <div class="row">
+      <div class="col-xs-5">
+        <%= builder.association :exame, collection: @exames, label_method: :nome %>
+      </div>
+      <div class="col-xs-5">
+        <%= builder.input :valor, input_html: { class: 'inputmask_resultado' } %>
+      </div>
+      <div class="col-xs-2">
+        <p><label>Excluir</label></p>
+        <%= builder.remove_nested_fields_link icon('trash-o fa-lg') %>
+      </div>
+      <%= javascript_tag 'resultado_inputmask()' %>
+    </div>
   <% end %>
+
+  <p><%= f.add_nested_fields_link :exame_resultado, icon('plus fa-lg', t('.incluir_resultado_exame')) %></p>
+  <hr />
+
+  <%= botao_salvar %>
+  <%= botao_cancelar resultados_path %>
 <% end %>

@@ -63,7 +63,6 @@ class ExamesController < ApplicationController
 
     def exame_params
       unless params[:exame][:valor_attributes].nil?
-
         params[:exame][:valor_attributes].each do |valor|
           unless valor[1][:idade_inferior].nil?
             valor[1][:idade_inferior] = valor[1][:idade_inferior].gsub(',', '.')

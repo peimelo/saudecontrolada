@@ -24,8 +24,8 @@
 #  created_at             :datetime
 #  updated_at             :datetime
 #  name                   :string(255)      not null
-#  gender                 :string(255)
-#  date_of_birth          :date
+#  gender                 :string(255)      not null
+#  date_of_birth          :date             not null
 #  admin                  :boolean          default(FALSE), not null
 #
 
@@ -45,7 +45,7 @@ class User < ActiveRecord::Base
   has_many :peso, dependent: :delete_all
   has_many :resultado, dependent: :delete_all
 
-  validates :date_of_birth, :gender, :name, presence: true
+  validates :admin, :date_of_birth, :email, :encrypted_password, :gender, :name, presence: true
 
   scope :listar, -> {
     select(:id, :current_sign_in_at, :email, :sign_in_count, :created_at, :confirmed_at)

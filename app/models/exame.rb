@@ -15,11 +15,10 @@ class Exame < ActiveRecord::Base
   include SearchModule, Tree
 
   belongs_to :unidade
-  has_many :exame_resultado
+  has_many :exame_resultado, dependent: :restrict_with_error
   has_many :resultado, through: :exame_resultado
   has_many :valor, dependent: :delete_all
   accepts_nested_attributes_for :valor, allow_destroy: true, reject_if: :all_blank
-  has_many :resultado, through: :exame_resultado
 
   validates :nome, presence: true, uniqueness: { case_sensitive: false, scope: :ancestry }
 

@@ -56,20 +56,20 @@ end
 crumb :resultados do
   link t('activerecord.models.resultado.other'), resultados_path
 end
-
+=begin
 crumb :show_resultado do |exame|
   link exame.nome, resultado_path(exame) unless exame.nil?
   parent :resultados
 end
-
+=end
 crumb :new_resultado do |exame|
   link t('views.new.titulo', model: Resultado.model_name.human), new_resultado_path
-  parent :show_resultado, exame
+  parent :resultados
 end
 
 crumb :edit_resultado do |resultado|
   link l(resultado.data), edit_resultado_path(resultado)
-  parent :show_resultado, resultado.exame
+  parent :resultados
 end
 
 # -----------------------------------------------------------------------------

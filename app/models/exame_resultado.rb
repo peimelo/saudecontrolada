@@ -13,15 +13,13 @@
 class ExameResultado < ActiveRecord::Base
   self.table_name = 'exames_resultados'
 
-  # include DateModule
-
   belongs_to :exame
   belongs_to :resultado
-  # belongs_to :user
-=begin
-  validates :data, :exame_id, :exame_nome, :valor, presence: true
-  validates :valor, numericality: { less_than_or_equal_to: 99999999.99 },
-            unless: Proc.new { |a| a.valor.blank? }
+
+  validates :exame_id, :resultado_id, :valor, presence: true
+  validates :valor, numericality: { less_than_or_equal_to: 99999999.99 }
+  validates :exame_id, uniqueness: { scope: :resultado_id }
+  validates :resultado_id, uniqueness: { scope: :exame_id }
 
   scope :exportar, -> {
     includes(exame: [:unidade, valor: :referencia])
@@ -67,5 +65,4 @@ class ExameResultado < ActiveRecord::Base
   def exame_nome=(nome)
     self.exame_id = Exame.find_by_nome(nome).id rescue nil
   end
-=end
 end

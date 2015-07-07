@@ -6,21 +6,21 @@
 #  data       :date             not null
 #  descricao  :string(255)      not null
 #  user_id    :integer          not null
-#  created_at :datetime
-#  updated_at :datetime
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 #
 
 class Resultado < ActiveRecord::Base
   include DateModule
 
-  # belongs_to :exame
   belongs_to :user
-  has_many :exame_resultado
+  has_many :exame_resultado, dependent: :delete_all
   has_many :exame, through: :exame_resultado
+  accepts_nested_attributes_for :exame_resultado, allow_destroy: true, reject_if: :all_blank
 
   validates :data, :descricao, :user_id, presence: true
-  # validates :valor, numericality: { less_than_or_equal_to: 99999999.99 },
-  #           unless: Proc.new { |a| a.valor.blank? }
+  validates :data, uniqueness: { scope: :descricao, case_sensitive: false }
+  validates :descricao, uniqueness: { scope: :data }
 
   scope :exportar, -> {
     includes(exame: [:unidade, valor: :referencia])

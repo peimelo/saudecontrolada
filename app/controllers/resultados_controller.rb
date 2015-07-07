@@ -1,7 +1,8 @@
 class ResultadosController < ApplicationController
-  include Graficos
-
+  before_action :set_exames, only: [:new, :edit, :create, :update]
   before_action :set_resultado, only: [:edit, :update, :destroy]
+
+  include Graficos
 
   def index
     @resultados = current_user.resultado.listar
@@ -29,7 +30,7 @@ class ResultadosController < ApplicationController
     #   end
     # end
   end
-
+=begin
   def show
     @exame = Exame.find(params[:id])
 
@@ -47,10 +48,10 @@ class ResultadosController < ApplicationController
       (@exame.unidade.nome rescue '')
     )
   end
-
+=end
   def new
-    @exame = Exame.find_by_nome(params[:exame_nome]) # breadcrumbs
-    @resultado = current_user.resultado.new(data: session[:data_ultimo_resultado], exame_nome: params[:exame_nome])
+    # @exame = Exame.find_by_nome(params[:exame_nome]) # breadcrumbs
+    @resultado = current_user.resultado.new#(data: session[:data_ultimo_resultado], exame_nome: params[:exame_nome])
   end
 
   def edit
@@ -60,7 +61,7 @@ class ResultadosController < ApplicationController
     @resultado = current_user.resultado.build(resultado_params)
 
     if @resultado.save
-      session[:data_ultimo_resultado] = @resultado.data
+      # session[:data_ultimo_resultado] = @resultado.data
       redirect_to resultados_url, notice: t('mensagens.flash.with_link.create', with_link: with_link)
     else
       render action: :new
@@ -69,8 +70,8 @@ class ResultadosController < ApplicationController
 
   def update
     if @resultado.update(resultado_params)
-      session[:data_ultimo_resultado] = @resultado.data
-      redirect_to resultado_url(@resultado.exame), notice: t('mensagens.flash.with_link.update', with_link: with_link)
+      # session[:data_ultimo_resultado] = @resultado.data
+      redirect_to resultados_url, notice: t('mensagens.flash.with_link.update', with_link: with_link)
     else
       render action: :edit
     end
@@ -78,16 +79,33 @@ class ResultadosController < ApplicationController
 
   def destroy
     @resultado.destroy
-    redirect_to resultado_url(@resultado.exame),
-      notice: t('mensagens.flash.destroy', crud: Resultado.model_name.human)
+    redirect_to resultados_url, notice: t('mensagens.flash.destroy', crud: Resultado.model_name.human)
   end
 
   private
 
     def resultado_params
-      params[:resultado][:valor] = params[:resultado][:valor].gsub(',', '.') unless params[:resultado][:valor].nil?
+      unless params[:resultado][:exame_resultado_attributes].nil?
+        params[:resultado][:exame_resultado_attributes].each do |exame_resultado|
+          unless exame_resultado[1][:valor].nil?
+            exame_resultado[1][:valor] = exame_resultado[1][:valor].gsub(',', '.')
+          end
+        end
+      end
 
-      params.require(:resultado).permit(:data, :exame_nome, :valor)
+      params.require(:resultado).permit(
+        :data,
+        :descricao,
+        exame_resultado_attributes: [
+          :id,
+          :exame_id,
+          :valor,
+          :_destroy
+        ])
+    end
+
+    def set_exames
+      @exames = Exame.listar
     end
 
     def set_resultado

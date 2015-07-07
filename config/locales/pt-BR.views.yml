@@ -86,6 +86,8 @@ pt-BR:
       subject: "Criado novo Usuário: %{email}"
   # -----------------------------------------------------------------------------------------------
   resultados:
+    form:
+      incluir_resultado_exame: Incluir Valor de Exame
     limite_maximo: Limite Máximo
     limite_minimo: Limite Mínimo
     meu_valor: Meu Valor

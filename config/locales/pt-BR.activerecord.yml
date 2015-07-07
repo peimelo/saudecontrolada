@@ -30,7 +30,7 @@ pt-BR:
         name_email: Nome e E-mail
         password: Senha
         password_confirmation: Confirme sua senha
-        remember_me: Mantenha-me conectado
+        remember_me: Mantenha-me conectado por 1 semana
         reset_password_token: Token para Redefinir Senha
         sign_in_count: Qtde Logins
         unlock_token: Token para Desbloqueio
