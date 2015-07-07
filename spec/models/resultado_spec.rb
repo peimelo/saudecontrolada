@@ -16,6 +16,7 @@ RSpec.describe Resultado do
   describe 'associations' do
     it { should belong_to(:exame) }
     it { should belong_to(:user) }
+    it { should accept_nested_attributes_for(:exame_resultado).allow_destroy(true) }
   end
 
   describe 'validations' do

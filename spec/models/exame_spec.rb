@@ -18,7 +18,8 @@ RSpec.describe Exame do
 
   describe 'associations' do
     it { should belong_to(:unidade) }
-    it { should have_many(:resultado).dependent(:restrict_with_error) }
+    it { should have_many(:exame_resultado).dependent(:restrict_with_error) }
+    it { should have_many(:resultado).through(:exame_resultado) }
     it { should have_many(:valor).dependent(:delete_all) }
     it { should accept_nested_attributes_for(:valor).allow_destroy(true) }
   end

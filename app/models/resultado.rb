@@ -22,6 +22,8 @@ class Resultado < ActiveRecord::Base
   validates :data, uniqueness: { scope: :descricao, case_sensitive: false }
   validates :descricao, uniqueness: { scope: :data }
 
+  validate :uniqueness_of_exame_resultado
+
   scope :exportar, -> {
     includes(exame: [:unidade, valor: :referencia])
     .ordenado_por_nome_data
@@ -72,4 +74,18 @@ class Resultado < ActiveRecord::Base
   def exame_nome=(nome)
     self.exame_id = Exame.find_by_nome(nome).id rescue nil
   end
+
+  private
+    def uniqueness_of_exame_resultado
+      hash = {}
+      exame_resultado.each do |exame_result|
+        if hash[exame_result.exame_id]
+          # This line is needed to form the parent to error out, otherwise the save would still happen
+          # errors.add(:"exame_result.exame_id", "duplicate error") if errors[:"exame_result.exame_id"].blank?
+          # This line adds the error to the child to view in your fields_for
+          exame_result.errors.add(:exame_id, :taken2)
+        end
+        hash[exame_result.exame_id] = true
+      end
+    end
 end

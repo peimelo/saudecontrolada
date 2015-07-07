@@ -122,6 +122,7 @@ pt-BR:
         one: "Não é possível excluir, pois existe um %{record} dependente."
         many: "Não é possível excluir, pois existem registros de %{record} dependentes."
       taken: Favor informar outro valor para o campo, pois esse já está cadastrado no sistema
+      taken2: Favor informar outro valor para o campo, pois esse já está sendo usado
       too_long: ! 'É muito longo (máximo: %{count} caracteres)'
       too_short: ! 'É muito curto (mínimo: %{count} caracteres)'
       wrong_length: Não possui o tamanho esperado (%{count} caracteres)

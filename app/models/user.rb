@@ -45,7 +45,7 @@ class User < ActiveRecord::Base
   has_many :peso, dependent: :delete_all
   has_many :resultado, dependent: :delete_all
 
-  validates :admin, :date_of_birth, :email, :encrypted_password, :gender, :name, presence: true
+  validates :date_of_birth, :email, :encrypted_password, :gender, :name, presence: true
 
   scope :listar, -> {
     select(:id, :current_sign_in_at, :email, :sign_in_count, :created_at, :confirmed_at)
