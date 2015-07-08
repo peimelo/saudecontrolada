@@ -60,12 +60,7 @@ RSpec.describe ResultadosController do
     describe 'GET #index' do
       it 'se nao passar parametros para pesquisa retona nulo' do
         get :index
-        expect(assigns(:resultados)).to be_nil
-      end
-
-      it 'passando nome do exame na pesquisa deve retorna-lo' do
-        get :index, { nome: resultado.exame.nome }
-        expect(assigns(:resultados)[0].nome).to eq resultado.exame.nome
+        expect(assigns(:resultados)).to match [resultado]
       end
 
       it 'renders the :index template' do
@@ -74,25 +69,10 @@ RSpec.describe ResultadosController do
       end
 
       it 'download Pdf and response have content in application/pdf' do
-        create(:resultado, user: user, exame: exame)
-        create(:resultado, user: user, exame: exame)
+        create(:resultado, user: user)
 
         get :index, formato_pdf_session
         expect(response.headers['Content-Type']).to have_content 'application/pdf'
-      end
-    end
-
-    describe 'GET #show' do
-      before :each do
-        get :show, { id: resultado.exame.id }
-      end
-
-      it 'traz a lista dos resultados de um exame' do
-        expect(assigns(:resultados).include? resultado).to be_truthy
-      end
-
-      it 'renders the :show template' do
-        expect(response).to render_template :show
       end
     end
 
@@ -166,7 +146,7 @@ RSpec.describe ResultadosController do
 
         it 'redirects to resultados#show' do
           resultado.reload
-          expect(response).to redirect_to resultado_url(resultado.exame)
+          expect(response).to redirect_to resultados_url
         end
       end
 
@@ -199,7 +179,7 @@ RSpec.describe ResultadosController do
       end
 
       it 'redirects to resultados#index' do
-        expect(response).to redirect_to resultado_url(resultado.exame)
+        expect(response).to redirect_to resultados_url
       end
     end
   end
@@ -214,7 +194,7 @@ RSpec.describe ResultadosController do
 
     describe 'GET #index' do
       it 'nao listar dados do outro user' do
-        get :index, { nome: @resultado_outro_user.exame.nome }
+        get :index, { descricao: @resultado_outro_user.descricao }
         expect(assigns(:resultados)[0]).to be_nil
       end
     end

@@ -52,4 +52,3 @@ function resultado_inputmask(){
         data_placeholder: 'llllll',
         no_results_text: 'Não encontrado:'});
 }
-

@@ -1,9 +1,8 @@
 FactoryGirl.define do
   factory :resultado do
-    data { rand(1..100).days.from_now.strftime("%d/%m/%Y") }
-    exame
+    data { rand(1..100).days.from_now.strftime('%d/%m/%Y') }
+    sequence(:descricao) { |n| "descricao_#{n}" }
     user
-    valor { rand(0..99999999.99) }
 
     factory :invalid_resultado do
       data nil

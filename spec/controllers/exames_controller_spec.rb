@@ -1,6 +1,6 @@
 RSpec.describe ExamesController do
   let(:exame) { create(:exame) }
-  let(:resultado) { create(:resultado, exame: exame) }
+  # let(:resultado) { create(:resultado, exame: exame) }
   let(:user) { create(:user) }
   let(:user_admin) { create(:user_admin) }
   let(:valor) { create(:valor, exame: exame) }
@@ -231,13 +231,13 @@ RSpec.describe ExamesController do
     end
 
     describe 'DELETE #destroy' do
-      context 'with dependent Resultado' do
-        it 'not deletes' do
-          resultado
-          delete :destroy, { id: exame }
-          expect(Exame.exists?(exame.id)).to be_truthy
-        end
-      end
+      # context 'with dependent Resultado' do
+      #   it 'not deletes' do
+      #     resultado
+      #     delete :destroy, { id: exame }
+      #     expect(Exame.exists?(exame.id)).to be_truthy
+      #   end
+      # end
 
       context 'with dependent Valor' do
         it 'deletes exame and valor' do
