@@ -20,7 +20,7 @@ class PesosController < ApplicationController
 
   def new
     ultimo_peso = current_user.peso.select(:altura).order('data DESC').first
-    @peso = current_user.peso.new(data: Time.now, altura: (ultimo_peso.altura rescue nil))
+    @peso = current_user.peso.new(data: Time.now, altura: ultimo_peso.try(:altura))
   end
 
   def edit

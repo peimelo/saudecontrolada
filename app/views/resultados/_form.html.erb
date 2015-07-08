@@ -25,10 +25,7 @@
   <%= f.nested_fields_for :exame_resultado do |builder| %>
     <div class="row">
       <div class="col-xs-5">
-        <%#= builder.association :exame_id, collection: @exames, label_method: :nome, label: false %>
-        <%= builder.input :exame_id, collection: @exames,
-                    value_method: :id,
-                    label_method: :nome, label: false %>
+        <%= builder.association :exame, collection: @exames, label_method: :nome, label: false, input_html: { class: 'chosen-select' } %>
       </div>
       <div class="col-xs-5">
         <%= builder.input :valor, label: false, input_html: { class: 'inputmask_resultado' } %>

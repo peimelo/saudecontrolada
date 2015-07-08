@@ -81,7 +81,7 @@ class Resultado < ActiveRecord::Base
       exame_resultado.each do |exame_result|
         if hash[exame_result.exame_id]
           # This line is needed to form the parent to error out, otherwise the save would still happen
-          # errors.add(:"exame_result.exame_id", "duplicate error") if errors[:"exame_result.exame_id"].blank?
+          errors.add(:'exame_result.exame_id', 'duplicate error') if errors[:'exame_result.exame_id'].blank?
           # This line adds the error to the child to view in your fields_for
           exame_result.errors.add(:exame_id, :taken2)
         end
