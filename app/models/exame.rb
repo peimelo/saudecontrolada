@@ -20,6 +20,8 @@ class Exame < ActiveRecord::Base
   has_many :valor, dependent: :delete_all
   accepts_nested_attributes_for :valor, allow_destroy: true, reject_if: :all_blank
 
+  delegate :nome, to: :unidade, prefix: true, allow_nil: true
+
   validates :nome, presence: true, uniqueness: { case_sensitive: false, scope: :ancestry }
 
   before_validation :validate_ancestry_blank

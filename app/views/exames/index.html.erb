@@ -17,6 +17,7 @@
         <tr>
           <th><%= t('bootstrap.actions') %></th>
           <th><%= model_class.human_attribute_name(:nome) %></th>
+          <th><%= model_class.human_attribute_name(:nome) %></th>
         </tr>
       </thead>
       <tbody>
@@ -27,6 +28,7 @@
               <%= botao_excluir registro, model_class %>
             </td>
             <td><%= registro.name_for_selects %></td>
+            <td><%= registro.unidade_nome %></td>
           </tr>
         <% end %>
       </tbody>

@@ -21,7 +21,7 @@ class Valor < ActiveRecord::Base
   belongs_to :exame
   belongs_to :referencia
 
-  validates :exame_id, :valido, presence: true
+  validates :valido, presence: true
 
   validates :idade_inferior, numericality: { less_than_or_equal_to: :idade_superior },
     unless: Proc.new { |a| a.idade_inferior.blank? or a.idade_superior.blank? }
