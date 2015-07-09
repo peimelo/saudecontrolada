@@ -1,12 +1,15 @@
 module Hierarquia
   extend ActiveSupport::Concern
 
+  require 'will_paginate/array'
+
   included do
     belongs_to :pai, class_name: self, foreign_key: :parent_id
     has_many :filhos, class_name: self, foreign_key: :parent_id, dependent: :destroy
 
     scope :listar_com_hierarquia, ->(search = nil) {
-      search(search)
+      select(:id, :nome, :parent_id, :unidade_id)
+        .search(search)
         .includes(:pai, :unidade)
         .sort{ |a,b| a.obter_hierarquia <=> b.obter_hierarquia }
     }
