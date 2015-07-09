@@ -9,10 +9,10 @@
                               allow_blank: true %>
     </div>
     <div class="col-xs-4">
-      <%= f.input :parent_id, collection: Exame.arrange_as_array({order: :nome}, registro.possible_parents),
+      <%= f.association :pai, collection: Exame.diferentes_de_mim(registro),
           value_method: :id,
-          label_method: :name_for_selects,
-          include_blank: true %>
+          label_method: :obter_hierarquia,
+          allow_nil: true %>
     </div>
   </div>
 

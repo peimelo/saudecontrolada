@@ -67,7 +67,7 @@ class ResultadosController < ApplicationController
     end
 
     def set_exames
-      @exames = Exame.listar
+      @exames = Exame.listar_com_hierarquia
     end
 
     def set_resultado

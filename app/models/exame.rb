@@ -12,9 +12,11 @@
 #
 
 class Exame < ActiveRecord::Base
-  include SearchModule, Tree
+  include SearchModule, Hierarquia
 
   belongs_to :unidade
+
+
   has_many :exame_resultado, dependent: :restrict_with_error
   has_many :resultado, through: :exame_resultado
   has_many :valor, dependent: :delete_all

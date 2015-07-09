@@ -110,7 +110,7 @@ gem 'omniauth-linkedin'
 
 gem 'exception_notification'
 
-gem 'ancestry'
+# gem 'ancestry'
 
 gem 'axlsx'
 gem 'axlsx_rails'

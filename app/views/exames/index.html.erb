@@ -27,7 +27,7 @@
               <%= botao_alterar registro, edit_exame_path(registro), model_class %>
               <%= botao_excluir registro, model_class %>
             </td>
-            <td><%= registro.name_for_selects %></td>
+            <td><%= registro.obter_hierarquia %></td>
             <td><%= registro.unidade_nome %></td>
           </tr>
         <% end %>

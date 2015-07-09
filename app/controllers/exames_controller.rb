@@ -7,7 +7,8 @@ class ExamesController < ApplicationController
     if params[:term] # autocomplete
       @exames = Exame.where('nome LIKE ?', "%#{ params[:term] }%").order(:nome)
     else
-      @exames = Exame.arrange_as_array({order: :nome})
+      # @exames = Exame.arrange_as_array({order: :nome})
+      @exames = Exame.listar_com_hierarquia(params[:search])
       @exames = @exames.paginate(page: params[:page]) unless params[:format].present?
     end
 
