@@ -2,20 +2,18 @@
 #
 # Table name: exames
 #
-#  id             :integer          not null, primary key
-#  nome           :string(255)      not null
-#  unidade_id     :integer
-#  created_at     :datetime
-#  updated_at     :datetime
-#  ancestry       :string(255)
-#  ancestry_depth :integer          default(0)
+#  id         :integer          not null, primary key
+#  nome       :string(255)      not null
+#  unidade_id :integer
+#  created_at :datetime
+#  updated_at :datetime
+#  parent_id  :integer
 #
 
 class Exame < ActiveRecord::Base
   include SearchModule, Hierarquia
 
   belongs_to :unidade
-
 
   has_many :exame_resultado, dependent: :restrict_with_error
   has_many :resultado, through: :exame_resultado
@@ -24,9 +22,9 @@ class Exame < ActiveRecord::Base
 
   delegate :nome, to: :unidade, prefix: true, allow_nil: true
 
-  validates :nome, presence: true, uniqueness: { case_sensitive: false, scope: :ancestry }
+  validates :nome, presence: true, uniqueness: { case_sensitive: false, scope: [:parent_id, :unidade_id] }
 
-  before_validation :validate_ancestry_blank
+  # before_validation :validate_ancestry_blank
 
   def nome_unidade
     self.nome + (self.unidade.nil? ? '' : " (#{ self.unidade.nome })")
