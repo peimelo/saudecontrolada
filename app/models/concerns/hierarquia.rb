@@ -1,8 +1,6 @@
 module Hierarquia
   extend ActiveSupport::Concern
 
-  require 'will_paginate/array'
-
   included do
     belongs_to :pai, class_name: self, foreign_key: :parent_id
     has_many :filhos, class_name: self, foreign_key: :parent_id, dependent: :destroy
@@ -25,7 +23,7 @@ module Hierarquia
 
       self.listar_possiveis_pais.each do |node|
         unless atual.id.nil?
-          next if node.obter_hierarquia_por_id.scan(atual.id.to_s + ',') != []
+          next if node.obter_hierarquia_por_id.scan(',' + atual.id.to_s + ',') != []
         end
 
         retorno << node
@@ -39,7 +37,7 @@ module Hierarquia
     if self.pai
       self.pai.obter_hierarquia_por_id + self.id.to_s + ','
     else
-      self.id.to_s + ','
+      ',' + self.id.to_s + ','
     end
   end
 
