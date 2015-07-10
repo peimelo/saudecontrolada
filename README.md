@@ -8,6 +8,7 @@
 [![Build Status](http://rails-brakeman.com/peimelo/saudecontrolada.png)](http://rails-brakeman.com/peimelo/saudecontrolada)
 [![Inline docs](http://inch-ci.org/github/peimelo/saudecontrolada.svg?branch=master)](http://inch-ci.org/github/peimelo/saudecontrolada)
 [![Stories in Ready](https://badge.waffle.io/peimelo/saudecontrolada.svg?label=ready&title=Ready)](http://waffle.io/peimelo/saudecontrolada)
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/peimelo/saudecontrolada/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
 ## Descrição
 
