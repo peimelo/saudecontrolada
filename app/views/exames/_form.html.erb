@@ -12,8 +12,7 @@
       <%= f.association :pai, collection: Exame.diferentes_de_mim(registro),
           value_method: :id,
           label_method: :obter_hierarquia,
-          allow_nil: true,
-          input_html: { class: 'chosen-select' } %>
+          allow_nil: true %>
     </div>
   </div>
 

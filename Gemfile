@@ -9,7 +9,8 @@ gem 'mysql2'
 
 # Use SCSS for stylesheets
 # fixei em 5.0.1 por causa do compass-rails, antes ~> 5.0
-gem 'sass-rails', '5.0.1'
+# gem 'sass-rails', '5.0.1'
+gem 'sass-rails', '~> 5.0'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -117,5 +118,5 @@ gem 'axlsx_rails'
 
 gem 'gretel'
 
-gem 'compass-rails', '~> 2.0.4'
-gem 'chosen-rails'
+# gem 'compass-rails', '~> 2.0.4'
+# gem 'chosen-rails'
