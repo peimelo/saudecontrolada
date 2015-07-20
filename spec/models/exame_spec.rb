@@ -25,7 +25,7 @@ RSpec.describe Exame do
 
   describe 'validations' do
     it { should validate_presence_of(:nome) }
-    it { should validate_uniqueness_of(:nome).case_insensitive.scoped_to(:ancestry) }
+    it { should validate_uniqueness_of(:nome).case_insensitive.scoped_to([:parent_id, :unidade_id]) }
   end
 
   describe 'scopes' do
@@ -85,31 +85,31 @@ RSpec.describe Exame do
     end
   end
 
-  describe 'Module Tree' do
-    before :all do
-      @exame_filho = create(:exame, nome: 'exame_filho')
-      @exame_pai = create(:exame, nome: 'exame_pai')
-
-      @exame_filho.parent = @exame_pai
-      @exame_filho.save
-    end
-
-    it '.name_for_selects' do
-      expect(@exame_filho.name_for_selects).to eq '|--- exame_filho'
-    end
-
-    it '.name_for_tree' do
-      expect(@exame_filho.name_for_tree).to eq "<span class='tree_1'>exame_filho</span>"
-    end
-
-    context '.possible_parents' do
-      it 'pai nao pode ter ninguem' do
-        expect(@exame_pai.possible_parents).to match []
-      end
-
-      it 'filho soh pode ter o pai' do
-        expect(@exame_filho.possible_parents).to match [@exame_pai]
-      end
-    end
-  end
+  # describe 'Module Tree' do
+  #   before :all do
+  #     @exame_filho = create(:exame, nome: 'exame_filho')
+  #     @exame_pai = create(:exame, nome: 'exame_pai')
+  #
+  #     @exame_filho.parent = @exame_pai
+  #     @exame_filho.save
+  #   end
+  #
+  #   it '.name_for_selects' do
+  #     expect(@exame_filho.name_for_selects).to eq '|--- exame_filho'
+  #   end
+  #
+  #   it '.name_for_tree' do
+  #     expect(@exame_filho.name_for_tree).to eq "<span class='tree_1'>exame_filho</span>"
+  #   end
+  #
+  #   context '.possible_parents' do
+  #     it 'pai nao pode ter ninguem' do
+  #       expect(@exame_pai.possible_parents).to match []
+  #     end
+  #
+  #     it 'filho soh pode ter o pai' do
+  #       expect(@exame_filho.possible_parents).to match [@exame_pai]
+  #     end
+  #   end
+  # end
 end

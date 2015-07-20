@@ -15,7 +15,7 @@ class ExamesPdf < Prawn::Document
     ]] +
     @registros.map do |registro|
       [
-        registro.name_for_selects
+        registro.obter_hierarquia
       ]
     end    
   end

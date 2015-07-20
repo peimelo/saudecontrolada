@@ -24,8 +24,6 @@ RSpec.describe Valor do
   end
 
   describe 'validations' do
-    it { should validate_presence_of(:exame_id) }
-
     it 'idade_inferior less than or equal to idade_superior' do
       [20, 21].each do |idade_superior|
         expect(build(:valor, idade_inferior: 20, idade_superior: idade_superior)).to be_valid

@@ -24,8 +24,6 @@ class Exame < ActiveRecord::Base
 
   validates :nome, presence: true, uniqueness: { case_sensitive: false, scope: [:parent_id, :unidade_id] }
 
-  # before_validation :validate_ancestry_blank
-
   def nome_unidade
     self.nome + (self.unidade.nil? ? '' : " (#{ self.unidade.nome })")
   end
@@ -93,9 +91,5 @@ class Exame < ActiveRecord::Base
     end
 
     false
-  end
-
-  def validate_ancestry_blank
-    self.ancestry = nil if ancestry.blank?
   end
 end
