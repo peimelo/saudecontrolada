@@ -40,5 +40,5 @@ set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets}
 # Default value for keep_releases is 5
 # set :keep_releases, 5
 
-require 'airbrake/capistrano3'
-after 'deploy:finished', 'airbrake:deploy'
+# require 'airbrake/capistrano3'
+# after 'deploy:finished', 'airbrake:deploy'

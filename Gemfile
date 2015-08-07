@@ -49,7 +49,7 @@ gem 'lazy_high_charts'
 gem 'active_model_serializers'
 
 gem 'newrelic_rpm'
-gem 'airbrake'
+# gem 'airbrake'
 
 group :development do
   gem 'capistrano3-unicorn'
