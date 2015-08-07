@@ -24,7 +24,7 @@ class ContatosController < ApplicationController
     @contato.ip = request.remote_ip
     
     if @contato.save
-      MailNotifier.delay.contato(@contato)
+      MailNotifier.contato(@contato).deliver_later
       redirect_to new_contato_url, notice: t('mensagens.contato_enviado')
     else
       render :new
