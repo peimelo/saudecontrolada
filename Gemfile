@@ -5,7 +5,9 @@ ruby '2.2.2'
 gem 'rails', '4.2.3'
 
 # Use mysql as the database for Active Record
-gem 'mysql2'
+# gem 'mysql2'
+
+gem 'pg'
 
 # Use SCSS for stylesheets
 # fixei em 5.0.1 por causa do compass-rails, antes ~> 5.0

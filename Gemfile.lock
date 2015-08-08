@@ -220,7 +220,6 @@ GEM
     multi_json (1.11.2)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
-    mysql2 (0.3.19)
     nenv (0.2.0)
     nested_form_fields (0.7)
       rails (>= 3.2.0)
@@ -261,6 +260,7 @@ GEM
       omniauth (~> 1.2)
     orm_adapter (0.5.0)
     pdf-core (0.6.0)
+    pg (0.18.2)
     prawn (2.0.2)
       pdf-core (~> 0.6.0)
       ttfunk (~> 1.4.0)
@@ -456,7 +456,6 @@ DEPENDENCIES
   lazy_high_charts
   letter_opener
   meta_request
-  mysql2
   nested_form_fields
   newrelic_rpm
   omniauth
@@ -464,6 +463,7 @@ DEPENDENCIES
   omniauth-github
   omniauth-google-oauth2
   omniauth-linkedin
+  pg
   prawn (~> 2.0.0)
   prawn-table (~> 0.2.0)
   quiet_assets
