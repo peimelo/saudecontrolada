@@ -4,9 +4,6 @@ ruby '2.2.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
 
-# Use mysql as the database for Active Record
-# gem 'mysql2'
-
 gem 'pg'
 
 # Use SCSS for stylesheets
@@ -119,6 +116,3 @@ gem 'axlsx'
 gem 'axlsx_rails'
 
 gem 'gretel'
-
-# gem 'compass-rails', '~> 2.0.4'
-# gem 'chosen-rails'

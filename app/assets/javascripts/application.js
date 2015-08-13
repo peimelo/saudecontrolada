@@ -40,9 +40,6 @@
 // require bootstrap/carousel.js
 // require bootstrap/affix.js
 
-// require chosen-jquery
-// require chosen_custom
-
 //= require highcharts/highcharts
 //= require highcharts/highcharts-more
 //= require highcharts/modules/exporting

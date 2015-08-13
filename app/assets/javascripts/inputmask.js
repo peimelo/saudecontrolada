@@ -46,9 +46,4 @@ function resultado_inputmask(){
         digits: 2,
         integerDigits: 8,
         radixPoint: ','});
-
-    $('.chosen-select').chosen({
-        allow_single_deselect: true,
-        data_placeholder: 'llllll',
-        no_results_text: 'Não encontrado:'});
 }
