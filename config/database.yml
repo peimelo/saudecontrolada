@@ -19,5 +19,3 @@ production:
   database: saudecontrolada
   username: <%= ENV['DATABASE_PROD_USERNAME'] %>
   password: <%= ENV['DATABASE_PROD_PASSWORD'] %>
-
-
