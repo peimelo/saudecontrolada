@@ -84,6 +84,10 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
 end
 
+group :production do
+  gem 'rails_12factor', '~> 0.0.2'
+end
+
 # deploy
 gem 'capistrano', '~> 3.4.0'
 gem 'capistrano-bundler'
