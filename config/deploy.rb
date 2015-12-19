@@ -5,7 +5,7 @@ set :application, 'saudecontrolada'
 set :rails_env, 'production'
 
 set :rbenv_ruby, '2.2.3'
-set :rbenv_path, '~/.rbenv'
+# set :rbenv_path, '~/.rbenv'
 
 #set :unicorn_config_path, '/var/www/saudecontrolada/current/config/unicorn.rb'
 
