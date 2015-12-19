@@ -1,9 +1,9 @@
 RSpec.describe ApplicationHelper do
-  describe '#corrigir_erros' do
-    it 'gera partial para exibir mensagem de erro' do
-      expect(helper.corrigir_erros(true)).to render_template 'layouts/_alert_model_error'
-    end
-  end
+  # describe '#corrigir_erros' do
+  #   it 'gera partial para exibir mensagem de erro' do
+  #     expect(helper.corrigir_erros(true)).to render_template 'layouts/_alert_model_error'
+  #   end
+  # end
 
   describe '#data_formatada' do
     it 'diferente de false retorna o icone correspondente' do

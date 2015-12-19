@@ -11,10 +11,10 @@
 
   <legend>Valores de Exames</legend>
   <div class="row">
-    <div class="col-xs-5">
+    <div class="col-xs-7">
       <label>Exame</label>
     </div>
-    <div class="col-xs-5">
+    <div class="col-xs-3">
       <label>Valor</label>
     </div>
     <div class="col-xs-2">
@@ -24,10 +24,10 @@
 
   <%= f.nested_fields_for :exame_resultado do |builder| %>
     <div class="row">
-      <div class="col-xs-5">
+      <div class="col-xs-7">
         <%= builder.association :exame, collection: @exames, label_method: :obter_hierarquia, label: false %>
       </div>
-      <div class="col-xs-5">
+      <div class="col-xs-3">
         <%= builder.input :valor, label: false, input_html: { class: 'inputmask_resultado' } %>
       </div>
       <div class="col-xs-2">
