@@ -79,7 +79,10 @@ group :test do
   gem 'simplecov', '~> 0.11.1', require: false
 end
 
-gem 'rails_12factor', group: :production
+group :production do
+  gem 'rails_12factor'
+  gem 'puma'
+end
 
 # deploy
 # gem 'capistrano', '~> 3.4.0'
