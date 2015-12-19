@@ -88,4 +88,8 @@ Rails.application.configure do
                                               sender_address: Rails.application.secrets.mailer_sender,
                                               exception_recipients: Rails.application.secrets.email_user_name
                                           }
+
+  # Force all access to the app over SSL, use Strict-Transport-Security,
+  # and use secure cookies.
+  config.force_ssl = true
 end
