@@ -79,7 +79,7 @@ Rails.application.configure do
 
   # ---------------------------------------------
   # rotacao do arquivo de log, 5 de 100Mb cada, por exemplo, production.log, production.log.0, production.log.1, ...
-  config.logger = Logger.new(Rails.root.join('log', Rails.env + '.log'), 5, 100*1024*1024)
+  # config.logger = Logger.new(Rails.root.join('log', Rails.env + '.log'), 5, 100*1024*1024)
 
   Rails.application.config.middleware.use ExceptionNotification::Rack,
     email: {
