@@ -1,21 +1,16 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 ruby '2.2.3'
 
 gem 'rails', '4.2.5'
-
 gem 'pg', '~> 0.18.0'
 
 gem 'sass-rails', '~> 5.0'
-
 gem 'uglifier', '>= 1.3.0'
-gem 'turbolinks'
 gem 'coffee-rails', '~> 4.1.0'
-
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-
+gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
-
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'bootstrap-sass', '~> 3.3.6'
@@ -40,7 +35,23 @@ gem 'active_model_serializers', '~> 0.9.3'
 gem 'newrelic_rpm', '~> 3.14.1.311'
 # gem 'airbrake'
 
+group :development, :test do
+  gem 'byebug'
+  gem 'web-console', '~> 2.0'
+
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'spring'
+  gem 'spring-commands-rspec'
+
+  gem 'factory_girl_rails'
+  gem 'guard-rspec', require: false
+  gem 'rspec-rails', '~> 3.0'
+end
+
 group :development do
+  # gem 'web-console', '~> 2.0'
+  # gem 'spring'
+
   gem 'capistrano3-unicorn'
   # gem 'better_errors'
   # gem 'binding_of_caller'
@@ -66,22 +77,6 @@ group :test do
   # gem 'rack_session_access' get e set em session com capybara
   gem 'shoulda-matchers', '~> 3.0', require: false
   gem 'simplecov', '~> 0.11.1', require: false
-end
-
-group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
-
-  # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
-
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-  gem 'spring-commands-rspec'
-
-  gem 'factory_girl_rails'
-  gem 'guard-rspec', require: false
-  gem 'rspec-rails', '~> 3.0'
 end
 
 gem 'rails_12factor', group: :production

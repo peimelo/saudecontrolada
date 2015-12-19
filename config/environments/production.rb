@@ -24,13 +24,11 @@ Rails.application.configure do
   # Apache or NGINX already handles this.
   config.serve_static_files = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
-  config.serve_static_assets = true
-
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
 
-  # Do not fallback to assets pipeline if a precompiled  asset is missed.
+  # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
 
   # Asset digests allow you to set far-future HTTP expiration dates on all assets,
@@ -84,10 +82,10 @@ Rails.application.configure do
   # config.logger = Logger.new(Rails.root.join('log', Rails.env + '.log'), 5, 100*1024*1024)
 
   Rails.application.config.middleware.use ExceptionNotification::Rack,
-    email: {
-      email_prefix: "[ERROR] ",
-      email_format: :html,
-      sender_address: Rails.application.secrets.mailer_sender,
-      exception_recipients: Rails.application.secrets.email_user_name
-    }
+                                          email: {
+                                              email_prefix: "[ERROR] ",
+                                              email_format: :html,
+                                              sender_address: Rails.application.secrets.mailer_sender,
+                                              exception_recipients: Rails.application.secrets.email_user_name
+                                          }
 end

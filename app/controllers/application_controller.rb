@@ -8,8 +8,8 @@ class ApplicationController < ActionController::Base
 
   protected
 
-    def configure_permitted_parameters
-      devise_parameter_sanitizer.for(:account_update) { |u| u.permit(
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:account_update) { |u| u.permit(
         :current_password,
         :date_of_birth,
         :email,
@@ -17,37 +17,37 @@ class ApplicationController < ActionController::Base
         :name,
         :password,
         :password_confirmation)
-      }
+    }
 
-      devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(
         :date_of_birth,
         :email,
         :gender,
         :name,
         :password,
         :password_confirmation)
-      }
-    end
+    }
+  end
 
-    def server_error(exception)
-      logger.warn "##### ERRO = #{exception}"
+  def server_error(exception)
+    logger.warn "##### ERRO = #{exception}"
 
-      ExceptionNotifier.ignored_exceptions = []
+    ExceptionNotifier.ignored_exceptions = []
 
-      ExceptionNotifier.notify_exception(
-          exception,
-          env: request.env,
-          data: { current_user: current_user }
-      )
+    ExceptionNotifier.notify_exception(
+        exception,
+        env: request.env,
+        data: { current_user: current_user }
+    )
 
-      render file: "#{Rails.root}/public/erro.html", layout: false
-    end
+    render file: "#{Rails.root}/public/erro.html", layout: false
+  end
 
   private
 
-    def user_administrador_sistema?
-      unless current_user.admin?
-        redirect_to root_path, alert: t('mensagens.erros.sem_permissao')
-      end
+  def user_administrador_sistema?
+    unless current_user.admin?
+      redirect_to root_path, alert: t('mensagens.erros.sem_permissao')
     end
+  end
 end
