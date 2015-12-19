@@ -52,7 +52,7 @@ group :development do
   # gem 'web-console', '~> 2.0'
   # gem 'spring'
 
-  gem 'capistrano3-unicorn'
+  # gem 'capistrano3-unicorn'
   # gem 'better_errors'
   # gem 'binding_of_caller'
   gem 'bullet'
@@ -82,10 +82,10 @@ end
 gem 'rails_12factor', group: :production
 
 # deploy
-gem 'capistrano', '~> 3.4.0'
-gem 'capistrano-bundler'
-gem 'capistrano-rails'
-gem 'capistrano-rbenv'
+# gem 'capistrano', '~> 3.4.0'
+# gem 'capistrano-bundler'
+# gem 'capistrano-rails'
+# gem 'capistrano-rbenv'
 # gem 'unicorn'
 
 gem 'devise', '~> 3.5.0'
