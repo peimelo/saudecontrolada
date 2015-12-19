@@ -37,34 +37,6 @@
     </div>
   <% end %>
 
-  <% unless @exames.empty? %>
-      <div class="table-responsive">
-        <table class="table table-bordered table-condensed table-hover table-striped">
-          <thead>
-          <tr>
-            <th><%= t('bootstrap.actions') %></th>
-            <th><%= model_class.human_attribute_name(:nome) %></th>
-            <th><%= model_class.human_attribute_name(:nome) %></th>
-          </tr>
-          </thead>
-          <tbody>
-          <% @exames.each do |registro| %>
-              <tr>
-                <td width="100">
-                  <%= botao_alterar registro, edit_exame_path(registro), model_class %>
-                  <%= botao_excluir registro, model_class %>
-                </td>
-                <td><%= registro.obter_hierarquia %></td>
-                <td><%= registro.unidade_nome %></td>
-              </tr>
-          <% end %>
-          </tbody>
-        </table>
-      </div>
-  <% end %>
-
-
-
   <p><%= f.add_nested_fields_link :exame_resultado, icon('plus fa-lg', t('.incluir_resultado_exame')) %></p>
   <hr />
 
