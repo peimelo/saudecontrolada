@@ -3,12 +3,12 @@ default: &default
   encoding: unicode
   pool: 5
   host: localhost
-  username: Melo
-  password:
+  username: saudecontrolada
+  password: saudecontrolada
 
 development:
   <<: *default
-  database: saudecontrolada
+  database: saudecontrolada_development
 
 test:
   <<: *default

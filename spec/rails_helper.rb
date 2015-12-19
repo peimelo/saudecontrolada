@@ -2,10 +2,13 @@ require 'simplecov'
 require 'codeclimate-test-reporter'
 
 SimpleCov.start do
-  formatter SimpleCov::Formatter::MultiFormatter[
-    SimpleCov::Formatter::HTMLFormatter,
-    CodeClimate::TestReporter::Formatter
-  ]
+  formatter.new()
+  # formatter.new(SimpleCov::Formatter::HTMLFormatter, CodeClimate::TestReporter::Formatter)
+  # ]
+  # formatter SimpleCov::Formatter::MultiFormatter[
+  #   SimpleCov::Formatter::HTMLFormatter,
+  #   CodeClimate::TestReporter::Formatter
+  # ]
 
   add_group 'Controllers', 'app/controllers'
   add_group 'Models', 'app/models'
@@ -24,7 +27,12 @@ require 'spec_helper.rb'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'shoulda/matchers'
-
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    with.test_framework :rspec
+    with.library :rails
+  end
+end
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
 # run as spec files by default. This means that files in spec/support that end

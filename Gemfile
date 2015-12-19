@@ -1,53 +1,43 @@
 source 'http://rubygems.org'
 ruby '2.2.3'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.3'
+gem 'rails', '4.2.5'
 
-gem 'pg'
+gem 'pg', '~> 0.18.0'
 
-# Use SCSS for stylesheets
-# fixei em 5.0.1 por causa do compass-rails, antes ~> 5.0
-# gem 'sass-rails', '5.0.1'
 gem 'sass-rails', '~> 5.0'
 
-# Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
-# Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
 
-# Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 
-# bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-gem 'bootstrap-sass'#, '~> 3.3.0'
+gem 'bootstrap-sass', '~> 3.3.6'
 gem 'autoprefixer-rails'
-gem 'simple_form'#, '~> 3.1.0'
-gem 'nested_form_fields'
-gem 'font-awesome-sass'
-gem 'bootstrap-will_paginate'
+gem 'simple_form', '~> 3.2.0'
+gem 'nested_form_fields', '~> 0.7.4'
+gem 'font-awesome-sass', '~> 4.5.0'
+gem 'bootstrap-will_paginate', '~> 0.0.10'
 
 # enviar e-mail em background
-gem 'delayed_job_active_record'
+gem 'delayed_job_active_record', '~> 4.1.0'
 gem 'daemons'
-gem 'delayed_job_web'
+gem 'delayed_job_web', '~> 1.2.10'
 
 gem 'prawn', '~> 2.0.0'
 gem 'prawn-table', '~> 0.2.0'
 
-gem 'lazy_high_charts'
+gem 'lazy_high_charts', '~> 1.5.4'
 
-gem 'active_model_serializers'
+gem 'active_model_serializers', '~> 0.9.3'
 
-gem 'newrelic_rpm'
+gem 'newrelic_rpm', '~> 3.14.1.311'
 # gem 'airbrake'
 
 group :development do
@@ -60,9 +50,9 @@ group :development do
   gem 'meta_request'
   gem 'quiet_assets'
   gem 'rails_best_practices'
-  gem 'rb-inotify', :require => false
-  gem 'rb-fsevent', :require => false
-  gem 'rb-fchange', :require => false
+  gem 'rb-inotify', require: false
+  gem 'rb-fsevent', require: false
+  gem 'rb-fchange', require: false
   gem 'ruby_gntp'
 end
 
@@ -74,8 +64,8 @@ group :test do
   gem 'faker'
   gem 'launchy'
   # gem 'rack_session_access' get e set em session com capybara
-  gem 'shoulda-matchers', require: false
-  gem 'simplecov', :require => false
+  gem 'shoulda-matchers', '~> 3.0', require: false
+  gem 'simplecov', '~> 0.11.1', require: false
 end
 
 group :development, :test do
@@ -91,18 +81,18 @@ group :development, :test do
 
   gem 'factory_girl_rails'
   gem 'guard-rspec', require: false
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 3.0'
 end
 
 # deploy
-gem 'capistrano'
+gem 'capistrano', '~> 3.4.0'
 gem 'capistrano-bundler'
 gem 'capistrano-rails'
 gem 'capistrano-rbenv'
 # gem 'unicorn'
 
 gem 'devise', '~> 3.5.0'
-gem 'omniauth'
+gem 'omniauth', '~> 1.2.2'
 gem 'omniauth-facebook'
 gem 'omniauth-github'
 gem 'omniauth-google-oauth2'
@@ -112,7 +102,8 @@ gem 'exception_notification'
 
 # gem 'ancestry'
 
-gem 'axlsx'
-gem 'axlsx_rails'
+gem 'axlsx', '~> 2.0.1'
+gem 'axlsx_rails', '~> 0.4.0'
 
-gem 'gretel'
+# breadcrumbs
+gem 'gretel', '~> 3.0.8'

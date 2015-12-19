@@ -13,3 +13,12 @@
 
 [Site online do sistema Saúde Controlada!](https://saudecontrolada.com.br)
 
+## Configuração
+
+    CREATE ROLE saudecontrolada LOGIN ENCRYPTED PASSWORD 'saudecontrolada' NOINHERIT VALID UNTIL 'infinity';
+
+    CREATE DATABASE saudecontrolada_development WITH ENCODING='UTF8' OWNER=saudecontrolada;
+    CREATE DATABASE saudecontrolada_test WITH ENCODING='UTF8' OWNER=saudecontrolada;
+
+    rake db:migrate RAILS_ENV=development
+    rake db:migrate RAILS_ENV=test
