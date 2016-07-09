@@ -1,4 +1,11 @@
 pt-BR:
+  activerecord:
+    errors:
+      messages:
+        record_invalid: 'A validação falhou: %{errors}'
+        restrict_dependent_destroy:
+          has_one: Não é possível excluir o registro pois existe um %{record} dependente
+          has_many: Não é possível excluir o registro pois existem %{record} dependentes
   date:
     abbr_day_names:
     - Dom
@@ -24,16 +31,16 @@ pt-BR:
     - Dez
     day_names:
     - Domingo
-    - Segunda
-    - Terça
-    - Quarta
-    - Quinta
-    - Sexta
+    - Segunda-feira
+    - Terça-feira
+    - Quarta-feira
+    - Quinta-feira
+    - Sexta-feira
     - Sábado
     formats:
-      default: ! '%d/%m/%Y'
-      long: ! '%d de %B de %Y'
-      short: ! '%d de %B'
+      default: "%d/%m/%Y"
+      long: "%d de %B de %Y"
+      short: "%d de %B"
     month_names:
     -
     - Janeiro
@@ -78,16 +85,16 @@ pt-BR:
         other: mais de %{count} anos
       x_days:
         one: 1 dia
-        other: ! '%{count} dias'
+        other: "%{count} dias"
       x_minutes:
         one: 1 minuto
-        other: ! '%{count} minutos'
+        other: "%{count} minutos"
       x_months:
         one: 1 mês
-        other: ! '%{count} meses'
+        other: "%{count} meses"
       x_seconds:
         one: 1 segundo
-        other: ! '%{count} segundos'
+        other: "%{count} segundos"
     prompts:
       day: Dia
       hour: Hora
@@ -95,42 +102,44 @@ pt-BR:
       month: Mês
       second: Segundo
       year: Ano
-  errors: &errors
-    format: ! '%{attribute} %{message}'
+  errors:
+    format: "%{attribute} %{message}"
     messages:
-      accepted: Deve ser aceito
-      blank: O campo é de preenchimento obrigatório
-      confirmation: Esse campo e a confirmação devem ser iguais
-      dependent_tables: "Não é possível excluir '%{registro}', pois existe em '%{model_filho}' referência(s) a esse registro."
-      empty: O campo é de preenchimento obrigatório
-      equal_to: Deve ser igual a %{count}
-      even: Deve ser par
-      exclusion: Não está disponível
-      greater_than: Deve ser maior que %{count}
-      greater_than_or_equal_to: Deve ser maior ou igual a %{count}
-      inclusion: Não está incluído na lista
-      invalid: Não é válido
-      invalid_format: "O campo não está no formato válido"
-      less_than: Deve ser menor que %{count}
-      less_than_or_equal_to: Deve ser menor ou igual a %{count}
-      not_a_number: Não é um número
-      not_an_integer: Não é um número inteiro
-      odd: Deve ser ímpar
-      present: Deve ficar em branco
-      record_invalid: ! 'A validação falhou: %{errors}'
-      restrict_dependent_destroy:
-        one: "Não é possível excluir, pois existe um %{record} dependente."
-        many: "Não é possível excluir, pois existem registros de %{record} dependentes."
-      taken: Favor informar outro valor para o campo, pois esse já está cadastrado no sistema
-      taken2: Favor informar outro valor para o campo, pois esse já está sendo usado
-      too_long: ! 'É muito longo (máximo: %{count} caracteres)'
-      too_short: ! 'É muito curto (mínimo: %{count} caracteres)'
-      wrong_length: Não possui o tamanho esperado (%{count} caracteres)
+      accepted: deve ser aceito
+      blank: não pode ficar em branco
+      present: deve ficar em branco
+      confirmation: não é igual a %{attribute}
+      empty: não pode ficar vazio
+      equal_to: deve ser igual a %{count}
+      even: deve ser par
+      exclusion: não está disponível
+      greater_than: deve ser maior que %{count}
+      greater_than_or_equal_to: deve ser maior ou igual a %{count}
+      inclusion: não está incluído na lista
+      invalid: não é válido
+      less_than: deve ser menor que %{count}
+      less_than_or_equal_to: deve ser menor ou igual a %{count}
+      model_invalid: 'A validação falhou: %{errors}'
+      not_a_number: não é um número
+      not_an_integer: não é um número inteiro
+      odd: deve ser ímpar
+      required: deve existir
+      taken: já está em uso
+      too_long:
+        one: 'é muito longo (máximo: 1 caracter)'
+        other: 'é muito longo (máximo: %{count} caracteres)'
+      too_short:
+        one: 'é muito curto (mínimo: 1 caracter)'
+        other: 'é muito curto (mínimo: %{count} caracteres)'
+      wrong_length:
+        one: não possui o tamanho esperado (1 caracter)
+        other: não possui o tamanho esperado (%{count} caracteres)
+      other_than: deve ser diferente de %{count}
     template:
-      body: ! 'Por favor, verifique o(s) seguinte(s) campo(s):'
+      body: 'Por favor, verifique o(s) seguinte(s) campo(s):'
       header:
-        one: ! 'Não foi possível gravar %{model}: 1 erro'
-        other: ! 'Não foi possível gravar %{model}: %{count} erros.'
+        one: 'Não foi possível gravar %{model}: 1 erro'
+        other: 'Não foi possível gravar %{model}: %{count} erros'
   helpers:
     select:
       prompt: Por favor selecione
@@ -141,22 +150,22 @@ pt-BR:
   number:
     currency:
       format:
-        delimiter: .
-        format: ! '%u %n'
+        delimiter: "."
+        format: "%u %n"
         precision: 2
-        separator: ! ','
+        separator: ","
         significant: false
         strip_insignificant_zeros: false
         unit: R$
     format:
-      delimiter: .
-      precision: 2
-      separator: ! ','
+      delimiter: "."
+      precision: 3
+      separator: ","
       significant: false
       strip_insignificant_zeros: false
     human:
       decimal_units:
-        format: ! '%n %u'
+        format: "%n %u"
         units:
           billion:
             one: bilhão
@@ -173,12 +182,12 @@ pt-BR:
             other: trilhões
           unit: ''
       format:
-        delimiter: .
+        delimiter: "."
         precision: 2
         significant: true
         strip_insignificant_zeros: true
       storage_units:
-        format: ! '%n %u'
+        format: "%n %u"
         units:
           byte:
             one: Byte
@@ -189,22 +198,20 @@ pt-BR:
           tb: TB
     percentage:
       format:
-        delimiter: .
+        delimiter: "."
+        format: "%n%"
     precision:
       format:
-        delimiter: .
+        delimiter: "."
   support:
     array:
-      last_word_connector: ! ' e '
-      two_words_connector: ! ' e '
-      words_connector: ! ', '
+      last_word_connector: " e "
+      two_words_connector: " e "
+      words_connector: ", "
   time:
     am: ''
     formats:
-      data_hora: ! '%d/%m/%Y %H:%M'
-      default: ! '%d/%m/%Y'
-      hora: ! '%H:%M'
-      # default: ! '%a, %d de %B de %Y, %H:%M:%S %z'
-      long: ! '%d de %B de %Y, %H:%M'
-      short: ! '%d de %B, %H:%M'
+      default: "%a, %d de %B de %Y, %H:%M:%S %z"
+      long: "%d de %B de %Y, %H:%M"
+      short: "%d de %B, %H:%M"
     pm: ''

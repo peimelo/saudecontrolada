@@ -1,7 +1,24 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+require 'csv'
+
+def load_file(klass)
+  csv_text = File.read(Rails.root.join('db', 'data', "#{klass}.csv"))
+  csv = CSV.parse(csv_text, headers: true)
+  p "loading #{klass}..."
+  csv.each do |row|
+    begin
+      register = klass.find_by_id(row['id'])
+      if register
+        register.update_attributes!(row.to_hash)
+      else
+        klass.create!(row.to_hash)
+      end
+    rescue ActiveRecord::RecordInvalid => e
+      p "error: #{ e } | #{ row.to_hash }"
+    end
+  end
+  p "done #{klass}"
+end
+
+load_file(Reference)
+load_file(Unit)
+load_file(Exam)

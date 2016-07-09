@@ -1,0 +1,19 @@
+<h1><%= I18n.t('user_mailer.confirmation.subject') %></h1>
+
+<p>Olá <%= @user.name %>,</p>
+
+<p>
+  Seja bem vindo ao site Saúde Controlada!
+</p>
+
+<p>
+  Clique no link abaixo para confirmar seu e-mail:
+</p>
+
+<p><%= link_to 'Confirmar', @link %></p>
+
+<p>
+  Se não conseguir acessar pelo link acima, copie e cole o endereço abaixo no seu navegador:
+</p>
+
+<pre><%= @link %></pre>

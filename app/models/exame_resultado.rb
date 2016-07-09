@@ -1,20 +1,8 @@
-# == Schema Information
-#
-# Table name: exames_resultados
-#
-#  id           :integer          not null, primary key
-#  valor        :decimal(10, 2)   not null
-#  exame_id     :integer          not null
-#  created_at   :datetime
-#  updated_at   :datetime
-#  resultado_id :integer          not null
-#
-
-class ExameResultado < ActiveRecord::Base
+class ExameResultado < ApplicationRecord
   self.table_name = 'exames_resultados'
 
   belongs_to :exame
-  belongs_to :resultado
+  belongs_to :result
 
   validates :exame_id, :valor, presence: true
   validates :valor, numericality: { less_than_or_equal_to: 99999999.99 }

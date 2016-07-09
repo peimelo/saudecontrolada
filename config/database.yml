@@ -21,6 +21,5 @@ test:
 
 production:
   <<: *posgresql
-  database: saudecontrolada
-  username: <%= ENV['DATABASE_PROD_USERNAME'] %>
-  password: <%= ENV['DATABASE_PROD_PASSWORD'] %>
+  database: saudecontrolada_production
+  password: <%= ENV['DATABASE_PASSWORD'] %>

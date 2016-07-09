@@ -1,43 +1,22 @@
-# == Schema Information
-#
-# Table name: users
-#
-#  id                     :integer          not null, primary key
-#  email                  :string(255)      default(""), not null
-#  encrypted_password     :string(255)      default(""), not null
-#  reset_password_token   :string(255)
-#  reset_password_sent_at :datetime
-#  remember_created_at    :datetime
-#  sign_in_count          :integer          default(0)
-#  current_sign_in_at     :datetime
-#  last_sign_in_at        :datetime
-#  current_sign_in_ip     :string(255)
-#  last_sign_in_ip        :string(255)
-#  confirmation_token     :string(255)
-#  confirmed_at           :datetime
-#  confirmation_sent_at   :datetime
-#  unconfirmed_email      :string(255)
-#  failed_attempts        :integer          default(0)
-#  unlock_token           :string(255)
-#  locked_at              :datetime
-#  authentication_token   :string(255)
-#  created_at             :datetime
-#  updated_at             :datetime
-#  name                   :string(255)      not null
-#  gender                 :string(255)      not null
-#  date_of_birth          :date             not null
-#  admin                  :boolean          default(FALSE), not null
-#
-
 FactoryGirl.define do
   factory :user do
+    confirmed_at Time.now.utc
+    current_sign_in_at 1.days.ago
     date_of_birth 30.years.ago
-    sequence(:email) { |n| "email_#{n}@exemplo.com" }
+    sequence(:email) { |n| "email_#{n}@example.com" }
     gender 'Masculino'
-    sequence(:name) { |n| "nome_#{n}" }
-    password 'senha123'
-    password_confirmation 'senha123'
-    
+    sequence(:name) { |n| "name_#{n}" }
+    password 'Password-123'
+    password_confirmation 'Password-123'
+
+    factory :invalid_user do
+      name nil
+    end
+
+    factory :not_activate_user do
+      confirmed_at nil
+    end
+
     factory :user_admin do
       admin true
     end

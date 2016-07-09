@@ -15,11 +15,11 @@
 #  valido         :boolean          default(TRUE), not null
 #
 
-class Valor < ActiveRecord::Base
+class Valor < ApplicationRecord
   SEXO = %w[Feminino Masculino]
 
   belongs_to :exame
-  belongs_to :referencia
+  belongs_to :reference
 
   validates :valido, presence: true
 
