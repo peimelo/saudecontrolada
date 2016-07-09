@@ -1,0 +1,58 @@
+pt-BR:
+  confirmations:
+    create:
+      message: 'Enviamos uma mensagem para o e-mail informado, caso ele exista e não esteja confirmado.'
+      title: 'Instruções de confirmação enviadas com sucesso!'
+    failure:
+      confirmed: 'Seu e-mail já tinha sido confirmado. Por favor, tente entrar.'
+      token: 'Token de confirmação de e-mail não foi encontrado. Por favor, gere outro.'
+      expired: 'O token para confirmar o e-mail expirou. Por favor, gere outro.'
+    edit:
+      message: 'Agora você poderá usar o sistema para ajudar sua saúde.'
+      title: 'E-mail confirmado com sucesso!'
+  contact_mailer:
+    notify_me:
+      subject: 'Contato'
+  contacts:
+    create:
+      message: 'Entraremos em contato o quanto antes.'
+      title: 'Contato enviado com sucesso!'
+  errors:
+    messages:
+      security: não atende aos requisitos de segurança
+  failure:
+    unauthenticated: 'Para continuar, entre ou cadastre-se.'
+    unauthorized: 'Sem autorização.'
+  flash:
+    create: Incluído com sucesso.
+    destroy: Excluído com sucesso.
+    update: Alterado com sucesso.
+  passwords:
+    create:
+      message: 'Enviamos uma mensagem para o e-mail informado, caso ele exista em nosso sistema.'
+      title: 'Instruções de redefinição enviadas com sucesso!'
+    failure:
+      activated: 'Sua conta ainda não foi ativada. Veja se recebeu o e-mail de ativação quando se cadastrou.'
+      token: 'O token para alterar a senha não foi encontrado. Por favor, gere outro.'
+      expired: 'O token para redefinir a senha expirou. Por favor, gere outro.'
+    update:
+      message: 'Agora você poderá usar novamente o sistema para ajudar sua saúde.'
+      title: 'Senha foi alterada com sucesso!'
+  sessions:
+    invalid: 'E-mail ou senha inválidos.'
+    not_activated: 'O e-mail não foi confirmado. Veja se recebeu o e-mail de confirmação quando se cadastrou.'
+    signed_out: 'Saiu com sucesso.'
+  user_mailer:
+    confirmation:
+      subject: 'Confirmação de E-mail'
+    password:
+      subject: 'Redefinir a Senha'
+  users:
+    create:
+      message: 'Por favor, ative sua conta através do e-mail que enviamos.'
+      title: 'Conta criada com sucesso!'
+    destroy:
+      message: 'Todos seus dados foram excluídos com sucesso. Esperamos que um dia você volte.'
+      title: 'Conta excluída com sucesso!'
+    update:
+      invalid_password: 'Senha atual não confere.'

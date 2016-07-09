@@ -7,9 +7,10 @@
 #  valor      :decimal(5, 2)    not null
 #  altura     :decimal(3, 2)    not null
 #  user_id    :integer          not null
-#  created_at :datetime
-#  updated_at :datetime
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 #
+
 
 RSpec.describe Peso do
   let(:peso) { create(:peso, user: @user) }
@@ -35,8 +36,8 @@ RSpec.describe Peso do
   end
 
   describe 'scopes' do
-    it '.listar' do
-      expect(@user.peso.listar).to match [peso]
+    it '.ordered' do
+      expect(@user.peso.ordered).to match [peso]
     end
   end
 
@@ -46,9 +47,15 @@ RSpec.describe Peso do
     end
   end
 
-  describe '#peso_ideal' do
-    it '1,80m e 70Kg deve retornar "59,91 ~ 80,97"' do
-      expect(build_peso.peso_ideal).to eq '59,91 ~ 80,97'
+  describe '#maximum' do
+    it '1,80m e 70Kg deve retornar 80.97' do
+      expect(build_peso.maximum).to eq 80.97
+    end
+  end
+
+  describe '#minimum' do
+    it '1,80m e 70Kg deve retornar 59.91' do
+      expect(build_peso.minimum).to eq 59.91
     end
   end
 end

@@ -1,32 +1,32 @@
-RSpec.describe UsersController do
+RSpec.describe Api::V1::UsersController do
   describe 'routing' do
 
     it 'routes to #index' do
-      expect(get: '/users').to route_to('users#index')
+      expect(get: 'api/users').to route_to('api/v1/users#index', format: :json)
     end
 
-    it 'does not routes to #show' do
-      expect(get: '/users/1').not_to be_routable
+    it 'routes to #show' do
+      expect(get: 'api/users/0').to route_to('api/v1/users#show', id: '0', format: :json)
     end
 
     it 'does not routes to #new' do
-      expect(get: '/users/new').not_to be_routable
+      expect(get: 'api/users/new').to route_to('api/v1/users#show', id: 'new', format: :json)
     end
 
     it 'does not routes to #edit' do
-      expect(get: '/users/1/edit').not_to be_routable
+      expect(get: 'api/users/1/edit').not_to be_routable
     end
 
-    it 'does not routes to #create' do
-      expect(post: '/users').not_to route_to('users#create')
+    it 'routes to #create' do
+      expect(post: 'api/users').to route_to('api/v1/users#create', format: :json)
     end
 
-    it 'does not routes to #update' do
-      expect(put: '/users/1').not_to be_routable
+    it 'routes to #update' do
+      expect(put: 'api/users/0').to route_to('api/v1/users#update', id: '0', format: :json)
     end
 
-    it 'does not routes to #destroy' do
-      expect(delete: '/users/1').not_to be_routable
+    it 'routes to #destroy' do
+      expect(delete: 'api/users/0').to route_to('api/v1/users#destroy', id: '0', format: :json)
     end
   end
 end

@@ -1,58 +1,25 @@
 {
-  "name": "saudecontrolada",
+  "name": "saudecontrolada_api",
   "scripts": {
-    "postdeploy": "bundle exec rake db:migrate && bundle exec rake db:seed"
+    "postdeploy": "bundle exec rails db:migrate && bundle exec rails db:seed"
   },
   "env": {
-    "AIRBRAKE_API_KEY": {
-      "required": true
-    },
-    "CODECLIMATE_REPO_TOKEN": {
-      "required": true
-    },
-    "DELAYED_JOB_WEB_PATH": {
-      "required": true
-    },
     "EMAIL_PASSWORD": {
       "required": true
     },
-    "EMAIL_USER_NAME": {
+    "EMAIL_USERNAME": {
       "required": true
     },
-    "FACEBOOK_KEY": {
-      "required": true
-    },
-    "FACEBOOK_SECRET": {
-      "required": true
-    },
-    "GITHUB_KEY": {
-      "required": true
-    },
-    "GITHUB_SECRET": {
-      "required": true
-    },
-    "GOOGLE_ANALYTICS_ID": {
-      "required": true
-    },
-    "GOOGLE_KEY": {
+    "EXCEPTION_RECIPIENTS": {
       "required": true
     },
     "LANG": {
-      "required": true
-    },
-    "LINKEDIN_KEY": {
-      "required": true
-    },
-    "LINKEDIN_SECRET": {
       "required": true
     },
     "MAILER_HOST": {
       "required": true
     },
     "MAILER_SENDER": {
-      "required": true
-    },
-    "NEW_RELIC_LICENSE_KEY": {
       "required": true
     },
     "RACK_ENV": {
@@ -65,10 +32,11 @@
       "required": true
     },
     "SECRET_KEY_BASE": {
+      "description": "A secret key for verifying the integrity of signed cookies.",
       "generator": "secret"
     },
     "SECRET_TOKEN_DEVISE": {
-      "generator": "secret"
+      "required": false
     }
   },
   "formation": {
@@ -80,8 +48,7 @@
     }
   },
   "addons": [
-    "heroku-postgresql",
-    "zerigo_dns"
+    "heroku-postgresql"
   ],
   "buildpacks": [
     {

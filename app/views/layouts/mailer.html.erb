@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+<body>
+  <%= yield %>
+  <hr>
+  <p>Atenciosamente,</p>
+  <p>Equipe do site
+    <a href="<%=  Rails.application.secrets.mailer_host %>">
+    Saúde Controlada
+    </a>
+    .
+  </p>
+</body>
+</html>
