@@ -11,7 +11,7 @@
 
 ## Descrição
 
-[Site online do sistema Saúde Controlada!](https://saudecontrolada.com.br)
+[Site online do sistema Saúde Controlada](https://saudecontrolada.com.br)
 
 ## Configuração
 
