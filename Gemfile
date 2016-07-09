@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 ruby '2.2.3'
 
 gem 'rails', '4.2.5'
-gem 'pg', '~> 0.18.0'
 
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -46,6 +45,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'guard-rspec', require: false
   gem 'rspec-rails', '~> 3.0'
+  gem 'sqlite3'
 end
 
 group :development do
@@ -81,6 +81,7 @@ end
 
 group :production do
   gem 'rails_12factor'
+  gem 'pg', '~> 0.18.0'
   gem 'puma'
 end
 

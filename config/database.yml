@@ -1,4 +1,9 @@
 default: &default
+  adapter: sqlite3
+  pool: 5
+  timeout: 5000
+
+posgresql: &posgresql
   adapter: postgresql
   encoding: unicode
   pool: 5
@@ -8,14 +13,14 @@ default: &default
 
 development:
   <<: *default
-  database: saudecontrolada_development
+  database: db/development.sqlite3
 
 test:
   <<: *default
-  database: saudecontrolada_test
+  database: db/test.sqlite3
 
 production:
-  <<: *default
+  <<: *posgresql
   database: saudecontrolada
   username: <%= ENV['DATABASE_PROD_USERNAME'] %>
   password: <%= ENV['DATABASE_PROD_PASSWORD'] %>
