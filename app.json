@@ -1,7 +1,7 @@
 {
   "name": "saudecontrolada",
   "scripts": {
-    "postdeploy": "bundle exec rails db:migrate && bundle exec rails db:seed"
+    "postdeploy": "bundle exec rake db:migrate && bundle exec rake db:seed"
   },
   "env": {
     "AIRBRAKE_API_KEY": {
