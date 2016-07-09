@@ -23,6 +23,7 @@ Rails.application.routes.draw do
           constraints: ApiConstraints.new(version: 1, default: true) do
 
       resources :confirmations, only: [:create, :update]
+      resources :contacts,      only: [:create]
       resources :dashboards,    only: [:show]
       resources :passwords,     only: [:create, :update]
       resources :pesos,         only: [:create, :destroy, :index, :show, :update]

@@ -10,6 +10,13 @@ pt-BR:
     edit:
       message: 'Agora você poderá usar o sistema para ajudar sua saúde.'
       title: 'E-mail confirmado com sucesso!'
+  contact_mailer:
+    notify_me:
+      subject: 'Contato'
+  contacts:
+    create:
+      message: 'Entraremos em contato o quanto antes.'
+      title: 'Contato enviado com sucesso!'
   errors:
     messages:
       security: não atende aos requisitos de segurança

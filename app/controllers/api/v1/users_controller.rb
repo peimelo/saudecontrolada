@@ -17,7 +17,6 @@ class Api::V1::UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      @user.send_confirmation_instructions
       render status: :created, json: {
         message: I18n.t('users.create.message'),
         title: I18n.t('users.create.title')
@@ -28,8 +27,6 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def update
-    # prev_unconfirmed_email = current_user.unconfirmed_email if current_user.respond_to?(:unconfirmed_email)
-
     user_updated = current_user.update_with_password(user_params)
 
     if user_updated
@@ -42,10 +39,15 @@ class Api::V1::UsersController < ApplicationController
 
   def destroy
     current_user.destroy
-    render status: :ok, json: {
-      message: I18n.t('users.destroy.message'),
-      title: I18n.t('users.destroy.title')
-    }
+
+    if !current_user.persisted?
+      render status: :ok, json: {
+        message: I18n.t('users.destroy.message'),
+        title: I18n.t('users.destroy.title')
+      }
+    else
+      render json: current_user.errors, status: :unprocessable_entity
+    end
   end
 
   private
