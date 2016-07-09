@@ -15,6 +15,7 @@ config/env.rb
 public/app/
 public/fonts/
 public/img/landing/header*.jpg
+public/img/landing/word_map.png
 public/maps/
 public/scripts/
 public/styles/
