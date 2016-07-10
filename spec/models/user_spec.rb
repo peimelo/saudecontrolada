@@ -9,8 +9,7 @@ RSpec.describe User do
   it { should be_valid }
 
   context 'associations' do
-    # it { should have_many(:authentication).dependent(:delete_all) }
-    it { should have_many(:peso).dependent(:delete_all) }
+    it { should have_many(:weight).dependent(:delete_all) }
     it { should have_many(:result).dependent(:delete_all) }
   end
 
@@ -84,8 +83,8 @@ RSpec.describe User do
 
     it '.peso_ordered' do
       user = create :user
-      peso = create :peso, user: user
-      expect(user.peso_ordered).to eq [peso]
+      weight = create :weight, user: user
+      expect(user.weight_ordered).to eq [weight]
     end
   end
 

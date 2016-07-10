@@ -2,15 +2,15 @@ class Result < ApplicationRecord
   # include DateModule
 
   belongs_to :user
-  has_many :exame_resultado, dependent: :delete_all
-  has_many :exame, through: :exame_resultado
-  accepts_nested_attributes_for :exame_resultado, allow_destroy: true, reject_if: :all_blank
+  has_many :exam_result, dependent: :delete_all
+  has_many :exam, through: :exam_result
+  accepts_nested_attributes_for :exam_result, allow_destroy: true, reject_if: :all_blank
 
-  validates :data, :descricao, :user_id, presence: true
-  validates :data, uniqueness: { scope: :descricao, case_sensitive: false }
-  validates :descricao, uniqueness: { scope: :data }
+  validates :date, :description, :user_id, presence: true
+  validates :date, uniqueness: { scope: :description, case_sensitive: false }
+  validates :description, uniqueness: { scope: :date }
 
-  validate :uniqueness_of_exame_resultado
+  validate :uniqueness_of_exam_result
 
   # scope :listar, -> (
   #   data_inicial = '',
@@ -29,16 +29,16 @@ class Result < ApplicationRecord
   }
 
   private
-    def uniqueness_of_exame_resultado
+    def uniqueness_of_exam_result
       hash = {}
-      exame_resultado.each do |exame_result|
-        if hash[exame_result.exame_id]
+      exam_result.each do |exam_result|
+        if hash[exam_result.exam_id]
           # This line is needed to form the parent to error out, otherwise the save would still happen
-          errors.add(:'exame_result.exame_id', 'duplicate error') if errors[:'exame_result.exame_id'].blank?
+          errors.add(:'exam_result.exame_id', 'duplicate error') if errors[:'exam_result.exam_id'].blank?
           # This line adds the error to the child to view in your fields_for
-          exame_result.errors.add(:exame_id, :taken2)
+          exam_result.errors.add(:exam_id, :taken2)
         end
-        hash[exame_result.exame_id] = true
+        hash[exam_result.exam_id] = true
       end
     end
 end

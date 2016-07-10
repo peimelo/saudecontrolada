@@ -7,7 +7,7 @@ class Dashboard
   end
 
   def weights
-    @weights ||= @current_user.peso_ordered
+    @weights ||= @current_user.weight_ordered
   end
 
   def self.model_name

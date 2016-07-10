@@ -26,12 +26,12 @@ Rails.application.routes.draw do
       resources :contacts,      only: [:create]
       resources :dashboards,    only: [:show]
       resources :passwords,     only: [:create, :update]
-      resources :pesos,         only: [:create, :destroy, :index, :show, :update]
       resources :references,    only: [:create, :destroy, :index, :show, :update]
       resources :results,       only: [:create, :destroy, :index, :show, :update]
       resources :sessions,      only: [:create]
       resources :units,         only: [:create, :destroy, :index, :show, :update]
       resources :users,         only: [:create, :destroy, :index, :show, :update]
+      resources :weights,       only: [:create, :destroy, :index, :show, :update]
     end
   end
 end
