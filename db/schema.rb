@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160710110300) do
+ActiveRecord::Schema.define(version: 20160710170200) do
 
   create_table "contacts", force: :cascade do |t|
     t.string   "name"
@@ -31,11 +31,11 @@ ActiveRecord::Schema.define(version: 20160710110300) do
 
   create_table "exams_results", force: :cascade do |t|
     t.decimal  "value",      precision: 10, scale: 2, null: false
-    t.integer  "exame_id",                            null: false
+    t.integer  "exam_id",                             null: false
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.integer  "result_id",                           null: false
-    t.index ["exame_id", "result_id"], name: "index_exams_results_on_exame_id_and_result_id", unique: true
+    t.index ["exam_id", "result_id"], name: "index_exams_results_on_exam_id_and_result_id", unique: true
   end
 
   create_table "references", force: :cascade do |t|
@@ -97,8 +97,8 @@ ActiveRecord::Schema.define(version: 20160710110300) do
     t.decimal  "idade_superior", precision: 6,  scale: 3
     t.decimal  "valor_inferior", precision: 10, scale: 2
     t.decimal  "valor_superior", precision: 10, scale: 2
-    t.integer  "exame_id",                                               null: false
-    t.integer  "referencia_id"
+    t.integer  "exam_id",                                                null: false
+    t.integer  "reference_id"
     t.datetime "created_at",                                             null: false
     t.datetime "updated_at",                                             null: false
     t.boolean  "valid",                                   default: true, null: false

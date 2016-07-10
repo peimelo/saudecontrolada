@@ -1,7 +1,7 @@
 class Valor < ApplicationRecord
   SEXO = %w[Feminino Masculino]
 
-  belongs_to :exame
+  belongs_to :exam
   belongs_to :reference
 
   validates :valid, presence: true
