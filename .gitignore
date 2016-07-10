@@ -5,6 +5,7 @@ db/*.sqlite3
 
 *~
 .DS_Store
+*.dump
 .idea/
 .rbenv-gemsets
 
