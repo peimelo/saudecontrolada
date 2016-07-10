@@ -1,27 +1,10 @@
-# == Schema Information
-#
-# Table name: valores
-#
-#  id             :integer          not null, primary key
-#  sexo           :string(255)
-#  idade_inferior :decimal(6, 3)
-#  idade_superior :decimal(6, 3)
-#  valor_inferior :decimal(10, 2)
-#  valor_superior :decimal(10, 2)
-#  exame_id       :integer          not null
-#  referencia_id  :integer
-#  created_at     :datetime
-#  updated_at     :datetime
-#  valido         :boolean          default(TRUE), not null
-#
-
 class Valor < ApplicationRecord
   SEXO = %w[Feminino Masculino]
 
   belongs_to :exame
   belongs_to :reference
 
-  validates :valido, presence: true
+  validates :valid, presence: true
 
   validates :idade_inferior, numericality: { less_than_or_equal_to: :idade_superior },
     unless: Proc.new { |a| a.idade_inferior.blank? or a.idade_superior.blank? }

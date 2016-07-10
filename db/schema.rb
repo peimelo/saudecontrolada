@@ -10,15 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160709101835) do
-
-  create_table "authentications", force: :cascade do |t|
-    t.integer  "user_id",    null: false
-    t.string   "provider",   null: false
-    t.string   "uid",        null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 20160710110300) do
 
   create_table "contacts", force: :cascade do |t|
     t.string   "name"
@@ -26,30 +18,6 @@ ActiveRecord::Schema.define(version: 20160709101835) do
     t.text     "message",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "delayed_jobs", force: :cascade do |t|
-    t.integer  "priority",   default: 0, null: false
-    t.integer  "attempts",   default: 0, null: false
-    t.text     "handler",                null: false
-    t.text     "last_error"
-    t.datetime "run_at"
-    t.datetime "locked_at"
-    t.datetime "failed_at"
-    t.string   "locked_by"
-    t.string   "queue"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.index ["priority", "run_at"], name: "delayed_jobs_priority"
-  end
-
-  create_table "exames_resultados", force: :cascade do |t|
-    t.decimal  "valor",        precision: 10, scale: 2, null: false
-    t.integer  "exame_id",                              null: false
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
-    t.integer  "resultado_id",                          null: false
-    t.index ["exame_id", "resultado_id"], name: "index_exames_resultados_on_exame_id_and_resultado_id", unique: true
   end
 
   create_table "exams", force: :cascade do |t|
@@ -61,13 +29,13 @@ ActiveRecord::Schema.define(version: 20160709101835) do
     t.index ["name", "parent_id", "unit_id"], name: "index_exams_on_name_and_parent_id_and_unit_id", unique: true
   end
 
-  create_table "pesos", force: :cascade do |t|
-    t.date     "data",                               null: false
-    t.decimal  "valor",      precision: 5, scale: 2, null: false
-    t.decimal  "altura",     precision: 3, scale: 2, null: false
-    t.integer  "user_id",                            null: false
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+  create_table "exams_results", force: :cascade do |t|
+    t.decimal  "value",      precision: 10, scale: 2, null: false
+    t.integer  "exame_id",                            null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.integer  "result_id",                           null: false
+    t.index ["exame_id", "result_id"], name: "index_exams_results_on_exame_id_and_result_id", unique: true
   end
 
   create_table "references", force: :cascade do |t|
@@ -124,7 +92,7 @@ ActiveRecord::Schema.define(version: 20160709101835) do
   end
 
   create_table "valores", force: :cascade do |t|
-    t.string   "sexo"
+    t.string   "gender"
     t.decimal  "idade_inferior", precision: 6,  scale: 3
     t.decimal  "idade_superior", precision: 6,  scale: 3
     t.decimal  "valor_inferior", precision: 10, scale: 2
@@ -133,7 +101,16 @@ ActiveRecord::Schema.define(version: 20160709101835) do
     t.integer  "referencia_id"
     t.datetime "created_at",                                             null: false
     t.datetime "updated_at",                                             null: false
-    t.boolean  "valido",                                  default: true, null: false
+    t.boolean  "valid",                                   default: true, null: false
+  end
+
+  create_table "weights", force: :cascade do |t|
+    t.date     "date",                               null: false
+    t.decimal  "value",      precision: 5, scale: 2, null: false
+    t.decimal  "height",     precision: 3, scale: 2, null: false
+    t.integer  "user_id",                            null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
   end
 
 end
