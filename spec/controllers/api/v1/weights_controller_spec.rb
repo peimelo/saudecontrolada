@@ -1,15 +1,15 @@
-RSpec.describe Api::V1::PesosController do
+RSpec.describe Api::V1::WeightsController do
   describe 'GET #index' do
     before(:each) do
       user = create :user, authentication_token: GenerateToken.new.call
-      4.times { create :peso, user: user }
+      4.times { create :weight, user: user }
 
       api_authorization_header user.authentication_token
       get :index, params: { page: 1 }
     end
 
     it 'returns 4 records from the database' do
-      expect(json_response[:pesos].size).to eq 4
+      expect(json_response[:weights].size).to eq 4
     end
 
     it { expect(response).to be_success }

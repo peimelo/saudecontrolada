@@ -4,11 +4,8 @@ class User < ApplicationRecord
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
-  # attr_accessor :activation_token
-
-  # has_many :authentication, dependent: :delete_all
-  has_many :peso, dependent: :delete_all
   has_many :result, dependent: :delete_all
+  has_many :weight, dependent: :delete_all
 
   validates :authentication_token, uniqueness: true, allow_nil: true
   validates :confirmation_token, uniqueness: true, allow_nil: true
@@ -23,7 +20,7 @@ class User < ApplicationRecord
 
   has_secure_password
 
-  delegate :ordered, to: :peso, prefix: true
+  delegate :ordered, to: :weight, prefix: true
 
   scope :ordered, lambda {
     select(:id,
