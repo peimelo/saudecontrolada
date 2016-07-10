@@ -10,7 +10,7 @@ RSpec.describe User do
 
   context 'associations' do
     it { should have_many(:weight).dependent(:delete_all) }
-    it { should have_many(:result).dependent(:delete_all) }
+    it { should have_many(:result).dependent(:destroy) }
   end
 
   context 'validations' do
