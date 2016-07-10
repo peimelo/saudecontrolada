@@ -1,4 +1,6 @@
 class ExamResult < ApplicationRecord
+  self.table_name = 'exams_results'
+
   belongs_to :exame
   belongs_to :result
 
