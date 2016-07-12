@@ -20,6 +20,7 @@ class User < ApplicationRecord
 
   has_secure_password
 
+  delegate :recent_height, to: :weight
   delegate :ordered, to: :weight, prefix: true
 
   scope :ordered, lambda {
