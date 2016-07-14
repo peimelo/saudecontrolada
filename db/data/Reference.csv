@@ -33,6 +33,7 @@ id,name
 "32","Segundo Trimestre da Gravidez"
 "33","Terceiro Trimestre da Gravidez"
 "34","Inferior a 1 mês"
+"35","1 a 11 meses"
 "36","Positivo"
 "37","Negativo"
 "38","Indeterminado"
@@ -70,4 +71,3 @@ id,name
 "78","Límpido"
 "79","Amarela"
 "80","Raras"
-"35","1 a 11 meses"
