@@ -1,7 +1,7 @@
 class Weight < ApplicationRecord
   belongs_to :user
 
-  validates :date, uniqueness: :user_id
+  validates :date, uniqueness: { scope: :user_id }
   validates :height, :date, :value, :user_id, presence: true
   validates :height, numericality: {
     greater_than: 0.48, less_than_or_equal_to: 2.5

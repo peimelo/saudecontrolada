@@ -28,6 +28,8 @@ RSpec.describe User do
       end
     end
 
+    it { should validate_inclusion_of(:gender).in_array(['F', 'M']) }
+
     context 'length' do
       it { should validate_length_of(:email).is_at_most(255) }
       it { should validate_length_of(:password).is_at_least(8).is_at_most(72) }
@@ -36,7 +38,7 @@ RSpec.describe User do
     context 'password_complexity' do
       context 'valid' do
         %w(` ~ ! @ # $ % ^ & * ( ) - _ = + [ ] { } \ | ; : ' " , . < > / ?).each do |extra_char|
-          it { should allow_value("Senha12#{ extra_char }").for(:password) }
+          it { should allow_value("Password12#{ extra_char }").for(:password) }
         end
       end
 
