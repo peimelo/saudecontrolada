@@ -1,6 +1,7 @@
 RSpec.describe Weight do
   let(:weight) { create(:weight, user: @user) }
   let(:build_weight) { build(:weight, height: 1.8, value: 70, user: @user) }
+  subject { build :weight, user: @user }
 
   before(:all) do
     @user = create(:user)
@@ -19,6 +20,7 @@ RSpec.describe Weight do
 
     it { should validate_numericality_of(:height).is_greater_than(0.48).is_less_than_or_equal_to(2.5) }
     it { should validate_numericality_of(:value).is_greater_than_or_equal_to(3.35).is_less_than_or_equal_to(400) }
+    it { should validate_uniqueness_of(:date).scoped_to(:user_id) }
   end
 
   describe 'scopes' do

@@ -4,7 +4,7 @@ FactoryGirl.define do
     current_sign_in_at 1.days.ago
     date_of_birth 30.years.ago
     sequence(:email) { |n| "email_#{n}@example.com" }
-    gender 'Masculino'
+    gender 'M'
     sequence(:name) { |n| "name_#{n}" }
     password 'Password-123'
     password_confirmation 'Password-123'
