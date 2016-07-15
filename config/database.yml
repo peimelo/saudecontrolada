@@ -1,4 +1,4 @@
-default: &default
+default: &sqlite3
   adapter: sqlite3
   pool: 5
   timeout: 5000
@@ -12,12 +12,16 @@ posgresql: &posgresql
   password: saudecontrolada
 
 development:
-  <<: *default
-  database: db/development.sqlite3
+  <<: *posgresql
+  database: saudecontrolada_development
+#  <<: *sqlite3
+#  database: db/development.sqlite3
 
 test:
-  <<: *default
-  database: db/test.sqlite3
+  <<: *posgresql
+  database: saudecontrolada_test
+#  <<: *sqlite3
+#  database: db/test.sqlite3
 
 production:
   <<: *posgresql

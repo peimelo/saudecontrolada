@@ -12,6 +12,7 @@ class User < ApplicationRecord
   validates :date_of_birth, :gender, :name, presence: true
   validates :email, presence: true, length: { maximum: 255 },
     format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
+  validates :gender, inclusion: { in: %w(F M) }
   validates :password, length: { minimum: 8, maximum: 72 }, allow_nil: true
   validate :password_complexity
   validates :reset_password_token, uniqueness: true, allow_nil: true
@@ -20,6 +21,7 @@ class User < ApplicationRecord
 
   has_secure_password
 
+  delegate :recent_height, to: :weight
   delegate :ordered, to: :weight, prefix: true
 
   scope :ordered, lambda {
