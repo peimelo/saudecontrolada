@@ -21,7 +21,7 @@ class Weight < ApplicationRecord
   }
 
   def imc
-    (value / (height * height)).round(2)
+    value / (height * height)
   end
 
   def maximum
