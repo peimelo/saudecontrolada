@@ -2,8 +2,6 @@
 
 [![Join the chat at https://gitter.im/peimelo/saudecontrolada](https://badges.gitter.im/peimelo/saudecontrolada.svg)](https://gitter.im/peimelo/saudecontrolada?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-[![Stories in Ready](https://badge.waffle.io/peimelo/saudecontrolada.svg?label=ready&title=Ready)](http://waffle.io/peimelo/saudecontrolada)
-
 <table>
   <tr>
     <td>Build Status</td>
