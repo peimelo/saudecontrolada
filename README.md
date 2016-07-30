@@ -1,5 +1,7 @@
 # Saúde Controlada
 
+[![GitHub version](https://badge.fury.io/gh/peimelo%2Fsaudecontrolada.svg)](https://badge.fury.io/gh/peimelo%2Fsaudecontrolada)
+
 [![Join the chat at https://gitter.im/peimelo/saudecontrolada](https://badges.gitter.im/peimelo/saudecontrolada.svg)](https://gitter.im/peimelo/saudecontrolada?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 <table>
