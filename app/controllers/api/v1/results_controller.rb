@@ -2,7 +2,7 @@
 class Api::V1::ResultsController < ApplicationController
   include Crud
   before_action :authenticate_with_token!
-  before_action :admin?
+  before_action :admin?, except: :index
   before_action :set_result, only: [:destroy, :show, :update]
 
   def index
