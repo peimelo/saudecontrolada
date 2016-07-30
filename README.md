@@ -50,3 +50,5 @@ Esse projeto contempla 2 repositórios:
     bundle exec rails db:create
     bundle exec rails db:migrate
     bundle exec rails db:seed
+
+[![Throughput Graph](https://graphs.waffle.io/peimelo/saudecontrolada/throughput.svg)](https://waffle.io/peimelo/saudecontrolada/metrics/throughput)
