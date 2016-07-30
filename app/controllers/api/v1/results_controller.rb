@@ -6,7 +6,7 @@ class Api::V1::ResultsController < ApplicationController
   before_action :set_result, only: [:destroy, :show, :update]
 
   def index
-    list_model(Result.ordered)
+    list_model(current_user.result.ordered)
   end
 
   def show
@@ -14,7 +14,7 @@ class Api::V1::ResultsController < ApplicationController
   end
 
   def create
-    save_model(Result.new(result_params))
+    save_model(current_user.result.new(result_params))
   end
 
   def update
@@ -32,6 +32,6 @@ class Api::V1::ResultsController < ApplicationController
   end
 
   def set_result
-    @result = Result.find(params[:id])
+    @result = current_user.result.find(params[:id])
   end
 end
