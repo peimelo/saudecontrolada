@@ -10,6 +10,6 @@ class Contact < ApplicationRecord
   private
 
   def send_email
-    ContactMailer.notify_me(self).deliver_now
+    ContactMailer.notify_me(self).deliver_later
   end
 end
