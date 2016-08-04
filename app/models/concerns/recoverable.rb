@@ -36,7 +36,12 @@ module Recoverable
       email = email.present? && email.downcase
       user = find_or_initialize_by(email: email)
 
-      user.send_reset_password_instructions if user.persisted?
+      if user.persisted?
+        user.send_reset_password_instructions
+      else
+        user.errors.add(:email, I18n.t('passwords.failure.email_not_found'))
+      end
+
       user
     end
   end

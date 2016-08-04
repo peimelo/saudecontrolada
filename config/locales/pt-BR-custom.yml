@@ -29,12 +29,13 @@ pt-BR:
     update: Alterado com sucesso.
   passwords:
     create:
-      message: 'Enviamos uma mensagem para o e-mail informado, caso ele exista em nosso sistema.'
+      message: 'Enviamos uma mensagem para o e-mail informado.'
       title: 'Instruções de redefinição enviadas com sucesso!'
     failure:
       activated: 'Sua conta ainda não foi ativada. Veja se recebeu o e-mail de ativação quando se cadastrou.'
-      token: 'O token para alterar a senha não foi encontrado. Por favor, gere outro.'
+      email_not_found: 'O e-mail informado não existe no nosso sistema.'
       expired: 'O token para redefinir a senha expirou. Por favor, gere outro.'
+      token: 'O token para alterar a senha não foi encontrado. Por favor, gere outro.'
     update:
       message: 'Agora você poderá usar novamente o sistema para ajudar sua saúde.'
       title: 'Senha foi alterada com sucesso!'
