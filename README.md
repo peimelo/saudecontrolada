@@ -26,6 +26,12 @@
       <a href="https://gemnasium.com/peimelo/saudecontrolada"><img src="https://gemnasium.com/peimelo/saudecontrolada.svg" /></a>
     </td>
   </tr>
+  <tr>
+    <td>Documentation</td>
+    <td>
+      http://inch-ci.org/github/peimelo/saudecontrolada.svg?branch=master
+    </td>
+  </tr>
 </table>
 
 ##### Documentação e Backlog
