@@ -29,7 +29,7 @@
   <tr>
     <td>Documentation</td>
     <td>
-      http://inch-ci.org/github/peimelo/saudecontrolada.svg?branch=master
+      <a href="http://inch-ci.org/github/peimelo/saudecontrolada"><img src="http://inch-ci.org/github/peimelo/saudecontrolada.svg?branch=master" /></a>
     </td>
   </tr>
 </table>
