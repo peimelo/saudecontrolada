@@ -1,7 +1,5 @@
 # Saúde Controlada
 
-[![Join the chat at https://gitter.im/peimelo/saudecontrolada](https://badges.gitter.im/peimelo/saudecontrolada.svg)](https://gitter.im/peimelo/saudecontrolada?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
 <table>
   <tr>
     <td>Build Status</td>
@@ -32,11 +30,14 @@
       <a href="http://inch-ci.org/github/peimelo/saudecontrolada"><img src="http://inch-ci.org/github/peimelo/saudecontrolada.svg?branch=master" /></a>
     </td>
   </tr>
+  <tr>
+    <td>Backlog</td>
+    <td>
+      <a href="http://waffle.io/peimelo/saudecontrolada"><img src="https://badge.waffle.io/peimelo/saudecontrolada.svg?label=ready&title=Ready" /></a>
+      <a href="https://gitter.im/peimelo/saudecontrolada?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge"><img src="https://badges.gitter.im/peimelo/saudecontrolada.svg" /></a>
+    </td>
+  </tr>
 </table>
-
-##### Documentação e Backlog
-[![Inline docs](http://inch-ci.org/github/peimelo/saudecontrolada.svg?branch=master)](http://inch-ci.org/github/peimelo/saudecontrolada)
-[![Stories in Ready](https://badge.waffle.io/peimelo/saudecontrolada.svg?label=ready&title=Ready)](http://waffle.io/peimelo/saudecontrolada)
 
 Saúde Controlada é uma iniciativa para que as pessoas possam gerenciar
 sua saúde de forma a torná-la cada vez melhor.
