@@ -1,6 +1,5 @@
 # Saúde Controlada
 
-[![GitHub version](https://badge.fury.io/gh/peimelo%2Fsaudecontrolada.svg)](https://badge.fury.io/gh/peimelo%2Fsaudecontrolada)
 [![Join the chat at https://gitter.im/peimelo/saudecontrolada](https://badges.gitter.im/peimelo/saudecontrolada.svg)](https://gitter.im/peimelo/saudecontrolada?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 <table>
@@ -8,6 +7,7 @@
     <td>Build Status</td>
     <td>
       <a href="https://travis-ci.org/peimelo/saudecontrolada"><img src="https://travis-ci.org/peimelo/saudecontrolada.svg?branch=master" alt="Build Status" ></a>
+      <a href="https://badge.fury.io/gh/peimelo%2Fsaudecontrolada"><img src="https://badge.fury.io/gh/peimelo%2Fsaudecontrolada.svg" alt="GitHub version" height="18"></a>
     </td>
   </tr>
   <tr>
