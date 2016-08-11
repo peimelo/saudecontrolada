@@ -23,5 +23,7 @@ load_file(Reference)
 load_file(Unit)
 load_file(Exam)
 
-User.where(gender: 'Feminino').update_all(gender: 'F')
-User.where(gender: 'Masculino').update_all(gender: 'M')
+if User.count
+  User.where(gender: 'Feminino').update_all(gender: 'F')
+  User.where(gender: 'Masculino').update_all(gender: 'M')
+end
