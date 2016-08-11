@@ -22,10 +22,10 @@ RSpec.describe Api::V1::PasswordsController do
       end
 
       it 'returns the user record corresponding to the given credentials' do
-        expect(json_response[:message]).to eq I18n.t('passwords.create.message')
+        expect(json_response[:email][0]).to eq I18n.t('passwords.failure.email_not_found')
       end
 
-      it { expect(response).to be_success }
+      it { expect(response).to be_unprocessable }
     end
   end
 end
