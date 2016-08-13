@@ -2,7 +2,6 @@
 class Api::V1::ResultsController < ApplicationController
   include Crud
   before_action :authenticate_with_token!
-  before_action :admin?, except: :index
   before_action :set_result, only: [:destroy, :show, :update]
 
   def index
@@ -28,7 +27,7 @@ class Api::V1::ResultsController < ApplicationController
   private
 
   def result_params
-    params.require(:result).permit(:name)
+    params.require(:result).permit(:date, :description)
   end
 
   def set_result
