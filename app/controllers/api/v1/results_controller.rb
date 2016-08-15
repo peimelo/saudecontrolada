@@ -5,7 +5,9 @@ class Api::V1::ResultsController < ApplicationController
   before_action :set_result, only: [:destroy, :show, :update]
 
   def index
-    list_model(current_user.result.ordered)
+    results = current_user.result.ordered.page(params[:page])
+    render json: results, meta: pagination_dict(results), adapter: :json,
+           each_serializer: ResultsSerializer, status: :ok
   end
 
   def show
