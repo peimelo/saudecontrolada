@@ -25,6 +25,7 @@ Rails.application.routes.draw do
       resources :confirmations, only: [:create, :update]
       resources :contacts,      only: [:create]
       resources :dashboards,    only: [:show]
+      resources :exams,         only: [:create, :destroy, :index, :show, :update]
       resources :passwords,     only: [:create, :update]
       resources :references,    only: [:create, :destroy, :index, :show, :update]
       resources :exams_results, only: [:create, :destroy, :show, :update]
