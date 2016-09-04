@@ -27,6 +27,7 @@ Rails.application.routes.draw do
       resources :dashboards,    only: [:show]
       resources :passwords,     only: [:create, :update]
       resources :references,    only: [:create, :destroy, :index, :show, :update]
+      resources :exams_results, only: [:create, :destroy, :show, :update]
       resources :results,       only: [:create, :destroy, :index, :show, :update]
       resources :sessions,      only: [:create]
       resources :units,         only: [:create, :destroy, :index, :show, :update]
