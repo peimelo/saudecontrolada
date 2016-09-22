@@ -22,7 +22,7 @@ class Api::V1::ExamsResultsController < ApplicationController
   private
 
   def exam_result_params
-    params.require(:exam_result).permit(:date, :description)
+    params.require(:exam_result).permit(:value, :exam_id, :result_id)
   end
 
   def set_exam_result

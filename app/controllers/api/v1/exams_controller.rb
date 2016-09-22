@@ -4,7 +4,11 @@ class Api::V1::ExamsController < ApplicationController
   before_action :set_exam, only: [:destroy, :show, :update]
 
   def index
-    list_model(Exam.order(:name))
+    if params[:page]
+      list_model(Exam.ordered)
+    else
+      render json: { exams: Exam.ordered }
+    end
   end
 
   def show

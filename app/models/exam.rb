@@ -14,6 +14,11 @@ class Exam < ApplicationRecord
     case_sensitive: false, scope: [:parent_id, :unit_id]
   }
 
+  scope :ordered, lambda {
+    select(:id, :name)
+      .order(:name)
+  }
+
   # def nome_unidade
   #   self.nome + (self.unidade.nil? ? '' : " (#{ self.unidade.nome })")
   # end
