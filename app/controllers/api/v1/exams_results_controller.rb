@@ -8,7 +8,7 @@ class Api::V1::ExamsResultsController < ApplicationController
   end
 
   def create
-    save_model(current_user.exam_result.new(exam_result_params))
+    save_model(current_user.result.find(params[:result_id]).exam_result.new(exam_result_params))
   end
 
   def update
@@ -22,7 +22,7 @@ class Api::V1::ExamsResultsController < ApplicationController
   private
 
   def exam_result_params
-    params.require(:exam_result).permit(:value, :exam_id, :result_id)
+    params.require(:exams_result).permit(:value, :exam_id, :result_id)
   end
 
   def set_exam_result
