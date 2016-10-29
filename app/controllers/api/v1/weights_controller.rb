@@ -26,7 +26,7 @@ class Api::V1::WeightsController < ApplicationController
   private
 
   def weight_params
-    params.require(:weight).permit(:height, :date, :value)
+    params.require(:weight).permit(:date, :height, :value)
   end
 
   def set_weight

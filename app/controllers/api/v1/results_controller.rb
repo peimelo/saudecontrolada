@@ -2,11 +2,12 @@
 class Api::V1::ResultsController < ApplicationController
   include Crud
   before_action :authenticate_with_token!
-  before_action :admin?, except: :index
   before_action :set_result, only: [:destroy, :show, :update]
 
   def index
-    list_model(current_user.result.ordered)
+    results = current_user.result.ordered.page(params[:page])
+    render json: results, meta: pagination_dict(results), adapter: :json,
+           each_serializer: ResultsSerializer, status: :ok
   end
 
   def show
@@ -28,7 +29,7 @@ class Api::V1::ResultsController < ApplicationController
   private
 
   def result_params
-    params.require(:result).permit(:name)
+    params.require(:result).permit(:date, :description)
   end
 
   def set_result

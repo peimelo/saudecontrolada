@@ -8,4 +8,9 @@ class ExamResult < ApplicationRecord
   validates :value, numericality: { less_than_or_equal_to: 99999999.99 }
   validates :exam_id, uniqueness: { scope: :result_id }
   validates :result_id, uniqueness: { scope: :exam_id }
+
+  scope :ordered, lambda {
+    select(:id, :value)
+      .order(id: :desc)
+  }
 end

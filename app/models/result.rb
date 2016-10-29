@@ -2,7 +2,11 @@ class Result < ApplicationRecord
   # include DateModule
 
   belongs_to :user
-  has_many :exam_result, dependent: :delete_all
+  has_many :exam_result, -> {
+    includes(:exam)
+      .joins(:exam)
+      .order('exams.name')
+  }, dependent: :delete_all
   has_many :exam, through: :exam_result
   accepts_nested_attributes_for :exam_result, allow_destroy: true, reject_if: :all_blank
 
@@ -25,7 +29,8 @@ class Result < ApplicationRecord
   # }
 
   scope :ordered, -> {
-    order(date: :desc)
+    select(:id, :date, :description)
+      .order(date: :desc)
   }
 
   private
