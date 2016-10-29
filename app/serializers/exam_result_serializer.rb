@@ -1,7 +1,4 @@
 class ExamResultSerializer < ActiveModel::Serializer
-  attributes :id, :value, :exam
-
-  def exam
-    ExamSerializer.new(object.exam).attributes
-  end
+  attributes :id, :value
+  belongs_to :exam
 end

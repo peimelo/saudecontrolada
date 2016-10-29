@@ -3,6 +3,10 @@ class Api::V1::ExamsResultsController < ApplicationController
   before_action :authenticate_with_token!
   before_action :set_exam_result, only: [:destroy, :show, :update]
 
+  def index
+    list_model(current_user.result.find(params[:result_id]).exam_result.ordered)
+  end
+
   def show
     render json: @exam_result, status: :ok
   end

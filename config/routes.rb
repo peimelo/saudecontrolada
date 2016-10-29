@@ -1,18 +1,3 @@
-# == Route Map
-#
-#                      Prefix Verb   URI Pattern                                 Controller#Action
-# edit_api_account_activation GET    /api/account_activations/:id/edit(.:format) api/v1/account_activations#edit {:format=>:json}
-#                   api_pesos GET    /api/pesos(.:format)                        api/v1/pesos#index {:format=>:json}
-#                api_sessions POST   /api/sessions(.:format)                     api/v1/sessions#create {:format=>:json}
-#                 api_session DELETE /api/sessions/:id(.:format)                 api/v1/sessions#destroy {:format=>:json}
-#                   api_users GET    /api/users(.:format)                        api/v1/users#index {:format=>:json}
-#                             POST   /api/users(.:format)                        api/v1/users#create {:format=>:json}
-#                    api_user GET    /api/users/:id(.:format)                    api/v1/users#show {:format=>:json}
-#                             PATCH  /api/users/:id(.:format)                    api/v1/users#update {:format=>:json}
-#                             PUT    /api/users/:id(.:format)                    api/v1/users#update {:format=>:json}
-#                             DELETE /api/users/:id(.:format)                    api/v1/users#destroy {:format=>:json}
-#
-
 require 'api_constraints'
 
 Rails.application.routes.draw do
@@ -29,7 +14,7 @@ Rails.application.routes.draw do
       resources :passwords,     only: [:create, :update]
       resources :references,    only: [:create, :destroy, :index, :show, :update]
       resources :results,       only: [:create, :destroy, :index, :show, :update] do
-        resources :exams_results, only: [:create, :destroy, :show, :update]
+        resources :exams_results, only: [:create, :destroy, :index, :show, :update]
       end
       resources :sessions,      only: [:create]
       resources :units,         only: [:create, :destroy, :index, :show, :update]
