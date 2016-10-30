@@ -175,3 +175,6 @@ id,name,unit_id,parent_id
 "16","Segmentados","3","168"
 "17","Linfócitos","3","168"
 "18","Monócitos","3","168"
+"185","PSA Total e Livre","15",""
+"186","Ag. Prostático Específico, Fração Livre","15",""
+"187","Relação PS Livre/PSA Total","",""
