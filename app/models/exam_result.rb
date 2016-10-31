@@ -9,6 +9,14 @@ class ExamResult < ApplicationRecord
   validates :exam_id, uniqueness: { scope: :result_id }
   validates :result_id, uniqueness: { scope: :exam_id }
 
+  scope :graphics, ->(user) {
+    select('exams_results.exam_id, exams.name, count(1) as total')
+      .joins(:exam, :result)
+      .where('results.user_id = ?', user.id)
+      .group('exams_results.exam_id, exams.name')
+      .order('exams.name')
+  }
+
   scope :ordered, lambda {
     select(:id, :value)
       .order(id: :desc)
