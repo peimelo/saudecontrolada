@@ -7,4 +7,10 @@ class Api::V1::ResultsGraphicsController < ApplicationController
     render json: results, meta: pagination_dict(results), adapter: :json,
            each_serializer: ExamResultGraphicsSerializer, status: :ok
   end
+
+  def show
+    results = ExamResult.graphic_values(current_user, params[:id])
+    render json: results, adapter: :json,
+           each_serializer: GraphicValuesSerializer, status: :ok
+  end
 end

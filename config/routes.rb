@@ -16,7 +16,7 @@ Rails.application.routes.draw do
       resources :results,          only: [:create, :destroy, :index, :show, :update] do
         resources :exams_results,  only: [:create, :destroy, :index, :show, :update]
       end
-      resources :results_graphics, only: [:index]
+      resources :results_graphics, only: [:index, :show]
       resources :sessions,         only: [:create]
       resources :units,            only: [:create, :destroy, :index, :show, :update]
       resources :users,            only: [:create, :destroy, :index, :show, :update]
