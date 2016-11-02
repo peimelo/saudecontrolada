@@ -9,8 +9,24 @@ class ExamResult < ApplicationRecord
   validates :exam_id, uniqueness: { scope: :result_id }
   validates :result_id, uniqueness: { scope: :exam_id }
 
+  scope :graphics, ->(user) {
+    select('exams_results.exam_id, exams.name, count(1) as total')
+      .joins(:exam, :result)
+      .where('results.user_id = ?', user.id)
+      .group('exams_results.exam_id, exams.name')
+      .order('exams.name')
+  }
+
+  scope :graphic_values, ->(user, exam_id) {
+    select('results.date, exams_results.value')
+      .joins(:result)
+      .where('results.user_id = ? AND exams_results.exam_id = ?', user.id, exam_id)
+      .order('results.date')
+  }
+
   scope :ordered, lambda {
     select(:id, :value)
+      .includes(exam: :unit)
       .order(id: :desc)
   }
 end
