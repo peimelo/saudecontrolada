@@ -19,6 +19,7 @@ class ExamResult < ApplicationRecord
 
   scope :ordered, lambda {
     select(:id, :value)
+      .includes(exam: :unit)
       .order(id: :desc)
   }
 end
