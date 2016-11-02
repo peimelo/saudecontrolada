@@ -1,7 +1,7 @@
 class Exam < ApplicationRecord
   # include SearchModule, Hierarquia
 
-  # belongs_to :unit
+  belongs_to :unit, optional: true
 
   has_many :exam_result, dependent: :restrict_with_error
   has_many :result, through: :exam_result
@@ -15,7 +15,8 @@ class Exam < ApplicationRecord
   }
 
   scope :ordered, lambda {
-    select(:id, :name)
+    select(:id, :name, :unit_id)
+      .includes(:unit)
       .order(:name)
   }
 
