@@ -1,4 +1,4 @@
-class Api::V1::ResultsGraphicsController < ApplicationController
+class Api::V1::ExamsGraphicsController < ApplicationController
   include Crud
   before_action :authenticate_with_token!
 
