@@ -11,12 +11,12 @@ Rails.application.routes.draw do
       resources :contacts,         only: [:create]
       resources :dashboards,       only: [:show]
       resources :exams,            only: [:index]
+      resources :exams_graphics,   only: [:index, :show]
       resources :passwords,        only: [:create, :update]
       resources :references,       only: [:create, :destroy, :index, :show, :update]
       resources :results,          only: [:create, :destroy, :index, :show, :update] do
         resources :exams_results,  only: [:create, :destroy, :index, :show, :update]
       end
-      resources :results_graphics, only: [:index, :show]
       resources :sessions,         only: [:create]
       resources :units,            only: [:create, :destroy, :index, :show, :update]
       resources :users,            only: [:create, :destroy, :index, :show, :update]
