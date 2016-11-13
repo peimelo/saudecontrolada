@@ -1,3 +1,3 @@
 class GraphicValuesSerializer < ActiveModel::Serializer
-  attributes :date, :value
+  attributes :date, :description, :value
 end

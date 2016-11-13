@@ -2,9 +2,9 @@ class Valor < ApplicationRecord
   SEXO = %w[Feminino Masculino]
 
   belongs_to :exam
-  belongs_to :reference
+  belongs_to :reference, optional: true
 
-  validates :valid, presence: true
+  validates :valido, inclusion: { in: [ true, false ] }
 
   validates :idade_inferior, numericality: { less_than_or_equal_to: :idade_superior },
     unless: Proc.new { |a| a.idade_inferior.blank? or a.idade_superior.blank? }

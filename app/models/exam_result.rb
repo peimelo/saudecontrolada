@@ -18,7 +18,7 @@ class ExamResult < ApplicationRecord
   }
 
   scope :graphic_values, ->(user, exam_id) {
-    select('results.date, exams_results.value')
+    select('results.date, results.description, exams_results.value')
       .joins(:result)
       .where('results.user_id = ? AND exams_results.exam_id = ?', user.id, exam_id)
       .order('results.date')
