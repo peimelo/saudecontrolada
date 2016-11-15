@@ -1,7 +1,7 @@
 class Api::V1::ExamsController < ApplicationController
   include Crud
   before_action :authenticate_with_token!
-  # before_action :set_exam, only: [:destroy, :show, :update]
+  before_action :set_exam, only: :show
 
   def index
     if params[:page]
@@ -12,10 +12,11 @@ class Api::V1::ExamsController < ApplicationController
     end
   end
 
-  # def show
-  #   render json: @exam, status: :ok
-  # end
-  #
+  def show
+    render json: @exam, adapter: :json,
+           serializer: ExamDetailSerializer, status: :ok
+  end
+
   # def create
   #   save_model(current_user.exam.build(exam_params))
   # end
@@ -33,8 +34,8 @@ class Api::V1::ExamsController < ApplicationController
   # def exam_params
   #   params.require(:exam).permit(:height, :date, :value)
   # end
-  #
-  # def set_exam
-  #   @exam = current_user.exam.find(params[:id])
-  # end
+
+  def set_exam
+    @exam = Exam.find(params[:id])
+  end
 end
