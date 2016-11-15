@@ -35,6 +35,15 @@ class User < ApplicationRecord
       .order(current_sign_in_at: :desc)
   }
 
+  def age
+    if self.date_of_birth
+      now = Time.now.utc.to_date
+      now.year - self.date_of_birth.year - (self.date_of_birth.to_date.change(year: now.year) > now ? 1 : 0)
+    else
+      nil
+    end
+  end
+
   private
 
   def password_complexity
