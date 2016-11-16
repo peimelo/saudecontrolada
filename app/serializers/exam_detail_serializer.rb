@@ -11,6 +11,11 @@ class ExamDetailSerializer < ActiveModel::Serializer
   end
 
   def valor_referencia
-    ValorSerializer.new(object.valor_referencia(current_user.age, current_user.gender)).attributes
+    references = object.valor_referencia(current_user.age, current_user.gender)
+    if references
+      ValorSerializer.new(references).attributes
+    else
+      false
+    end
   end
 end
