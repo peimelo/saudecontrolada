@@ -6,7 +6,12 @@ class Api::V1::UnitsController < ApplicationController
   before_action :set_unit, only: [:destroy, :show, :update]
 
   def index
-    list_model(Unit.ordered)
+    if params[:page]
+      list_model(Unit.ordered)
+    else
+      render json: Unit.ordered, adapter: :json,
+             each_serializer: UnitSerializer, status: :ok
+    end
   end
 
   def show
