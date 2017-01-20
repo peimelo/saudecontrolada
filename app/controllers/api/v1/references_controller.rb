@@ -6,7 +6,12 @@ class Api::V1::ReferencesController < ApplicationController
   before_action :set_reference, only: [:destroy, :show, :update]
 
   def index
-    list_model(Reference.ordered)
+    if params[:page]
+      list_model(Reference.ordered)
+    else
+      render json: Reference.ordered, adapter: :json,
+             each_serializer: ReferenceSerializer, status: :ok
+    end
   end
 
   def show
