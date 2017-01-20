@@ -10,7 +10,9 @@ Rails.application.routes.draw do
       resources :confirmations,    only: [:create, :update]
       resources :contacts,         only: [:create]
       resources :dashboards,       only: [:index]
-      resources :exams,            only: [:create, :destroy, :index, :show, :update]
+      resources :exams,            only: [:create, :destroy, :index, :show, :update] do
+        resources :valores,  only: [:create, :destroy, :show, :update]
+      end
       resources :exams_graphics,   only: [:index, :show]
       resources :passwords,        only: [:create, :update]
       resources :references,       only: [:create, :destroy, :index, :show, :update]

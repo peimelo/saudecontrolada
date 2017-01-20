@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.3.1'
+ruby '2.4.0'
 gem 'rails', '~> 5.0.0'
 
 gem 'active_model_serializers', '~> 0.10.0'
@@ -44,7 +44,7 @@ group :test do
 end
 
 group :production do
-  gem 'pg', '~> 0.18.0'
+  gem 'pg', '~> 0.19.0'
   gem 'rails_12factor'
 end
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
