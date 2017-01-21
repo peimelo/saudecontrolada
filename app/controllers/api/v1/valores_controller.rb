@@ -1,11 +1,7 @@
 class Api::V1::ValoresController < ApplicationController
   include Crud
   before_action :authenticate_with_token!
-  before_action :set_valor, only: [:destroy, :show, :update]
-
-  def show
-    render json: @valor, status: :ok
-  end
+  before_action :set_valor, only: [:destroy, :update]
 
   def create
     save_model(Exam.find(params[:exam_id]).valor.new(valor_params))

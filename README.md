@@ -44,8 +44,8 @@ sua saúde de forma a torná-la cada vez melhor.
 
 Esse projeto contempla 2 repositórios:
 
-- Backend em Ruby on Rails versão 5.0.0;
-- Frontend em AngularJs versão 1.5.x.
+- Backend em Ruby on Rails versão 5.0.x (esse que você está);
+- Frontend em AngularJs versão 1.5.x (<a target="_blank" href="https://github.com/peimelo/saudecontrolada_web">veja aqui</a>).
 
 ## Backend
 

@@ -11,7 +11,7 @@ Rails.application.routes.draw do
       resources :contacts,         only: [:create]
       resources :dashboards,       only: [:index]
       resources :exams,            only: [:create, :destroy, :index, :show, :update] do
-        resources :valores,  only: [:create, :destroy, :show, :update]
+        resources :valores,  only: [:create, :destroy, :update]
       end
       resources :exams_graphics,   only: [:index, :show]
       resources :passwords,        only: [:create, :update]
