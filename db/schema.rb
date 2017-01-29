@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161113110300) do
+ActiveRecord::Schema.define(version: 20170129020728) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,15 @@ ActiveRecord::Schema.define(version: 20161113110300) do
     t.datetime "updated_at",                          null: false
     t.integer  "result_id",                           null: false
     t.index ["exam_id", "result_id"], name: "index_exams_results_on_exam_id_and_result_id", unique: true, using: :btree
+  end
+
+  create_table "foods", force: :cascade do |t|
+    t.string  "name",                            null: false
+    t.string  "measure",                         null: false
+    t.decimal "amount",  precision: 5, scale: 2
+    t.decimal "cho",     precision: 5, scale: 2, null: false
+    t.decimal "kcal",    precision: 6, scale: 2, null: false
+    t.index ["name", "measure"], name: "index_foods_on_name_and_measure", unique: true, using: :btree
   end
 
   create_table "references", force: :cascade do |t|
