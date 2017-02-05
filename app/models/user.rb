@@ -4,6 +4,7 @@ class User < ApplicationRecord
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
+  has_many :alimentation, dependent: :destroy
   has_many :result, dependent: :destroy
   has_many :weight, dependent: :delete_all
 
@@ -22,6 +23,7 @@ class User < ApplicationRecord
   has_secure_password
 
   delegate :recent_height, to: :weight
+  delegate :ordered, to: :alimentation, prefix: true
   delegate :ordered, to: :weight, prefix: true
 
   scope :ordered, lambda {
