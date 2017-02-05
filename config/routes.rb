@@ -7,6 +7,9 @@ Rails.application.routes.draw do
     scope module: :v1,
           constraints: ApiConstraints.new(version: 1, default: true) do
 
+      resources :alimentations,    only: [:create, :destroy, :index, :show, :update] do
+        resources :alimentations_foods,  only: [:create, :destroy, :index, :show, :update]
+      end
       resources :confirmations,    only: [:create, :update]
       resources :contacts,         only: [:create]
       resources :dashboards,       only: [:index]
@@ -14,6 +17,8 @@ Rails.application.routes.draw do
         resources :valores,  only: [:create, :destroy, :update]
       end
       resources :exams_graphics,   only: [:index, :show]
+      resources :foods,            only: [:index]
+      resources :meals,            only: [:index]
       resources :passwords,        only: [:create, :update]
       resources :references,       only: [:create, :destroy, :index, :show, :update]
       resources :results,          only: [:create, :destroy, :index, :show, :update] do

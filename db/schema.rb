@@ -10,10 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170129020728) do
+ActiveRecord::Schema.define(version: 20170205141953) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "alimentations", force: :cascade do |t|
+    t.datetime "date",       null: false
+    t.integer  "user_id",    null: false
+    t.integer  "meal_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["date", "user_id"], name: "index_alimentations_on_date_and_user_id", unique: true, using: :btree
+    t.index ["meal_id"], name: "index_alimentations_on_meal_id", using: :btree
+    t.index ["user_id"], name: "index_alimentations_on_user_id", using: :btree
+  end
+
+  create_table "alimentations_foods", force: :cascade do |t|
+    t.decimal  "value",           precision: 6, scale: 2, null: false
+    t.integer  "alimentation_id",                         null: false
+    t.integer  "food_id",                                 null: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+    t.index ["alimentation_id", "food_id"], name: "index_alimentations_foods_on_alimentation_id_and_food_id", unique: true, using: :btree
+    t.index ["alimentation_id"], name: "index_alimentations_foods_on_alimentation_id", using: :btree
+    t.index ["food_id"], name: "index_alimentations_foods_on_food_id", using: :btree
+  end
 
   create_table "contacts", force: :cascade do |t|
     t.string   "name"
@@ -48,6 +70,11 @@ ActiveRecord::Schema.define(version: 20170129020728) do
     t.decimal "cho",     precision: 5, scale: 2, null: false
     t.decimal "kcal",    precision: 6, scale: 2, null: false
     t.index ["name", "measure"], name: "index_foods_on_name_and_measure", unique: true, using: :btree
+  end
+
+  create_table "meals", force: :cascade do |t|
+    t.string "name", null: false
+    t.index ["name"], name: "index_meals_on_name", unique: true, using: :btree
   end
 
   create_table "references", force: :cascade do |t|
@@ -126,6 +153,10 @@ ActiveRecord::Schema.define(version: 20170129020728) do
     t.index ["date", "user_id"], name: "index_weights_on_date_and_user_id", unique: true, using: :btree
   end
 
+  add_foreign_key "alimentations", "meals"
+  add_foreign_key "alimentations", "users"
+  add_foreign_key "alimentations_foods", "alimentations"
+  add_foreign_key "alimentations_foods", "foods"
   add_foreign_key "exams", "exams", column: "parent_id"
   add_foreign_key "exams", "units"
   add_foreign_key "exams_results", "exams"
