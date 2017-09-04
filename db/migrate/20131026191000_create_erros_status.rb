@@ -1,4 +1,4 @@
-class CreateErrosStatus < ActiveRecord::Migration
+class CreateErrosStatus < ActiveRecord::Migration[5.1]
   def up
     create_table :erros_status do |t|
       t.string  :nome, :null => false

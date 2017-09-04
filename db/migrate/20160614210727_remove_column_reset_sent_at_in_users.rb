@@ -1,4 +1,4 @@
-class RemoveColumnResetSentAtInUsers < ActiveRecord::Migration[5.0]
+class RemoveColumnResetSentAtInUsers < ActiveRecord::Migration[5.1]
   def change
     remove_column :users, :reset_sent_at
   end

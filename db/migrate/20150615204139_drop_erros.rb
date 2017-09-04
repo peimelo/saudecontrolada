@@ -1,4 +1,4 @@
-class DropErros < ActiveRecord::Migration
+class DropErros < ActiveRecord::Migration[5.1]
   def change
     drop_table :erros
   end

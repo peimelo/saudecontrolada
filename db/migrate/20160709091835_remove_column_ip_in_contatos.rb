@@ -1,4 +1,4 @@
-class RemoveColumnIpInContatos < ActiveRecord::Migration[5.0]
+class RemoveColumnIpInContatos < ActiveRecord::Migration[5.1]
   def change
     remove_column :contatos, :ip
   end

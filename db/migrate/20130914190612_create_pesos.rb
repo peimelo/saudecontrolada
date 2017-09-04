@@ -1,4 +1,4 @@
-class CreatePesos < ActiveRecord::Migration
+class CreatePesos < ActiveRecord::Migration[5.1]
   def change
     create_table :pesos do |t|
       t.datetime :data, null: false

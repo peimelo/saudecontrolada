@@ -1,4 +1,4 @@
-class RemoveColumnActivationDigestInUsers < ActiveRecord::Migration[5.0]
+class RemoveColumnActivationDigestInUsers < ActiveRecord::Migration[5.1]
   def change
     remove_column :users, :activation_digest
   end

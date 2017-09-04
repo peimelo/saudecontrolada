@@ -1,4 +1,4 @@
-class CreateNovoResultados < ActiveRecord::Migration
+class CreateNovoResultados < ActiveRecord::Migration[5.1]
   def change
     create_table :resultados do |t|
       t.date :data, null: false
