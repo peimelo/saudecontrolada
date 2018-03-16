@@ -1,19 +1,23 @@
 language: ruby
+
 rvm:
   - 2.4.3
+
 env:
-  - DB=postgres
   global:
+    - DB=postgres
     - CC_TEST_REPORTER_ID=$CODECLIMATE_REPO_TOKEN
-language: ruby
+
 script:
   - RAILS_ENV=test bundle exec rake db:migrate
   - bundle exec rake
+
 before_script:
   - cp config/database.yml.travis config/database.yml
   - psql -c 'create database saudecontrolada_test;' -U postgres
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
+
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT

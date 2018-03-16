@@ -1,60 +1,60 @@
 <!doctype html><html ng-app=app><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags --><meta name=description content="Saúde Controlada"><meta name=author content="Paulo Melo"><title page-title></title><!-- Place favicon.ico and apple-touch-icon.png in the root directory --><link rel=stylesheet href=https://s3.amazonaws.com/saudeassets/styles/vendor-5d4aca8573.css><link rel=stylesheet href=https://s3.amazonaws.com/saudeassets/styles/app-c0a205b361.css></head><!-- ControllerAs syntax --><!-- Main controller with serveral data used in Inspinia theme on diferent view --><body ng-controller="MainController as main" class="{{ $state.current.data.specialClass }}" landing-scrollspy id=page-top><!--[if lt IE 11]>
-    <p class="browsehappy">Você está usando um navegador <strong>desatualizado</strong>. Por favor <a href="http://browsehappy.com/">atualize seu navegador</a> para melhorar sua experiência.</p>
-    <![endif]--><toaster-container toaster-options="{'close-button':'true','position-class':'toast-top-center'}"></toaster-container><div ui-view></div><div ng-include="'app/admin/exams/valores-modal.html'"></div><div ng-include="'app/alimentations/alimentation-food.modal.html'"></div><div ng-include="'app/contacts/contactModal.html'"></div><div ng-include="'app/results/examsResultsModal.html'"></div><script src=https://s3.amazonaws.com/saudeassets/scripts/vendor-50e7e45e3c.js></script><script src=https://s3.amazonaws.com/saudeassets/scripts/app-be5db4d1c0.js></script><script>$(document).ready(function () {
-      // Full height of sidebar
-      function fix_height() {
-        var heightWithoutNavbar = $("body > #wrapper").height() - 61;
-        $(".sidebard-panel").css("min-height", heightWithoutNavbar + "px");
+<p class="browsehappy">Você está usando um navegador <strong>desatualizado</strong>. Por favor <a href="http://browsehappy.com/">atualize seu navegador</a> para melhorar sua experiência.</p>
+<![endif]--><toaster-container toaster-options="{'close-button':'true','position-class':'toast-top-center'}"></toaster-container><div ui-view></div><div ng-include="'app/admin/exams/valores-modal.html'"></div><div ng-include="'app/alimentations/alimentation-food.modal.html'"></div><div ng-include="'app/contacts/contactModal.html'"></div><div ng-include="'app/results/examsResultsModal.html'"></div><script src=https://s3.amazonaws.com/saudeassets/scripts/vendor-50e7e45e3c.js></script><script src=https://s3.amazonaws.com/saudeassets/scripts/app-be5db4d1c0.js></script><script>$(document).ready(function () {
+  // Full height of sidebar
+  function fix_height() {
+    var heightWithoutNavbar = $("body > #wrapper").height() - 61;
+    $(".sidebard-panel").css("min-height", heightWithoutNavbar + "px");
 
-        var navbarHeigh = $('nav.navbar-default').height();
-        var wrapperHeigh = $('#page-wrapper').height();
+    var navbarHeigh = $('nav.navbar-default').height();
+    var wrapperHeigh = $('#page-wrapper').height();
 
-        if(navbarHeigh > wrapperHeigh){
-          $('#page-wrapper').css("min-height", navbarHeigh + "px");
-        }
+    if(navbarHeigh > wrapperHeigh){
+      $('#page-wrapper').css("min-height", navbarHeigh + "px");
+    }
 
-        if(navbarHeigh < wrapperHeigh){
-          $('#page-wrapper').css("min-height", $(window).height()  + "px");
-        }
+    if(navbarHeigh < wrapperHeigh){
+      $('#page-wrapper').css("min-height", $(window).height()  + "px");
+    }
 
-        if ($('body').hasClass('fixed-nav')) {
-          if (navbarHeigh > wrapperHeigh) {
-            $('#page-wrapper').css("min-height", navbarHeigh - 60 + "px");
-          } else {
-            $('#page-wrapper').css("min-height", $(window).height() - 60 + "px");
-          }
-        }
-
+    if ($('body').hasClass('fixed-nav')) {
+      if (navbarHeigh > wrapperHeigh) {
+        $('#page-wrapper').css("min-height", navbarHeigh - 60 + "px");
+      } else {
+        $('#page-wrapper').css("min-height", $(window).height() - 60 + "px");
       }
+    }
 
-      $(window).bind("load resize scroll", function() {
-        if(!$("body").hasClass('body-small')) {
-          fix_height();
-        }
-      });
+  }
 
-      // Move right sidebar top after scroll
-      $(window).scroll(function(){
-        if ($(window).scrollTop() > 0 && !$('body').hasClass('fixed-nav') ) {
-          $('#right-sidebar').addClass('sidebar-top');
-        } else {
-          $('#right-sidebar').removeClass('sidebar-top');
-        }
-      });
+  $(window).bind("load resize scroll", function() {
+    if(!$("body").hasClass('body-small')) {
+      fix_height();
+    }
+  });
 
-      setTimeout(function(){
-        fix_height();
-      })
-    });
+  // Move right sidebar top after scroll
+  $(window).scroll(function(){
+    if ($(window).scrollTop() > 0 && !$('body').hasClass('fixed-nav') ) {
+      $('#right-sidebar').addClass('sidebar-top');
+    } else {
+      $('#right-sidebar').removeClass('sidebar-top');
+    }
+  });
 
-    // Minimalize menu when screen is less than 768px
-    $(function() {
-      'use strict';
-      $(window).bind("load resize", function() {
-        if ($(document).width() < 769) {
-          $('body').addClass('body-small')
-        } else {
-          $('body').removeClass('body-small')
-        }
-      })
-    })</script></body></html>
+  setTimeout(function(){
+    fix_height();
+  })
+});
+
+// Minimalize menu when screen is less than 768px
+$(function() {
+  'use strict';
+  $(window).bind("load resize", function() {
+    if ($(document).width() < 769) {
+      $('body').addClass('body-small')
+    } else {
+      $('body').removeClass('body-small')
+    }
+  })
+})</script></body></html>
