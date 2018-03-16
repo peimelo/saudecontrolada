@@ -1,4 +1,4 @@
-class DropRecursosCategorias < ActiveRecord::Migration
+class DropRecursosCategorias < ActiveRecord::Migration[5.1]
   def change
     drop_table :recursos_categorias
   end

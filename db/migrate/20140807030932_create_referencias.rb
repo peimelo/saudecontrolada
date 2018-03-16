@@ -1,4 +1,4 @@
-class CreateReferencias < ActiveRecord::Migration
+class CreateReferencias < ActiveRecord::Migration[5.1]
   def change
     create_table :referencias do |t|
       t.string :nome, null: false

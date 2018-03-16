@@ -1,4 +1,4 @@
-class CreateRecursos < ActiveRecord::Migration
+class CreateRecursos < ActiveRecord::Migration[5.1]
   def up
     create_table :recursos do |t|
       t.references :acao, :null => false

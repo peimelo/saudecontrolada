@@ -1,4 +1,4 @@
-class CreateUnidades < ActiveRecord::Migration
+class CreateUnidades < ActiveRecord::Migration[5.1]
   def change
     create_table :unidades do |t|
       t.string :nome, null: false

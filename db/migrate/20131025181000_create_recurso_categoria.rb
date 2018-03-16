@@ -1,4 +1,4 @@
-class CreateRecursoCategoria < ActiveRecord::Migration
+class CreateRecursoCategoria < ActiveRecord::Migration[5.1]
   def change
     create_table :recursos_categorias do |t|
       t.string :nome, :null => false

@@ -27,13 +27,16 @@ module SaudecontroladaApi
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
 
+    # Initialize configuration defaults for originally generated Rails version.
+    config.load_defaults 5.1
+
     # ---
     # config.autoload_paths += %W(\#{config.root}/lib)
 
     config.action_mailer.default_url_options = { host: Rails.application.secrets.mailer_host }
 
     config.generators do |g|
-      g.fixture_replacement :factory_girl, dir: 'spec/factories'
+      g.fixture_replacement :factory_bot, dir: 'spec/factories'
       g.test_framework :rspec, fixture: true
     end
 

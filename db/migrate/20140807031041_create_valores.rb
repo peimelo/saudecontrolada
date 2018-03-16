@@ -1,4 +1,4 @@
-class CreateValores < ActiveRecord::Migration
+class CreateValores < ActiveRecord::Migration[5.1]
   def change
     create_table :valores do |t|
       t.string :sexo, null: true

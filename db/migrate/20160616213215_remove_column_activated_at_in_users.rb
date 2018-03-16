@@ -1,4 +1,4 @@
-class RemoveColumnActivatedAtInUsers < ActiveRecord::Migration[5.0]
+class RemoveColumnActivatedAtInUsers < ActiveRecord::Migration[5.1]
   def change
     remove_column :users, :activated_at
   end

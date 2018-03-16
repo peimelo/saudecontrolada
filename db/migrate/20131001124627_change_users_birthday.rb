@@ -1,4 +1,4 @@
-class ChangeUsersBirthday < ActiveRecord::Migration
+class ChangeUsersBirthday < ActiveRecord::Migration[5.1]
   def change
     reversible do |dir|
       change_table :users do |t|

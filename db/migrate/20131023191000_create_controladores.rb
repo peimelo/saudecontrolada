@@ -1,4 +1,4 @@
-class CreateControladores < ActiveRecord::Migration
+class CreateControladores < ActiveRecord::Migration[5.1]
   def up
     create_table :controladores do |t|
       t.string :nome, :null => false

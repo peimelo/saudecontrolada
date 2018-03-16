@@ -1,4 +1,4 @@
-class ChangePesosData < ActiveRecord::Migration
+class ChangePesosData < ActiveRecord::Migration[5.1]
   def change
     reversible do |dir|
       change_table :pesos do |t|

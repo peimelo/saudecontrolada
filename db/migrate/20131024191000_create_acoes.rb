@@ -1,4 +1,4 @@
-class CreateAcoes < ActiveRecord::Migration
+class CreateAcoes < ActiveRecord::Migration[5.1]
   def up
     create_table :acoes do |t|
       t.string :nome, :null => false

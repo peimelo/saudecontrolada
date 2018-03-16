@@ -1,4 +1,4 @@
-class RenameColumnNomeToNameInContatos < ActiveRecord::Migration[5.0]
+class RenameColumnNomeToNameInContatos < ActiveRecord::Migration[5.1]
   def change
     rename_column :contatos, :nome, :name
   end

@@ -1,4 +1,4 @@
-class CreateAlimentation < ActiveRecord::Migration[5.0]
+class CreateAlimentation < ActiveRecord::Migration[5.1]
   def change
     create_table :alimentations do |t|
       t.datetime :date, null: false
