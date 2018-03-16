@@ -2,9 +2,9 @@ language: ruby
 rvm:
   - 2.4.3
 env:
+  - DB=postgres
   global:
     - CC_TEST_REPORTER_ID=be5635ed58fdadaab35db563cec256ce79a2de0451aa20fcdabb1d657aadc320
-  - DB=postgres
 script:
   - RAILS_ENV=test bundle exec rake db:migrate
   - bundle exec rake
