@@ -6,7 +6,7 @@ rvm:
 env:
   global:
     - DB=postgres
-    - CC_TEST_REPORTER_ID=be5635ed58fdadaab35db563cec256ce79a2de0451aa20fcdabb1d657aadc320
+    - CC_TEST_REPORTER_ID=$CODECLIMATE_REPO_TOKEN
 
 script:
   - RAILS_ENV=test bundle exec rake db:migrate
