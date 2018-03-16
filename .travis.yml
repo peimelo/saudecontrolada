@@ -2,6 +2,8 @@ language: ruby
 rvm:
   - 2.4.3
 env:
+  global:
+    - CC_TEST_REPORTER_ID=be5635ed58fdadaab35db563cec256ce79a2de0451aa20fcdabb1d657aadc320
   - DB=postgres
 script:
   - RAILS_ENV=test bundle exec rake db:migrate
@@ -9,3 +11,8 @@ script:
 before_script:
   - cp config/database.yml.travis config/database.yml
   - psql -c 'create database saudecontrolada_test;' -U postgres
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
