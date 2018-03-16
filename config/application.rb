@@ -36,7 +36,7 @@ module SaudecontroladaApi
     config.action_mailer.default_url_options = { host: Rails.application.secrets.mailer_host }
 
     config.generators do |g|
-      g.fixture_replacement :factory_girl, dir: 'spec/factories'
+      g.fixture_replacement :factory_bot, dir: 'spec/factories'
       g.test_framework :rspec, fixture: true
     end
 

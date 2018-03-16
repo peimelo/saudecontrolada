@@ -11,16 +11,14 @@
   <tr>
     <td>Code Quality</td>
     <td>
-      <a href="https://codeclimate.com/github/peimelo/saudecontrolada"><img src="https://codeclimate.com/github/peimelo/saudecontrolada/badges/gpa.svg" /></a>
+      <a href="https://codeclimate.com/github/peimelo/saudecontrolada/maintainability"><img src="https://api.codeclimate.com/v1/badges/972e4e4c4b0f97295cf2/maintainability" /></a>
       <a href="https://codebeat.co/projects/github-com-peimelo-saudecontrolada"><img alt="codebeat badge" src="https://codebeat.co/badges/8fb95a53-e610-4828-82cd-70475686ea38" /></a>
-      <a href="https://codeclimate.com/github/peimelo/saudecontrolada/coverage"><img src="https://codeclimate.com/github/peimelo/saudecontrolada/badges/coverage.svg" /></a>
+      <a href="https://codeclimate.com/github/peimelo/saudecontrolada/test_coverage"><img src="https://api.codeclimate.com/v1/badges/972e4e4c4b0f97295cf2/test_coverage" /></a>
     </td>
   </tr>
   <tr>
     <td>Security</td>
     <td>
-      <a href="https://hakiri.io/github/peimelo/saudecontrolada/master"><img src="https://hakiri.io/github/peimelo/saudecontrolada/master.svg" /></a>
-      <a href="http://rails-brakeman.com/peimelo/saudecontrolada"><img src="http://rails-brakeman.com/peimelo/saudecontrolada.png" /></a>
       <a href="https://gemnasium.com/peimelo/saudecontrolada"><img src="https://gemnasium.com/peimelo/saudecontrolada.svg" /></a>
     </td>
   </tr>
@@ -44,7 +42,7 @@ sua saúde de forma a torná-la cada vez melhor.
 
 Esse projeto contempla 2 repositórios:
 
-- Backend em Ruby on Rails versão 5.0.x (esse que você está);
+- Backend em Ruby on Rails versão 5.1.x (esse que você está);
 - Frontend em AngularJs versão 1.5.x (<a target="_blank" href="https://github.com/peimelo/saudecontrolada_web">veja aqui</a>).
 
 ## Backend

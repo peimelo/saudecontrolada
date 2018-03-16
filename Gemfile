@@ -5,7 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby '2.4.1'
+ruby '2.4.3'
 gem 'rails', '~> 5.1.3'
 
 gem 'active_model_serializers', '~> 0.10.0'
@@ -39,14 +39,13 @@ end
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'rails-controller-testing'
   gem 'rspec-rails', '~> 3.5.0'
   gem 'selenium-webdriver'
 end
 
 group :test do
-  gem 'codeclimate-test-reporter', require: nil
   gem 'database_cleaner'
   gem 'launchy' #, require: false
   gem 'shoulda-matchers', '~> 3.1.0'

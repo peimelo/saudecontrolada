@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :weight do
     height 1.8
     date { rand(1..400).days.ago.strftime('%d/%m/%Y %H:%M') }

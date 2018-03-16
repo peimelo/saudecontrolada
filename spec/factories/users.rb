@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :user do
     confirmed_at Time.now.utc
     current_sign_in_at 1.days.ago
