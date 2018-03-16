@@ -5,7 +5,6 @@
     <td>Build Status</td>
     <td>
       <a href="https://travis-ci.org/peimelo/saudecontrolada"><img src="https://travis-ci.org/peimelo/saudecontrolada.svg?branch=master" alt="Build Status" ></a>
-      <a href="https://badge.fury.io/gh/peimelo%2Fsaudecontrolada"><img src="https://badge.fury.io/gh/peimelo%2Fsaudecontrolada.svg" alt="GitHub version" height="18"></a>
     </td>
   </tr>
   <tr>
@@ -20,19 +19,13 @@
     <td>Security</td>
     <td>
       <a href="https://gemnasium.com/peimelo/saudecontrolada"><img src="https://gemnasium.com/peimelo/saudecontrolada.svg" /></a>
+      <a href="https://hakiri.io/github/peimelo/saudecontrolada/master"><img src="https://hakiri.io/github/peimelo/saudecontrolada/master.svg" /></a>
     </td>
   </tr>
   <tr>
     <td>Documentation</td>
     <td>
       <a href="http://inch-ci.org/github/peimelo/saudecontrolada"><img src="http://inch-ci.org/github/peimelo/saudecontrolada.svg?branch=master" /></a>
-    </td>
-  </tr>
-  <tr>
-    <td>Backlog</td>
-    <td>
-      <a href="http://waffle.io/peimelo/saudecontrolada"><img src="https://badge.waffle.io/peimelo/saudecontrolada.svg?label=ready&title=Ready" /></a>
-      <a href="https://gitter.im/peimelo/saudecontrolada?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge"><img src="https://badges.gitter.im/peimelo/saudecontrolada.svg" /></a>
     </td>
   </tr>
 </table>
@@ -55,7 +48,3 @@ Esse projeto contempla 2 repositórios:
     bundle exec rails db:create
     bundle exec rails db:migrate
     bundle exec rails db:seed
-
-## Issues history
-
-[![Throughput Graph](https://graphs.waffle.io/peimelo/saudecontrolada/throughput.svg)](https://waffle.io/peimelo/saudecontrolada/metrics/throughput)
