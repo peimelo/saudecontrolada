@@ -39,4 +39,15 @@ module Crud
              status: :unprocessable_entity
     end
   end
+
+  def render_user(user, msg)
+    if user.errors.empty?
+      render status: :ok, json: {
+        message: I18n.t("#{msg}.message"),
+        title: I18n.t("#{msg}.title")
+      }
+    else
+      render json: user.errors, status: :unprocessable_entity
+    end
+  end
 end
