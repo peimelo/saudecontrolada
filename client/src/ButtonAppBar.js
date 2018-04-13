@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import AppBar from 'material-ui/AppBar';
@@ -7,6 +8,7 @@ import Typography from 'material-ui/Typography';
 import Button from 'material-ui/Button';
 import IconButton from 'material-ui/IconButton';
 import MenuIcon from 'material-ui-icons/Menu';
+import { Link } from 'react-router-dom';
 
 const styles = {
   root: {
@@ -19,29 +21,66 @@ const styles = {
     marginLeft: -12,
     marginRight: 20,
   },
+  link: {
+    textDecoration: 'none'
+  }
 };
 
-function ButtonAppBar(props) {
-  const { classes } = props;
-  return (
-    <div className={classes.root}>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="title" color="inherit" className={classes.flex}>
-            SIGR
-          </Typography>
-          <Button color="inherit">Login</Button>
-        </Toolbar>
-      </AppBar>
-    </div>
-  );
+class ButtonAppBar extends Component {
+  render() {
+    const { classes, user } = this.props;
+
+    return (
+      <div className={classes.root}>
+        <AppBar position="static">
+          <Toolbar>
+            {user.isLogged && (
+              <IconButton
+                aria-label="Menu"
+                className={classes.menuButton}
+                color="inherit"
+              >
+                <MenuIcon />
+              </IconButton>
+            )}
+            <Typography
+              className={classes.flex}
+              color="inherit"
+              component={Link} to='/'
+              style={styles.link}
+              variant="title"
+            >
+              SIGR
+            </Typography>
+            {user.isLogged ?
+              <Button
+                color="inherit"
+              >
+                {user.data.name}
+              </Button>
+              :
+              <Button
+                color="inherit"
+                component={Link}
+                to='/login'
+              >
+                {'Login'}
+              </Button>
+            }
+          </Toolbar>
+        </AppBar>
+      </div>
+    );
+  }
 }
 
 ButtonAppBar.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(ButtonAppBar);
+const mapStateToProps = state => ({
+  user: state.user
+});
+
+export default connect(mapStateToProps, {
+})(withStyles(styles)(ButtonAppBar))
