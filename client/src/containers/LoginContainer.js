@@ -7,30 +7,35 @@ import Grid from 'material-ui/Grid';
 import TextField from 'material-ui/TextField';
 import { withStyles } from 'material-ui/styles';
 
-import { signIn } from './actions/user';
+import { signIn } from '../actions/user';
 
 const styles = {
   root: {
-    flexGrow: 1,
+    flexGrow: 1
   },
   grid: {
-    height: 340,
+    height: 340
   },
   card: {
-    minWidth: 275,
-  },
+    minWidth: 275
+  }
 };
 
-class Login extends Component {
+const propTypes = {
+  classes: PropTypes.object.isRequired,
+  errorMessage: PropTypes.string.isRequired
+};
+
+class LoginContainer extends Component {
   state = {
     login: {
       email: '',
-      password: '',
-    },
+      password: ''
+    }
   };
 
   handleChange = (event) => {
-    const target = event.target;
+    const { target } = event;
     const { login } = this.state;
 
     const newLogin = {
@@ -43,12 +48,13 @@ class Login extends Component {
   handleLogin = (e) => {
     e.preventDefault();
     const { login } = this.state;
-    this.props.signIn(login.email, login.password)
-      .then(() => this.props.history.push('/dashboard'))
+    this.props
+      .signIn(login.email, login.password)
+      .then(() => this.props.history.push('/dashboard'));
   };
 
   render() {
-    const { classes } = this.props;
+    const { classes, errorMessage } = this.props;
 
     return (
       <Grid container className={classes.root}>
@@ -62,11 +68,7 @@ class Login extends Component {
           >
             <Grid item>
               <Card className={classes.card}>
-                <form
-                  onSubmit={this.handleLogin}
-                  noValidate
-                  autoComplete="off"
-                >
+                <form onSubmit={this.handleLogin} noValidate autoComplete="off">
                   <CardHeader title="Login" />
                   <CardContent>
                     <TextField
@@ -91,13 +93,10 @@ class Login extends Component {
                     />
                   </CardContent>
                   <CardActions>
-                    <Button
-                      variant="raised"
-                      color="primary"
-                      type="submit"
-                    >
+                    <Button variant="raised" color="primary" type="submit">
                       Enviar
                     </Button>
+                    <label>{errorMessage}</label>
                   </CardActions>
                 </form>
               </Card>
@@ -105,14 +104,16 @@ class Login extends Component {
           </Grid>
         </Grid>
       </Grid>
-    )
+    );
   }
 }
 
-Login.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
+LoginContainer.propTypes = propTypes;
 
-export default connect(null, {
-  signIn,
-})(withStyles(styles)(Login))
+const mapStateToProps = state => ({
+  errorMessage: state.user.errorMessage
+});
+
+export default connect(mapStateToProps, {
+  signIn
+})(withStyles(styles)(LoginContainer));

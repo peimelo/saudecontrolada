@@ -17,7 +17,7 @@ class Weight < ApplicationRecord
 
   scope :ordered, lambda {
     select(:id, :height, :date, :value)
-      .order(date: :desc)
+      .order(date: :asc)
   }
 
   def imc
