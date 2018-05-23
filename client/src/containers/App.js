@@ -1,12 +1,10 @@
 import {
-  Divider,
   Drawer,
   IconButton,
   List,
   ListItem,
   ListItemIcon,
-  ListItemText,
-  Typography
+  ListItemText
 } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import { ChevronLeft, ChevronRight } from '@material-ui/icons';
@@ -14,17 +12,9 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
-import {
-  BrowserRouter as Router,
-  NavLink,
-  Route,
-  Switch
-} from 'react-router-dom';
+import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 import HeaderApp from '../components/HeaderApp';
 import appRoutes from '../routes';
-import { mailFolderListItems, otherMailFolderListItems } from './tileData';
-import LoginContainer from './LoginContainer';
-import DashboardContainer from './DashboardContainer';
 
 const drawerWidth = 240;
 
@@ -99,12 +89,10 @@ class App extends React.Component {
   };
 
   handleDrawerOpen = () => {
-    console.log('abrir');
     this.setState({ open: true });
   };
 
   handleDrawerClose = () => {
-    console.log('fechar');
     this.setState({ open: false });
   };
 
@@ -113,34 +101,31 @@ class App extends React.Component {
 
     const switchRoutes = (
       <Switch>
-        {appRoutes.map((prop, key) => {
-          return <Route path={prop.path} component={prop.component} key={key} />;
-        })}
+        {appRoutes.map(prop => (
+          <Route
+            key={prop.path}
+            path={prop.path}
+            component={prop.component}
+          />
+        ))}
       </Switch>
     );
 
     const links = (
-      <List className={classes.list}>
-        {appRoutes.map((prop, key) => {
-          return (
-            <NavLink
-              to={prop.path}
-              className={classes.item}
-              activeClassName="active"
-              key={key}
-            >
-              <ListItem button>
-                <ListItemIcon>
-                  <ChevronRight />
-                </ListItemIcon>
-                <ListItemText
-                  primary={prop.sidebarName}
-                />
-              </ListItem>
-            </NavLink>
-          );
-        })}
-      </List>
+      <div>
+        {appRoutes.map(prop => (
+          <div key={prop.path}>
+            <ListItem button component={Link} to={prop.path}>
+              <ListItemIcon>
+                <prop.icon />
+              </ListItemIcon>
+              <ListItemText
+                primary={prop.sidebarName}
+              />
+            </ListItem>
+          </div>
+        ))}
+      </div>
     );
 
     return (
@@ -164,17 +149,11 @@ class App extends React.Component {
                 {theme.direction === 'rtl' ? <ChevronRight /> : <ChevronLeft />}
               </IconButton>
             </div>
-            <Divider />
-            {links}
-            <List>{mailFolderListItems}</List>
-            <Divider />
-            <List>{otherMailFolderListItems}</List>
+            <List>{links}</List>
           </Drawer>
           <main className={classes.content}>
             <div className={classes.toolbar} />
-            <Typography noWrap>
-              {switchRoutes}
-            </Typography>
+            {switchRoutes}
           </main>
         </div>
       </Router>

@@ -9,7 +9,7 @@ const INITIAL_STATE = {
     id: '',
     login: ''
   },
-  errorMessage: 'ss',
+  errorMessage: '',
   isLoading: false,
   isLoggedIn: false
 };

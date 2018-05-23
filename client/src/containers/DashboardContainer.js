@@ -2,6 +2,7 @@ import moment from 'moment';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { CartesianGrid, Line, LineChart, XAxis, YAxis } from 'recharts';
+import Typography from '@material-ui/core/Typography';
 import { fetchDashboard } from '../actions/dashboard';
 
 class DashboardContainer extends Component {
@@ -18,7 +19,9 @@ class DashboardContainer extends Component {
 
     return (
       <div>
-        <h1>Dashboard</h1>
+        <Typography gutterBottom variant="headline" component="h2">
+          Dashboard
+        </Typography>
         <LineChart width={500} height={300} data={weights}>
           <XAxis dataKey="date" tickFormatter={this.formatXAxis} />
           <YAxis />

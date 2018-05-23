@@ -27,7 +27,13 @@ function HeaderApp({ classes, open, handleDrawerOpen }) {
         >
           <MenuIcon />
         </IconButton>
-        <Typography variant="title" color="inherit" noWrap>
+        <Typography
+          variant="title"
+          color="inherit"
+          noWrap
+          component={Link}
+          to="/"
+        >
           Saúde Controlada
         </Typography>
       </Toolbar>

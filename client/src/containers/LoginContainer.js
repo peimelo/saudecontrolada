@@ -9,6 +9,7 @@ import CardHeader from '@material-ui/core/CardHeader';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import { withStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 
 import { signIn } from '../actions/user';
 
@@ -99,7 +100,7 @@ class LoginContainer extends Component {
                     <Button variant="raised" color="primary" type="submit">
                       Enviar
                     </Button>
-                    <label>{errorMessage}</label>
+                    <Typography>{errorMessage}</Typography>
                   </CardActions>
                 </form>
               </Card>
