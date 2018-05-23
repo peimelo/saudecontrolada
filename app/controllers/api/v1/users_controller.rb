@@ -1,6 +1,6 @@
 class Api::V1::UsersController < ApplicationController
   include Crud
-  skip_before_action :authenticate_with_token!, only: [:create]
+  # skip_before_action :authenticate_with_token!, only: [:create]
   before_action :admin?, only: [:index]
 
   def index

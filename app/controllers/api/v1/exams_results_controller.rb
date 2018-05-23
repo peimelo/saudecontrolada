@@ -1,6 +1,6 @@
 class Api::V1::ExamsResultsController < ApplicationController
   include Crud
-  before_action :authenticate_with_token!
+  # before_action :authenticate_with_token!
   before_action :set_exam_result, only: [:destroy, :show, :update]
 
   def index

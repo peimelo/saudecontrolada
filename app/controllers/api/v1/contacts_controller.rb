@@ -1,5 +1,5 @@
 class Api::V1::ContactsController < ApplicationController
-  skip_before_action :authenticate_with_token!
+  # skip_before_action :authenticate_with_token!
 
   def create
     contact = Contact.new(contact_params)

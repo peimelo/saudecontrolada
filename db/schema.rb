@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170205141953) do
+ActiveRecord::Schema.define(version: 20180327214113) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "alimentations", force: :cascade do |t|
+  create_table "alimentations", id: :serial, force: :cascade do |t|
     t.datetime "date", null: false
-    t.bigint "user_id", null: false
-    t.bigint "meal_id", null: false
+    t.integer "user_id", null: false
+    t.integer "meal_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["date", "user_id"], name: "index_alimentations_on_date_and_user_id", unique: true
@@ -26,10 +26,10 @@ ActiveRecord::Schema.define(version: 20170205141953) do
     t.index ["user_id"], name: "index_alimentations_on_user_id"
   end
 
-  create_table "alimentations_foods", force: :cascade do |t|
+  create_table "alimentations_foods", id: :serial, force: :cascade do |t|
     t.decimal "value", precision: 6, scale: 2, null: false
-    t.bigint "alimentation_id", null: false
-    t.bigint "food_id", null: false
+    t.integer "alimentation_id", null: false
+    t.integer "food_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["alimentation_id", "food_id"], name: "index_alimentations_foods_on_alimentation_id_and_food_id", unique: true
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20170205141953) do
     t.index ["food_id"], name: "index_alimentations_foods_on_food_id"
   end
 
-  create_table "contacts", force: :cascade do |t|
+  create_table "contacts", id: :serial, force: :cascade do |t|
     t.string "name"
     t.string "email", null: false
     t.text "message", null: false
@@ -45,27 +45,25 @@ ActiveRecord::Schema.define(version: 20170205141953) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "exams", force: :cascade do |t|
+  create_table "exams", id: :serial, force: :cascade do |t|
     t.string "name", null: false
-    t.bigint "unit_id"
+    t.integer "unit_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "parent_id"
     t.index ["name", "parent_id", "unit_id"], name: "index_exams_on_name_and_parent_id_and_unit_id", unique: true
-    t.index ["unit_id"], name: "index_exams_on_unit_id"
   end
 
-  create_table "exams_results", force: :cascade do |t|
+  create_table "exams_results", id: :serial, force: :cascade do |t|
     t.decimal "value", precision: 10, scale: 2, null: false
-    t.bigint "exam_id", null: false
+    t.integer "exam_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "result_id", null: false
     t.index ["exam_id", "result_id"], name: "index_exams_results_on_exam_id_and_result_id", unique: true
-    t.index ["exam_id"], name: "index_exams_results_on_exam_id"
   end
 
-  create_table "foods", force: :cascade do |t|
+  create_table "foods", id: :serial, force: :cascade do |t|
     t.string "name", null: false
     t.string "measure", null: false
     t.decimal "amount", precision: 5, scale: 2
@@ -74,36 +72,35 @@ ActiveRecord::Schema.define(version: 20170205141953) do
     t.index ["name", "measure"], name: "index_foods_on_name_and_measure", unique: true
   end
 
-  create_table "meals", force: :cascade do |t|
+  create_table "meals", id: :serial, force: :cascade do |t|
     t.string "name", null: false
     t.index ["name"], name: "index_meals_on_name", unique: true
   end
 
-  create_table "references", force: :cascade do |t|
+  create_table "references", id: :serial, force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_references_on_name", unique: true
   end
 
-  create_table "results", force: :cascade do |t|
+  create_table "results", id: :serial, force: :cascade do |t|
     t.date "date", null: false
     t.string "description", null: false
-    t.bigint "user_id", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["date", "description", "user_id"], name: "index_results_on_date_and_description_and_user_id", unique: true
-    t.index ["user_id"], name: "index_results_on_user_id"
   end
 
-  create_table "units", force: :cascade do |t|
+  create_table "units", id: :serial, force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_units_on_name", unique: true
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", id: :serial, force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -125,38 +122,44 @@ ActiveRecord::Schema.define(version: 20170205141953) do
     t.string "name", null: false
     t.string "gender", null: false
     t.date "date_of_birth", null: false
-    t.string "password_digest", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.inet "current_sign_in_ip"
+    t.inet "last_sign_in_ip"
+    t.string "provider", default: "email", null: false
+    t.string "uid", default: "", null: false
+    t.boolean "allow_password_change", default: false
+    t.string "nickname"
+    t.string "image"
+    t.json "tokens"
     t.index ["authentication_token"], name: "index_users_on_authentication_token", unique: true
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
-  create_table "valores", force: :cascade do |t|
+  create_table "valores", id: :serial, force: :cascade do |t|
     t.string "gender"
     t.decimal "idade_inferior", precision: 6, scale: 3
     t.decimal "idade_superior", precision: 6, scale: 3
     t.decimal "valor_inferior", precision: 10, scale: 2
     t.decimal "valor_superior", precision: 10, scale: 2
-    t.bigint "exam_id", null: false
-    t.bigint "reference_id"
+    t.integer "exam_id", null: false
+    t.integer "reference_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "valido", default: true, null: false
-    t.index ["exam_id"], name: "index_valores_on_exam_id"
-    t.index ["reference_id"], name: "index_valores_on_reference_id"
   end
 
-  create_table "weights", force: :cascade do |t|
+  create_table "weights", id: :serial, force: :cascade do |t|
     t.datetime "date", null: false
     t.decimal "value", precision: 5, scale: 2, null: false
     t.decimal "height", precision: 3, scale: 2, null: false
-    t.bigint "user_id", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["date", "user_id"], name: "index_weights_on_date_and_user_id", unique: true
-    t.index ["user_id"], name: "index_weights_on_user_id"
   end
 
   add_foreign_key "alimentations", "meals"
