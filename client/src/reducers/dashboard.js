@@ -1,4 +1,4 @@
-import { FETCH_DASHBOARD_SUCCESS } from '../actions/dashboard';
+import { FETCH_DASHBOARD_SUCCESS } from '../constants/dashboardActionTypes';
 
 const INITIAL_STATE = {
   weights: []

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { CartesianGrid, Line, LineChart, XAxis, YAxis } from 'recharts';
 import Typography from '@material-ui/core/Typography';
-import { fetchDashboard } from '../actions/dashboard';
+import { fetchDashboard } from '../actions/dashboardActions';
 
 class DashboardContainer extends Component {
   componentDidMount() {

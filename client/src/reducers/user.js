@@ -1,8 +1,9 @@
 import {
   USER_SIGN_IN,
   USER_SIGN_IN_ERROR,
-  USER_SIGN_IN_SUCCESS
-} from '../actions/user';
+  USER_SIGN_IN_SUCCESS,
+  USER_SIGN_OUT_SUCCESS
+} from '../constants/userActionTypes'
 
 const INITIAL_STATE = {
   data: {
@@ -23,6 +24,7 @@ function user(state = INITIAL_STATE, action) {
         isLoading: true
       };
     }
+
     case USER_SIGN_IN_ERROR: {
       return {
         ...state,
@@ -30,6 +32,7 @@ function user(state = INITIAL_STATE, action) {
         isLoading: false
       };
     }
+
     case USER_SIGN_IN_SUCCESS: {
       return {
         ...state,
@@ -39,6 +42,11 @@ function user(state = INITIAL_STATE, action) {
         isLoggedIn: true
       };
     }
+
+    case USER_SIGN_OUT_SUCCESS: {
+      return INITIAL_STATE;
+    }
+
     default:
       return state;
   }

@@ -11,13 +11,15 @@ const appRoutes = [
     path: '/login',
     sidebarName: 'Login',
     icon: Person,
-    component: LoginPage
+    component: LoginPage,
+    menu: false
   },
   {
     path: '/dashboard',
     sidebarName: 'Dashboard',
     icon: Dashboard,
-    component: DashboardPage
+    component: DashboardPage,
+    menu: true
   }
 ];
 

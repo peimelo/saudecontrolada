@@ -1,6 +1,5 @@
-import * as DashboardAPI from '../apis/DashboardAPI';
-
-export const FETCH_DASHBOARD_SUCCESS = '[Dashboard] Fetch Success';
+import * as DashboardAPI from '../apis/DashboardAPI'
+import { FETCH_DASHBOARD_SUCCESS } from '../constants/dashboardActionTypes'
 
 export const fetchDashboardSuccess = data => ({
   type: FETCH_DASHBOARD_SUCCESS,
