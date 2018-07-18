@@ -1,4 +1,4 @@
-import { axios, getToken } from '../utils/api';
+import { axios, getToken } from '../utils/api'
 
 export const signIn = (email, password) =>
   axios({
@@ -17,10 +17,10 @@ export const signIn = (email, password) =>
         client: response.headers.client,
         uid: response.headers.uid
       })
-    );
+    )
 
-    return response.data;
-  });
+    return response.data
+  })
 
 export const signOut = () =>
   axios({
@@ -28,11 +28,11 @@ export const signOut = () =>
     url: '/auth/sign_out',
     responseType: 'json',
     data: JSON.parse(sessionStorage.getItem('user'))
-  }).then(() => sessionStorage.removeItem('user'));
+  }).then(() => sessionStorage.removeItem('user'))
 
 export const validateToken = () =>
   axios({
     method: 'GET',
     url: '/auth/validate_token',
     headers: getToken()
-  }).then(res => res.data);
+  }).then(res => res.data)

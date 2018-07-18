@@ -6,6 +6,7 @@ import AppContainer from './containers/AppContainer'
 import './index.css'
 import registerServiceWorker from './registerServiceWorker'
 import store, { history } from './store'
+import fa from './components/FontAwesomeIcons'
 
 ReactDOM.render(
   <Provider store={store}>

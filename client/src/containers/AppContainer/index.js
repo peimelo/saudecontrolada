@@ -17,6 +17,7 @@ import { signOut } from '../../actions/userActions'
 import HeaderApp from '../../components/HeaderApp'
 import appRoutes from '../../routes'
 import { styles } from './styles'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const propTypes = {
   classes: PropTypes.object.isRequired,
@@ -62,7 +63,7 @@ class AppContainer extends React.Component {
           <div key={prop.path}>
             <ListItem button component={Link} to={prop.path}>
               <ListItemIcon>
-                <prop.icon />
+                <FontAwesomeIcon icon={prop.icon} />
               </ListItemIcon>
               <ListItemText
                 primary={prop.sidebarName}
