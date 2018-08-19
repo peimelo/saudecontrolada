@@ -1,7 +1,7 @@
 # Class ReferencesController
 class Api::V1::ReferencesController < ApplicationController
   include Crud
-  before_action :authenticate_with_token!
+  # before_action :authenticate_with_token!
   before_action :admin?
   before_action :set_reference, only: [:destroy, :show, :update]
 

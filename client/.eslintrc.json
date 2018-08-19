@@ -1,0 +1,43 @@
+{
+  "extends": [
+    "airbnb"
+  ],
+  "plugins": [
+  ],
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "node": true,
+    "jasmine": true
+  },
+  "rules": {
+    "comma-dangle": [
+      "error",
+      "never"
+    ],
+    "function-paren-newline": [
+      "error",
+      "multiline"
+    ],
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".js"
+        ]
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "AppHeaderBar.js",
+        "*Container.js",
+        "Login.js"
+      ],
+      "rules": {
+        "react/prop-types": false
+      }
+    }
+  ]
+}
