@@ -44,13 +44,13 @@ module SaudecontroladaApi
 
     config.i18n.default_locale = 'pt-BR'
 
-    config.middleware.insert_before 0, ActionDispatch::Static, Rack::Cors do
-      allow do
-        origins Rails.application.secrets.allowed_origin
-        resource '*',
-                 headers: :any,
-                 methods: [:get, :post, :put, :patch, :delete, :options, :head]
-      end
-    end
+    # config.middleware.insert_before 0, Rack::Cors do
+    #   allow do
+    #     origins Rails.application.secrets.allowed_origin
+    #     resource '*',
+    #              headers: :any,
+    #              methods: [:get, :post, :put, :patch, :delete, :options, :head]
+    #   end
+    # end
   end
 end

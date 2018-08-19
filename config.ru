@@ -6,3 +6,13 @@ require ::File.expand_path('../config/environment', __FILE__)
 Rails.application.eager_load!
 
 run Rails.application
+
+require 'rack/cors'
+use Rack::Cors do
+  allow do
+    origins Rails.application.secrets.allowed_origin
+    resource '*',
+             :headers => :any,
+             :methods => [:get, :post, :put, :patch, :delete, :options, :head]
+  end
+end
