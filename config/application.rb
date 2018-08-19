@@ -44,7 +44,7 @@ module SaudecontroladaApi
 
     config.i18n.default_locale = 'pt-BR'
 
-    config.middleware.insert_before 0, Rack::Cors do
+    config.middleware.insert_before 0, ActionDispatch::Static, Rack::Cors do
       allow do
         origins Rails.application.secrets.allowed_origin
         resource '*',
