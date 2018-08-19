@@ -1,6 +1,6 @@
 class Api::V1::WeightsController < ApplicationController
   include Crud
-  # before_action :authenticate_with_token!
+  before_action :authenticate_with_token!
   before_action :set_weight, only: [:destroy, :show, :update]
 
   def index

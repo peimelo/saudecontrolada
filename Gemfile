@@ -6,21 +6,15 @@ git_source(:github) do |repo_name|
 end
 
 ruby '2.4.3'
-gem 'rails', '~> 5.1.5'
-
-# Autentication
-gem 'devise',            '~> 4.4.3'
-gem 'devise_token_auth', '~> 0.1.43'
-gem 'omniauth',          '~> 1.8.1'
+gem 'rails', '~> 5.1.3'
 
 gem 'active_model_serializers', '~> 0.10.0'
-gem 'bcrypt',                   '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 gem 'exception_notification'
 gem 'kaminari'
 gem 'newrelic_rpm'
-gem 'pg',                       '>= 0.18', '< 2.0'
-gem 'puma',                     '~> 3.7'
-gem 'rack-cors', require: 'rack/cors'
+gem 'pg'
+gem 'puma', '~> 3.7'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :development do

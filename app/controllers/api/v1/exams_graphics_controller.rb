@@ -1,6 +1,6 @@
 class Api::V1::ExamsGraphicsController < ApplicationController
   include Crud
-  # before_action :authenticate_with_token!
+  before_action :authenticate_with_token!
 
   def index
     results = ExamResult.graphics(current_user).page(params[:page])

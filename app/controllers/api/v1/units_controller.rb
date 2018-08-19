@@ -1,7 +1,7 @@
 # Class UnitsController
 class Api::V1::UnitsController < ApplicationController
   include Crud
-  # before_action :authenticate_with_token!
+  before_action :authenticate_with_token!
   before_action :admin?
   before_action :set_unit, only: [:destroy, :show, :update]
 

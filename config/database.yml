@@ -6,7 +6,7 @@ default: &default
 
 development:
   <<: *default
-  database: saudecontrolada_o_development
+  database: saudecontrolada_development
 
 test:
   <<: *default

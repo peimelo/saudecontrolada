@@ -1,6 +1,6 @@
 class Api::V1::ValoresController < ApplicationController
   include Crud
-  # before_action :authenticate_with_token!
+  before_action :authenticate_with_token!
   before_action :set_valor, only: [:destroy, :update]
 
   def create

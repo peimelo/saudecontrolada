@@ -1,10 +1,6 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :lockable, :timeoutable
-  devise :database_authenticatable, :registerable,
-          :recoverable, :rememberable, :trackable, :validatable,
-          :confirmable, :omniauthable
-  include DeviseTokenAuth::Concerns::User
+  include Confirmable, DatabaseAuthenticatable,
+          Recoverable, Comparable
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
@@ -23,6 +19,8 @@ class User < ApplicationRecord
   validates :reset_password_token, uniqueness: true, allow_nil: true
 
   before_save { email.downcase! }
+
+  has_secure_password
 
   delegate :recent_height, to: :weight
   delegate :ordered, to: :alimentation, prefix: true
@@ -46,11 +44,6 @@ class User < ApplicationRecord
     else
       nil
     end
-  end
-
-  # Override devise_token_auth for use UserSerializer
-  def token_validation_response
-    UserSerializer.new( self, root: false ).as_json
   end
 
   private

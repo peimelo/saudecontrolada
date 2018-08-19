@@ -1,6 +1,6 @@
 class Api::V1::AlimentationsController < ApplicationController
   include Crud
-  # before_action :authenticate_with_token!
+  before_action :authenticate_with_token!
   before_action :set_alimentation, only: [:destroy, :show, :update]
 
   def index
