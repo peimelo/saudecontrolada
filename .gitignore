@@ -3,7 +3,6 @@ db/*.sqlite3
 !/log/.keep
 /tmp
 /node_modules
-client/node_modules
 /yarn-error.log
 
 *~
