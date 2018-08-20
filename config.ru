@@ -13,6 +13,7 @@ use Rack::Cors do
     origins Rails.application.secrets.allowed_origin
     resource '*',
              :headers => :any,
+             :expose  => ['access-token', 'expiry', 'token-type', 'uid', 'client'],
              :methods => [:get, :post, :put, :patch, :delete, :options, :head]
   end
 end
