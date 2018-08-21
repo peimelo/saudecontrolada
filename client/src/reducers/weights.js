@@ -7,7 +7,6 @@ const INITIAL_STATE = {
 function weights(state = INITIAL_STATE, action) {
   switch (action.type) {
     case FETCH_WEIGHTS_SUCCESS:
-      console.log(action.payload)
       return {
         ...state,
         data: action.payload.weights

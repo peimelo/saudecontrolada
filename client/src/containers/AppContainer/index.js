@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   Drawer,
   IconButton,
@@ -17,7 +18,6 @@ import { signOut } from '../../actions/userActions'
 import HeaderApp from '../../components/HeaderApp'
 import appRoutes from '../../routes'
 import { styles } from './styles'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const propTypes = {
   classes: PropTypes.object.isRequired,
