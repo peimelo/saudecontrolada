@@ -44,7 +44,6 @@ class LoginContainer extends Component {
     const { login } = this.state
     this.props
       .signIn(login.email, login.password)
-      .then(() => this.props.history.push('/dashboard'))
   }
 
   render() {

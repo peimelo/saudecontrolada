@@ -23,7 +23,7 @@ const appRoutes = [
     menu: true
   },
   {
-    path: '/weight',
+    path: '/weights',
     sidebarName: 'Weight',
     icon: 'weight',
     component: WeightPage,

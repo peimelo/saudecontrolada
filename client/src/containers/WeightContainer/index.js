@@ -14,6 +14,7 @@ import { withStyles } from '@material-ui/core/styles/index'
 import moment from 'moment'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
+import Moment from 'react-moment'
 import { connect } from 'react-redux'
 import { fetchWeights } from '../../actions/weightActions'
 import { styles } from './styles'
@@ -70,26 +71,30 @@ class WeightContainer extends Component {
             <Table className={classes.table}>
               <TableHead>
                 <TableRow>
-                  <CustomTableCell>Question</CustomTableCell>
-                  <CustomTableCell>Answer</CustomTableCell>
+                  <CustomTableCell>Data</CustomTableCell>
+                  <CustomTableCell>Valor</CustomTableCell>
                   {/*<CustomTableCell>Actions</CustomTableCell>*/}
                 </TableRow>
               </TableHead>
               <TableBody>
                 {weights.map(weight =>
                   <TableRow key={weight.id} className={classes.row}>
-                    <CustomTableCell>{weight.date}</CustomTableCell>
+                    <CustomTableCell>
+                      <Moment format="DD/MM/YYYY HH:mm">
+                        {weight.date}
+                      </Moment>
+                    </CustomTableCell>
                     <CustomTableCell>{weight.value}</CustomTableCell>
                     {/*<CustomTableCell>*/}
-                      {/*<Button*/}
-                      {/*component={Link}*/}
-                      {/*to={`/${joke.id}`}*/}
-                      {/*>*/}
-                      {/*<EditIcon />*/}
-                      {/*</Button>*/}
-                      {/*<Button onClick={() => this.handleOpenDialog(joke.id)}>*/}
-                      {/*<DeleteIcon />*/}
-                      {/*</Button>*/}
+                    {/*<Button*/}
+                    {/*component={Link}*/}
+                    {/*to={`/${joke.id}`}*/}
+                    {/*>*/}
+                    {/*<EditIcon />*/}
+                    {/*</Button>*/}
+                    {/*<Button onClick={() => this.handleOpenDialog(joke.id)}>*/}
+                    {/*<DeleteIcon />*/}
+                    {/*</Button>*/}
                     {/*</CustomTableCell>*/}
                   </TableRow>
                 )}
