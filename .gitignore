@@ -3,7 +3,6 @@ db/*.sqlite3
 !/log/.keep
 /tmp
 /node_modules
-client/node_modules
 /yarn-error.log
 
 *~
@@ -15,6 +14,10 @@ client/node_modules
 coverage/
 /.bundle
 config/env.rb
+
+/client/.firebase
+/client/build
+/client/node_modules
 
 public/app/
 public/fonts/
