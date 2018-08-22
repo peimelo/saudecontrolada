@@ -12,6 +12,13 @@ export const axios = client.create({
 export function getToken() {
   const user = JSON.parse(sessionStorage.getItem('user'))
   return {
+    Authorization: (user && user['authentication_token']) || ''
+  }
+}
+
+export function getTokenDevise() {
+  const user = JSON.parse(sessionStorage.getItem('user'))
+  return {
     access_token: (user && user['access-token']) || '',
     client: (user && user['client']) || '',
     uid: (user && user['uid']) || ''

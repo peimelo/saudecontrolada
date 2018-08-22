@@ -3,6 +3,26 @@ import { axios, getToken } from '../utils/api'
 export const signIn = (email, password) =>
   axios({
     method: 'POST',
+    url: '/api/sessions',
+    responseType: 'json',
+    data: JSON.stringify({
+      email,
+      password
+    })
+  }).then((response) => {
+    sessionStorage.setItem(
+      'user',
+      JSON.stringify({
+        'authentication_token': response.data['authentication_token']
+      })
+    )
+
+    return response.data
+  })
+
+export const signInDevise = (email, password) =>
+  axios({
+    method: 'POST',
     url: '/auth/sign_in',
     responseType: 'json',
     data: JSON.stringify({
