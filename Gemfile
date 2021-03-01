@@ -14,7 +14,7 @@ gem 'exception_notification'
 gem 'kaminari'
 gem 'newrelic_rpm'
 gem 'pg'
-gem 'puma', '~> 3.7'
+gem 'puma', '~> 3.12'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :development do
