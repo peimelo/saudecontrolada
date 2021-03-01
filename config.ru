@@ -7,12 +7,12 @@ Rails.application.eager_load!
 
 run Rails.application
 
-require 'rack/cors'
-use Rack::Cors do
-  allow do
-    origins Rails.application.secrets.allowed_origins
-    resource '*',
-             :headers => :any,
-             :methods => [:get, :post, :put, :patch, :delete, :options, :head]
-  end
+# require 'rack/cors'
+# use Rack::Cors do
+#   allow do
+#     origins Rails.application.secrets.allowed_origins
+#     resource '*',
+#              :headers => :any,
+#              :methods => [:get, :post, :put, :patch, :delete, :options, :head]
+#   end
 end
