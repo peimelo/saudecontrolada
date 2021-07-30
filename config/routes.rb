@@ -26,7 +26,8 @@ Rails.application.routes.draw do
       end
       resources :sessions,         only: [:create]
       resources :units,            only: [:create, :destroy, :index, :show, :update]
-      resources :users,            only: [:create, :destroy, :index, :show, :update]
+      resources :users,            only: [:destroy, :index, :show, :update]
+      # resources :users,            only: [:create, :destroy, :index, :show, :update]
       resources :weights,          only: [:create, :destroy, :index, :show, :update]
     end
   end
